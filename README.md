@@ -12,10 +12,10 @@ npx skills add capawesome-team/skills
 
 ## Usage
 
-After installing the skills, you can use them in your agent. For example, to use the `capawesome-live-updates` skill, you can prompt your agent like this:
+After installing the skills, you can use them in your agent. For example, to use the `capawesome-cloud` skill, you can prompt your agent like this:
 
 ```plaintext
-Use the `capawesome-live-updates` skill to help me set up Capacitor Live Updates in my project.
+Use the `capawesome-cloud` skill to help me set up Capacitor Live Updates in my project.
 ```
 
 ## Skills
@@ -32,9 +32,7 @@ Use the `capawesome-live-updates` skill to help me set up Capacitor Live Updates
 
 | Skill | Description |
 | ----- | ----------- |
-| [`capawesome-app-store-publishing`](./skills/capawesome-app-store-publishing/) | Set up and manage App Store Publishing using Capawesome Cloud. |
-| [`capawesome-live-updates`](./skills/capawesome-live-updates/) | Set up and manage Capacitor Live Updates using Capawesome Cloud. |
-| [`capawesome-native-builds`](./skills/capawesome-native-builds/) | Set up and manage native iOS and Android builds using Capawesome Cloud. |
+| [`capawesome-cloud`](./skills/capawesome-cloud/) | Set up and manage native builds, live updates, and app store publishing using Capawesome Cloud. |
 
 ## License
 
