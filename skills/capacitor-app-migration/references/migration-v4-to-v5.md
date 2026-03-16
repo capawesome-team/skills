@@ -1,34 +1,16 @@
----
-name: capacitor-app-migration-v5
-description: Guides the agent through migrating a Capacitor 4 app to Capacitor 5. Covers updating dependencies, Android project variables, Gradle configuration, iOS deployment target, Jetifier removal, package namespace migration, and official plugin breaking changes. Supports both automated migration via the Capacitor CLI and manual step-by-step migration. Do not use for plugin library migration or non-Capacitor mobile frameworks.
----
+# Migration: Capacitor 4 → 5
 
-# Capacitor App Migration v5
-
-Migrate a Capacitor 4 app project to Capacitor 5.
-
-## Prerequisites
-
-Before proceeding, verify:
-
-1. The project is a **Capacitor 4** app.
-2. **Node.js 16+** is installed (required for Capacitor 5).
-3. **Xcode 14.1+** is installed (for iOS).
-4. **Android Studio Flamingo | 2022.2.1+** is installed (for Android — ships with Java 17).
-
-## Procedures
-
-### Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Migration
 
 ```bash
 npm i -D @capacitor/cli@latest-5
 npx cap migrate
 ```
 
-If the automated migration completes successfully, skip to **Step 9** to update plugins.
+If the automated migration completes successfully, skip to **Step 7** to update plugins.
 If any steps fail, continue with the manual steps below.
 
-### Step 2: Update Capacitor Dependencies
+## Step 2: Update Capacitor Dependencies
 
 ```bash
 npm i @capacitor/core@latest-5
@@ -36,7 +18,7 @@ npm i -D @capacitor/cli@latest-5
 npm i @capacitor/android@latest-5 @capacitor/ios@latest-5
 ```
 
-### Step 3: Update Android Project Variables
+## Step 3: Update Android Project Variables
 
 In `android/variables.gradle`:
 
@@ -57,9 +39,9 @@ androidxEspressoCoreVersion = '3.5.1'
 cordovaAndroidVersion = '10.1.1'
 ```
 
-### Step 4: Update Android Gradle Configuration
+## Step 4: Update Android Gradle Configuration
 
-#### 4a: Update Gradle plugin to 8.0.0
+### 4a: Update Gradle plugin to 8.0.0
 
 In `android/build.gradle`:
 
@@ -70,14 +52,14 @@ In `android/build.gradle`:
  }
 ```
 
-#### 4b: Update Google Services plugin (if used)
+### 4b: Update Google Services plugin (if used)
 
 ```diff
 -classpath 'com.google.gms:google-services:4.3.13'
 +classpath 'com.google.gms:google-services:4.3.15'
 ```
 
-#### 4c: Update Gradle wrapper to 8.0.2
+### 4c: Update Gradle wrapper to 8.0.2
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -86,7 +68,7 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.0.2-all.zip
 ```
 
-#### 4d: Disable Jetifier
+### 4d: Disable Jetifier
 
 In `android/gradle.properties`, remove the Jetifier line if no plugins still use old Android support libraries:
 
@@ -96,7 +78,7 @@ In `android/gradle.properties`, remove the Jetifier line if no plugins still use
 -android.enableJetifier=true
 ```
 
-#### 4e: Move package to build.gradle
+### 4e: Move package to build.gradle
 
 Remove `package` from `android/app/src/main/AndroidManifest.xml` and add `namespace` to `android/app/build.gradle`:
 
@@ -114,11 +96,11 @@ Remove `package` from `android/app/src/main/AndroidManifest.xml` and add `namesp
      compileSdkVersion rootProject.ext.compileSdkVersion
 ```
 
-#### 4f: Update Kotlin version (if used)
+### 4f: Update Kotlin version (if used)
 
 Update `kotlin_version` to `'1.8.20'`.
 
-### Step 5: Set androidScheme
+## Step 5: Set androidScheme
 
 To prepare for Capacitor 6 where `https` becomes the default, explicitly set the scheme to `http` in the Capacitor config to avoid data loss:
 
@@ -130,26 +112,72 @@ To prepare for Capacitor 6 where `https` becomes the default, explicitly set the
 }
 ```
 
-### Step 6: Update iOS Configuration
+## Step 6: Update iOS Configuration
 
-#### 6a: Update .gitignore
+### 6a: Update .gitignore
 
 ```diff
 -App/Podfile.lock
 +App/output
 ```
 
-#### 6b: Update App Icon
+### 6b: Update App Icon
 
 Xcode 14 supports a single 1024x1024 app icon. Remove unnecessary sizes from `AppIcon.appiconset`.
 
-### Step 7: Update Official Plugins
+## Step 7: Update Official Plugins
 
 Update all `@capacitor/*` plugins to v5.
 
-Read `references/plugin-breaking-changes.md` for specific breaking changes per plugin.
+### Official Plugin Breaking Changes
 
-### Step 8: Sync and Test
+#### Action Sheet
+
+- `androidxMaterialVersion` updated to `1.8.0`.
+
+#### Browser
+
+- `androidxBrowserVersion` updated to `1.5.0`.
+
+#### Camera
+
+- Android 13 requires `<uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>` in `AndroidManifest.xml`.
+- `androidxMaterialVersion` updated to `1.8.0`.
+- `androidxExifInterfaceVersion` updated to `1.3.6`.
+
+#### Device
+
+- `DeviceId.uuid` renamed to `DeviceId.identifier`.
+- On iOS 16+, `DeviceInfo.name` returns a generic name unless the appropriate [entitlements](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_developer_device-information_user-assigned-device-name) are added.
+
+#### Geolocation
+
+- `playServicesLocationVersion` updated to `21.0.1`.
+
+#### Google Maps
+
+- `googleMapsPlayServicesVersion` updated to `18.1.0`.
+- `googleMapsUtilsVersion` updated to `3.4.0`.
+- `googleMapsKtxVersion` updated to `3.4.0`.
+- `googleMapsUtilsKtxVersion` updated to `3.4.0`.
+- `kotlinxCoroutinesVersion` updated to `1.6.4`.
+- `androidxCoreKTXVersion` updated to `1.10.0`.
+- `kotlin_version` updated to `1.8.20`.
+
+#### Local Notifications
+
+- Android 13 requires runtime permission check via `checkPermissions()` and `requestPermissions()` when targeting SDK 33.
+
+#### Push Notifications
+
+- Android 13 requires runtime permission check via `checkPermissions()` and `requestPermissions()` when targeting SDK 33.
+- `firebaseMessagingVersion` updated to `23.1.2`.
+
+#### Status Bar
+
+- On iOS, the default status bar animation changed to `FADE`.
+
+## Step 8: Sync and Test
 
 ```bash
 npx cap sync

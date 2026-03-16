@@ -1,34 +1,16 @@
----
-name: capacitor-app-migration-v7
-description: Guides the agent through migrating a Capacitor 6 app to Capacitor 7. Covers updating dependencies, Android project variables, Gradle configuration, iOS deployment target, config file breaking changes, and official plugin breaking changes. Supports both automated migration via the Capacitor CLI and manual step-by-step migration. Do not use for plugin library migration or non-Capacitor mobile frameworks.
----
+# Migration: Capacitor 6 → 7
 
-# Capacitor App Migration v7
-
-Migrate a Capacitor 6 app project to Capacitor 7.
-
-## Prerequisites
-
-Before proceeding, verify:
-
-1. The project is a **Capacitor 6** app.
-2. **Node.js 20+** is installed (required for Capacitor 7).
-3. **Xcode 16.0+** is installed (for iOS).
-4. **Android Studio Ladybug | 2024.2.1+** is installed (for Android — ships with Java 21).
-
-## Procedures
-
-### Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Migration
 
 ```bash
 npm i -D @capacitor/cli@latest-7
 npx cap migrate
 ```
 
-If the automated migration completes successfully, skip to **Step 8** to update plugins.
+If the automated migration completes successfully, skip to **Step 7** to update plugins.
 If any steps fail, continue with the manual steps below.
 
-### Step 2: Update Capacitor Dependencies
+## Step 2: Update Capacitor Dependencies
 
 ```bash
 npm i @capacitor/core@latest-7
@@ -36,7 +18,7 @@ npm i -D @capacitor/cli@latest-7
 npm i @capacitor/android@latest-7 @capacitor/ios@latest-7
 ```
 
-### Step 3: Update Android Project Variables
+## Step 3: Update Android Project Variables
 
 In `android/variables.gradle`:
 
@@ -57,9 +39,9 @@ androidxEspressoCoreVersion = '3.6.1'
 cordovaAndroidVersion = '10.1.1'
 ```
 
-### Step 4: Update Android Gradle Configuration
+## Step 4: Update Android Gradle Configuration
 
-#### 4a: Update Gradle plugin to 8.7.2
+### 4a: Update Gradle plugin to 8.7.2
 
 In `android/build.gradle`:
 
@@ -70,14 +52,14 @@ In `android/build.gradle`:
  }
 ```
 
-#### 4b: Update Google Services plugin (if used)
+### 4b: Update Google Services plugin (if used)
 
 ```diff
 -classpath 'com.google.gms:google-services:4.4.0'
 +classpath 'com.google.gms:google-services:4.4.2'
 ```
 
-#### 4c: Update Gradle wrapper to 8.11.1
+### 4c: Update Gradle wrapper to 8.11.1
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -86,11 +68,11 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.11.1-all.zip
 ```
 
-#### 4d: Update Kotlin version (if used)
+### 4d: Update Kotlin version (if used)
 
 Update `kotlin_version` to `'1.9.25'`.
 
-#### 4e: Add navigation to configChanges (optional)
+### 4e: Add navigation to configChanges (optional)
 
 To prevent app restarts on some devices when using bluetooth keyboards, add `navigation` to `configChanges` in `AndroidManifest.xml`:
 
@@ -99,9 +81,9 @@ To prevent app restarts on some devices when using bluetooth keyboards, add `nav
 +android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation"
 ```
 
-### Step 5: Update iOS Configuration
+## Step 5: Update iOS Configuration
 
-#### 5a: Raise iOS deployment target to 14.0
+### 5a: Raise iOS deployment target to 14.0
 
 In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHONEOS_DEPLOYMENT_TARGET` from `13.0` to `14.0`:
 
@@ -112,7 +94,7 @@ In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHON
 
 There are typically 4 occurrences (Debug and Release for both the project and the app target). Update all of them.
 
-#### 5b: Update Podfile
+### 5b: Update Podfile
 
 In `ios/App/Podfile`:
 
@@ -121,18 +103,71 @@ In `ios/App/Podfile`:
 +platform :ios, '14.0'
 ```
 
-### Step 6: Handle Config Breaking Changes
+## Step 6: Handle Config Breaking Changes
 
 - `bundledWebRuntime` has been removed. If set to `false`, safely remove it. If set to `true`, use a bundler to bundle `@capacitor/core` code within the app.
 - `cordova.staticPlugins` has been removed. Plugins that need to be static should use `podspec` tag with `use-framework` attribute.
 
-### Step 7: Update Official Plugins
+## Step 7: Update Official Plugins
 
 Update all `@capacitor/*` plugins to v7.
 
-Read `references/plugin-breaking-changes.md` for specific breaking changes per plugin.
+### Official Plugin Breaking Changes
 
-### Step 8: Sync and Test
+#### Action Sheet
+
+- `androidxMaterialVersion` updated to `1.12.0`.
+
+#### App
+
+- Deprecated type `AppRestoredResult` removed, use `RestoredListenerEvent`.
+- Deprecated type `AppUrlOpen` removed, use `URLOpenListenerEvent`.
+
+#### Browser
+
+- `androidxBrowserVersion` updated to `1.8.0`.
+
+#### Camera
+
+- `androidxExifInterfaceVersion` updated to `1.3.7`.
+- `androidxMaterialVersion` updated to `1.12.0`.
+
+#### Device
+
+- `getInfo()` no longer returns `diskFree`, `diskTotal`, `realDiskFree`, and `realDiskTotal`. `PrivacyInfo.xcprivacy` entries for this plugin can be removed.
+- Deprecated type `DeviceBatteryInfo` removed, use `BatteryInfo`.
+- Deprecated type `DeviceLanguageCodeResult` removed, use `GetLanguageCodeResult`.
+
+#### Geolocation
+
+- `playServicesLocationVersion` updated to `21.3.0`.
+
+#### Haptics
+
+- Deprecated type `HapticsImpactOptions` removed, use `ImpactOptions`.
+- Deprecated type `HapticsNotificationOptions` removed, use `NotificationOptions`.
+- Deprecated type `HapticsNotificationType` removed, use `NotificationType`.
+- Deprecated type `HapticsImpactStyle` removed, use `ImpactStyle`.
+
+#### Push Notifications
+
+- `firebaseMessagingVersion` updated to `24.1.0`.
+
+#### Share
+
+- `androidxCoreVersion` updated to `1.15.0`.
+
+#### Splash Screen
+
+- Deprecated type `SplashScreenShowOptions` removed, use `ShowOptions`.
+- Deprecated type `SplashScreenHideOptions` removed, use `HideOptions`.
+
+#### Status Bar
+
+- `setOverlaysWebView()` and `setBackgroundColor()` are now supported on iOS.
+- `androidxCoreVersion` updated to `1.15.0`.
+
+## Step 8: Sync and Test
 
 ```bash
 npx cap sync

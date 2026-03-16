@@ -1,24 +1,6 @@
----
-name: capacitor-app-migration-v8
-description: Guides the agent through migrating a Capacitor 7 app to Capacitor 8. Covers updating dependencies, Android project variables, Gradle configuration, iOS deployment target, and official plugin breaking changes. Supports both automated migration via the Capacitor CLI and manual step-by-step migration. Do not use for plugin library migration or non-Capacitor mobile frameworks.
----
+# Migration: Capacitor 7 → 8
 
-# Capacitor App Migration v8
-
-Migrate a Capacitor 7 app project to Capacitor 8.
-
-## Prerequisites
-
-Before proceeding, verify:
-
-1. The project is a **Capacitor 7** app.
-2. **Node.js 22+** is installed (required for Capacitor 8).
-3. **Xcode 26.0+** is installed (for iOS).
-4. **Android Studio Otter | 2025.2.1+** is installed (for Android).
-
-## Procedures
-
-### Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Migration
 
 The Capacitor CLI provides an automated migration command. Try this first:
 
@@ -30,7 +12,7 @@ npx cap migrate
 If the automated migration completes successfully, skip to **Step 8** to update plugins.
 If any steps fail, the CLI will report which ones. Continue with the manual steps below for those.
 
-### Step 2: Update Capacitor Dependencies
+## Step 2: Update Capacitor Dependencies
 
 Update all `@capacitor/*` packages to v8:
 
@@ -42,7 +24,7 @@ npm i @capacitor/android@latest @capacitor/ios@latest
 
 Update any official Capacitor plugins to their latest v8 versions as well.
 
-### Step 3: Update Android Project Variables
+## Step 3: Update Android Project Variables
 
 Open `android/variables.gradle` and update to the following minimum values:
 
@@ -63,9 +45,9 @@ androidxEspressoCoreVersion = '3.7.0'
 cordovaAndroidVersion = '14.0.1'
 ```
 
-### Step 4: Update Android Gradle Configuration
+## Step 4: Update Android Gradle Configuration
 
-#### 4a: Update Gradle plugin to 8.13.0
+### 4a: Update Gradle plugin to 8.13.0
 
 In `android/build.gradle`, update the Android Gradle plugin:
 
@@ -76,7 +58,7 @@ In `android/build.gradle`, update the Android Gradle plugin:
  }
 ```
 
-#### 4b: Update Google Services plugin (if used)
+### 4b: Update Google Services plugin (if used)
 
 ```diff
  dependencies {
@@ -85,7 +67,7 @@ In `android/build.gradle`, update the Android Gradle plugin:
  }
 ```
 
-#### 4c: Update Gradle wrapper to 8.14.3
+### 4c: Update Gradle wrapper to 8.14.3
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -94,7 +76,7 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.14.3-all.zip
 ```
 
-#### 4d: Replace deprecated Gradle property syntax
+### 4d: Replace deprecated Gradle property syntax
 
 Gradle has deprecated space-assignment syntax. Replace with `=` assignment in `android/app/build.gradle`:
 
@@ -113,11 +95,11 @@ Gradle has deprecated space-assignment syntax. Replace with `=` assignment in `a
  }
 ```
 
-#### 4e: Update Kotlin version (if used)
+### 4e: Update Kotlin version (if used)
 
 If the project uses Kotlin, update `kotlin_version` to `'2.2.20'`.
 
-#### 4f: Add density to configChanges
+### 4f: Add density to configChanges
 
 In `android/app/src/main/AndroidManifest.xml`, add `density` to the activity's `configChanges`:
 
@@ -126,9 +108,9 @@ In `android/app/src/main/AndroidManifest.xml`, add `density` to the activity's `
 +android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
 ```
 
-### Step 5: Update iOS Configuration
+## Step 5: Update iOS Configuration
 
-#### 5a: Raise iOS deployment target to 15.0
+### 5a: Raise iOS deployment target to 15.0
 
 In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHONEOS_DEPLOYMENT_TARGET` from `14.0` to `15.0`:
 
@@ -139,7 +121,7 @@ In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHON
 
 There are typically 4 occurrences (Debug and Release for both the project and the app target). Update all of them.
 
-#### 5b: Update Podfile (if using CocoaPods)
+### 5b: Update Podfile (if using CocoaPods)
 
 In `ios/App/Podfile`:
 
@@ -148,16 +130,16 @@ In `ios/App/Podfile`:
 +platform :ios, '15.0'
 ```
 
-### Step 6: Handle Capacitor Config Breaking Changes
+## Step 6: Handle Capacitor Config Breaking Changes
 
 - `android.adjustMarginsForEdgeToEdge` has been removed. Use the new `@capacitor/system-bars` plugin instead.
 - `appendUserAgent` on iOS: a bug that appended two whitespaces has been fixed. If the previous behavior is needed, add an extra whitespace on `ios.appendUserAgent` (not on root `appendUserAgent`).
 
-### Step 7: Handle Android Breaking Change
+## Step 7: Handle Android Breaking Change
 
 `bridge_layout_main.xml` has been removed. If referenced anywhere, use `capacitor_bridge_layout_main.xml` instead.
 
-### Step 8: Update Official Plugins
+## Step 8: Update Official Plugins
 
 Update all official Capacitor plugins to v8:
 
@@ -167,9 +149,61 @@ npm i @capacitor/app@latest @capacitor/haptics@latest @capacitor/keyboard@latest
 
 Repeat for all `@capacitor/*` plugins used in the project.
 
-Read `references/plugin-breaking-changes.md` for specific breaking changes per plugin.
+### Official Plugin Breaking Changes
 
-### Step 9: Sync and Test
+#### Action Sheet
+
+- `androidxMaterialVersion` updated to `1.13.0`.
+
+#### Barcode Scanner
+
+- `scanOrientation` has no effect on large screens (tablets) on Android 16+. Opt-out temporarily by adding to `AndroidManifest.xml` inside `<application>` or `<activity>`:
+  ```xml
+  <property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true" />
+  ```
+  This opt-out will stop working on Android 17. Regular phones are unaffected.
+
+#### Browser
+
+- `androidxBrowserVersion` updated to `1.9.0`.
+
+#### Camera
+
+- `androidxExifInterfaceVersion` updated to `1.4.1`.
+- `androidxMaterialVersion` updated to `1.13.0`.
+
+#### Geolocation
+
+- `kotlinxCoroutinesVersion` updated to `1.10.2`.
+- `timeout` now applies to all requests on Android and iOS (previously only web and `getCurrentPosition` on Android). Increase `timeout` if experiencing timeouts. For `watchPosition` on Android, use the new `interval` parameter.
+
+#### Google Maps
+
+- `googleMapsPlayServicesVersion` updated to `19.2.0`.
+- `googleMapsUtilsVersion` updated to `3.19.1`.
+- `googleMapsKtxVersion` updated to `5.2.1`.
+- `googleMapsUtilsKtxVersion` updated to `5.2.1`.
+- `kotlinxCoroutinesVersion` updated to `1.10.2`.
+- `androidxCoreKTXVersion` updated to `1.17.0`.
+- `kotlin_version` updated to `2.2.20`.
+
+#### Push Notifications
+
+- `firebaseMessagingVersion` updated to `25.0.1`.
+
+#### Screen Orientation
+
+- `lock` method has no effect on large screens (tablets) on Android 16+. Same opt-out as Barcode Scanner applies.
+
+#### Splash Screen
+
+- `coreSplashScreenVersion` updated to `1.2.0`.
+
+#### Status Bar
+
+- `CAPNotifications.swift` and `CAPBridgeViewController.swift` that emitted `.capacitorViewDidAppear` and `.capacitorViewWillTransition` events have been removed. Listen for these events from `@capacitor/ios` instead.
+
+## Step 9: Sync and Test
 
 ```bash
 npx cap sync

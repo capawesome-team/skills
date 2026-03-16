@@ -31,7 +31,7 @@ Key conventions:
 - Migration skills try automated migration first (`npx cap migrate`), then provide manual fallback steps.
 - Migration skills cover both Android and iOS platform specifics.
 - Reference files are cross-referenced from `SKILL.md` via relative paths.
-- Skill names use kebab-case. Migration skills encode the target version (e.g., `capacitor-app-migration-v8` = Capacitor 7 → 8).
+- Skill names use kebab-case.
 
 ## Writing Agent-Optimized Skills
 
@@ -45,6 +45,6 @@ Skills are executed by AI agents, not humans. Every instruction must be unambigu
 
 ## Naming Conventions
 
-- `capacitor-app-migration-v*` — migrating a Capacitor **app** to version *
-- `capacitor-plugin-migration-v*` — migrating a Capacitor **plugin** to version *
+- `capacitor-app-migration` — migrating a Capacitor **app** (covers all versions, routes to per-version reference files)
+- `capacitor-plugin-migration` — migrating a Capacitor **plugin** (covers all versions, routes to per-version reference files)
 - Other skills are named after the product/feature they cover

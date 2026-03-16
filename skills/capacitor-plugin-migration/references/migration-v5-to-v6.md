@@ -1,22 +1,6 @@
----
-name: capacitor-plugin-migration-v6
-description: Guides the agent through migrating a Capacitor 5 plugin to Capacitor 6. Covers updating Capacitor dependencies, Android SDK targets, Gradle plugin and wrapper versions, Kotlin version update, iOS deployment target, SPM support, removeAllListeners changes, and addListener signature updates. Do not use for app project migration or non-Capacitor plugin frameworks.
----
+# Migration: Capacitor Plugin 5 → 6
 
-# Capacitor Plugin Migration v6
-
-Migrate a Capacitor 5 plugin to Capacitor 6.
-
-## Prerequisites
-
-Before proceeding, verify:
-
-1. The project is a **Capacitor 5 plugin**.
-2. **Node.js 18+** is installed (required for Capacitor 6).
-
-## Procedures
-
-### Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Migration
 
 Run the official migration tool from the plugin's root directory:
 
@@ -27,7 +11,7 @@ npx @capacitor/plugin-migration-v5-to-v6@latest
 If the automated migration completes successfully, skip to **Step 7**.
 If any steps fail, continue with the manual steps below.
 
-### Step 2: Update Capacitor Dependencies
+## Step 2: Update Capacitor Dependencies
 
 In `package.json`, update `@capacitor/cli`, `@capacitor/core`, `@capacitor/android`, and `@capacitor/ios` to `latest-6` version.
 
@@ -35,7 +19,7 @@ In `package.json`, update `@capacitor/cli`, `@capacitor/core`, `@capacitor/andro
 npm install
 ```
 
-### Step 3: Update Android SDK Targets
+## Step 3: Update Android SDK Targets
 
 In the plugin's `android/build.gradle`, replace deprecated `compileSdkVersion` with `compileSdk` and update targets:
 
@@ -48,9 +32,9 @@ In the plugin's `android/build.gradle`, replace deprecated `compileSdkVersion` w
  }
 ```
 
-### Step 4: Update Gradle Plugin and Wrapper
+## Step 4: Update Gradle Plugin and Wrapper
 
-#### 4a: Update Gradle plugin to 8.2.1
+### 4a: Update Gradle plugin to 8.2.1
 
 ```diff
  dependencies {
@@ -59,7 +43,7 @@ In the plugin's `android/build.gradle`, replace deprecated `compileSdkVersion` w
  }
 ```
 
-#### 4b: Update Gradle wrapper to 8.2.1
+### 4b: Update Gradle wrapper to 8.2.1
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -68,20 +52,20 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.2.1-all.zip
 ```
 
-### Step 5: Update Kotlin Version (if used)
+## Step 5: Update Kotlin Version (if used)
 
 ```diff
 -ext.kotlin_version = project.hasProperty("kotlin_version") ? rootProject.ext.kotlin_version : '1.8.20'
 +ext.kotlin_version = project.hasProperty("kotlin_version") ? rootProject.ext.kotlin_version : '1.9.10'
 ```
 
-### Step 6: Handle Code Breaking Changes
+## Step 6: Handle Code Breaking Changes
 
-#### 6a: Remove removeAllListeners from .m file (iOS)
+### 6a: Remove removeAllListeners from .m file (iOS)
 
 If the plugin's `.m` file has `CAP_PLUGIN_METHOD(removeAllListeners, CAPPluginReturnPromise)`, remove it. The method is now available for all plugins without defining it.
 
-#### 6b: Update addListener signature (TypeScript)
+### 6b: Update addListener signature (TypeScript)
 
 In `definitions.ts`, update `addListener` return type:
 
@@ -93,11 +77,11 @@ In `definitions.ts`, update `addListener` return type:
 +): Promise<PluginListenerHandle>;
 ```
 
-#### 6c: Add SPM support (optional)
+### 6c: Add SPM support (optional)
 
 Capacitor 6 adds experimental SPM support. Follow the [Converting existing plugins to SPM](https://capacitorjs.com/docs/ios/spm#converting-existing-plugins-to-spm) guide to add support.
 
-### Step 7: Sync and Test
+## Step 7: Sync and Test
 
 ```bash
 npm install

@@ -1,22 +1,6 @@
----
-name: capacitor-plugin-migration-v5
-description: Guides the agent through migrating a Capacitor 4 plugin to Capacitor 5. Covers updating Capacitor dependencies, Android SDK targets, Gradle plugin and wrapper versions, Java 17 migration, Kotlin version update, Jetifier removal, package namespace migration, and iOS code changes. Do not use for app project migration or non-Capacitor plugin frameworks.
----
+# Migration: Capacitor Plugin 4 → 5
 
-# Capacitor Plugin Migration v5
-
-Migrate a Capacitor 4 plugin to Capacitor 5.
-
-## Prerequisites
-
-Before proceeding, verify:
-
-1. The project is a **Capacitor 4 plugin**.
-2. **Node.js 16+** is installed (required for Capacitor 5).
-
-## Procedures
-
-### Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Migration
 
 Run the official migration tool from the plugin's root directory:
 
@@ -27,7 +11,7 @@ npx @capacitor/plugin-migration-v4-to-v5@latest
 If the automated migration completes successfully, skip to **Step 8**.
 If any steps fail, continue with the manual steps below.
 
-### Step 2: Update Capacitor Dependencies
+## Step 2: Update Capacitor Dependencies
 
 In `package.json`, update `@capacitor/cli`, `@capacitor/core`, `@capacitor/android`, and `@capacitor/ios` to `latest-5` version.
 
@@ -35,7 +19,7 @@ In `package.json`, update `@capacitor/cli`, `@capacitor/core`, `@capacitor/andro
 npm install
 ```
 
-### Step 3: Update Android SDK Targets
+## Step 3: Update Android SDK Targets
 
 In the plugin's `android/build.gradle`:
 
@@ -48,7 +32,7 @@ In the plugin's `android/build.gradle`:
  }
 ```
 
-### Step 4: Update Android Plugin Variables
+## Step 4: Update Android Plugin Variables
 
 In `android/build.gradle`:
 
@@ -64,9 +48,9 @@ In `android/build.gradle`:
  }
 ```
 
-### Step 5: Update Gradle Plugin and Wrapper
+## Step 5: Update Gradle Plugin and Wrapper
 
-#### 5a: Update Gradle plugin to 8.0.0
+### 5a: Update Gradle plugin to 8.0.0
 
 ```diff
  dependencies {
@@ -75,7 +59,7 @@ In `android/build.gradle`:
  }
 ```
 
-#### 5b: Update Gradle wrapper to 8.0.2
+### 5b: Update Gradle wrapper to 8.0.2
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -84,9 +68,9 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.0.2-all.zip
 ```
 
-### Step 6: Update Java, Kotlin, and Namespace
+## Step 6: Update Java, Kotlin, and Namespace
 
-#### 6a: Update to Java 17
+### 6a: Update to Java 17
 
 ```diff
  compileOptions {
@@ -97,7 +81,7 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
  }
 ```
 
-#### 6b: Update Kotlin version (if used)
+### 6b: Update Kotlin version (if used)
 
 ```diff
 -ext.kotlin_version = project.hasProperty("kotlin_version") ? rootProject.ext.kotlin_version : '1.7.0'
@@ -111,7 +95,7 @@ Replace `kotlin-stdlib-jdk7` or `kotlin-stdlib-jdk8` with `kotlin-stdlib`:
 +implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 ```
 
-#### 6c: Move package to build.gradle
+### 6c: Move package to build.gradle
 
 Remove `package` from `AndroidManifest.xml` and add `namespace` to `build.gradle`:
 
@@ -129,7 +113,7 @@ Remove `package` from `AndroidManifest.xml` and add `namespace` to `build.gradle
      compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 33
 ```
 
-#### 6d: Disable Jetifier
+### 6d: Disable Jetifier
 
 In `android/gradle.properties`:
 
@@ -138,7 +122,7 @@ In `android/gradle.properties`:
 -android.enableJetifier=true
 ```
 
-### Step 7: Handle iOS Breaking Changes
+## Step 7: Handle iOS Breaking Changes
 
 - `CAPBridgedPlugin` protocol requirements moved to instance level.
 - `pluginId` renamed to `identifier`.
@@ -147,11 +131,11 @@ In `android/gradle.properties`:
 
 Most plugins using the macro for `CAPBridgedPlugin` conformance are unaffected. Plugins that manually conform or cast to `CAPBridgedPlugin` must be updated.
 
-### Step 8: Handle Android Breaking Changes
+## Step 8: Handle Android Breaking Changes
 
 - `PluginCall.getObject()` and `PluginCall.getArray()` can now return `null` (matching iOS behavior). Add null checks around these calls.
 
-### Step 9: Sync and Test
+## Step 9: Sync and Test
 
 ```bash
 npm install
