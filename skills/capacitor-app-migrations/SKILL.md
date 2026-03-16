@@ -1,5 +1,5 @@
 ---
-name: capacitor-app-migration
+name: capacitor-app-migrations
 description: Guides the agent through migrating a Capacitor app project to a newer major version. Supports migrations from Capacitor 4 through 8, including multi-version jumps. Covers automated migration via the Capacitor CLI and manual step-by-step fallback for each version. Do not use for plugin library migration or non-Capacitor mobile frameworks.
 ---
 

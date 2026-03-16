@@ -12,26 +12,26 @@ npx skills add capawesome-team/skills
 
 ## Usage
 
-After installing the skills, you can use them in your agent. For example, to use the `capacitor-live-update` skill, you can prompt your agent like this:
+After installing the skills, you can use them in your agent. For example, to use the `capawesome-live-updates` skill, you can prompt your agent like this:
 
 ```plaintext
-Use the `capacitor-live-update` skill to help me set up Capacitor Live Updates in my project.
+Use the `capawesome-live-updates` skill to help me set up Capacitor Live Updates in my project.
 ```
 
 ## Skills
 
-### Capacitor Migrations
+### Capacitor
 
 | Skill | Description |
 | ----- | ----------- |
-| [`capacitor-app-migration`](./skills/capacitor-app-migration/) | Migrate a Capacitor app to a newer major version. |
-| [`capacitor-plugin-migration`](./skills/capacitor-plugin-migration/) | Migrate a Capacitor plugin to a newer major version. |
+| [`capacitor-app-migrations`](./skills/capacitor-app-migrations/) | Migrate a Capacitor app to a newer major version. |
+| [`capacitor-plugin-migrations`](./skills/capacitor-plugin-migrations/) | Migrate a Capacitor plugin to a newer major version. |
 
-### Capacitor Plugins
+### Capawesome
 
 | Skill | Description |
 | ----- | ----------- |
-| [`capacitor-live-update`](./skills/capacitor-live-update/) | Set up and manage Capacitor Live Updates using Capawesome Cloud. |
+| [`capawesome-live-updates`](./skills/capawesome-live-updates/) | Set up and manage Capacitor Live Updates using Capawesome Cloud. |
 
 ## License
 

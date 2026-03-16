@@ -1,5 +1,5 @@
 ---
-name: capacitor-live-update
+name: capawesome-live-updates
 description: Guides the agent through setting up and managing Capacitor Live Updates using Capawesome Cloud, the @capawesome/capacitor-live-update plugin, and the @capawesome/cli. Covers creating apps in Capawesome Cloud, installing and configuring the Live Update SDK, publishing bundles, configuring channels and update strategies, rollbacks, code signing, and CI/CD integration. Do not use for native build management, app store submissions, or non-Capacitor mobile frameworks.
 ---
 

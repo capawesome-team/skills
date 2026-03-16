@@ -45,6 +45,6 @@ Skills are executed by AI agents, not humans. Every instruction must be unambigu
 
 ## Naming Conventions
 
-- `capacitor-app-migration` — migrating a Capacitor **app** (covers all versions, routes to per-version reference files)
-- `capacitor-plugin-migration` — migrating a Capacitor **plugin** (covers all versions, routes to per-version reference files)
+- `capacitor-app-migrations` — migrating a Capacitor **app** (covers all versions, routes to per-version reference files)
+- `capacitor-plugin-migrations` — migrating a Capacitor **plugin** (covers all versions, routes to per-version reference files)
 - Other skills are named after the product/feature they cover
