@@ -48,3 +48,7 @@ Skills are executed by AI agents, not humans. Every instruction must be unambigu
 - `capacitor-app-migrations` — migrating a Capacitor **app** (covers all versions, routes to per-version reference files)
 - `capacitor-plugin-migrations` — migrating a Capacitor **plugin** (covers all versions, routes to per-version reference files)
 - Other skills are named after the product/feature they cover
+
+## README.md
+
+When skills are added or removed, update the skills table in `README.md` to reflect the change.
