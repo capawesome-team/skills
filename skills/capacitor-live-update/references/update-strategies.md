@@ -1,6 +1,6 @@
 # Update Strategies
 
-## Background (Recommended)
+## Background
 
 Set `autoUpdateStrategy: "background"` in the plugin config. No additional code needed.
 
@@ -11,7 +11,7 @@ Behavior:
 
 To force a check during development, force-close and restart the app.
 
-## Always Latest
+## Always Latest (Recommended)
 
 Combines background updates with a user prompt when an update is ready.
 
