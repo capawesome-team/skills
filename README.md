@@ -1,2 +1,31 @@
 # skills
+
 🤖 Agent skills for interacting with Capawesome, Capacitor and the Ionic Framework.
+
+## Installation
+
+To install a skill, use the [skills](https://skills.sh/) command:
+
+```bash
+npx skills add capawesome-team/skills
+```
+
+## Usage
+
+After installing the skills, you can use them in your agent. For example, to use the `capacitor-live-update` skill, you can prompt your agent like this:
+
+```plaintext
+Use the `capacitor-live-update` skill to help me set up Capacitor Live Updates in my project.
+```
+
+## Skills
+
+### Capacitor Plugins
+
+| Skill | Description |
+| ----- | ----------- |
+| [`capacitor-live-update`](./skills/capacitor-live-update/) | Set up and manage Capacitor Live Updates using Capawesome Cloud. |
+
+## License
+
+See [LICENSE](https://github.com/capawesome-team/skills/blob/main/LICENSE).
