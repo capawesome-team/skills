@@ -4,6 +4,10 @@ Unofficial Capacitor plugin for Firebase Crashlytics. Reports crashes and non-fa
 
 **Platforms:** Android, iOS (no Web)
 
+## Prerequisites
+
+Complete the [Firebase SDK Setup](firebase-sdk-setup.md) for each target platform before proceeding.
+
 ## Installation
 
 ```bash

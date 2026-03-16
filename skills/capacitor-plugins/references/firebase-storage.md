@@ -4,6 +4,10 @@ Unofficial Capacitor plugin for Firebase Cloud Storage. Upload, download, delete
 
 **Platforms:** Android, iOS, Web
 
+## Prerequisites
+
+Complete the [Firebase SDK Setup](firebase-sdk-setup.md) for each target platform before proceeding.
+
 ## Installation
 
 ```bash

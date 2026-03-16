@@ -4,6 +4,10 @@ Unofficial Capacitor plugin for Firebase App. Provides access to the Firebase ap
 
 **Platforms:** Android, iOS, Web
 
+## Prerequisites
+
+Complete the [Firebase SDK Setup](firebase-sdk-setup.md) for each target platform before proceeding.
+
 ## Installation
 
 ```bash
