@@ -14,6 +14,13 @@ Install, configure, and use Capacitor plugins from official and community source
 3. For iOS plugins: Xcode installed. CocoaPods or Swift Package Manager (SPM) for dependency management.
 4. For Android plugins: Android Studio installed.
 
+## Agent Behavior
+
+- **Guide step-by-step.** Walk the user through the process one step at a time. Never present multiple unrelated questions at once.
+- **Auto-detect before asking.** Check the project for platforms (`android/`, `ios/`), build tools (`vite.config.ts`, `angular.json`, `webpack.config.js`), framework, existing npm registry config, and `package.json` dependencies. Only ask the user when something cannot be detected.
+- **One decision at a time.** When a step requires user input (e.g., encryption yes/no), ask that single question, wait for the answer, then continue to the next step.
+- **Present clear options.** When asking a question, provide concrete choices (e.g., "Do you need SQLite encryption? (yes/no)") instead of open-ended questions.
+
 ## Procedures
 
 ### Step 1: Identify the Plugin
@@ -24,27 +31,72 @@ Match the user's request to a plugin from the index below. If the match is ambig
 
 Read the corresponding reference file from `references/` for the matched plugin.
 
-### Step 3: Install the Plugin
+### Step 3: Analyze the Project
 
-Follow the installation steps from the reference file. The general pattern is:
+Auto-detect the following by reading project files — do **not** ask the user for information that can be inferred:
+
+1. **Platforms**: Check which directories exist (`android/`, `ios/`). These are the platforms to configure.
+2. **Build tool / framework**: Check for `vite.config.ts`, `angular.json`, `webpack.config.js`, `next.config.js`, etc.
+3. **iOS dependency manager**: Check if `ios/App/Podfile` exists (CocoaPods) or if SPM is used.
+4. **Capacitor version**: Read `@capacitor/core` version from `package.json`.
+
+### Step 4: Set Up Prerequisites
+
+If the plugin requires **Capawesome Insiders** (the reference file states `Capawesome Insiders: Yes`):
+
+1. Check if the `@capawesome-team` npm registry is already configured by running: `npm config get @capawesome-team:registry`
+2. If the registry is **not** configured, tell the user this plugin requires a Capawesome Insiders license and guide them through the setup:
+   ```bash
+   npm config set @capawesome-team:registry https://npm.registry.capawesome.io
+   npm config set //npm.registry.capawesome.io/:_authToken <YOUR_LICENSE_KEY>
+   ```
+   Ask the user for their license key if needed. **Wait** for confirmation before continuing.
+3. If the registry **is** already configured, skip this and move on.
+
+### Step 5: Install the Plugin
+
+Run the installation command from the reference file:
 
 ```bash
 npm install <package-name>
 npx cap sync
 ```
 
-### Step 4: Apply Platform-Specific Configuration
+If the reference file lists additional packages (e.g., `@sqlite.org/sqlite-wasm`), include them.
 
-Follow the Android and iOS configuration steps from the reference file. This typically includes:
+### Step 6: Apply Platform-Specific Configuration
 
-- **Android**: Gradle variables, permissions in `AndroidManifest.xml`, meta-data entries
+For **each platform detected** in Step 3, apply the configuration from the reference file.
+
+When the reference file offers **variants or optional features** for a platform (e.g., encryption vs. plain, bundled SQLite vs. default), handle them one at a time:
+
+1. Present the choice to the user with a clear question and options.
+2. Wait for the user's answer.
+3. Apply only the chosen configuration.
+4. Move on to the next platform or decision point.
+
+Typical configuration includes:
+
+- **Android**: Gradle variables in `variables.gradle`, permissions in `AndroidManifest.xml`, meta-data entries, ProGuard rules
 - **iOS**: `Info.plist` entries, Podfile or SPM changes, `AppDelegate.swift` modifications
 
-### Step 5: Add Usage Code
+Skip platforms that don't exist in the project.
 
-Add the usage code from the reference file to the project. Adapt imports, method calls, and options to match the user's requirements.
+### Step 7: Apply Web Configuration (if applicable)
 
-### Step 6: Sync the Project
+If the reference file includes a **Web** configuration section and the project targets the web:
+
+1. Apply the configuration matching the detected build tool (Vite, Webpack, Angular CLI, etc.).
+2. If the build tool is not covered by the reference file, adapt the configuration to the detected build tool and inform the user.
+
+### Step 8: Add Usage Code
+
+Ask the user if they want usage code added to the project. If yes:
+
+1. Add the usage code from the reference file.
+2. Adapt imports, method calls, and options to match the user's project structure and requirements.
+
+### Step 9: Sync the Project
 
 ```bash
 npx cap sync
