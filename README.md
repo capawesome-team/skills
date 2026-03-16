@@ -13,7 +13,7 @@ Agent skills for interacting with Capawesome, Capacitor and the Ionic Framework.
 - 🤖 **Agent-optimized**: Every instruction is unambiguous and machine-actionable for AI agents.
 - 📱 **Cross-platform**: Covers both Android and iOS platform specifics.
 - 🔄 **Capacitor Migrations**: Migrate Capacitor apps and plugins across major versions (4 → 8).
-- 📦 **Plugin Setup**: Install and configure Capacitor plugins from official and community sources.
+- 📦 **Plugin Setup**: Install and configure 160+ Capacitor plugins from official and community sources.
 - ☁️ **Cloud Integration**: Set up native builds, live updates, and app store publishing with Capawesome Cloud.
 - 🚀 **Automated First**: Tries automated migration before falling back to manual steps.
 - 🐛 **Error Handling**: Common issues and fixes included in every skill.
