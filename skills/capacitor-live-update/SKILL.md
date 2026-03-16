@@ -16,6 +16,10 @@ Before proceeding, verify:
 2. The user has a [Capawesome Cloud](https://console.cloud.capawesome.io) account and organization.
 3. Node.js and npm are installed.
 
+## General Rules
+
+Before running any `@capawesome/cli` command for the first time, run it with the `--help` flag to review all available options. This ensures the correct flags are used and avoids unnecessary prompts.
+
 ## Procedures
 
 ### Step 1: Authenticate with Capawesome Cloud
@@ -141,37 +145,7 @@ App.addListener("resume", async () => {
 For Capacitor 7/8 with `autoUpdateStrategy: "background"`, no additional code is required.
 Read `references/update-strategies.md` for alternative strategies (Always Latest, Force Update, Instant).
 
-### Step 7: Sync the Capacitor Project
-
-```bash
-npx cap sync
-```
-
-### Step 8: Build and Upload the First Bundle
-
-Build the web assets:
-
-```bash
-npm run build
-```
-
-Upload to Capawesome Cloud:
-
-```bash
-npx @capawesome/cli apps:liveupdates:upload
-```
-
-The CLI prompts for the web assets path (e.g., `dist` or `www`), the app, and the channel. After upload, the bundle is instantly available.
-
-### Step 9: Verify the Setup
-
-1. Make a visible change to the web assets (e.g., change text or a color).
-2. Rebuild: `npm run build`
-3. Upload again: `npx @capawesome/cli apps:liveupdates:upload`
-4. **For `autoUpdateStrategy: "background"`**: Force-close and restart the app. Wait 15-30 seconds, then restart again to see changes.
-5. **For manual sync (Capacitor 6)**: Resume the app, accept the update prompt, and verify changes.
-
-### Step 10: Configure iOS Privacy Manifest
+### Step 7: Configure iOS Privacy Manifest
 
 Add the `NSPrivacyAccessedAPICategoryUserDefaults` entry to `ios/App/PrivacyInfo.xcprivacy`:
 
@@ -187,6 +161,146 @@ Add the `NSPrivacyAccessedAPICategoryUserDefaults` entry to `ios/App/PrivacyInfo
 ```
 
 Add this as a new entry inside the `NSPrivacyAccessedAPITypes` array if the file already exists.
+
+### Step 8: Configure Version Handling
+
+Live updates can only deliver web asset changes. When native code changes (new plugins, SDK updates, etc.), the app must be resubmitted to the stores. To prevent incompatible bundles from being delivered to older native versions, Capawesome Cloud offers two approaches.
+
+Ask the user which approach to use:
+
+1. **Versioned Channels (recommended):** Ties each channel to a native version code. The channel is set at build time in the native project, so no TypeScript code is needed. This is the safest approach.
+2. **Versioned Bundles:** Sets version constraints on each upload. Simpler to start with but requires specifying version ranges on every upload.
+3. **Skip for now:** Skip versioning for initial testing. Can be added later.
+
+#### Option 1: Versioned Channels
+
+Add the default channel configuration to both native projects.
+
+**Android** — add to `android/app/build.gradle` inside the `android.defaultConfig` block:
+
+```groovy
+resValue "string", "capawesome_live_update_default_channel", "production-" + defaultConfig.versionCode
+```
+
+**iOS** — add to `ios/App/App/Info.plist`:
+
+```xml
+<key>CapawesomeLiveUpdateDefaultChannel</key>
+<string>production-$(CURRENT_PROJECT_VERSION)</string>
+```
+
+Then read the current native version code from the project files (e.g., `versionCode` in `android/app/build.gradle` or `CURRENT_PROJECT_VERSION` in the iOS project). Before uploading a bundle, create the matching channel if it does not exist:
+
+```bash
+npx @capawesome/cli apps:channels:create --app-id <APP_ID> --name production-<VERSION_CODE>
+```
+
+When uploading, always target this channel:
+
+```bash
+npx @capawesome/cli apps:liveupdates:upload --app-id <APP_ID> --channel production-<VERSION_CODE>
+```
+
+#### Option 2: Versioned Bundles
+
+No native project changes are needed. Instead, read the current native version code from the project files and pass version constraints on every upload:
+
+```bash
+npx @capawesome/cli apps:liveupdates:upload --android-min <CODE> --android-max <CODE> --ios-min <CODE> --ios-max <CODE>
+```
+
+Use `--android-eq` and `--ios-eq` to exclude a specific version code if the bundle was built from that exact native version (meaning the native binary already contains the same web assets).
+
+Since versioned channels are not used, set `defaultChannel` in the Capacitor config so the plugin knows which channel to fetch updates from:
+
+```typescript
+LiveUpdate: {
+  appId: "<APP_ID>",
+  defaultChannel: "production",
+}
+```
+
+Make sure a channel with that name exists before uploading (see Step 10).
+
+#### Option 3: Skip
+
+Since versioned channels are not used, set `defaultChannel` in the Capacitor config so the plugin knows which channel to fetch updates from:
+
+```typescript
+LiveUpdate: {
+  appId: "<APP_ID>",
+  defaultChannel: "default",
+}
+```
+
+### Step 9: Sync the Capacitor Project
+
+```bash
+npx cap sync
+```
+
+### Step 10: Test the Setup
+
+Setup is now complete. Ask the user whether they would like to test the live update functionality. If declined, skip to the **Advanced Topics** section. If confirmed, continue with Steps 11 through 14.
+
+### Step 11: Build and Upload the Initial Bundle
+
+First, check which channels exist for the app:
+
+```bash
+npx @capawesome/cli apps:channels:list --app-id <APP_ID> --json
+```
+
+If no channel exists or the desired channel (including versioned channels from Step 8) is missing, create one:
+
+```bash
+npx @capawesome/cli apps:channels:create --app-id <APP_ID> --name <NAME>
+```
+
+Then build the web assets and upload them:
+
+First, check which channels exist for the app:
+
+```bash
+npx @capawesome/cli apps:channels:list --app-id <APP_ID> --json
+```
+
+If no channel exists or the desired channel (including versioned channels from Step 9) is missing, create one:
+
+```bash
+npx @capawesome/cli apps:channels:create --app-id <APP_ID> --name <NAME>
+```
+
+Then build the web assets and upload them:
+
+```bash
+npm run build
+npx @capawesome/cli apps:liveupdates:upload
+```
+
+The CLI prompts for the web assets path (e.g., `dist` or `www`), the app, and the channel. After upload, the bundle is instantly available.
+
+### Step 12: Make a Visible Change
+
+Pick an easily noticeable element in the app's web source — for example, a heading, a label, or a background color. Apply a small, obvious change so the update is easy to spot after it arrives on the device. For example, append a text like " - Live Update Test" to a heading.
+
+### Step 13: Build and Upload the Updated Bundle
+
+Build the modified web assets and upload them again:
+
+```bash
+npm run build
+npx @capawesome/cli apps:liveupdates:upload
+```
+
+### Step 14: Verify on Device
+
+Tell the user to perform the following steps:
+
+1. Open the app on a real device or emulator.
+2. **For `autoUpdateStrategy: "background"` (Capacitor 7/8):** Force-close the app and reopen it. The update downloads silently in the background. After roughly 15–30 seconds, force-close and reopen the app once more — the visible change should now appear.
+3. **For manual sync (Capacitor 6):** Switch away from the app and return to it. Accept the update prompt when it appears, and the change should be visible immediately after reload.
+4. If the change does not appear, check Android Logcat or iOS Xcode console for Live Update SDK log output and refer to the **Debugging** section below.
 
 ## Advanced Topics
 
