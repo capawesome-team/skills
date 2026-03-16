@@ -47,13 +47,14 @@ Read `live-update-configuration.md` for all available configuration options.
 
 ## Add Rollback Protection (Recommended)
 
-Set `readyTimeout` in the plugin config:
+Set `readyTimeout` and `autoBlockRolledBackBundles` in the plugin config:
 
 ```typescript
 LiveUpdate: {
   appId: "<APP_ID>",
   autoUpdateStrategy: "background",
   readyTimeout: 10000,
+  autoBlockRolledBackBundles: true,
 }
 ```
 
@@ -126,6 +127,8 @@ Add to `ios/App/PrivacyInfo.xcprivacy` inside the `NSPrivacyAccessedAPITypes` ar
 ```
 
 ## Configure Version Handling
+
+Live updates only deliver web code (HTML, CSS, JS, images). If the app's native code changes (e.g., a new Capacitor plugin is added or a native dependency is updated), the live update bundle must match the native binary it runs on — otherwise the app may crash or behave unexpectedly. Version handling ensures that each live update bundle is only delivered to devices running a compatible native version.
 
 Ask the user which approach to use:
 
