@@ -26,12 +26,15 @@ Use the `capawesome-live-updates` skill to help me set up Capacitor Live Updates
 | ----- | ----------- |
 | [`capacitor-app-migrations`](./skills/capacitor-app-migrations/) | Migrate a Capacitor app to a newer major version. |
 | [`capacitor-plugin-migrations`](./skills/capacitor-plugin-migrations/) | Migrate a Capacitor plugin to a newer major version. |
+| [`capacitor-plugins`](./skills/capacitor-plugins/) | Install, configure, and use Capacitor plugins from official and community sources. |
 
 ### Capawesome
 
 | Skill | Description |
 | ----- | ----------- |
+| [`capawesome-app-store-publishing`](./skills/capawesome-app-store-publishing/) | Set up and manage App Store Publishing using Capawesome Cloud. |
 | [`capawesome-live-updates`](./skills/capawesome-live-updates/) | Set up and manage Capacitor Live Updates using Capawesome Cloud. |
+| [`capawesome-native-builds`](./skills/capawesome-native-builds/) | Set up and manage native iOS and Android builds using Capawesome Cloud. |
 
 ## License
 
