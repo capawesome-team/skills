@@ -24,8 +24,8 @@ Use the `capacitor-live-update` skill to help me set up Capacitor Live Updates i
 
 | Skill | Description |
 | ----- | ----------- |
-| [`capacitor-app-migration`](./skills/capacitor-app-migration/) | Migrate a Capacitor app to a newer major version (4→5, 5→6, 6→7, or 7→8). |
-| [`capacitor-plugin-migration`](./skills/capacitor-plugin-migration/) | Migrate a Capacitor plugin to a newer major version (4→5, 5→6, 6→7, or 7→8). |
+| [`capacitor-app-migration`](./skills/capacitor-app-migration/) | Migrate a Capacitor app to a newer major version. |
+| [`capacitor-plugin-migration`](./skills/capacitor-plugin-migration/) | Migrate a Capacitor plugin to a newer major version. |
 
 ### Capacitor Plugins
 
