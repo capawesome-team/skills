@@ -1,6 +1,6 @@
 ---
 name: capacitor-plugin-migrations
-description: Guides the agent through migrating a Capacitor plugin to a newer major version. Supports migrations from Capacitor 4 through 8, including multi-version jumps. Covers automated migration via official migration tools, Android SDK targets, Gradle configuration, Java/Kotlin versions, iOS deployment targets, and manual step-by-step fallback for each version. Do not use for app project migration or non-Capacitor plugin frameworks.
+description: "Guides the agent through migrating a Capacitor plugin to a newer major version. Supports migrations from Capacitor 4 through 8, including multi-version jumps. Covers automated migration via official migration tools, Android SDK targets, Gradle configuration, Java/Kotlin versions, iOS deployment targets, and manual step-by-step fallback for each version. Do not use for app project migration or non-Capacitor plugin frameworks."
 ---
 
 # Capacitor Plugin Migration

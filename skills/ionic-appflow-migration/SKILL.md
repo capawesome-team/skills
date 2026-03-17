@@ -1,6 +1,6 @@
 ---
 name: ionic-appflow-migration
-description: Guides the agent through migrating an existing Ionic/Capacitor project from Ionic Appflow to Capawesome Cloud. Detects which Appflow features are in use (Live Updates, Native Builds, App Store Publishing) and provides step-by-step migration for each feature to its Capawesome Cloud equivalent. Covers SDK replacement, configuration mapping, API migration, CI/CD pipeline updates, and verification. References the capawesome-cloud skill for detailed Capawesome Cloud setup procedures. Do not use for setting up Capawesome Cloud from scratch without an existing Appflow project, for non-Capacitor mobile frameworks, or for migrating Ionic Enterprise plugins.
+description: "Guides the agent through migrating an existing Ionic/Capacitor project from Ionic Appflow to Capawesome Cloud. Detects which Appflow features are in use (Live Updates, Native Builds, App Store Publishing) and provides step-by-step migration for each feature to its Capawesome Cloud equivalent. Covers SDK replacement, configuration mapping, API migration, CI/CD pipeline updates, and verification. References the capawesome-cloud skill for detailed Capawesome Cloud setup procedures. Do not use for setting up Capawesome Cloud from scratch without an existing Appflow project, for non-Capacitor mobile frameworks, or for migrating Ionic Enterprise plugins."
 ---
 
 # Ionic Appflow Migration

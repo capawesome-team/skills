@@ -28,6 +28,7 @@ Each `SKILL.md` has YAML front matter (`name`, `description`) followed by:
 5. Optional: **Advanced Topics**, **Debugging**, **Limitations**
 
 Key conventions:
+- **Always quote the `description` field** in YAML front matter with double quotes to prevent YAML parsing errors (colons and other special characters in unquoted values break parsers).
 - Migration skills try automated migration first (`npx cap migrate`), then provide manual fallback steps.
 - Migration skills cover both Android and iOS platform specifics.
 - Reference files are cross-referenced from `SKILL.md` via relative paths.
