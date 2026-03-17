@@ -50,6 +50,10 @@ Skills are executed by AI agents, not humans. Every instruction must be unambigu
 - `capacitor-plugin-upgrades` — upgrading a Capacitor **plugin** (covers all versions, routes to per-version reference files)
 - Other skills are named after the product/feature they cover
 
+## Skills Workflow
+
+**Always use the `skill-creator` skill** (via the Skill tool) when creating, modifying, or restructuring any skill. This ensures all skills follow the agentskills.io spec and maintain consistent structure and metadata.
+
 ## README.md
 
 When skills are added or removed, update the skills table in `README.md` to reflect the change.

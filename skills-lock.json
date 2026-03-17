@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "skill-creator": {
+      "source": "mgechev/skills-best-practices",
+      "sourceType": "github",
+      "computedHash": "17bdaf57805a846da44ca25683a3b1ad0f7777afc3ddd0a27156b29ca2f31351"
+    }
+  }
+}
