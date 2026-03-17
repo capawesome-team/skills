@@ -61,7 +61,7 @@ npx @capawesome/cli apps:certificates:create \
   --provisioning-profile /path/to/profile.mobileprovision
 ```
 
-If the user does not have a `.p12` file or provisioning profile, read `certificates-ios.md` for creation instructions.
+Read `certificates-ios.md` to determine if the user already has a `.p12` file and provisioning profile, and guide them through obtaining the missing files if needed.
 
 ## Configure Environments (Optional)
 
