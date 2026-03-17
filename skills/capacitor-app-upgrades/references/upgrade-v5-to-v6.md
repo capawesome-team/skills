@@ -1,13 +1,13 @@
-# Migration: Capacitor 5 → 6
+# Upgrade: Capacitor 5 → 6
 
-## Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Upgrade
 
 ```bash
 npm i -D @capacitor/cli@latest-6
 npx cap migrate
 ```
 
-If the automated migration completes successfully, skip to **Step 7** to update plugins.
+If the automated upgrade completes successfully, skip to **Step 7** to update plugins.
 If any steps fail, continue with the manual steps below.
 
 ## Step 2: Update Capacitor Dependencies
@@ -72,7 +72,7 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 
 Update `kotlin_version` to `'1.9.10'`.
 
-## Step 5: Handle androidScheme Migration
+## Step 5: Handle androidScheme Upgrade
 
 In Capacitor 6, `https` is the default `androidScheme`. To avoid data loss from cookies/localStorage:
 

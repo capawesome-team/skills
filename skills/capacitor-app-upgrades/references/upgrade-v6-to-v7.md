@@ -1,13 +1,13 @@
-# Migration: Capacitor 6 → 7
+# Upgrade: Capacitor 6 → 7
 
-## Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Upgrade
 
 ```bash
 npm i -D @capacitor/cli@latest-7
 npx cap migrate
 ```
 
-If the automated migration completes successfully, skip to **Step 7** to update plugins.
+If the automated upgrade completes successfully, skip to **Step 7** to update plugins.
 If any steps fail, continue with the manual steps below.
 
 ## Step 2: Update Capacitor Dependencies

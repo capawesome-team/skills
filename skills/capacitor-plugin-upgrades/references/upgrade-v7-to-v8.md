@@ -1,6 +1,6 @@
-# Migration: Capacitor Plugin 7 → 8
+# Upgrade: Capacitor Plugin 7 → 8
 
-## Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Upgrade
 
 Run the official migration tool from the plugin's root directory:
 
@@ -8,7 +8,7 @@ Run the official migration tool from the plugin's root directory:
 npx @capacitor/plugin-migration-v7-to-v8@latest
 ```
 
-If the automated migration completes successfully, skip to **Step 9**.
+If the automated upgrade completes successfully, skip to **Step 9**.
 If any steps fail, continue with the manual steps below.
 
 ## Step 2: Update Capacitor Dependencies
@@ -257,7 +257,7 @@ Build the plugin's test/example app on both platforms to verify.
 
 ## Error Handling
 
-* If the automated migration tool (`@capacitor/plugin-migration-v7-to-v8`) fails, apply the manual steps above for the failing parts.
+* If the automated upgrade tool (`@capacitor/plugin-migration-v7-to-v8`) fails, apply the manual steps above for the failing parts.
 * If Android build fails with Gradle property syntax errors, search all `.gradle` files for property assignments without `=` and update them. Remember: method calls do not use `=`.
 * If Kotlin compilation fails after updating to 2.2, check the Kotlin 2.2 breaking changes in Step 7c above.
 * If iOS build fails, verify the deployment target is set to 15.0 in both the podspec and Package.swift (if applicable).

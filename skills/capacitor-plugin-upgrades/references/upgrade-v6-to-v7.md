@@ -1,6 +1,6 @@
-# Migration: Capacitor Plugin 6 → 7
+# Upgrade: Capacitor Plugin 6 → 7
 
-## Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Upgrade
 
 Run the official migration tool from the plugin's root directory:
 
@@ -8,7 +8,7 @@ Run the official migration tool from the plugin's root directory:
 npx @capacitor/plugin-migration-v6-to-v7@latest
 ```
 
-If the automated migration completes successfully, skip to **Step 9**.
+If the automated upgrade completes successfully, skip to **Step 9**.
 If any steps fail, continue with the manual steps below.
 
 ## Step 2: Update Capacitor Dependencies
@@ -181,6 +181,6 @@ Build the plugin's test/example app on both platforms to verify.
 
 ## Error Handling
 
-* If the automated migration tool fails, apply the manual steps above for the failing parts.
+* If the automated upgrade tool fails, apply the manual steps above for the failing parts.
 * If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
 * If iOS build fails, verify the deployment target is set to 14.0 in both the podspec and Package.swift.

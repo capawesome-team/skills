@@ -1,15 +1,15 @@
-# Migration: Capacitor 7 → 8
+# Upgrade: Capacitor 7 → 8
 
-## Step 1: Attempt Automated Migration
+## Step 1: Attempt Automated Upgrade
 
-The Capacitor CLI provides an automated migration command. Try this first:
+The Capacitor CLI provides an automated upgrade command. Try this first:
 
 ```bash
 npm i -D @capacitor/cli@latest
 npx cap migrate
 ```
 
-If the automated migration completes successfully, skip to **Step 8** to update plugins.
+If the automated upgrade completes successfully, skip to **Step 8** to update plugins.
 If any steps fail, the CLI will report which ones. Continue with the manual steps below for those.
 
 ## Step 2: Update Capacitor Dependencies
@@ -219,6 +219,6 @@ npx cap run ios
 ## Error Handling
 
 * If `npx cap migrate` fails partially, check the terminal output for which steps failed and apply those manually using the steps above.
-* If Android build fails after migration, run **Tools > AGP Upgrade Assistant** in Android Studio and select version `8.13.0`.
+* If Android build fails after upgrade, run **Tools > AGP Upgrade Assistant** in Android Studio and select version `8.13.0`.
 * If iOS build fails, verify the deployment target is set to 15.0 in both the Xcode project settings and the Podfile.
 * If Gradle property syntax warnings appear, search all `.gradle` files for property assignments without `=` and update them.

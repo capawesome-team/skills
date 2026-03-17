@@ -12,10 +12,10 @@ Agent skills for interacting with Capawesome, Capacitor and the Ionic Framework.
 
 - 🤖 **Agent-optimized**: Every instruction is unambiguous and machine-actionable for AI agents.
 - 📱 **Cross-platform**: Covers both Android and iOS platform specifics.
-- 🔄 **Capacitor Migrations**: Migrate Capacitor apps and plugins across major versions (4 → 8).
+- 🔄 **Capacitor Upgrades**: Upgrade Capacitor apps and plugins across major versions (4 → 8).
 - 📦 **Plugin Setup**: Install and configure 160+ Capacitor plugins from official and community sources.
 - ☁️ **Cloud Integration**: Set up native builds, live updates, and app store publishing with Capawesome Cloud.
-- 🚀 **Automated First**: Tries automated migration before falling back to manual steps.
+- 🚀 **Automated First**: Tries automated upgrade before falling back to manual steps.
 - 🐛 **Error Handling**: Common issues and fixes included in every skill.
 - 🔁 **Up-to-date**: Always supports the latest Capacitor version.
 
@@ -33,10 +33,10 @@ npx skills add capawesome-team/skills
 
 After installing the skills, you can use them in your agent. Here are some examples...
 
-Migrate a Capacitor app across major versions:
+Upgrade a Capacitor app across major versions:
 
 ```plaintext
-Migrate my Capacitor app from version 5 to version 7.
+Upgrade my Capacitor app from version 5 to version 7.
 ```
 
 Install and configure any of 160+ supported Capacitor plugins:
@@ -61,10 +61,10 @@ Add push notifications with Firebase Cloud Messaging:
 Set up push notifications with Firebase Cloud Messaging in my Capacitor app.
 ```
 
-Migrate a Capacitor plugin to a newer major version:
+Upgrade a Capacitor plugin to a newer major version:
 
 ```plaintext
-Migrate my Capacitor plugin to version 7.
+Upgrade my Capacitor plugin to version 7.
 ```
 
 Migrate from Ionic Appflow or Ionic Enterprise SDK plugins:
@@ -79,8 +79,8 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 
 | Skill | Description |
 | ----- | ----------- |
-| [`capacitor-app-migrations`](./skills/capacitor-app-migrations/) | Migrate a Capacitor app to a newer major version. |
-| [`capacitor-plugin-migrations`](./skills/capacitor-plugin-migrations/) | Migrate a Capacitor plugin to a newer major version. |
+| [`capacitor-app-upgrades`](./skills/capacitor-app-upgrades/) | Upgrade a Capacitor app to a newer major version. |
+| [`capacitor-plugin-upgrades`](./skills/capacitor-plugin-upgrades/) | Upgrade a Capacitor plugin to a newer major version. |
 | [`capacitor-plugins`](./skills/capacitor-plugins/) | Install, configure, and use Capacitor plugins from official and community sources. |
 | [`capacitor-push-notifications`](./skills/capacitor-push-notifications/) | Set up and use push notifications in Capacitor apps using Firebase Cloud Messaging. |
 

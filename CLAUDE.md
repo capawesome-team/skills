@@ -29,8 +29,8 @@ Each `SKILL.md` has YAML front matter (`name`, `description`) followed by:
 
 Key conventions:
 - **Always quote the `description` field** in YAML front matter with double quotes to prevent YAML parsing errors (colons and other special characters in unquoted values break parsers).
-- Migration skills try automated migration first (`npx cap migrate`), then provide manual fallback steps.
-- Migration skills cover both Android and iOS platform specifics.
+- Upgrade skills try automated upgrade first (`npx cap migrate`), then provide manual fallback steps.
+- Upgrade skills cover both Android and iOS platform specifics.
 - Reference files are cross-referenced from `SKILL.md` via relative paths.
 - Skill names use kebab-case.
 
@@ -46,8 +46,8 @@ Skills are executed by AI agents, not humans. Every instruction must be unambigu
 
 ## Naming Conventions
 
-- `capacitor-app-migrations` — migrating a Capacitor **app** (covers all versions, routes to per-version reference files)
-- `capacitor-plugin-migrations` — migrating a Capacitor **plugin** (covers all versions, routes to per-version reference files)
+- `capacitor-app-upgrades` — upgrading a Capacitor **app** (covers all versions, routes to per-version reference files)
+- `capacitor-plugin-upgrades` — upgrading a Capacitor **plugin** (covers all versions, routes to per-version reference files)
 - Other skills are named after the product/feature they cover
 
 ## README.md
