@@ -1,6 +1,6 @@
 ---
 name: capawesome-cloud
-description: Guides the agent through setting up and using Capawesome Cloud for Capacitor apps. Covers three core workflows: (1) Native Builds — cloud builds for iOS and Android, signing certificates, environments, Trapeze configuration, and build artifacts; (2) Live Updates — OTA updates via the @capawesome/capacitor-live-update plugin, channels, versioning, rollbacks, and code signing; (3) App Store Publishing — automated submissions to Apple App Store (TestFlight) and Google Play Store. Includes CI/CD integration for all workflows. Do not use for non-Capacitor mobile frameworks.
+description: "Guides the agent through setting up and using Capawesome Cloud for Capacitor apps. Covers three core workflows: (1) Native Builds — cloud builds for iOS and Android, signing certificates, environments, Trapeze configuration, and build artifacts; (2) Live Updates — OTA updates via the @capawesome/capacitor-live-update plugin, channels, versioning, rollbacks, and code signing; (3) App Store Publishing — automated submissions to Apple App Store (TestFlight) and Google Play Store. Includes CI/CD integration for all workflows. Do not use for non-Capacitor mobile frameworks."
 ---
 
 # Capawesome Cloud
