@@ -19,6 +19,8 @@ Agent skills for interacting with Capawesome, Capacitor and the Ionic Framework.
 - 🐛 **Error Handling**: Common issues and fixes included in every skill.
 - 🔁 **Up-to-date**: Always supports the latest Capacitor version.
 
+Missing a feature? Just [open an issue](https://github.com/capawesome-team/skills/issues/new) and we'll take a look!
+
 ## Installation
 
 To install a skill, use the [skills](https://skills.sh/) command:
@@ -29,10 +31,46 @@ npx skills add capawesome-team/skills
 
 ## Usage
 
-After installing the skills, you can use them in your agent. For example, to use the `capawesome-cloud` skill, you can prompt your agent like this:
+After installing the skills, you can use them in your agent. Here are some examples...
+
+Migrate a Capacitor app across major versions:
 
 ```plaintext
-Use the `capawesome-cloud` skill to help me set up Capacitor Live Updates in my project.
+Migrate my Capacitor app from version 5 to version 7.
+```
+
+Install and configure any of 160+ supported Capacitor plugins:
+
+```plaintext
+Install and configure the @capawesome/capacitor-file-picker plugin in my project.
+```
+
+Set up live updates, native builds, or app store publishing with Capawesome Cloud:
+
+```plaintext
+Set up Capacitor Live Updates with Capawesome Cloud in my project.
+```
+
+```plaintext
+Set up native builds with Capawesome Cloud for my Capacitor app.
+```
+
+Add push notifications with Firebase Cloud Messaging:
+
+```plaintext
+Set up push notifications with Firebase Cloud Messaging in my Capacitor app.
+```
+
+Migrate a Capacitor plugin to a newer major version:
+
+```plaintext
+Migrate my Capacitor plugin to version 7.
+```
+
+Migrate from Ionic Appflow or Ionic Enterprise SDK plugins:
+
+```plaintext
+Migrate my app from Ionic Appflow to Capawesome Cloud.
 ```
 
 ## Skills
