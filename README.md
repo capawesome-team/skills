@@ -29,6 +29,14 @@ To install a skill, use the [skills](https://skills.sh/) command:
 npx skills add capawesome-team/skills
 ```
 
+## Update
+
+To regularly update the skills to the latest version, run:
+
+```bash
+npx skills update
+```
+
 ## Usage
 
 After installing the skills, you can use them in your agent. Here are some examples...
