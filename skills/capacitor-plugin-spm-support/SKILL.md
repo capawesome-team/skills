@@ -27,6 +27,7 @@ The project must be a Capacitor **plugin** (not an app project). The plugin must
    - The existing `scripts` entries.
 2. Read the `.podspec` file in the plugin root. Extract:
    - The **pod name** (the `Pod::Spec.new` argument, e.g., `CapawesomeCapacitorAppReview`). This becomes the **SPM package name**.
+   - The **iOS deployment target** from `s.ios.deployment_target` (e.g., `'13.0'`). Extract the major version number (e.g., `13`). This becomes the **SPM iOS version**.
    - All **third-party CocoaPods dependencies** — any `s.dependency` or `spec.dependency` entries that are **not** `Capacitor` or `CapacitorCordova`. Record each dependency name and version constraint.
 3. Identify the **plugin Swift file** in `ios/Plugin/`. It contains a class extending `CAPPlugin` with `@objc(<PluginClassName>)`. Extract:
    - The **plugin class name** (e.g., `AppReviewPlugin`).
@@ -64,7 +65,7 @@ import PackageDescription
 
 let package = Package(
     name: "<SPM_PACKAGE_NAME>",
-    platforms: [.iOS(.v13)],
+    platforms: [.iOS(.v<SPM_IOS_VERSION>)],
     products: [
         .library(
             name: "<SPM_PACKAGE_NAME>",
@@ -92,6 +93,7 @@ let package = Package(
 ```
 
 Replace all placeholders:
+- `<SPM_IOS_VERSION>` — the SPM iOS version from Step 1 (e.g., `13`).
 - `<SPM_PACKAGE_NAME>` — the pod name from Step 1 (e.g., `CapawesomeCapacitorAppReview`).
 - `<PLUGIN_CLASS_NAME>` — the plugin class name from Step 1 (e.g., `AppReviewPlugin`).
 - `<CAPACITOR_MAJOR_VERSION>` — the Capacitor major version from Step 1 (e.g., `6`).
