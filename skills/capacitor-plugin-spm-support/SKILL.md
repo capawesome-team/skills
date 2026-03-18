@@ -27,6 +27,7 @@ The project must be a Capacitor **plugin** (not an app project). The plugin must
    - The existing `scripts` entries.
 2. Read the `.podspec` file in the plugin root. Extract:
    - The **pod name** (the `Pod::Spec.new` argument, e.g., `CapawesomeCapacitorAppReview`). This becomes the **SPM package name**.
+   - All **third-party CocoaPods dependencies** — any `s.dependency` or `spec.dependency` entries that are **not** `Capacitor` or `CapacitorCordova`. Record each dependency name and version constraint.
 3. Identify the **plugin Swift file** in `ios/Plugin/`. It contains a class extending `CAPPlugin` with `@objc(<PluginClassName>)`. Extract:
    - The **plugin class name** (e.g., `AppReviewPlugin`).
    - The **JavaScript name** from the Objective-C `.m` file's `CAP_PLUGIN` macro first string argument (e.g., `AppReview`).
@@ -36,7 +37,24 @@ The project must be a Capacitor **plugin** (not an app project). The plugin must
    - `<PluginClassName>.m` (implementation file with `CAP_PLUGIN` macro)
 5. Read the Capacitor peer dependency version from `package.json` (`peerDependencies["@capacitor/core"]`). Determine the major version (e.g., `6`). This is the **Capacitor major version**.
 
-### Step 2: Create `Package.swift`
+### Step 2: Resolve CocoaPods Dependencies for SPM
+
+Skip this step if no third-party CocoaPods dependencies were found in Step 1.
+
+For each third-party CocoaPods dependency, an equivalent SPM-compatible package is needed. Present the list of dependencies to the user and ask whether they can provide the SPM package URLs themselves, or whether the agent should search the web for SPM equivalents.
+
+**If the user provides SPM package URLs:** Record them and proceed to Step 3.
+
+**If the user requests a web search:** For each CocoaPods dependency:
+
+1. Search the web for `"<dependency_name>" Swift Package Manager` to determine whether the original CocoaPods dependency also supports SPM. Many popular libraries (e.g., Firebase, Alamofire) distribute via both CocoaPods and SPM from the same repository.
+2. If the original library supports SPM, use its Git repository URL. Use the **same version** as specified in the podspec — convert the CocoaPods version constraint to the SPM equivalent (e.g., `~> 5.0` becomes `.upToNextMajor(from: "5.0.0")`, `= 2.1.0` becomes `.exact("2.1.0")`).
+3. If the original library does **not** support SPM, search for `"<dependency_name>" SPM alternative` to find a replacement package that provides equivalent functionality via SPM. Use a version that is compatible with the version used in the podspec.
+4. If no SPM-compatible alternative exists, inform the user and ask how to proceed.
+
+Record the resolved SPM package URL, version requirement, and product name(s) for each dependency. These will be added to `Package.swift` in the next step.
+
+### Step 3: Create `Package.swift`
 
 Create `Package.swift` in the plugin root directory with the following content:
 
@@ -54,6 +72,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ionic-team/capacitor-swift-pm.git", branch: "<CAPACITOR_MAJOR_VERSION>.0.0")
+        // <ADDITIONAL_PACKAGE_DEPENDENCIES>
     ],
     targets: [
         .target(
@@ -61,6 +80,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
                 .product(name: "Cordova", package: "capacitor-swift-pm")
+                // <ADDITIONAL_TARGET_DEPENDENCIES>
             ],
             path: "ios/Plugin"),
         .testTarget(
@@ -75,8 +95,10 @@ Replace all placeholders:
 - `<SPM_PACKAGE_NAME>` — the pod name from Step 1 (e.g., `CapawesomeCapacitorAppReview`).
 - `<PLUGIN_CLASS_NAME>` — the plugin class name from Step 1 (e.g., `AppReviewPlugin`).
 - `<CAPACITOR_MAJOR_VERSION>` — the Capacitor major version from Step 1 (e.g., `6`).
+- `<ADDITIONAL_PACKAGE_DEPENDENCIES>` — if third-party dependencies were resolved in Step 2, add a `.package(url: "<repo_url>", <version_requirement>)` entry for each. Remove the comment line if no extra dependencies exist.
+- `<ADDITIONAL_TARGET_DEPENDENCIES>` — for each package dependency added above, add a corresponding `.product(name: "<ProductName>", package: "<package-name>")` entry. Remove the comment line if no extra dependencies exist.
 
-### Step 3: Update the Swift Plugin Class
+### Step 4: Update the Swift Plugin Class
 
 Open the plugin Swift file (e.g., `ios/Plugin/<PluginClassName>.swift`).
 
@@ -102,7 +124,7 @@ Replace:
 - `<JS_NAME>` — the JavaScript name from the `.m` file's `CAP_PLUGIN` macro (e.g., `AppReview`).
 - The `pluginMethods` array — list **all** methods from the `.m` file's `CAP_PLUGIN_METHOD` calls, preserving each method's name and return type exactly.
 
-### Step 4: Delete Objective-C Bridge Files
+### Step 5: Delete Objective-C Bridge Files
 
 Delete the following files from `ios/Plugin/`:
 - `<PluginClassName>.h`
@@ -110,7 +132,7 @@ Delete the following files from `ios/Plugin/`:
 
 These are no longer needed because the plugin registration is now handled by the `CAPBridgedPlugin` protocol in Swift.
 
-### Step 5: Clean Up the Xcode Project File
+### Step 6: Clean Up the Xcode Project File
 
 Open `ios/Plugin.xcodeproj/project.pbxproj` and remove **all** references to the deleted Objective-C files. Specifically, remove lines referencing:
 - `<PluginClassName>.h` — file references, build phase entries (`PBXBuildFile`, `PBXFileReference`, `PBXGroup` children, `PBXHeadersBuildPhase`)
@@ -118,7 +140,7 @@ Open `ios/Plugin.xcodeproj/project.pbxproj` and remove **all** references to the
 
 Search for both filenames in the `.pbxproj` file and remove every line that references them.
 
-### Step 6: Update `.gitignore`
+### Step 7: Update `.gitignore`
 
 Open `.gitignore` in the plugin root. Add the following entries if not already present:
 
@@ -134,7 +156,7 @@ Open `.gitignore` in the plugin root. Add the following entries if not already p
 
 Place these entries in the iOS section of the `.gitignore` file, after any existing iOS-related entries (e.g., `Pods`, `Podfile.lock`).
 
-### Step 7: Update `package.json`
+### Step 8: Update `package.json`
 
 Apply two changes to `package.json`:
 
@@ -157,7 +179,7 @@ Apply two changes to `package.json`:
 
 If the `ios:pod:install` script does not exist, add the `ios:spm:install` script after the last existing script entry.
 
-### Step 8: Verify
+### Step 9: Verify
 
 1. Run `npm install` in the plugin root to ensure `package.json` is valid.
 2. Verify the iOS build still succeeds by building the plugin's example or test app.
@@ -170,3 +192,4 @@ If the `ios:pod:install` script does not exist, add the `ios:spm:install` script
 - If the plugin has no test target directory (`ios/PluginTests`), remove the `.testTarget` block from `Package.swift`.
 - If the plugin has additional Swift source files beyond the main plugin file, no extra changes are needed — SPM automatically includes all `.swift` files in the target path.
 - If the `.m` file uses `CAPPluginReturnNone` instead of `CAPPluginReturnPromise` for some methods, preserve the original return type in the `pluginMethods` array.
+- If a CocoaPods dependency has no SPM equivalent and no alternative can be found, the plugin cannot fully support SPM. Inform the user and suggest they either vendor the dependency source or wait for upstream SPM support.
