@@ -114,24 +114,27 @@ For development certificates, use `--certificate-type DEVELOPMENT` instead of `D
 
 The `.p12` file requires combining the certificate with the private key using `openssl`.
 
-**Important:** The following commands contain a `<PASSWORD>` placeholder. Print these commands for the user and ask them to replace `<PASSWORD>` with their desired certificate password, then run the commands manually. Do **not** ask the user for the password.
+First, decode the base64 certificate content to a DER file. Replace `<CERTIFICATE_CONTENT>` with the `certificateContent` value from Step 4:
 
 ```bash
-# Decode the base64 certificate content to a DER file
 echo "<CERTIFICATE_CONTENT>" | base64 -d > cert.cer
+```
 
-# Convert DER to PEM format
+Then convert DER to PEM format:
+
+```bash
 openssl x509 -inform DER -in cert.cer -out cert.pem
+```
 
-# Combine certificate and private key into a .p12 file
+Finally, combine the certificate and private key into a `.p12` file. The following command contains a `<PASSWORD>` placeholder. Print this command for the user and ask them to replace `<PASSWORD>` with their desired certificate password, then run the command manually. Do **not** ask the user for the password.
+
+```bash
 openssl pkcs12 -export \
   -out cert.p12 \
   -inkey cert.key \
   -in cert.pem \
   -passout pass:<PASSWORD>
 ```
-
-Replace `<CERTIFICATE_CONTENT>` with the `certificateContent` value from Step 4.
 
 After the user confirms the `.p12` file has been created, the intermediate files (`cert.cer`, `cert.pem`, `cert.csr`) can be deleted. The `cert.key` file should be kept securely as a backup.
 
