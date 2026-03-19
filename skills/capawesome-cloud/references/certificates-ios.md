@@ -126,14 +126,13 @@ Then convert DER to PEM format:
 openssl x509 -inform DER -in cert.cer -out cert.pem
 ```
 
-Finally, combine the certificate and private key into a `.p12` file. The following command contains a `<PASSWORD>` placeholder. Print this command for the user and ask them to replace `<PASSWORD>` with their desired certificate password, then run the command manually. Do **not** ask the user for the password.
+Finally, combine the certificate and private key into a `.p12` file. The following command prompts for a password interactively. Print this command for the user and ask them to run it manually, as it requires interactive password input.
 
 ```bash
 openssl pkcs12 -export \
   -out cert.p12 \
   -inkey cert.key \
-  -in cert.pem \
-  -passout pass:<PASSWORD>
+  -in cert.pem
 ```
 
 After the user confirms the `.p12` file has been created, the intermediate files (`cert.cer`, `cert.pem`, `cert.csr`) can be deleted. The `cert.key` file should be kept securely as a backup.
