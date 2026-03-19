@@ -132,7 +132,10 @@ Finally, combine the certificate and private key into a `.p12` file. The followi
 openssl pkcs12 -export \
   -out cert.p12 \
   -inkey cert.key \
-  -in cert.pem
+  -in cert.pem \
+  -keypbe PBE-SHA1-3DES \
+  -certpbe PBE-SHA1-3DES \
+  -macalg sha1
 ```
 
 After the user confirms the `.p12` file has been created, the intermediate files (`cert.cer`, `cert.pem`, `cert.csr`) can be deleted. The `cert.key` file should be kept securely as a backup.
