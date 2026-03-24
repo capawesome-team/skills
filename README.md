@@ -99,7 +99,7 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 | ----- | ----------- |
 | [`capawesome-cloud`](./skills/capawesome-cloud/) | Set up and manage native builds, live updates, and app store publishing using Capawesome Cloud. |
 
-### Ionic
+### Ionic Appflow
 
 | Skill | Description |
 | ----- | ----------- |
