@@ -1,6 +1,9 @@
 ---
 name: capacitor-app-upgrades
 description: "Guides the agent through upgrading a Capacitor app project to a newer major version. Supports upgrades from Capacitor 4 through 8, including multi-version jumps. Covers automated upgrade via the Capacitor CLI and manual step-by-step fallback for each version. Do not use for plugin library upgrade or non-Capacitor mobile frameworks."
+metadata:
+  author: capawesome-team
+  source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-app-upgrades
 ---
 
 # Capacitor App Upgrade

@@ -1,6 +1,9 @@
 ---
 name: capacitor-push-notifications
 description: "Guides the agent through setting up and using push notifications in Capacitor apps using Firebase Cloud Messaging via the @capacitor-firebase/messaging plugin. Covers Firebase project setup, plugin installation, platform-specific configuration (Android, iOS, Web), APNs certificate setup, requesting permissions, retrieving FCM tokens, listening for notifications, topic subscriptions, notification channels, and testing. Do not use for local notifications, non-Firebase push providers, migrating Capacitor apps or plugins, or non-Capacitor mobile frameworks."
+metadata:
+  author: capawesome-team
+  source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-push-notifications
 ---
 
 # Capacitor Push Notifications

@@ -1,6 +1,9 @@
 ---
 name: skill-creator
 description: Authors and structures professional-grade agent skills following the agentskills.io spec. Use when creating new skill directories, drafting procedural instructions, or optimizing metadata for discoverability. Don't use for general documentation, non-agentic library code, or README files.
+metadata:
+  author: capawesome-team
+  source: https://github.com/capawesome-team/skills/tree/main/.claude/skills/skill-creator
 ---
 
 # Skill Authoring Procedure

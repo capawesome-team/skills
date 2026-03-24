@@ -1,6 +1,9 @@
 ---
 name: capacitor-plugin-upgrades
 description: "Guides the agent through upgrading a Capacitor plugin to a newer major version. Supports upgrades from Capacitor 4 through 8, including multi-version jumps. Covers automated upgrade via official migration tools, Android SDK targets, Gradle configuration, Java/Kotlin versions, iOS deployment targets, and manual step-by-step fallback for each version. Do not use for app project upgrade or non-Capacitor plugin frameworks."
+metadata:
+  author: capawesome-team
+  source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-plugin-upgrades
 ---
 
 # Capacitor Plugin Upgrade
