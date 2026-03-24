@@ -1,6 +1,6 @@
 ---
 name: capacitor-plugins
-description: "Guides the agent through installing, configuring, and using Capacitor plugins from five sources — official Capacitor plugins, Capawesome plugins, Capacitor Community plugins, Capacitor Firebase plugins, and Capacitor MLKit plugins. Covers installation, platform-specific configuration (Android and iOS), and basic usage examples. Do not use for migrating Capacitor apps or plugins to a newer version, setting up Capacitor Live Updates, or non-Capacitor mobile frameworks."
+description: "Guides the agent through installing, configuring, and using Capacitor plugins from six sources — official Capacitor plugins, Capawesome plugins, Capacitor Community plugins, Capacitor Firebase plugins, Capacitor MLKit plugins, and RevenueCat plugins. Covers installation, platform-specific configuration (Android and iOS), and basic usage examples. Do not use for migrating Capacitor apps or plugins to a newer version, setting up Capacitor Live Updates, or non-Capacitor mobile frameworks."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-plugins
@@ -8,7 +8,7 @@ metadata:
 
 # Capacitor Plugins
 
-Install, configure, and use Capacitor plugins from official, Capawesome, community, Firebase, and MLKit sources.
+Install, configure, and use Capacitor plugins from official, Capawesome, community, Firebase, MLKit, and RevenueCat sources.
 
 ## Prerequisites
 
