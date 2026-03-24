@@ -87,17 +87,36 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 
 | Skill | Description |
 | ----- | ----------- |
+| [`capacitor-angular`](./skills/capacitor-angular/) | Angular-specific patterns and best practices for Capacitor app development. |
+| [`capacitor-app-creation`](./skills/capacitor-app-creation/) | Create a new Capacitor app from scratch with platform setup and optional integrations. |
+| [`capacitor-app-development`](./skills/capacitor-app-development/) | General Capacitor app development — core concepts, CLI usage, app configuration, troubleshooting, and best practices. |
 | [`capacitor-app-upgrades`](./skills/capacitor-app-upgrades/) | Upgrade a Capacitor app to a newer major version. |
+| [`capacitor-in-app-purchases`](./skills/capacitor-in-app-purchases/) | Set up in-app purchases and subscriptions in Capacitor apps. |
+| [`capacitor-plugin-development`](./skills/capacitor-plugin-development/) | Create and maintain Capacitor plugins from scratch. |
 | [`capacitor-plugin-spm-support`](./skills/capacitor-plugin-spm-support/) | Add Swift Package Manager (SPM) support to a Capacitor plugin. |
 | [`capacitor-plugin-upgrades`](./skills/capacitor-plugin-upgrades/) | Upgrade a Capacitor plugin to a newer major version. |
 | [`capacitor-plugins`](./skills/capacitor-plugins/) | Install, configure, and use Capacitor plugins from official and community sources. |
 | [`capacitor-push-notifications`](./skills/capacitor-push-notifications/) | Set up and use push notifications in Capacitor apps using Firebase Cloud Messaging. |
+| [`capacitor-react`](./skills/capacitor-react/) | React-specific patterns and best practices for Capacitor app development. |
+| [`capacitor-vue`](./skills/capacitor-vue/) | Vue-specific patterns and best practices for Capacitor app development. |
 
 ### Capawesome
 
 | Skill | Description |
 | ----- | ----------- |
+| [`capawesome-cli`](./skills/capawesome-cli/) | Install, configure, and use the Capawesome CLI for authentication, project linking, and CI/CD integration. |
 | [`capawesome-cloud`](./skills/capawesome-cloud/) | Set up and manage native builds, live updates, and app store publishing using Capawesome Cloud. |
+
+### Ionic
+
+| Skill | Description |
+| ----- | ----------- |
+| [`ionic-angular`](./skills/ionic-angular/) | Angular-specific Ionic development patterns — navigation, lifecycle hooks, forms, and standalone vs NgModule architecture. |
+| [`ionic-app-creation`](./skills/ionic-app-creation/) | Create a new Ionic app with framework integration, Capacitor setup, and Tailwind CSS. |
+| [`ionic-app-development`](./skills/ionic-app-development/) | General Ionic Framework development — core concepts, component reference, CLI usage, layout, theming, and troubleshooting. |
+| [`ionic-app-upgrades`](./skills/ionic-app-upgrades/) | Upgrade an Ionic app to a newer major version (4 through 8). |
+| [`ionic-react`](./skills/ionic-react/) | React-specific Ionic development patterns — components, IonReactRouter, lifecycle hooks, and state management. |
+| [`ionic-vue`](./skills/ionic-vue/) | Vue-specific Ionic development patterns — components, navigation, lifecycle hooks, and composables. |
 
 ### Ionic Appflow
 

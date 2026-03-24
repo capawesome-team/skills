@@ -73,3 +73,4 @@ Build the plugin's test/example app on both platforms to verify.
 
 - **`capacitor-app-upgrades`** — If the app project itself also needs upgrading, use this skill.
 - **`capacitor-plugin-spm-support`** — After upgrading a plugin to Capacitor 6+, use this skill to add Swift Package Manager support.
+- **`capacitor-plugin-development`** — For creating new Capacitor plugins from scratch, including scaffolding, native implementation, and publishing.

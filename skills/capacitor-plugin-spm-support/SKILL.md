@@ -198,3 +198,8 @@ If the `ios:pod:install` script does not exist, add the `ios:spm:install` script
 - If the plugin has additional Swift source files beyond the main plugin file, no extra changes are needed — SPM automatically includes all `.swift` files in the target path.
 - If the `.m` file uses `CAPPluginReturnNone` instead of `CAPPluginReturnPromise` for some methods, preserve the original return type in the `pluginMethods` array.
 - If a CocoaPods dependency has no SPM equivalent and no alternative can be found, the plugin cannot fully support SPM. Inform the user and suggest they either vendor the dependency source or wait for upstream SPM support.
+
+## Related Skills
+
+- **`capacitor-plugin-development`** — For creating new Capacitor plugins from scratch, including scaffolding, native implementation, and publishing.
+- **`capacitor-plugin-upgrades`** — For upgrading a Capacitor plugin to a newer major version.

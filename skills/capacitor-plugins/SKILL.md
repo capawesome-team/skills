@@ -278,6 +278,12 @@ npx cap sync
 | Subject Segmentation | `@capacitor-mlkit/subject-segmentation` | `references/mlkit-subject-segmentation.md` |
 | Translation | `@capacitor-mlkit/translation` | `references/mlkit-translation.md` |
 
+### RevenueCat Plugins
+
+| Plugin | Package | Reference |
+| ------ | ------- | --------- |
+| Purchases | `@revenuecat/purchases-capacitor` | `references/revenuecat-purchases.md` |
+
 ## Error Handling
 
 - **Installation fails**: Verify the package name is correct and the plugin version is compatible with the project's Capacitor version. Check `@capacitor/core` version in `package.json`.
@@ -286,3 +292,9 @@ npx cap sync
 - **iOS build fails**: Check that required `Info.plist` entries are present. Verify the deployment target meets the plugin's minimum requirement.
 - **Plugin not found at runtime**: Ensure `npx cap sync` was run after installation. For iOS, verify the dependency was installed (pod for CocoaPods, package for SPM). For Android, verify the Gradle sync completed.
 - **Permission denied at runtime**: Check that permissions are declared in platform config files AND requested at runtime via `checkPermissions()` / `requestPermissions()` where applicable.
+
+## Related Skills
+
+- **`capacitor-app-development`** — For general Capacitor development topics including troubleshooting, configuration, and best practices.
+- **`capacitor-push-notifications`** — For detailed push notification setup with Firebase Cloud Messaging beyond basic plugin installation.
+- **`capacitor-in-app-purchases`** — For detailed in-app purchase setup including store configuration, purchase flows, receipt validation, and testing.

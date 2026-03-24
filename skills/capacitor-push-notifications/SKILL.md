@@ -133,4 +133,5 @@ For each selected feature, read `references/implementation.md` and apply the rel
 
 ## Related Skills
 
+- **`capacitor-app-development`** — For general Capacitor development topics, troubleshooting, and best practices.
 - **`capacitor-plugins`** — For general Capacitor plugin installation and configuration, including other Firebase plugins.

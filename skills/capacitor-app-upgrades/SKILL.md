@@ -68,5 +68,7 @@ npx cap run ios
 
 ## Related Skills
 
+- **`capacitor-app-development`** — For general Capacitor development topics, troubleshooting, and best practices after completing the upgrade.
 - **`capacitor-plugin-upgrades`** — If the project contains Capacitor plugins that also need upgrading, use this skill after the app upgrade.
 - **`capacitor-plugins`** — For installing or reconfiguring plugins after the app upgrade.
+- **`ionic-app-upgrades`** — If the project uses the Ionic Framework UI library, the Ionic version may also need upgrading alongside Capacitor.
