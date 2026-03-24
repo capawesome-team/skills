@@ -127,3 +127,7 @@ For each selected feature, read `references/implementation.md` and apply the rel
 - **FCM token is `null`**: Ensure `requestPermissions()` was called and returned `granted` before calling `getToken()`. On iOS, verify the device is not a simulator (simulators cannot receive push notifications).
 - **`checkPermissions()` returns `denied`**: The user has permanently denied notification permissions. Guide them to re-enable via device settings (Settings > App > Notifications).
 - **Android 13+: No permission prompt**: On Android 13 (API 33) and above, `requestPermissions()` must be called explicitly. Earlier Android versions grant notification permission by default.
+
+## Related Skills
+
+- **`capacitor-plugins`** — For general Capacitor plugin installation and configuration, including other Firebase plugins.

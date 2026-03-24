@@ -65,3 +65,8 @@ Build the plugin's test/example app on both platforms to verify.
 * If iOS build fails, verify the deployment target matches the target version requirements in the reference file.
 * If Gradle property syntax warnings appear (v8+), search all `.gradle` files for property assignments without `=` and update them.
 * If a multi-version upgrade fails mid-way, fix the current version step before proceeding to the next.
+
+## Related Skills
+
+- **`capacitor-app-upgrades`** — If the app project itself also needs upgrading, use this skill.
+- **`capacitor-plugin-spm-support`** — After upgrading a plugin to Capacitor 6+, use this skill to add Swift Package Manager support.

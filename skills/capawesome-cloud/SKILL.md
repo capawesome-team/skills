@@ -118,3 +118,8 @@ Read `references/app-store-publishing.md` for the full app store publishing setu
 - Deployment timeout → Use `--detached` flag and check logs with `apps:deployments:logs`.
 - `apps:deployments:create` fails with "build not found" → Ensure the build completed successfully.
 - Cancel a stuck deployment → `npx @capawesome/cli apps:deployments:cancel --app-id <APP_ID> --deployment-id <DEPLOYMENT_ID>`.
+
+## Related Skills
+
+- **`capacitor-plugins`** — For installing and configuring Capacitor plugins, including the `@capawesome/capacitor-live-update` plugin.
+- **`ionic-appflow-migration`** — For migrating existing Ionic Appflow projects to Capawesome Cloud.

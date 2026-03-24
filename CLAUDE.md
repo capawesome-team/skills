@@ -50,6 +50,12 @@ Skills are executed by AI agents, not humans. Every instruction must be unambigu
 - `capacitor-plugin-upgrades` — upgrading a Capacitor **plugin** (covers all versions, routes to per-version reference files)
 - Other skills are named after the product/feature they cover
 
+## Planning New Skills
+
+- **Keep the number of skills small.** Before creating a new skill, check if an existing skill can be extended to cover the new topic. Prefer combining related functionality into one skill over splitting it across many.
+- **Cross-link related skills.** Skills should reference each other where relevant to allow agents to easily navigate between related topics (e.g., a live-updates skill linking to the native-builds skill and vice versa).
+- **Check for cross-references after every change.** When adding or modifying skill content, always check whether the new content should link to other skills or whether other skills should link back. Add a `## Related Skills` section at the end of each skill with bullet points referencing related skills.
+
 ## Skills Workflow
 
 **Always use the `skill-creator` skill** (via the Skill tool) when creating, modifying, or restructuring any skill. This ensures all skills follow the agentskills.io spec and maintain consistent structure and metadata.

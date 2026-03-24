@@ -62,3 +62,8 @@ npx cap run ios
 * If iOS build fails, verify the deployment target matches the target version requirements in the reference file.
 * If Gradle property syntax warnings appear (v8+), search all `.gradle` files for property assignments without `=` and update them.
 * If a multi-version upgrade fails mid-way, fix the current version step before proceeding to the next.
+
+## Related Skills
+
+- **`capacitor-plugin-upgrades`** — If the project contains Capacitor plugins that also need upgrading, use this skill after the app upgrade.
+- **`capacitor-plugins`** — For installing or reconfiguring plugins after the app upgrade.

@@ -483,3 +483,8 @@ After all features are verified:
 ### CI/CD
 
 - CI/CD pipeline fails after migration → Compare the old and new pipeline configurations side by side. Ensure all Appflow command replacements use the correct Capawesome CLI flags. Check that `CAPAWESOME_CLOUD_TOKEN` is available as a secret in the CI/CD environment.
+
+## Related Skills
+
+- **`capawesome-cloud`** — Referenced throughout this skill for Native Builds and App Store Publishing setup.
+- **`ionic-enterprise-sdk-migration`** — If the project also uses discontinued Ionic Enterprise SDK plugins (Auth Connect, Identity Vault, Secure Storage), use this skill to migrate them to Capawesome alternatives.

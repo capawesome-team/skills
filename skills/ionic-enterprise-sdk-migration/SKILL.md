@@ -113,3 +113,8 @@ npx cap sync
 - **Identity Vault session management**: Identity Vault's built-in auto-lock, timeout, and lock/unlock events have no direct equivalent. These must be rebuilt using application logic. See the session management section in `references/identity-vault-migration.md`.
 - **Secure Storage encryption**: Ionic Secure Storage has built-in encryption. Capawesome SQLite encryption requires additional platform configuration (SQLCipher). If the user needs database encryption, guide them through the SQLite encryption setup in the `capacitor-plugins` skill reference.
 - **Web platform limitations**: Capawesome Secure Preferences stores values unencrypted in `localStorage` on the web. This is for development only and should not be used in production.
+
+## Related Skills
+
+- **`capacitor-plugins`** — Referenced throughout this skill for plugin installation and platform configuration.
+- **`ionic-appflow-migration`** — If the project also uses Ionic Appflow (Live Updates, Native Builds, App Store Publishing), use this skill to migrate to Capawesome Cloud.
