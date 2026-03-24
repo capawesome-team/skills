@@ -91,6 +91,7 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 | [`capacitor-app-creation`](./skills/capacitor-app-creation/) | Create a new Capacitor app from scratch with platform setup and optional integrations. |
 | [`capacitor-app-development`](./skills/capacitor-app-development/) | General Capacitor app development — core concepts, CLI usage, app configuration, troubleshooting, and best practices. |
 | [`capacitor-app-upgrades`](./skills/capacitor-app-upgrades/) | Upgrade a Capacitor app to a newer major version. |
+| [`capacitor-expert`](./skills/capacitor-expert/) | Comprehensive Capacitor expert reference — core concepts, CLI, plugins, framework integration, best practices, and Capawesome Cloud. |
 | [`capacitor-in-app-purchases`](./skills/capacitor-in-app-purchases/) | Set up in-app purchases and subscriptions in Capacitor apps. |
 | [`capacitor-plugin-development`](./skills/capacitor-plugin-development/) | Create and maintain Capacitor plugins from scratch. |
 | [`capacitor-plugin-spm-support`](./skills/capacitor-plugin-spm-support/) | Add Swift Package Manager (SPM) support to a Capacitor plugin. |
@@ -115,6 +116,7 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 | [`ionic-app-creation`](./skills/ionic-app-creation/) | Create a new Ionic app with framework integration, Capacitor setup, and Tailwind CSS. |
 | [`ionic-app-development`](./skills/ionic-app-development/) | General Ionic Framework development — core concepts, component reference, CLI usage, layout, theming, and troubleshooting. |
 | [`ionic-app-upgrades`](./skills/ionic-app-upgrades/) | Upgrade an Ionic app to a newer major version (4 through 8). |
+| [`ionic-expert`](./skills/ionic-expert/) | Comprehensive Ionic Framework expert skill — core concepts, components, theming, lifecycle, navigation, and framework-specific patterns. |
 | [`ionic-react`](./skills/ionic-react/) | React-specific Ionic development patterns — components, IonReactRouter, lifecycle hooks, and state management. |
 | [`ionic-vue`](./skills/ionic-vue/) | Vue-specific Ionic development patterns — components, navigation, lifecycle hooks, and composables. |
 
