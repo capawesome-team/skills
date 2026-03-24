@@ -1,0 +1,7 @@
+{
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "text": "Keep commit messages short and concise (max 72 characters for the subject line). Use imperative mood (e.g. 'Add feature' not 'Added feature'). Do not include a body unless absolutely necessary."
+    }
+  ]
+}
