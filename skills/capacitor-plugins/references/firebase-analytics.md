@@ -23,6 +23,8 @@ Set `firebaseAnalyticsVersion` in `variables.gradle` (default: `23.0.0`).
 
 ### iOS
 
+#### CocoaPods
+
 Add pod to `ios/App/Podfile` under `# Add your Pods here` (not in `def capacitor_pods`):
 
 ```ruby
@@ -30,6 +32,29 @@ pod 'CapacitorFirebaseAnalytics/Analytics', :path => '../../node_modules/@capaci
 ```
 
 To disable IDFA collection, use `CapacitorFirebaseAnalytics/AnalyticsWithoutAdIdSupport` instead.
+
+#### Swift Package Manager
+
+No additional setup is required for SPM.
+
+To disable IDFA collection, enable the `AnalyticsWithoutAdIdSupport` package trait in `capacitor.config.json` (or `capacitor.config.ts`):
+
+```json
+{
+  "experimental": {
+    "ios": {
+      "spm": {
+        "swiftToolsVersion": "6.1",
+        "packageTraits": {
+          "@capacitor-firebase/analytics": ["AnalyticsWithoutAdIdSupport"]
+        }
+      }
+    }
+  }
+}
+```
+
+SPM trait support requires Capacitor CLI 8.3.0+ and Xcode 16.3+ (Swift 6.1+).
 
 ## Usage
 
