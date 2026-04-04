@@ -62,6 +62,30 @@ npx @capawesome/cli apps:create [--name <name>] [--organization-id <id>]
 npx @capawesome/cli apps:delete [--app-id <id>] [--yes]
 ```
 
+### apps:transfer
+
+Transfer an app to another organization.
+
+```bash
+npx @capawesome/cli apps:transfer [--app-id <id>] [--organization-id <id>] [--yes]
+```
+
+### apps:link
+
+Connect a git repository to an app. The repository information (provider, owner, and repository name) is automatically detected from the local git remote (`origin`).
+
+```bash
+npx @capawesome/cli apps:link [--app-id <id>]
+```
+
+### apps:unlink
+
+Disconnect a git repository from an app.
+
+```bash
+npx @capawesome/cli apps:unlink [--app-id <id>] [--yes]
+```
+
 ## Build Commands
 
 ### apps:builds:create
@@ -79,12 +103,16 @@ Options:
 | `--app-id` | App ID. |
 | `--platform` | `android`, `ios`, or `web`. |
 | `--type` | Build type. Android: `debug`, `release`. iOS: `simulator`, `development`, `ad-hoc`, `app-store`, `enterprise`. |
-| `--git-ref` | Git branch, tag, or commit SHA. |
+| `--git-ref` | Git branch, tag, or commit SHA. Cannot be used with `--path` or `--url`. |
+| `--path` | Path to local source files to upload. Cannot be used with `--git-ref`. |
+| `--url` | URL to a zip file to use as build source. Cannot be used with `--git-ref` or `--path`. |
 | `--certificate` | Name of the signing certificate to use. |
 | `--environment` | Name of the environment to use. |
 | `--destination` | Deployment destination (Android/iOS only). |
 | `--channel` | Channel to deploy to (Web only). |
 | `--stack` | Build stack (`macos-sequoia` or `macos-tahoe`). |
+| `--variable` | Ad hoc environment variable in `key=value` format (repeatable). |
+| `--variable-file` | Path to a file containing ad hoc environment variables in `.env` format. |
 | `--apk` | Download APK after build (Android, optional file path). |
 | `--aab` | Download AAB after build (Android, optional file path). |
 | `--ipa` | Download IPA after build (iOS, optional file path). |
@@ -150,13 +178,13 @@ Options:
 ### apps:certificates:list
 
 ```bash
-npx @capawesome/cli apps:certificates:list [--app-id <id>] [--platform <platform>] [--type <type>] [--json]
+npx @capawesome/cli apps:certificates:list [--app-id <id>] [--platform <platform>] [--type <type>] [--json] [--limit <n>] [--offset <n>]
 ```
 
 ### apps:certificates:get
 
 ```bash
-npx @capawesome/cli apps:certificates:get [--app-id <id>] [--certificate-id <id>] [--name <name>] [--platform <platform>] [--json]
+npx @capawesome/cli apps:certificates:get [--app-id <id>] [--certificate-id <id>] [--name <name>] [--platform <platform>] [--type <type>] [--json]
 ```
 
 ### apps:certificates:update
@@ -168,7 +196,7 @@ npx @capawesome/cli apps:certificates:update [--app-id <id>] [--certificate-id <
 ### apps:certificates:delete
 
 ```bash
-npx @capawesome/cli apps:certificates:delete [--app-id <id>] [--certificate-id <id>] [--name <name>] [--platform <platform>] [--yes]
+npx @capawesome/cli apps:certificates:delete [--app-id <id>] [--certificate-id <id>] [--name <name>] [--platform <platform>] [--type <type>] [--yes]
 ```
 
 ## Environment Commands
@@ -182,7 +210,7 @@ npx @capawesome/cli apps:environments:create --app-id <APP_ID> --name <NAME>
 ### apps:environments:list
 
 ```bash
-npx @capawesome/cli apps:environments:list --app-id <APP_ID> [--json]
+npx @capawesome/cli apps:environments:list --app-id <APP_ID> [--json] [--limit <n>] [--offset <n>]
 ```
 
 ### apps:environments:set
@@ -269,6 +297,39 @@ npx @capawesome/cli apps:channels:update [--app-id <id>] [--channel-id <id>] [--
 
 ## Live Update Commands
 
+### apps:liveupdates:create
+
+Create a new live update by building and deploying web assets using Capawesome Cloud Runners.
+
+```bash
+npx @capawesome/cli apps:liveupdates:create [options]
+```
+
+Options:
+
+| Option | Description |
+|--------|-------------|
+| `--app-id` | App ID. |
+| `--channel` | Channel to deploy to (repeatable). |
+| `--git-ref` | Git branch, tag, or commit SHA. Cannot be used with `--path` or `--url`. |
+| `--path` | Path to local source files to upload. Cannot be used with `--git-ref` or `--url`. |
+| `--url` | URL to a zip file to use as build source. Cannot be used with `--git-ref` or `--path`. |
+| `--certificate` | Name of the certificate to use for the build. |
+| `--environment` | Name of the environment to use for the build. |
+| `--stack` | Build stack (`macos-sequoia` or `macos-tahoe`). |
+| `--variable` | Ad hoc environment variable in `key=value` format (repeatable). |
+| `--variable-file` | Path to a file containing ad hoc environment variables in `.env` format. |
+| `--rollout-percentage` | Rollout percentage 0-100 (default: `100`). |
+| `--android-min` | Minimum Android version code. |
+| `--android-max` | Maximum Android version code. |
+| `--android-eq` | Exact Android version code. |
+| `--ios-min` | Minimum iOS version (CFBundleVersion). |
+| `--ios-max` | Maximum iOS version. |
+| `--ios-eq` | Exact iOS version. |
+| `--custom-property` | `key=value` pairs (repeatable). |
+| `--json` | Output in JSON format. |
+| `--yes, -y` | Skip confirmation prompts. |
+
 ### apps:liveupdates:upload
 
 Upload a locally built bundle and deploy to a channel.
@@ -285,7 +346,7 @@ Options:
 | `--path` | Path to web assets folder or zip. |
 | `--channel` | Channel to deploy to. |
 | `--artifact-type` | `zip` (default) or `manifest`. |
-| `--private-key` | Private key file path for code signing. |
+| `--private-key` | Private key file path or content for code signing. |
 | `--rollout-percentage` | 0-100 for gradual rollout. |
 | `--android-min` | Minimum Android version code. |
 | `--android-max` | Maximum Android version code. |
@@ -295,7 +356,6 @@ Options:
 | `--ios-eq` | Exact iOS version. |
 | `--custom-property` | `key=value` pairs (repeatable). |
 | `--git-ref` | Git reference to associate. |
-| `--expires-in-days` | Auto-delete after N days. |
 | `--yes` | Skip prompts. |
 
 ### apps:liveupdates:register
@@ -357,8 +417,21 @@ npx @capawesome/cli apps:liveupdates:rollout [--app-id <id>] [--channel <name>] 
 Set native version constraints on a web build.
 
 ```bash
-npx @capawesome/cli apps:liveupdates:setnativeversions [--app-id <id>] [--build-id <id>] [--android-min <code>] [--android-max <code>] [--ios-min <ver>] [--ios-max <ver>]
+npx @capawesome/cli apps:liveupdates:setnativeversions [options]
 ```
+
+Options:
+
+| Option | Description |
+|--------|-------------|
+| `--app-id` | App ID. |
+| `--build-id` | Build ID. |
+| `--android-min` | Minimum Android version code. |
+| `--android-max` | Maximum Android version code. |
+| `--android-eq` | Exact Android version code. |
+| `--ios-min` | Minimum iOS version (CFBundleVersion). |
+| `--ios-max` | Maximum iOS version. |
+| `--ios-eq` | Exact iOS version. |
 
 ## Deployment Commands
 
@@ -447,12 +520,14 @@ Options:
 | `--android-package-name` | Android package name. |
 | `--android-release-status` | `completed` or `draft`. |
 | `--google-play-track` | Google Play track. |
+| `--app-google-service-account-key-id` | App Google Service Account Key ID. |
 | `--apple-api-key-id` | Apple API Key ID. |
 | `--apple-app-id` | Apple App ID. |
 | `--apple-app-password` | Apple app-specific password. |
 | `--apple-id` | Apple ID email. |
 | `--apple-issuer-id` | Apple Issuer ID. |
 | `--apple-team-id` | Apple Team ID. |
+| `--app-apple-api-key-id` | App Apple API Key ID. |
 
 ### apps:destinations:delete
 
@@ -470,26 +545,30 @@ npx @capawesome/cli apps:devices:delete [--app-id <id>] [--device-id <id>] [--ye
 
 ### apps:devices:forcechannel
 
-Pin a device to a specific channel.
+Pin one or more devices to a specific channel.
 
 ```bash
 npx @capawesome/cli apps:devices:forcechannel [--app-id <id>] [--device-id <id>] [--channel <name>]
 ```
 
+`--device-id` can be specified multiple times.
+
 ### apps:devices:unforcechannel
 
-Remove forced channel assignment from a device.
+Remove forced channel assignment from one or more devices.
 
 ```bash
 npx @capawesome/cli apps:devices:unforcechannel [--app-id <id>] [--device-id <id>]
 ```
+
+`--device-id` can be specified multiple times.
 
 ### apps:devices:probe
 
 Test whether a device would receive an update.
 
 ```bash
-npx @capawesome/cli apps:devices:probe [--app-id <id>] [--device-id <id>]
+npx @capawesome/cli apps:devices:probe [--app-id <id>] [--device-id <id>] [--json]
 ```
 
 ## Organization Commands
@@ -497,7 +576,7 @@ npx @capawesome/cli apps:devices:probe [--app-id <id>] [--device-id <id>]
 ### organizations:create
 
 ```bash
-npx @capawesome/cli organizations:create [--name <name>] [--team]
+npx @capawesome/cli organizations:create [--name <name>]
 ```
 
 ## Utility

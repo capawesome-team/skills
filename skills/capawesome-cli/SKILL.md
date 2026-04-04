@@ -114,12 +114,12 @@ Read `references/project-configuration.md` for all configuration options includi
 Read `references/commands.md` for the full command reference organized by category:
 
 - **Authentication** — `login`, `logout`, `whoami`
-- **App Management** — `apps:create`, `apps:delete`
+- **App Management** — `apps:create`, `apps:delete`, `apps:transfer`, `apps:link`, `apps:unlink`
 - **Build Commands** — `apps:builds:create`, `apps:builds:cancel`, `apps:builds:download`, `apps:builds:logs`
 - **Certificate Commands** — `apps:certificates:create`, `apps:certificates:list`, `apps:certificates:get`, `apps:certificates:update`, `apps:certificates:delete`
 - **Environment Commands** — `apps:environments:create`, `apps:environments:list`, `apps:environments:set`, `apps:environments:unset`, `apps:environments:delete`
 - **Channel Commands** — `apps:channels:create`, `apps:channels:delete`, `apps:channels:get`, `apps:channels:list`, `apps:channels:pause`, `apps:channels:resume`, `apps:channels:update`
-- **Live Update Commands** — `apps:liveupdates:upload`, `apps:liveupdates:register`, `apps:liveupdates:bundle`, `apps:liveupdates:generatemanifest`, `apps:liveupdates:generatesigningkey`, `apps:liveupdates:rollback`, `apps:liveupdates:rollout`, `apps:liveupdates:setnativeversions`
+- **Live Update Commands** — `apps:liveupdates:create`, `apps:liveupdates:upload`, `apps:liveupdates:register`, `apps:liveupdates:bundle`, `apps:liveupdates:generatemanifest`, `apps:liveupdates:generatesigningkey`, `apps:liveupdates:rollback`, `apps:liveupdates:rollout`, `apps:liveupdates:setnativeversions`
 - **Deployment Commands** — `apps:deployments:create`, `apps:deployments:cancel`, `apps:deployments:logs`
 - **Destination Commands** — `apps:destinations:create`, `apps:destinations:list`, `apps:destinations:get`, `apps:destinations:update`, `apps:destinations:delete`
 - **Device Commands** — `apps:devices:delete`, `apps:devices:forcechannel`, `apps:devices:unforcechannel`, `apps:devices:probe`

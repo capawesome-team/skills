@@ -55,19 +55,16 @@ npx @capawesome/cli apps:builds:create \
 Use `--json` to capture the build ID for downstream steps:
 
 ```bash
-BUILD_OUTPUT=$(npx @capawesome/cli apps:builds:create \
+OUTPUT=$(mktemp)
+npx @capawesome/cli apps:builds:create \
   --app-id <APP_ID> \
   --platform android \
   --type release \
   --git-ref main \
   --json \
-  --yes)
-```
-
-Extract the build ID using `jq`:
-
-```bash
-BUILD_ID=$(echo "$BUILD_OUTPUT" | jq -r '.buildId')
+  --yes | tee "$OUTPUT"
+BUILD_ID=$(sed -n '/^{/,$p' "$OUTPUT" | jq -r '.id')
+rm "$OUTPUT"
 ```
 
 Use the build ID in subsequent commands:
