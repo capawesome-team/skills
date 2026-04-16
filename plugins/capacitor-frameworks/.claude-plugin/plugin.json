@@ -1,0 +1,14 @@
+{
+  "name": "capacitor-frameworks",
+  "description": "Framework-specific Capacitor skills — Angular, React, and Vue patterns and best practices.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Capawesome",
+    "email": "support@capawesome.io"
+  },
+  "homepage": "https://github.com/capawesome-team/skills",
+  "repository": "https://github.com/capawesome-team/skills",
+  "license": "MIT",
+  "keywords": ["capacitor", "angular", "react", "vue", "frameworks"],
+  "category": "development"
+}

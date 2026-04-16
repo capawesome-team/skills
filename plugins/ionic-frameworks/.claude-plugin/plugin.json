@@ -1,0 +1,14 @@
+{
+  "name": "ionic-frameworks",
+  "description": "Framework-specific Ionic skills — Angular, React, and Vue patterns and best practices.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Capawesome",
+    "email": "support@capawesome.io"
+  },
+  "homepage": "https://github.com/capawesome-team/skills",
+  "repository": "https://github.com/capawesome-team/skills",
+  "license": "MIT",
+  "keywords": ["ionic", "angular", "react", "vue", "frameworks"],
+  "category": "development"
+}

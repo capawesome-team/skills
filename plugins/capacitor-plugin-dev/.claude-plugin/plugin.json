@@ -1,0 +1,14 @@
+{
+  "name": "capacitor-plugin-dev",
+  "description": "Capacitor plugin development skills — create, upgrade, and add SPM support to plugins.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Capawesome",
+    "email": "support@capawesome.io"
+  },
+  "homepage": "https://github.com/capawesome-team/skills",
+  "repository": "https://github.com/capawesome-team/skills",
+  "license": "MIT",
+  "keywords": ["capacitor", "plugin", "development", "spm", "upgrades"],
+  "category": "development"
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "capawesome-skills",
+  "description": "Agent skills for Capawesome, Capacitor, and the Ionic Framework.",
+  "owner": {
+    "name": "Capawesome",
+    "email": "support@capawesome.io"
+  },
+  "plugins": [
+    {
+      "name": "capacitor-core",
+      "source": "./plugins/capacitor-core",
+      "description": "Core Capacitor skills — app creation, development, upgrades, expert reference, and plugin setup.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["capacitor", "mobile", "cross-platform", "plugins", "upgrades"],
+      "category": "development"
+    },
+    {
+      "name": "capacitor-integrations",
+      "source": "./plugins/capacitor-integrations",
+      "description": "Capacitor feature integration skills — push notifications (FCM) and in-app purchases.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["capacitor", "push-notifications", "in-app-purchases", "firebase"],
+      "category": "development"
+    },
+    {
+      "name": "capacitor-frameworks",
+      "source": "./plugins/capacitor-frameworks",
+      "description": "Framework-specific Capacitor skills — Angular, React, and Vue patterns and best practices.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["capacitor", "angular", "react", "vue", "frameworks"],
+      "category": "development"
+    },
+    {
+      "name": "capacitor-plugin-dev",
+      "source": "./plugins/capacitor-plugin-dev",
+      "description": "Capacitor plugin development skills — create, upgrade, and add SPM support to plugins.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["capacitor", "plugin", "development", "spm", "upgrades"],
+      "category": "development"
+    },
+    {
+      "name": "ionic-core",
+      "source": "./plugins/ionic-core",
+      "description": "Core Ionic Framework skills — app creation, development, upgrades, and expert reference.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["ionic", "mobile", "cross-platform", "upgrades"],
+      "category": "development"
+    },
+    {
+      "name": "ionic-frameworks",
+      "source": "./plugins/ionic-frameworks",
+      "description": "Framework-specific Ionic skills — Angular, React, and Vue patterns and best practices.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["ionic", "angular", "react", "vue", "frameworks"],
+      "category": "development"
+    },
+    {
+      "name": "capawesome-cloud",
+      "source": "./plugins/capawesome-cloud",
+      "description": "Capawesome Cloud skills — CLI setup, native builds, live updates, and app store publishing.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["capawesome", "cloud", "live-updates", "native-builds", "app-store"],
+      "category": "development"
+    },
+    {
+      "name": "ionic-migrations",
+      "source": "./plugins/ionic-migrations",
+      "description": "Migration skills — migrate from Ionic Appflow and Ionic Enterprise SDK plugins to Capawesome alternatives.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Capawesome",
+        "email": "support@capawesome.io"
+      },
+      "license": "MIT",
+      "keywords": ["ionic", "appflow", "migration", "capawesome", "enterprise-sdk"],
+      "category": "development"
+    }
+  ]
+}

@@ -23,10 +23,39 @@ Missing a feature? Just [open an issue](https://github.com/capawesome-team/skill
 
 ## Installation
 
-To install a skill, use the [skills](https://skills.sh/) command:
+### skills.sh
+
+To install all skills at once, use the [skills](https://skills.sh/) command:
 
 ```bash
 npx skills add capawesome-team/skills
+```
+
+### Claude Code Plugin Marketplace
+
+Alternatively, if you're using Claude Code, you can add the [Claude Code Plugin Marketplace](https://code.claude.com/docs/en/plugins) and install individual plugins:
+
+```bash
+claude plugin marketplace add capawesome-team/skills
+```
+
+Available plugins:
+
+| Plugin | Description |
+| ------ | ----------- |
+| `capacitor-core` | App creation, development, upgrades, expert reference, and plugin setup. |
+| `capacitor-integrations` | Push notifications (FCM) and in-app purchases. |
+| `capacitor-frameworks` | Angular, React, and Vue patterns for Capacitor. |
+| `capacitor-plugin-dev` | Create, upgrade, and add SPM support to Capacitor plugins. |
+| `ionic-core` | App creation, development, upgrades, and expert reference. |
+| `ionic-frameworks` | Angular, React, and Vue patterns for Ionic. |
+| `capawesome-cloud` | CLI setup, native builds, live updates, and app store publishing. |
+| `ionic-migrations` | Migrate from Ionic Appflow and Ionic Enterprise SDK plugins. |
+
+Install a plugin:
+
+```bash
+claude plugin install capacitor-core@capawesome-skills
 ```
 
 ## Update

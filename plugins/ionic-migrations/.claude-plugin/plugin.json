@@ -1,0 +1,14 @@
+{
+  "name": "ionic-migrations",
+  "description": "Migration skills — migrate from Ionic Appflow and Ionic Enterprise SDK plugins to Capawesome alternatives.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Capawesome",
+    "email": "support@capawesome.io"
+  },
+  "homepage": "https://github.com/capawesome-team/skills",
+  "repository": "https://github.com/capawesome-team/skills",
+  "license": "MIT",
+  "keywords": ["ionic", "appflow", "migration", "capawesome", "enterprise-sdk"],
+  "category": "development"
+}
