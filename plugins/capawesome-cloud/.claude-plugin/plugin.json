@@ -1,0 +1,14 @@
+{
+  "name": "capawesome-cloud",
+  "description": "Capawesome Cloud skills — CLI setup, native builds, live updates, and app store publishing.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Capawesome",
+    "email": "support@capawesome.io"
+  },
+  "homepage": "https://github.com/capawesome-team/skills",
+  "repository": "https://github.com/capawesome-team/skills",
+  "license": "MIT",
+  "keywords": ["capawesome", "cloud", "live-updates", "native-builds", "app-store"],
+  "category": "development"
+}
