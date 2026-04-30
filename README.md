@@ -119,6 +119,7 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 | [`capacitor-angular`](./skills/capacitor-angular/) | Angular-specific patterns and best practices for Capacitor app development. |
 | [`capacitor-app-creation`](./skills/capacitor-app-creation/) | Create a new Capacitor app from scratch with platform setup and optional integrations. |
 | [`capacitor-app-development`](./skills/capacitor-app-development/) | General Capacitor app development — core concepts, CLI usage, app configuration, troubleshooting, and best practices. |
+| [`capacitor-app-spm-migration`](./skills/capacitor-app-spm-migration/) | Migrate a Capacitor app's iOS dependency management from CocoaPods to Swift Package Manager (SPM). |
 | [`capacitor-app-upgrades`](./skills/capacitor-app-upgrades/) | Upgrade a Capacitor app to a newer major version. |
 | [`capacitor-expert`](./skills/capacitor-expert/) | Comprehensive Capacitor expert reference — core concepts, CLI, plugins, framework integration, best practices, and Capawesome Cloud. |
 | [`capacitor-in-app-purchases`](./skills/capacitor-in-app-purchases/) | Set up in-app purchases and subscriptions in Capacitor apps. |
