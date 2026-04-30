@@ -1,6 +1,6 @@
 ---
 name: capacitor-app-upgrades
-description: "Guides the agent through upgrading a Capacitor app project to a newer major version. Supports upgrades from Capacitor 4 through 8, including multi-version jumps. Covers automated upgrade via the Capacitor CLI and manual step-by-step fallback for each version. Do not use for plugin library upgrade or non-Capacitor mobile frameworks."
+description: "Guides the agent through upgrading a Capacitor app project to a newer major version. Supports upgrades from Capacitor 4 through 8, including multi-version jumps. Performs all upgrade steps manually — does not use the interactive `npx cap migrate` command. Do not use for plugin library upgrade or non-Capacitor mobile frameworks."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-app-upgrades
@@ -28,6 +28,8 @@ Read `@capacitor/core` version from `package.json` (`dependencies` or `devDepend
 Ask the user for the target version. Default to the latest (8) if not specified.
 
 ### Step 2: Execute Upgrade
+
+**Do not run `npx cap migrate`.** It is an interactive command that cannot be invoked by an agent. Always apply each upgrade manually using the steps in the corresponding reference file.
 
 For each major version jump between the current and target version, apply the corresponding upgrade guide **sequentially**:
 
@@ -60,7 +62,6 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, check the terminal output for which steps failed and apply those manually using the steps in the corresponding reference file.
 * If Android build fails after upgrade, run **Tools > AGP Upgrade Assistant** in Android Studio.
 * If iOS build fails, verify the deployment target matches the target version requirements in the reference file.
 * If Gradle property syntax warnings appear (v8+), search all `.gradle` files for property assignments without `=` and update them.

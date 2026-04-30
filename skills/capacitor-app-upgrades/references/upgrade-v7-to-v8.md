@@ -1,18 +1,8 @@
 # Upgrade: Capacitor 7 → 8
 
-## Step 1: Attempt Automated Upgrade
+> **Note:** Do not run `npx cap migrate`. It is interactive and cannot be invoked by an agent. Apply all steps below manually.
 
-The Capacitor CLI provides an automated upgrade command. Try this first:
-
-```bash
-npm i -D @capacitor/cli@latest
-npx cap migrate
-```
-
-If the automated upgrade completes successfully, skip to **Step 8** to update plugins.
-If any steps fail, the CLI will report which ones. Continue with the manual steps below for those.
-
-## Step 2: Update Capacitor Dependencies
+## Step 1: Update Capacitor Dependencies
 
 Update all `@capacitor/*` packages to v8:
 
@@ -24,7 +14,7 @@ npm i @capacitor/android@latest @capacitor/ios@latest
 
 Update any official Capacitor plugins to their latest v8 versions as well.
 
-## Step 3: Update Android Project Variables
+## Step 2: Update Android Project Variables
 
 Open `android/variables.gradle` and update to the following minimum values:
 
@@ -45,9 +35,9 @@ androidxEspressoCoreVersion = '3.7.0'
 cordovaAndroidVersion = '14.0.1'
 ```
 
-## Step 4: Update Android Gradle Configuration
+## Step 3: Update Android Gradle Configuration
 
-### 4a: Update Gradle plugin to 8.13.0
+### 3a: Update Gradle plugin to 8.13.0
 
 In `android/build.gradle`, update the Android Gradle plugin:
 
@@ -58,7 +48,7 @@ In `android/build.gradle`, update the Android Gradle plugin:
  }
 ```
 
-### 4b: Update Google Services plugin (if used)
+### 3b: Update Google Services plugin (if used)
 
 ```diff
  dependencies {
@@ -67,7 +57,7 @@ In `android/build.gradle`, update the Android Gradle plugin:
  }
 ```
 
-### 4c: Update Gradle wrapper to 8.14.3
+### 3c: Update Gradle wrapper to 8.14.3
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -76,7 +66,7 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.14.3-all.zip
 ```
 
-### 4d: Replace deprecated Gradle property syntax
+### 3d: Replace deprecated Gradle property syntax
 
 Gradle has deprecated space-assignment syntax. Replace with `=` assignment in `android/app/build.gradle`:
 
@@ -95,11 +85,11 @@ Gradle has deprecated space-assignment syntax. Replace with `=` assignment in `a
  }
 ```
 
-### 4e: Update Kotlin version (if used)
+### 3e: Update Kotlin version (if used)
 
 If the project uses Kotlin, update `kotlin_version` to `'2.2.20'`.
 
-### 4f: Add density to configChanges
+### 3f: Add density to configChanges
 
 In `android/app/src/main/AndroidManifest.xml`, add `density` to the activity's `configChanges`:
 
@@ -108,9 +98,9 @@ In `android/app/src/main/AndroidManifest.xml`, add `density` to the activity's `
 +android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation|density"
 ```
 
-## Step 5: Update iOS Configuration
+## Step 4: Update iOS Configuration
 
-### 5a: Raise iOS deployment target to 15.0
+### 4a: Raise iOS deployment target to 15.0
 
 In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHONEOS_DEPLOYMENT_TARGET` from `14.0` to `15.0`:
 
@@ -121,7 +111,7 @@ In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHON
 
 There are typically 4 occurrences (Debug and Release for both the project and the app target). Update all of them.
 
-### 5b: Update Podfile (if using CocoaPods)
+### 4b: Update Podfile (if using CocoaPods)
 
 In `ios/App/Podfile`:
 
@@ -130,16 +120,16 @@ In `ios/App/Podfile`:
 +platform :ios, '15.0'
 ```
 
-## Step 6: Handle Capacitor Config Breaking Changes
+## Step 5: Handle Capacitor Config Breaking Changes
 
 - `android.adjustMarginsForEdgeToEdge` has been removed. Use the new `@capacitor/system-bars` plugin instead.
 - `appendUserAgent` on iOS: a bug that appended two whitespaces has been fixed. If the previous behavior is needed, add an extra whitespace on `ios.appendUserAgent` (not on root `appendUserAgent`).
 
-## Step 7: Handle Android Breaking Change
+## Step 6: Handle Android Breaking Change
 
 `bridge_layout_main.xml` has been removed. If referenced anywhere, use `capacitor_bridge_layout_main.xml` instead.
 
-## Step 8: Update Official Plugins
+## Step 7: Update Official Plugins
 
 Update all official Capacitor plugins to v8:
 
@@ -203,7 +193,7 @@ Repeat for all `@capacitor/*` plugins used in the project.
 
 - `CAPNotifications.swift` and `CAPBridgeViewController.swift` that emitted `.capacitorViewDidAppear` and `.capacitorViewWillTransition` events have been removed. Listen for these events from `@capacitor/ios` instead.
 
-## Step 9: Sync and Test
+## Step 8: Sync and Test
 
 ```bash
 npx cap sync
@@ -218,7 +208,6 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, check the terminal output for which steps failed and apply those manually using the steps above.
 * If Android build fails after upgrade, run **Tools > AGP Upgrade Assistant** in Android Studio and select version `8.13.0`.
 * If iOS build fails, verify the deployment target is set to 15.0 in both the Xcode project settings and the Podfile.
 * If Gradle property syntax warnings appear, search all `.gradle` files for property assignments without `=` and update them.

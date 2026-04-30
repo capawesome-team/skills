@@ -1,16 +1,8 @@
 # Upgrade: Capacitor 5 → 6
 
-## Step 1: Attempt Automated Upgrade
+> **Note:** Do not run `npx cap migrate`. It is interactive and cannot be invoked by an agent. Apply all steps below manually.
 
-```bash
-npm i -D @capacitor/cli@latest-6
-npx cap migrate
-```
-
-If the automated upgrade completes successfully, skip to **Step 7** to update plugins.
-If any steps fail, continue with the manual steps below.
-
-## Step 2: Update Capacitor Dependencies
+## Step 1: Update Capacitor Dependencies
 
 ```bash
 npm i @capacitor/core@latest-6
@@ -18,7 +10,7 @@ npm i -D @capacitor/cli@latest-6
 npm i @capacitor/android@latest-6 @capacitor/ios@latest-6
 ```
 
-## Step 3: Update Android Project Variables
+## Step 2: Update Android Project Variables
 
 In `android/variables.gradle`:
 
@@ -39,9 +31,9 @@ androidxEspressoCoreVersion = '3.5.1'
 cordovaAndroidVersion = '10.1.1'
 ```
 
-## Step 4: Update Android Gradle Configuration
+## Step 3: Update Android Gradle Configuration
 
-### 4a: Update Gradle plugin to 8.2.1
+### 3a: Update Gradle plugin to 8.2.1
 
 In `android/build.gradle`:
 
@@ -52,14 +44,14 @@ In `android/build.gradle`:
  }
 ```
 
-### 4b: Update Google Services plugin (if used)
+### 3b: Update Google Services plugin (if used)
 
 ```diff
 -classpath 'com.google.gms:google-services:4.3.15'
 +classpath 'com.google.gms:google-services:4.4.0'
 ```
 
-### 4c: Update Gradle wrapper to 8.2.1
+### 3c: Update Gradle wrapper to 8.2.1
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -68,11 +60,11 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.2.1-all.zip
 ```
 
-### 4d: Update Kotlin version (if used)
+### 3d: Update Kotlin version (if used)
 
 Update `kotlin_version` to `'1.9.10'`.
 
-## Step 5: Handle androidScheme Upgrade
+## Step 4: Handle androidScheme Upgrade
 
 In Capacitor 6, `https` is the default `androidScheme`. To avoid data loss from cookies/localStorage:
 
@@ -87,17 +79,17 @@ In Capacitor 6, `https` is the default `androidScheme`. To avoid data loss from 
 }
 ```
 
-## Step 6: Handle iOS Breaking Changes
+## Step 5: Handle iOS Breaking Changes
 
-### 6a: Register custom plugins
+### 5a: Register custom plugins
 
 Plugin classes are no longer automatically registered. npm-installed plugins are handled by the CLI. For local custom plugins, create a [custom view controller and register the plugins manually](https://capacitorjs.com/docs/ios/custom-code#register-the-plugin).
 
-### 6b: Zooming disabled by default
+### 5b: Zooming disabled by default
 
 iOS apps are no longer zoomable by default (matching Android). To re-enable, set `zoomEnabled: true` in the Capacitor config.
 
-## Step 7: Update Official Plugins
+## Step 6: Update Official Plugins
 
 Update all `@capacitor/*` plugins to v6.
 
@@ -161,7 +153,7 @@ For all plugins with listeners: `addListener` now only returns a `Promise`. If t
 
 - `androidxCoreVersion` updated to `1.12.0`.
 
-## Step 8: Sync and Test
+## Step 7: Sync and Test
 
 ```bash
 npx cap sync
@@ -171,6 +163,5 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, apply the failed steps manually.
 * If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
 * If `addListener` calls fail to compile, update the code — `addListener` now only returns a `Promise` (remove `& PluginListenerHandle` if present).

@@ -130,13 +130,7 @@ npx cap ls [platform]
 
 ### `npx cap migrate`
 
-Migrate the project to a newer Capacitor version. Automates as many upgrade steps as possible.
-
-```bash
-npx cap migrate
-```
-
-For detailed upgrade procedures, use the `capacitor-app-upgrades` skill instead.
+Interactive command intended to migrate a project to a newer Capacitor version. **Do not invoke from an agent** — it requires interactive input and cannot be driven by a script. For all upgrade work, use the `capacitor-app-upgrades` skill, which performs the upgrade manually step-by-step.
 
 ## Lifecycle Hooks
 

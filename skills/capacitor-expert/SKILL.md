@@ -116,7 +116,6 @@ All commands: `npx cap <command>`. Most important commands:
 | `npx cap build <platform>` | Build native project |
 | `npx cap doctor` | Diagnose configuration issues |
 | `npx cap ls` | List installed plugins |
-| `npx cap migrate` | Automated upgrade to newer Capacitor version |
 
 For the full CLI reference, see [CLI Reference](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-app-development/references/cli.md).
 
@@ -368,14 +367,7 @@ Capacitor supports upgrades across major versions (4 through 8). Apply each majo
 | to 7 | 20+ | 16.0+ | Ladybug 2024.2.1+ |
 | to 8 | 22+ | 26.0+ | Otter 2025.2.1+ |
 
-Quick automated upgrade:
-
-```bash
-npx cap migrate
-npx cap sync
-```
-
-If `npx cap migrate` fails partially, apply manual steps from the upgrade guides.
+Do not run `npx cap migrate`. It is an interactive command that cannot be invoked by an agent. Apply all upgrade steps manually using the per-version reference files.
 
 For app upgrades, see [capacitor-app-upgrades](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-app-upgrades/SKILL.md).
 For plugin upgrades, see [capacitor-plugin-upgrades](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-plugin-upgrades/SKILL.md).

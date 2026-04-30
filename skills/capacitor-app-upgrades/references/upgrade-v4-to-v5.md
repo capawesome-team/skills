@@ -1,16 +1,8 @@
 # Upgrade: Capacitor 4 → 5
 
-## Step 1: Attempt Automated Upgrade
+> **Note:** Do not run `npx cap migrate`. It is interactive and cannot be invoked by an agent. Apply all steps below manually.
 
-```bash
-npm i -D @capacitor/cli@latest-5
-npx cap migrate
-```
-
-If the automated upgrade completes successfully, skip to **Step 7** to update plugins.
-If any steps fail, continue with the manual steps below.
-
-## Step 2: Update Capacitor Dependencies
+## Step 1: Update Capacitor Dependencies
 
 ```bash
 npm i @capacitor/core@latest-5
@@ -18,7 +10,7 @@ npm i -D @capacitor/cli@latest-5
 npm i @capacitor/android@latest-5 @capacitor/ios@latest-5
 ```
 
-## Step 3: Update Android Project Variables
+## Step 2: Update Android Project Variables
 
 In `android/variables.gradle`:
 
@@ -39,9 +31,9 @@ androidxEspressoCoreVersion = '3.5.1'
 cordovaAndroidVersion = '10.1.1'
 ```
 
-## Step 4: Update Android Gradle Configuration
+## Step 3: Update Android Gradle Configuration
 
-### 4a: Update Gradle plugin to 8.0.0
+### 3a: Update Gradle plugin to 8.0.0
 
 In `android/build.gradle`:
 
@@ -52,14 +44,14 @@ In `android/build.gradle`:
  }
 ```
 
-### 4b: Update Google Services plugin (if used)
+### 3b: Update Google Services plugin (if used)
 
 ```diff
 -classpath 'com.google.gms:google-services:4.3.13'
 +classpath 'com.google.gms:google-services:4.3.15'
 ```
 
-### 4c: Update Gradle wrapper to 8.0.2
+### 3c: Update Gradle wrapper to 8.0.2
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -68,7 +60,7 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.0.2-all.zip
 ```
 
-### 4d: Disable Jetifier
+### 3d: Disable Jetifier
 
 In `android/gradle.properties`, remove the Jetifier line if no plugins still use old Android support libraries:
 
@@ -78,7 +70,7 @@ In `android/gradle.properties`, remove the Jetifier line if no plugins still use
 -android.enableJetifier=true
 ```
 
-### 4e: Move package to build.gradle
+### 3e: Move package to build.gradle
 
 Remove `package` from `android/app/src/main/AndroidManifest.xml` and add `namespace` to `android/app/build.gradle`:
 
@@ -96,11 +88,11 @@ Remove `package` from `android/app/src/main/AndroidManifest.xml` and add `namesp
      compileSdkVersion rootProject.ext.compileSdkVersion
 ```
 
-### 4f: Update Kotlin version (if used)
+### 3f: Update Kotlin version (if used)
 
 Update `kotlin_version` to `'1.8.20'`.
 
-## Step 5: Set androidScheme
+## Step 4: Set androidScheme
 
 To prepare for Capacitor 6 where `https` becomes the default, explicitly set the scheme to `http` in the Capacitor config to avoid data loss:
 
@@ -112,20 +104,20 @@ To prepare for Capacitor 6 where `https` becomes the default, explicitly set the
 }
 ```
 
-## Step 6: Update iOS Configuration
+## Step 5: Update iOS Configuration
 
-### 6a: Update .gitignore
+### 5a: Update .gitignore
 
 ```diff
 -App/Podfile.lock
 +App/output
 ```
 
-### 6b: Update App Icon
+### 5b: Update App Icon
 
 Xcode 14 supports a single 1024x1024 app icon. Remove unnecessary sizes from `AppIcon.appiconset`.
 
-## Step 7: Update Official Plugins
+## Step 6: Update Official Plugins
 
 Update all `@capacitor/*` plugins to v5.
 
@@ -177,7 +169,7 @@ Update all `@capacitor/*` plugins to v5.
 
 - On iOS, the default status bar animation changed to `FADE`.
 
-## Step 8: Sync and Test
+## Step 7: Sync and Test
 
 ```bash
 npx cap sync
@@ -187,6 +179,5 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, apply the failed steps manually.
 * If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
 * If Jetifier removal causes build errors, a dependency still uses old support libraries — re-enable Jetifier or update the dependency.

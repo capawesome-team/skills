@@ -1,16 +1,8 @@
 # Upgrade: Capacitor 6 → 7
 
-## Step 1: Attempt Automated Upgrade
+> **Note:** Do not run `npx cap migrate`. It is interactive and cannot be invoked by an agent. Apply all steps below manually.
 
-```bash
-npm i -D @capacitor/cli@latest-7
-npx cap migrate
-```
-
-If the automated upgrade completes successfully, skip to **Step 7** to update plugins.
-If any steps fail, continue with the manual steps below.
-
-## Step 2: Update Capacitor Dependencies
+## Step 1: Update Capacitor Dependencies
 
 ```bash
 npm i @capacitor/core@latest-7
@@ -18,7 +10,7 @@ npm i -D @capacitor/cli@latest-7
 npm i @capacitor/android@latest-7 @capacitor/ios@latest-7
 ```
 
-## Step 3: Update Android Project Variables
+## Step 2: Update Android Project Variables
 
 In `android/variables.gradle`:
 
@@ -39,9 +31,9 @@ androidxEspressoCoreVersion = '3.6.1'
 cordovaAndroidVersion = '10.1.1'
 ```
 
-## Step 4: Update Android Gradle Configuration
+## Step 3: Update Android Gradle Configuration
 
-### 4a: Update Gradle plugin to 8.7.2
+### 3a: Update Gradle plugin to 8.7.2
 
 In `android/build.gradle`:
 
@@ -52,14 +44,14 @@ In `android/build.gradle`:
  }
 ```
 
-### 4b: Update Google Services plugin (if used)
+### 3b: Update Google Services plugin (if used)
 
 ```diff
 -classpath 'com.google.gms:google-services:4.4.0'
 +classpath 'com.google.gms:google-services:4.4.2'
 ```
 
-### 4c: Update Gradle wrapper to 8.11.1
+### 3c: Update Gradle wrapper to 8.11.1
 
 In `android/gradle/wrapper/gradle-wrapper.properties`:
 
@@ -68,11 +60,11 @@ In `android/gradle/wrapper/gradle-wrapper.properties`:
 +distributionUrl=https\://services.gradle.org/distributions/gradle-8.11.1-all.zip
 ```
 
-### 4d: Update Kotlin version (if used)
+### 3d: Update Kotlin version (if used)
 
 Update `kotlin_version` to `'1.9.25'`.
 
-### 4e: Add navigation to configChanges (optional)
+### 3e: Add navigation to configChanges (optional)
 
 To prevent app restarts on some devices when using bluetooth keyboards, add `navigation` to `configChanges` in `AndroidManifest.xml`:
 
@@ -81,9 +73,9 @@ To prevent app restarts on some devices when using bluetooth keyboards, add `nav
 +android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode|navigation"
 ```
 
-## Step 5: Update iOS Configuration
+## Step 4: Update iOS Configuration
 
-### 5a: Raise iOS deployment target to 14.0
+### 4a: Raise iOS deployment target to 14.0
 
 In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHONEOS_DEPLOYMENT_TARGET` from `13.0` to `14.0`:
 
@@ -94,7 +86,7 @@ In `ios/App/App.xcodeproj/project.pbxproj`, update **all** occurrences of `IPHON
 
 There are typically 4 occurrences (Debug and Release for both the project and the app target). Update all of them.
 
-### 5b: Update Podfile
+### 4b: Update Podfile
 
 In `ios/App/Podfile`:
 
@@ -103,12 +95,12 @@ In `ios/App/Podfile`:
 +platform :ios, '14.0'
 ```
 
-## Step 6: Handle Config Breaking Changes
+## Step 5: Handle Config Breaking Changes
 
 - `bundledWebRuntime` has been removed. If set to `false`, safely remove it. If set to `true`, use a bundler to bundle `@capacitor/core` code within the app.
 - `cordova.staticPlugins` has been removed. Plugins that need to be static should use `podspec` tag with `use-framework` attribute.
 
-## Step 7: Update Official Plugins
+## Step 6: Update Official Plugins
 
 Update all `@capacitor/*` plugins to v7.
 
@@ -167,7 +159,7 @@ Update all `@capacitor/*` plugins to v7.
 - `setOverlaysWebView()` and `setBackgroundColor()` are now supported on iOS.
 - `androidxCoreVersion` updated to `1.15.0`.
 
-## Step 8: Sync and Test
+## Step 7: Sync and Test
 
 ```bash
 npx cap sync
@@ -177,7 +169,6 @@ npx cap run ios
 
 ## Error Handling
 
-* If `npx cap migrate` fails partially, apply the failed steps manually.
 * If Android build fails, run **Tools > AGP Upgrade Assistant** in Android Studio.
 * If iOS build fails, verify the deployment target is set to 14.0 in both the Xcode project and the Podfile.
 * Telemetry is now opt-out for new users. Disable with `npx cap telemetry off`.
