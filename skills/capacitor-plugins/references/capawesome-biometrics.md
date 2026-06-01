@@ -86,8 +86,12 @@ try {
 const { isAvailable } = await Biometrics.isAvailable();
 const { isEnrolled } = await Biometrics.isEnrolled();
 const { hasDeviceCredential } = await Biometrics.hasDeviceCredential();
+const { isAllowed } = await Biometrics.isAllowed(); // user granted biometric permission
+const { isLockedOut } = await Biometrics.isLockedOut(); // temporarily locked after failed attempts
 const { strengthLevel } = await Biometrics.getBiometricStrengthLevel(); // Android only
-const { biometricType } = await Biometrics.getBiometricType(); // Face, Fingerprint, Iris, None
+const { biometricType } = await Biometrics.getBiometricType(); // highest-priority type
+const { types } = await Biometrics.getBiometricTypes(); // all available types
+const { authenticationType } = await Biometrics.getAuthenticationType(); // Android only
 ```
 
 ### Other operations
@@ -97,10 +101,17 @@ await Biometrics.cancelAuthentication(); // Android SDK 29+, iOS
 await Biometrics.enroll(); // Android only
 ```
 
+## Enums
+
+- **`BiometricType`**: `Face` (`'FACE'`), `Fingerprint` (`'FINGERPRINT'`), `Iris` (`'IRIS'`), `None` (`'NONE'`)
+- **`AuthenticationType`**: `Biometric` (`'BIOMETRIC'`), `DeviceCredential` (`'DEVICE_CREDENTIAL'`), `Unknown` (`'UNKNOWN'`)
+- **`BiometricStrength`**: `Strong` (`'STRONG'`), `Weak` (`'WEAK'`)
+
 ## Notes
 
 - `allowDeviceCredential` lets users fall back to PIN/password if biometrics fail (default: `false`).
 - `androidBiometricStrength` can be `Strong` or `Weak` (default: `Weak`). On Android API 28-29, it is always `Weak` when `allowDeviceCredential` is `true`.
 - On iOS, the first authentication prompt will ask for biometric permission.
 - `biometricType` priority: Face > Iris > Fingerprint when multiple are available.
-- Compatible with the Secure Preferences plugin.
+- `isLockedOut()` reports temporary lockout after too many failed attempts; on Android lockout is only recognized after failed attempts.
+- This plugin authenticates the user but does not store secrets. Pair it with the Vault or Secure Preferences plugin to store credentials behind biometric authentication.

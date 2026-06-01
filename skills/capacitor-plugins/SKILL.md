@@ -179,10 +179,12 @@ npx cap sync
 | File Picker | `@capawesome/capacitor-file-picker` | `references/capawesome-file-picker.md` |
 | Geocoder | `@capawesome-team/capacitor-geocoder` | `references/capawesome-geocoder.md` |
 | Google Sign In | `@capawesome/capacitor-google-sign-in` | `references/capawesome-google-sign-in.md` |
+| Grafana Faro | `@capawesome/capacitor-grafana-faro` | `references/capawesome-grafana-faro.md` |
 | libSQL | `@capawesome/capacitor-libsql` | `references/capawesome-libsql.md` |
 | Live Update | `@capawesome/capacitor-live-update` | `references/capawesome-live-update.md` |
 | Managed Configurations | `@capawesome/capacitor-managed-configurations` | `references/capawesome-managed-configurations.md` |
 | Media Session | `@capawesome-team/capacitor-media-session` | `references/capawesome-media-session.md` |
+| Navigation Bar | `@capawesome/capacitor-navigation-bar` | `references/capawesome-navigation-bar.md` |
 | NFC | `@capawesome-team/capacitor-nfc` | `references/capawesome-nfc.md` |
 | OAuth | `@capawesome-team/capacitor-oauth` | `references/capawesome-oauth.md` |
 | Pedometer | `@capawesome-team/capacitor-pedometer` | `references/capawesome-pedometer.md` |
@@ -201,6 +203,7 @@ npx cap sync
 | Square Mobile Payments | `@capawesome/capacitor-square-mobile-payments` | `references/capawesome-square-mobile-payments.md` |
 | Superwall | `@capawesome/capacitor-superwall` | `references/capawesome-superwall.md` |
 | Torch | `@capawesome/capacitor-torch` | `references/capawesome-torch.md` |
+| Vault | `@capawesome-team/capacitor-vault` | `references/capawesome-vault.md` |
 | Wi-Fi | `@capawesome-team/capacitor-wifi` | `references/capawesome-wifi.md` |
 | Zip | `@capawesome-team/capacitor-zip` | `references/capawesome-zip.md` |
 

@@ -1,6 +1,6 @@
 ---
 name: ionic-enterprise-sdk-migration
-description: "Guides the agent through migrating Capacitor apps from discontinued Ionic Enterprise SDK plugins (Auth Connect, Identity Vault, Secure Storage) to their Capawesome alternatives (OAuth, Biometrics, Secure Preferences, SQLite). Covers dependency detection, side-by-side API mapping, code replacement, and platform-specific configuration for each plugin pair. Do not use for migrating Capacitor apps or plugins to a newer version, setting up Capawesome Cloud, or non-Capacitor mobile frameworks."
+description: "Guides the agent through migrating Capacitor apps from discontinued Ionic Enterprise SDK plugins (Auth Connect, Identity Vault, Secure Storage) to their Capawesome alternatives (OAuth, Vault, Biometrics, Secure Preferences, SQLite). Covers dependency detection, side-by-side API mapping, code replacement, and platform-specific configuration for each plugin pair. Do not use for migrating Capacitor apps or plugins to a newer version, setting up Capawesome Cloud, or non-Capacitor mobile frameworks."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-enterprise-sdk-migration
@@ -15,7 +15,7 @@ Migrate Capacitor apps from discontinued Ionic Enterprise SDK plugins to Capawes
 | Ionic Enterprise Plugin | Package | Capawesome Replacement | Package(s) |
 | ----------------------- | ------- | ---------------------- | ---------- |
 | Auth Connect | `@ionic-enterprise/auth` | OAuth | `@capawesome-team/capacitor-oauth` |
-| Identity Vault | `@ionic-enterprise/identity-vault` | Biometrics + Secure Preferences | `@capawesome-team/capacitor-biometrics` + `@capawesome-team/capacitor-secure-preferences` |
+| Identity Vault | `@ionic-enterprise/identity-vault` | Vault (+ Biometrics) | `@capawesome-team/capacitor-vault` (+ `@capawesome-team/capacitor-biometrics`) |
 | Secure Storage (key-value) | `@ionic-enterprise/secure-storage` | Secure Preferences | `@capawesome-team/capacitor-secure-preferences` |
 | Secure Storage (SQLite) | `@ionic-enterprise/secure-storage` | SQLite | `@capawesome-team/capacitor-sqlite` |
 
@@ -70,7 +70,7 @@ Ask the user for their license key if needed. Wait for confirmation before conti
 For each detected Ionic Enterprise plugin, read the corresponding reference file and follow the migration steps:
 
 - **Auth Connect** → Read `references/auth-connect-migration.md`
-- **Identity Vault** → Read `references/identity-vault-migration.md`
+- **Identity Vault** → Read `references/identity-vault-migration.md`. Before changing code, ask the user whether they want to **preserve existing stored data** (keep both plugins installed for a transition period and migrate data at runtime) or make a **hard cutover** (drop the old data and switch immediately). The chosen strategy changes which steps run — see the strategy section in the reference file.
 - **Secure Storage** → Read `references/secure-storage-migration.md`
 
 Each reference file contains:
@@ -101,6 +101,8 @@ npm uninstall @ionic-enterprise/auth @ionic-enterprise/identity-vault @ionic-ent
 
 Only uninstall packages that were actually installed.
 
+> **Identity Vault exception (preserve-data strategy):** If the user chose to preserve existing data, do not uninstall `@ionic-enterprise/identity-vault` here. It can only export the old data while both plugins are installed, so it stays until the runtime data migration has shipped and run on devices, then is removed in a later release (see steps 2 and 9 in `references/identity-vault-migration.md`). For a hard cutover, Identity Vault was already uninstalled during its migration.
+
 2. Sync the project:
 
 ```bash
@@ -113,7 +115,7 @@ npx cap sync
 
 - **Capawesome registry not configured**: If `npm install` fails with a 404 or authentication error for `@capawesome-team/*` packages, verify the npm registry is configured correctly (Step 2).
 - **Missing Capawesome Insiders license**: All replacement plugins require a Capawesome Insiders license. Direct the user to [capawesome.io/insiders](https://capawesome.io/insiders/) to obtain one.
-- **Identity Vault session management**: Identity Vault's built-in auto-lock, timeout, and lock/unlock events have no direct equivalent. These must be rebuilt using application logic. See the session management section in `references/identity-vault-migration.md`.
+- **Identity Vault session management**: The Capawesome Vault plugin natively supports auto-lock via the `lockAfterBackgrounded` option and `lock`/`unlock` event listeners, which map closely to Identity Vault's `lockAfterBackgrounded`, `onLock`, and `onUnlock`. Custom-passcode vaults have no direct equivalent and must be rebuilt with application logic. See `references/identity-vault-migration.md`.
 - **Secure Storage encryption**: Ionic Secure Storage has built-in encryption. Capawesome SQLite encryption requires additional platform configuration (SQLCipher). If the user needs database encryption, guide them through the SQLite encryption setup in the `capacitor-plugins` skill reference.
 - **Web platform limitations**: Capawesome Secure Preferences stores values unencrypted in `localStorage` on the web. This is for development only and should not be used in production.
 
