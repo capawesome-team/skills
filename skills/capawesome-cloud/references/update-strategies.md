@@ -1,8 +1,10 @@
 # Update Strategies
 
+The snippets below use the **Capacitor** API. For **Cordova**, the same strategies apply with three differences: access the plugin via `cordova.plugins.LiveUpdate`, run startup code inside a `deviceready` listener, and configure the strategy via the `AUTO_UPDATE_STRATEGY` preference in `config.xml`. See [Cordova Variants](#cordova-variants) at the end for ready-to-use examples.
+
 ## Background
 
-Set `autoUpdateStrategy: "background"` in the plugin config. No additional code needed.
+Set `autoUpdateStrategy: "background"` in the plugin config (Capacitor) or `AUTO_UPDATE_STRATEGY=background` in `config.xml` (Cordova). No additional code needed.
 
 Behavior:
 - Checks for updates at app startup and on resume (if last check >15 min ago).
@@ -106,3 +108,46 @@ const checkAndApply = async () => {
 ```
 
 Set `autoUpdateStrategy: "none"` when using this approach.
+
+## Cordova Variants
+
+For Cordova, run startup logic inside a `deviceready` listener and access the plugin via `cordova.plugins.LiveUpdate`.
+
+### Always Latest (Cordova)
+
+Set `AUTO_UPDATE_STRATEGY=background` in `config.xml`.
+
+```javascript
+document.addEventListener("deviceready", async () => {
+  await cordova.plugins.LiveUpdate.ready();
+
+  cordova.plugins.LiveUpdate.addListener("nextBundleSet", async (event) => {
+    if (event.bundleId) {
+      const shouldReload = confirm("A new update is available. Install now?");
+      if (shouldReload) {
+        await cordova.plugins.LiveUpdate.reload();
+      }
+    }
+  });
+});
+```
+
+### Manual Sync (Cordova)
+
+Set `AUTO_UPDATE_STRATEGY=none` in `config.xml` and sync on resume:
+
+```javascript
+document.addEventListener("deviceready", async () => {
+  await cordova.plugins.LiveUpdate.ready();
+
+  document.addEventListener("resume", async () => {
+    const { nextBundleId } = await cordova.plugins.LiveUpdate.sync();
+    if (nextBundleId) {
+      const shouldReload = confirm("A new update is available. Install now?");
+      if (shouldReload) {
+        await cordova.plugins.LiveUpdate.reload();
+      }
+    }
+  });
+});
+```

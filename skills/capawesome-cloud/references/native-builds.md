@@ -2,6 +2,8 @@
 
 Build native iOS and Android apps in the cloud using Capawesome Cloud.
 
+Native Builds works with **Capacitor**, **Cordova**, and **native** iOS/Android projects. The build flow is the same for all of them — the web assets build command (`webBuildCommand`, default `npm run build`) is auto-detected and skipped for native-only projects without a JavaScript toolchain. No Cordova-specific configuration is required.
+
 ## Contents
 
 - Connect Git Repository

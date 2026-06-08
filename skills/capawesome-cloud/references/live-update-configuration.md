@@ -1,5 +1,9 @@
 # Plugin Configuration
 
+> **Capacitor vs Cordova:** The options below apply to both frameworks. In **Capacitor**, they are set under `plugins.LiveUpdate` in `capacitor.config.ts`/`capacitor.config.json`. In **Cordova**, they are set as `<preference>` elements in `config.xml` (see the [Cordova Preference Mapping](#cordova-preference-mapping) below).
+
+## Capacitor
+
 All options are set under `plugins.LiveUpdate` in `capacitor.config.ts` or `capacitor.config.json`.
 
 | Option                         | Type                          | Default                        | Since | Description                                                                                                                                                                                                          |
@@ -34,6 +38,34 @@ const config: CapacitorConfig = {
 
 export default config;
 ```
+
+## Cordova Preference Mapping
+
+In Cordova, each option is configured as a `<preference>` in `config.xml`. The plugin reads these preferences **only when a platform is added** — after changing a preference, run `cordova platform rm <platform>` and `cordova platform add <platform>` to apply it.
+
+| Capacitor option             | Cordova preference                | Default                     |
+| ---------------------------- | --------------------------------- | --------------------------- |
+| `appId`                      | `APP_ID`                          | —                           |
+| `autoBlockRolledBackBundles` | `AUTO_BLOCK_ROLLED_BACK_BUNDLES`  | `false`                     |
+| `autoDeleteBundles`          | `AUTO_DELETE_BUNDLES`             | `false`                     |
+| `autoUpdateStrategy`         | `AUTO_UPDATE_STRATEGY`            | `none`                      |
+| `defaultChannel`             | `DEFAULT_CHANNEL`                 | —                           |
+| `httpTimeout`                | `HTTP_TIMEOUT`                    | `60000`                     |
+| `publicKey`                  | `PUBLIC_KEY`                      | —                           |
+| `readyTimeout`               | `READY_TIMEOUT`                   | `0`                         |
+| `serverDomain`               | `SERVER_DOMAIN`                   | `api.cloud.capawesome.io`   |
+
+Example `config.xml`:
+
+```xml
+<preference name="APP_ID" value="6e351b4f-69a7-415e-a057-4567df7ffe94" />
+<preference name="AUTO_UPDATE_STRATEGY" value="background" />
+<preference name="READY_TIMEOUT" value="10000" />
+<preference name="AUTO_BLOCK_ROLLED_BACK_BUNDLES" value="true" />
+<preference name="DEFAULT_CHANNEL" value="production" />
+```
+
+Preferences can also be passed as plugin variables at install time, e.g. `cordova plugin add @capawesome/cordova-live-update --variable APP_ID=<APP_ID>`.
 
 ## Channel Priority
 

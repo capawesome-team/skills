@@ -1,6 +1,13 @@
 # Live Update Plugin API Reference
 
-Import: `import { LiveUpdate } from "@capawesome/capacitor-live-update";`
+The Capacitor and Cordova plugins share the same method and event surface (full API parity). Only the runtime access differs:
+
+- **Capacitor** — `import { LiveUpdate } from "@capawesome/capacitor-live-update";` then call `LiveUpdate.<method>()`.
+- **Cordova** — access via `cordova.plugins.LiveUpdate.<method>()` after the `deviceready` event has fired. For TypeScript typings: `import type { LiveUpdatePlugin } from "@capawesome/cordova-live-update";`.
+
+The method signatures below use the Capacitor `LiveUpdate` object; for Cordova, replace `LiveUpdate` with `cordova.plugins.LiveUpdate`.
+
+> `getBundles()` is deprecated — use `getDownloadedBundles()` instead.
 
 ## Methods
 

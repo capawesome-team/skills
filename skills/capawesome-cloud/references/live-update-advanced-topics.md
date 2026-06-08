@@ -28,6 +28,8 @@ Read `cli-commands.md` for all channel management commands.
 
 Restrict bundles to specific native versions by tying channel names to version codes.
 
+### Capacitor
+
 **Android** (`android/app/build.gradle`):
 
 ```groovy
@@ -43,6 +45,37 @@ android {
 ```xml
 <key>CapawesomeLiveUpdateDefaultChannel</key>
 <string>production-$(CURRENT_PROJECT_VERSION)</string>
+```
+
+### Cordova
+
+**Android** — create `build-extras.gradle` next to `config.xml` and include it via `config.xml`:
+
+```groovy
+// build-extras.gradle
+android {
+    applicationVariants.all { variant ->
+        variant.resValue "string", "capawesome_live_update_default_channel",
+                         "production-" + variant.versionCode
+    }
+}
+```
+
+```xml
+<!-- config.xml -->
+<platform name="android">
+  <resource-file src="build-extras.gradle" target="app/build-extras.gradle" />
+</platform>
+```
+
+**iOS** (`config.xml`):
+
+```xml
+<platform name="ios">
+  <config-file target="*-Info.plist" parent="CapawesomeLiveUpdateDefaultChannel">
+    <string>production-$(CURRENT_PROJECT_VERSION)</string>
+  </config-file>
+</platform>
 ```
 
 ## Bundle Versioning
@@ -86,24 +119,34 @@ npx @capawesome/cli apps:liveupdates:rollout --channel production --percentage 5
 
 ## Code Signing
 
-Generate a signing key pair:
+Generate a signing key pair. Pass `--app-type` to print the matching config snippet (`capacitor` or `cordova`):
 
 ```bash
-npx @capawesome/cli apps:liveupdates:generatesigningkey
+npx @capawesome/cli apps:liveupdates:generatesigningkey --app-type capacitor
+# or
+npx @capawesome/cli apps:liveupdates:generatesigningkey --app-type cordova
 ```
 
-Upload a signed bundle:
+Upload a signed bundle (same command for both frameworks):
 
 ```bash
 npx @capawesome/cli apps:liveupdates:upload --private-key private.pem
 ```
 
-Configure the plugin with the public key:
+Configure the plugin with the public key.
+
+**Capacitor** (`capacitor.config.ts`):
 
 ```typescript
 LiveUpdate: {
   publicKey: "-----BEGIN PUBLIC KEY-----\n...\n-----END PUBLIC KEY-----",
 }
+```
+
+**Cordova** (`config.xml`):
+
+```xml
+<preference name="PUBLIC_KEY" value="-----BEGIN PUBLIC KEY-----...-----END PUBLIC KEY-----" />
 ```
 
 ## Self-Hosting

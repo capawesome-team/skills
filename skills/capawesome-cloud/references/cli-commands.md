@@ -42,8 +42,10 @@ npx @capawesome/cli whoami
 
 ### apps:create
 
+`--type` sets the app type (`android`, `capacitor`, `cordova`, or `ios`; defaults to `capacitor`).
+
 ```bash
-npx @capawesome/cli apps:create [--name <name>] [--organization-id <id>]
+npx @capawesome/cli apps:create [--name <name>] [--organization-id <id>] [--type android|capacitor|cordova|ios]
 ```
 
 ### apps:delete
@@ -402,10 +404,10 @@ npx @capawesome/cli apps:liveupdates:generatemanifest --path <web-assets-path>
 
 ### apps:liveupdates:generatesigningkey
 
-Generate RSA key pair for code signing.
+Generate RSA key pair for code signing. Pass `--app-type` (`capacitor` or `cordova`) to print the matching config snippet for the chosen framework.
 
 ```bash
-npx @capawesome/cli apps:liveupdates:generatesigningkey [--key-size 2048|3072|4096] [--public-key-path <path>] [--private-key-path <path>]
+npx @capawesome/cli apps:liveupdates:generatesigningkey [--app-type capacitor|cordova] [--key-size 2048|3072|4096] [--public-key-path <path>] [--private-key-path <path>]
 ```
 
 ### apps:liveupdates:rollback

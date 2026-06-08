@@ -1,6 +1,6 @@
 ---
 name: capawesome-cloud
-description: "Guides the agent through setting up and using Capawesome Cloud for Capacitor apps. Covers three core workflows: (1) Native Builds — cloud builds for iOS and Android, signing certificates, environments, Trapeze configuration, and build artifacts; (2) Live Updates — OTA updates via the @capawesome/capacitor-live-update plugin, channels, versioning, rollbacks, and code signing; (3) App Store Publishing — automated submissions to Apple App Store (TestFlight) and Google Play Store. Includes CI/CD integration for all workflows. Do not use for non-Capacitor mobile frameworks."
+description: "Guides the agent through setting up and using Capawesome Cloud for Capacitor and Cordova apps. Covers three core workflows: (1) Native Builds — cloud builds for iOS and Android (Capacitor, Cordova, or native projects), signing certificates, environments, Trapeze configuration, and build artifacts; (2) Live Updates — OTA updates via the @capawesome/capacitor-live-update or @capawesome/cordova-live-update plugin, channels, versioning, rollbacks, and code signing; (3) App Store Publishing — automated submissions to Apple App Store (TestFlight) and Google Play Store. Includes CI/CD integration for all workflows. Do not use for non-Capacitor, non-Cordova mobile frameworks such as React Native or Flutter."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capawesome-cloud
@@ -8,12 +8,15 @@ metadata:
 
 # Capawesome Cloud
 
-Set up and manage native builds, live updates, and app store publishing for Capacitor apps using Capawesome Cloud.
+Set up and manage native builds, live updates, and app store publishing for Capacitor and Cordova apps using Capawesome Cloud.
 
 ## Prerequisites
 
 1. A [Capawesome Cloud](https://console.cloud.capawesome.io) account and organization.
-2. A **Capacitor 6, 7, or 8** app.
+2. A **Capacitor 6/7/8** or **Cordova** app. Notes:
+   - **Live Updates**: supported on both Capacitor and Cordova.
+   - **Native Builds**: supported on Capacitor, Cordova, and native iOS/Android projects.
+   - **App Store Publishing**: framework-agnostic — works with any native build produced by Native Builds.
 3. Node.js and npm installed.
 4. For **Native Builds**: The app must be in a Git repository (GitHub, GitLab, Bitbucket, or Azure DevOps).
 5. For **Apple App Store Publishing**: An active [Apple Developer Program](https://developer.apple.com/programs/) membership and an app created in [App Store Connect](https://appstoreconnect.apple.com).
@@ -47,6 +50,12 @@ npx @capawesome/cli apps:create
 
 The CLI prompts for organization and app name, then outputs the **app ID** (UUID). Save for subsequent steps.
 
+The app type defaults to `capacitor`. For a Cordova app, pass `--type cordova` (allowed values: `android`, `capacitor`, `cordova`, `ios`):
+
+```bash
+npx @capawesome/cli apps:create --type cordova
+```
+
 ### Step 3: Identify Required Feature(s)
 
 Ask the user which Capawesome Cloud feature(s) to set up:
@@ -72,10 +81,10 @@ Read `references/native-builds.md` for the full native builds setup and usage pr
 
 ### Live Updates
 
-Read `references/live-updates.md` for the full live updates setup and usage procedure. This covers:
+Read `references/live-updates.md` first — it detects the framework (Capacitor or Cordova) and routes to the matching procedure (`live-updates-capacitor.md` or `live-updates-cordova.md`). Both procedures cover:
 
-- Installing the `@capawesome/capacitor-live-update` plugin
-- Configuring the plugin in Capacitor config
+- Installing the Live Update plugin (`@capawesome/capacitor-live-update` for Capacitor, `@capawesome/cordova-live-update` for Cordova)
+- Configuring the plugin (Capacitor config or Cordova `config.xml` preferences)
 - Adding rollback protection
 - Adding update logic (Always Latest, Manual Sync, Force Update)
 - Configuring iOS Privacy Manifest
@@ -104,11 +113,13 @@ Read `references/app-store-publishing.md` for the full app store publishing setu
 
 ### Live Updates
 
-- `npx cap sync` fails → Verify plugin version matches Capacitor version in `package.json`.
-- Bundles not applied → Ensure `LiveUpdate.ready()` is called before `readyTimeout` expires.
-- App reverts to default bundle after restart → `ready()` likely not called. Add it early in app init.
+- `npx cap sync` fails (Capacitor) → Verify plugin version matches Capacitor version in `package.json`.
+- Bundles not applied → Ensure `ready()` is called before `readyTimeout`/`READY_TIMEOUT` expires.
+- App reverts to default bundle after restart → `ready()` likely not called. Add it early in app init (in Cordova, inside the `deviceready` listener).
 - Upload auth errors → Re-run `npx @capawesome/cli login`.
-- Updates not detected with `autoUpdateStrategy: "background"` → Updates only checked if last check was >15 min ago. Force-close and restart.
+- Updates not detected with `autoUpdateStrategy: "background"` / `AUTO_UPDATE_STRATEGY=background` → Updates only checked if last check was >15 min ago. Force-close and restart.
+- **Cordova:** preference changes have no effect → Cordova reads preferences only on platform add. Run `cordova platform rm <platform>` then `cordova platform add <platform>`.
+- **Cordova:** updates never apply / WebView errors → The plugin requires the default custom WebView scheme. Ensure `config.xml` does not set `Scheme=file` or `AndroidInsecureFileModeEnabled=true`.
 - Read `references/live-update-plugin-api.md` for the full SDK API reference.
 - Read `references/live-update-faq.md` for compliance, billing, and limitations.
 
