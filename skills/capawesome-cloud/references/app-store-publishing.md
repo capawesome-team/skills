@@ -2,6 +2,8 @@
 
 Automate app store submissions to TestFlight, Apple App Store, and Google Play Store using Capawesome Cloud.
 
+App Store Publishing is framework-agnostic: it submits the native build produced by Native Builds, regardless of whether the app is a Capacitor, Cordova, or native project. No framework-specific configuration is required.
+
 ## Contents
 
 - Identify the Target Platform

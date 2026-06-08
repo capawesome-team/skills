@@ -1,5 +1,14 @@
 # CI/CD Integrations
 
+The pipelines below target a **Capacitor** project (web assets built with `npm run build` into `dist`). For a **Cordova** project, replace the build step with `npx cordova prepare` and upload from the Cordova web assets directory (typically `www`):
+
+```bash
+npx cordova prepare
+npx @capawesome/cli apps:liveupdates:upload --channel <CHANNEL> --path www --yes
+```
+
+The `login`, `apps:channels:create`, and `apps:liveupdates:upload` commands are identical for both frameworks.
+
 ## GitHub Actions
 
 ```yaml

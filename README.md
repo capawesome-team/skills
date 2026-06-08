@@ -136,7 +136,7 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 | Skill | Description |
 | ----- | ----------- |
 | [`capawesome-cli`](./skills/capawesome-cli/) | Install, configure, and use the Capawesome CLI for authentication, project linking, and CI/CD integration. |
-| [`capawesome-cloud`](./skills/capawesome-cloud/) | Set up and manage native builds, live updates, and app store publishing using Capawesome Cloud. |
+| [`capawesome-cloud`](./skills/capawesome-cloud/) | Set up and manage native builds, live updates, and app store publishing for Capacitor and Cordova apps using Capawesome Cloud. |
 
 ### Ionic
 

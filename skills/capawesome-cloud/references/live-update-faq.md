@@ -72,5 +72,22 @@ Once a live update bundle is active, it takes precedence over the default bundle
 The Live Reload development feature uses a dev server, not the local file system. Disable Live Reload when testing live updates:
 
 ```bash
+# Capacitor
 npx ionic cap run android --open
+# Cordova
+cordova run android
 ```
+
+## Cordova
+
+### Does the Cordova plugin require a specific WebView scheme?
+
+Yes. `@capawesome/cordova-live-update` requires the **default custom WebView scheme** (`https://localhost` on Android, `app://localhost` on iOS). It does **not** work if `config.xml` sets `<preference name="Scheme" value="file" />` or `<preference name="AndroidInsecureFileModeEnabled" value="true" />`. It does not require `cordova-plugin-ionic-webview`.
+
+### Why don't my Cordova preference changes take effect?
+
+Cordova reads plugin `<preference>` values only when a platform is added. After changing any Live Update preference, run `cordova platform rm <platform>` followed by `cordova platform add <platform>`.
+
+### Is the Cordova API the same as Capacitor?
+
+Yes — full API parity. Access the plugin via `cordova.plugins.LiveUpdate` after `deviceready`. See `live-update-plugin-api.md`.
