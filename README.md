@@ -1,5 +1,7 @@
 # skills
 
+[![Install via skills.sh](https://img.shields.io/badge/skills.sh-install-green)](https://skills.sh/capawesome-team/skills)
+
 Agent skills for interacting with Capawesome, Capacitor and the Ionic Framework.
 
 <div class="capawesome-z29o10a">
