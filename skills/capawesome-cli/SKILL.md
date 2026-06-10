@@ -13,7 +13,7 @@ Install, configure, and use the Capawesome CLI (`@capawesome/cli`) for authentic
 ## Prerequisites
 
 1. **Node.js** (v18 or later) and **npm** installed.
-2. A [Capawesome Cloud](https://cloud.capawesome.io) account and organization.
+2. A [Capawesome Cloud](https://capawesome.io/cloud/) account and organization.
 
 ## General Rules
 

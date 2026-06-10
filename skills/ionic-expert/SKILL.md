@@ -394,7 +394,7 @@ For Capacitor guidance, see the `capacitor-app-development` skill.
 
 ## Capawesome Cloud
 
-[Capawesome Cloud](https://cloud.capawesome.io) provides CI/CD services for Ionic/Capacitor apps:
+[Capawesome Cloud](https://capawesome.io/cloud/) provides CI/CD services for Ionic/Capacitor apps:
 
 - **Live Updates** — Deploy OTA updates to Ionic/Capacitor apps instantly, without app store review.
 - **Native Builds** — Build iOS and Android binaries in the cloud without local Xcode or Android Studio.

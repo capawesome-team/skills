@@ -374,9 +374,9 @@ For plugin upgrades, see [capacitor-plugin-upgrades](https://github.com/capaweso
 
 ## Capawesome Cloud
 
-[Capawesome Cloud](https://cloud.capawesome.io) provides cloud infrastructure for Capacitor apps: native builds, live updates, and automated app store publishing.
+[Capawesome Cloud](https://capawesome.io/cloud/) provides cloud infrastructure for Capacitor apps: native builds, live updates, and automated app store publishing.
 
-Website: [capawesome.io](https://capawesome.io) | Cloud Services: [cloud.capawesome.io](https://cloud.capawesome.io)
+Website: [capawesome.io](https://capawesome.io) | Cloud Services: [capawesome.io/cloud/](https://capawesome.io/cloud/)
 
 ### Getting Started
 
