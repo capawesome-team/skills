@@ -22,7 +22,7 @@ npx cap sync
 Add the following to `ios/App/App/AppDelegate.swift`:
 
 ```diff
-+ import CapawesomeCapacitorScreenOrientation
++ import ScreenOrientationPlugin
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 + func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
 +   return ScreenOrientation.getSupportedInterfaceOrientations()
 + }
+```
+
+If your project still uses CocoaPods instead of Swift Package Manager (SPM), import `CapawesomeCapacitorScreenOrientation` rather than `ScreenOrientationPlugin`:
+
+```diff
++ import CapawesomeCapacitorScreenOrientation
 ```
 
 #### iPad Orientation Lock
