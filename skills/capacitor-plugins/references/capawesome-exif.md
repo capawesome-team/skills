@@ -67,7 +67,7 @@ await Exif.removeExif({ path: 'file:///path/to/photo.jpg' });
 - `gpsLatitude`/`gpsLongitude` are signed decimal degrees and must be written together.
 - **Read** works for any platform-supported format. **Write & remove** are lossless in-place operations supported only per this matrix:
 
-  | Format    | Read A/iOS | Write & Remove Android | Write & Remove iOS |
+  | Format    | Read Android/iOS | Write & Remove Android | Write & Remove iOS |
   | --------- | ---------- | ---------------------- | ------------------ |
   | JPEG      | ✅ / ✅    | ✅                     | ✅                 |
   | PNG       | ✅ / ✅    | ✅                     | ❌                 |
