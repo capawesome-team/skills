@@ -24,7 +24,7 @@ On Web, all methods reject as unimplemented.
 
 Optionally define in `android/variables.gradle`:
 
-- `$androidxCredentials` version of `androidx.credentials:credentials` and `androidx.credentials:credentials-play-services-auth` (default: `1.5.0`)
+- `$androidxCredentialsVersion` version of `androidx.credentials:credentials` and `androidx.credentials:credentials-play-services-auth` (default: `1.5.0`)
 
 No further setup is required. Saving a credential presents the system "Save password?" prompt from the active credential provider (e.g. Google Password Manager).
 
