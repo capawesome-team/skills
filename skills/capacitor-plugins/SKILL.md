@@ -154,56 +154,85 @@ npx cap sync
 | Plugin | Package | Reference |
 | ------ | ------- | --------- |
 | Accelerometer | `@capawesome-team/capacitor-accelerometer` | `references/capawesome-accelerometer.md` |
+| Accessibility Preferences | `@capawesome/capacitor-accessibility-preferences` | `references/capawesome-accessibility-preferences.md` |
 | Age Signals | `@capawesome/capacitor-age-signals` | `references/capawesome-age-signals.md` |
 | Android Battery Optimization | `@capawesome-team/capacitor-android-battery-optimization` | `references/capawesome-android-battery-optimization.md` |
 | Android Dark Mode Support | `@capawesome/capacitor-android-dark-mode-support` | `references/capawesome-android-dark-mode-support.md` |
 | Android Edge-to-Edge Support | `@capawesome/capacitor-android-edge-to-edge-support` | `references/capawesome-android-edge-to-edge-support.md` |
 | Android Foreground Service | `@capawesome-team/capacitor-android-foreground-service` | `references/capawesome-android-foreground-service.md` |
+| Android SMS Retriever | `@capawesome/capacitor-android-sms-retriever` | `references/capawesome-android-sms-retriever.md` |
+| App Icon | `@capawesome/capacitor-app-icon` | `references/capawesome-app-icon.md` |
+| App Integrity | `@capawesome/capacitor-app-integrity` | `references/capawesome-app-integrity.md` |
+| App Language | `@capawesome/capacitor-app-language` | `references/capawesome-app-language.md` |
 | App Review | `@capawesome/capacitor-app-review` | `references/capawesome-app-review.md` |
 | App Shortcuts | `@capawesome/capacitor-app-shortcuts` | `references/capawesome-app-shortcuts.md` |
+| App Tracking Transparency | `@capawesome/capacitor-app-tracking-transparency` | `references/capawesome-app-tracking-transparency.md` |
 | App Update | `@capawesome/capacitor-app-update` | `references/capawesome-app-update.md` |
 | Apple Sign In | `@capawesome/capacitor-apple-sign-in` | `references/capawesome-apple-sign-in.md` |
 | Asset Manager | `@capawesome/capacitor-asset-manager` | `references/capawesome-asset-manager.md` |
 | Audio Player | `@capawesome-team/capacitor-audio-player` | `references/capawesome-audio-player.md` |
 | Audio Recorder | `@capawesome-team/capacitor-audio-recorder` | `references/capawesome-audio-recorder.md` |
+| Audio Session | `@capawesome/capacitor-audio-session` | `references/capawesome-audio-session.md` |
 | Background Task | `@capawesome/capacitor-background-task` | `references/capawesome-background-task.md` |
 | Badge | `@capawesome/capacitor-badge` | `references/capawesome-badge.md` |
 | Barometer | `@capawesome-team/capacitor-barometer` | `references/capawesome-barometer.md` |
+| Battery | `@capawesome/capacitor-battery` | `references/capawesome-battery.md` |
 | Biometrics | `@capawesome-team/capacitor-biometrics` | `references/capawesome-biometrics.md` |
 | Bluetooth Low Energy | `@capawesome-team/capacitor-bluetooth-low-energy` | `references/capawesome-bluetooth-low-energy.md` |
 | Cloudinary | `@capawesome/capacitor-cloudinary` | `references/capawesome-cloudinary.md` |
+| Compass | `@capawesome/capacitor-compass` | `references/capawesome-compass.md` |
 | Contacts | `@capawesome-team/capacitor-contacts` | `references/capawesome-contacts.md` |
 | Datetime Picker | `@capawesome-team/capacitor-datetime-picker` | `references/capawesome-datetime-picker.md` |
+| Facebook Sign In | `@capawesome/capacitor-facebook-sign-in` | `references/capawesome-facebook-sign-in.md` |
 | File Compressor | `@capawesome-team/capacitor-file-compressor` | `references/capawesome-file-compressor.md` |
 | File Opener | `@capawesome-team/capacitor-file-opener` | `references/capawesome-file-opener.md` |
 | File Picker | `@capawesome/capacitor-file-picker` | `references/capawesome-file-picker.md` |
 | Geocoder | `@capawesome-team/capacitor-geocoder` | `references/capawesome-geocoder.md` |
 | Google Sign In | `@capawesome/capacitor-google-sign-in` | `references/capawesome-google-sign-in.md` |
 | Grafana Faro | `@capawesome/capacitor-grafana-faro` | `references/capawesome-grafana-faro.md` |
+| Gyroscope | `@capawesome/capacitor-gyroscope` | `references/capawesome-gyroscope.md` |
+| In-App Browser | `@capawesome/capacitor-in-app-browser` | `references/capawesome-in-app-browser.md` |
+| Install Referrer | `@capawesome/capacitor-install-referrer` | `references/capawesome-install-referrer.md` |
+| Keep Awake | `@capawesome/capacitor-keep-awake` | `references/capawesome-keep-awake.md` |
 | libSQL | `@capawesome/capacitor-libsql` | `references/capawesome-libsql.md` |
 | Live Update | `@capawesome/capacitor-live-update` | `references/capawesome-live-update.md` |
+| Localization | `@capawesome/capacitor-localization` | `references/capawesome-localization.md` |
+| Mail Composer | `@capawesome/capacitor-mail-composer` | `references/capawesome-mail-composer.md` |
 | Managed Configurations | `@capawesome/capacitor-managed-configurations` | `references/capawesome-managed-configurations.md` |
+| Maps Launcher | `@capawesome/capacitor-maps-launcher` | `references/capawesome-maps-launcher.md` |
 | Media Session | `@capawesome-team/capacitor-media-session` | `references/capawesome-media-session.md` |
 | Navigation Bar | `@capawesome/capacitor-navigation-bar` | `references/capawesome-navigation-bar.md` |
 | NFC | `@capawesome-team/capacitor-nfc` | `references/capawesome-nfc.md` |
 | OAuth | `@capawesome-team/capacitor-oauth` | `references/capawesome-oauth.md` |
+| Passkeys | `@capawesome/capacitor-passkeys` | `references/capawesome-passkeys.md` |
+| Password Autofill | `@capawesome/capacitor-password-autofill` | `references/capawesome-password-autofill.md` |
 | Pedometer | `@capawesome-team/capacitor-pedometer` | `references/capawesome-pedometer.md` |
 | Photo Editor | `@capawesome/capacitor-photo-editor` | `references/capawesome-photo-editor.md` |
 | PostHog | `@capawesome/capacitor-posthog` | `references/capawesome-posthog.md` |
 | Printer | `@capawesome-team/capacitor-printer` | `references/capawesome-printer.md` |
+| Privacy Screen | `@capawesome/capacitor-privacy-screen` | `references/capawesome-privacy-screen.md` |
 | Purchases | `@capawesome-team/capacitor-purchases` | `references/capawesome-purchases.md` |
 | RealtimeKit | `@capawesome/capacitor-realtimekit` | `references/capawesome-realtimekit.md` |
+| Root Detection | `@capawesome/capacitor-root-detection` | `references/capawesome-root-detection.md` |
+| Screen Brightness | `@capawesome/capacitor-screen-brightness` | `references/capawesome-screen-brightness.md` |
 | Screen Orientation | `@capawesome/capacitor-screen-orientation` | `references/capawesome-screen-orientation.md` |
 | Screenshot | `@capawesome/capacitor-screenshot` | `references/capawesome-screenshot.md` |
 | Secure Preferences | `@capawesome-team/capacitor-secure-preferences` | `references/capawesome-secure-preferences.md` |
+| Shake | `@capawesome/capacitor-shake` | `references/capawesome-shake.md` |
 | Share Target | `@capawesome-team/capacitor-share-target` | `references/capawesome-share-target.md` |
+| Silent Mode | `@capawesome/capacitor-silent-mode` | `references/capawesome-silent-mode.md` |
+| SIM | `@capawesome/capacitor-sim` | `references/capawesome-sim.md` |
+| SMS Composer | `@capawesome/capacitor-sms-composer` | `references/capawesome-sms-composer.md` |
 | Speech Recognition | `@capawesome-team/capacitor-speech-recognition` | `references/capawesome-speech-recognition.md` |
 | Speech Synthesis | `@capawesome-team/capacitor-speech-synthesis` | `references/capawesome-speech-synthesis.md` |
 | SQLite | `@capawesome-team/capacitor-sqlite` | `references/capawesome-sqlite.md` |
 | Square Mobile Payments | `@capawesome/capacitor-square-mobile-payments` | `references/capawesome-square-mobile-payments.md` |
 | Superwall | `@capawesome/capacitor-superwall` | `references/capawesome-superwall.md` |
+| Thermal State | `@capawesome/capacitor-thermal-state` | `references/capawesome-thermal-state.md` |
 | Torch | `@capawesome/capacitor-torch` | `references/capawesome-torch.md` |
 | Vault | `@capawesome-team/capacitor-vault` | `references/capawesome-vault.md` |
+| Volume | `@capawesome/capacitor-volume` | `references/capawesome-volume.md` |
+| Wallet | `@capawesome/capacitor-wallet` | `references/capawesome-wallet.md` |
 | Wi-Fi | `@capawesome-team/capacitor-wifi` | `references/capawesome-wifi.md` |
 | Zip | `@capawesome-team/capacitor-zip` | `references/capawesome-zip.md` |
 
