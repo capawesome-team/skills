@@ -101,17 +101,20 @@ await Vault.removeValue({ key: 'token' });
 await Vault.clear();
 
 await Vault.lock();
-const { locked } = await Vault.isLocked();
-const { empty } = await Vault.isEmpty();
+const { isLocked } = await Vault.isLocked();
+const { isEmpty } = await Vault.isEmpty();
 const { exists } = await Vault.exists();
 await Vault.destroy();
 ```
 
 ### Export / import data
 
+The vault must be unlocked before calling `exportData()` or `importData()`:
+
 ```typescript
 import { Vault } from '@capawesome-team/capacitor-vault';
 
+await Vault.unlock();
 const { data } = await Vault.exportData();
 await Vault.importData({ data });
 ```

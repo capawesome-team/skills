@@ -2,6 +2,8 @@
 
 Migrate from the legacy Ionic Cordova Live Updates SDK (`cordova-plugin-ionic`) to the Capawesome Live Update plugin (`@capawesome/capacitor-live-update`).
 
+**Scope**: This guide is for **Capacitor apps** that still use the legacy Cordova SDK. If the project is a pure Cordova app without Capacitor, migrate to the Cordova Live Update SDK (`@capawesome/cordova-live-update`) instead, which exposes the same API surface via `cordova.plugins.LiveUpdate`.
+
 ## Import
 
 ```diff
@@ -66,7 +68,7 @@ The Cordova `Deploy.sync()` method (automatic variant) maps directly:
 
 | Cordova SDK (`Deploy`) | Capawesome SDK (`LiveUpdate`) |
 |---|---|
-| `configure({ appId, channel })` | `setConfig({ appId })` + `setChannel({ channel })` |
+| `configure({ appId, channel })` | `setConfig({ appId })`; pass the channel directly to `sync({ channel })` or `fetchLatestBundle({ channel })` (preferred). Use `setChannel({ channel })` only for a persistent channel subscription |
 | `configure({ maxVersions })` | No runtime equivalent. Use `autoDeleteBundles: true` in static config |
 | `configure({ minBackgroundDuration })` | No equivalent. Removed in Capacitor SDK |
 | `configure({ updateMethod })` | No runtime equivalent. Use `autoUpdateStrategy` in static config |

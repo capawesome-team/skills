@@ -149,6 +149,7 @@ npx @capawesome/cli apps:builds:create [options]
 | `--zip` | Download zip after build (Web, optional file path). |
 | `--json` | Output in JSON format (includes build ID). |
 | `--detached` | Exit immediately without waiting for the build to complete. |
+| `--failure-summary` | Request an AI-powered failure summary (Capawesome Cloud Assist) if the build fails. Cannot be used together with `--detached`. |
 | `--yes, -y` | Skip confirmation prompts. |
 
 ### apps:builds:cancel
@@ -173,6 +174,20 @@ npx @capawesome/cli apps:builds:download [options]
 | `--aab` | Download AAB (Android, optional file path). |
 | `--ipa` | Download IPA (iOS, optional file path). |
 | `--zip` | Download ZIP (Web, optional file path). |
+
+### apps:builds:failure-summary
+
+Explain why an app build failed using Capawesome Cloud Assist (AI).
+
+```bash
+npx @capawesome/cli apps:builds:failure-summary [--app-id <id>] [--build-id <id> | --build-number <n>]
+```
+
+| Option | Description |
+|--------|-------------|
+| `--app-id` | App ID the build belongs to. |
+| `--build-id` | Build ID to summarize. Alternative to `--build-number`. |
+| `--build-number` | Build number to summarize (e.g. `"1"`, `"42"`). Alternative to `--build-id`. |
 
 ### apps:builds:get
 
@@ -263,7 +278,6 @@ npx @capawesome/cli apps:channels:create [options]
 | `--app-id` | ID of the app. |
 | `--name` | Name of the channel. |
 | `--protected` | Whether to protect the channel. Default `false`. |
-| `--expires-in-days` | Number of days until the channel is automatically deleted. |
 | `--ignore-errors` | Ignore errors (e.g. when the channel already exists). |
 
 ### apps:channels:delete
@@ -320,11 +334,21 @@ npx @capawesome/cli apps:deployments:create [options]
 | `--channel` | Channel to deploy to (Web only). |
 | `--destination` | Destination to deploy to (Android/iOS). |
 | `--detached` | Exit immediately without waiting for completion. |
+| `--failure-summary` | Request an AI-powered failure summary (Capawesome Cloud Assist) if the deployment fails. |
+| `--json` | Output in JSON format. |
 
 ### apps:deployments:cancel
 
 ```bash
 npx @capawesome/cli apps:deployments:cancel --app-id <APP_ID> --deployment-id <DEPLOYMENT_ID>
+```
+
+### apps:deployments:failure-summary
+
+Explain why an app deployment failed using Capawesome Cloud Assist (AI).
+
+```bash
+npx @capawesome/cli apps:deployments:failure-summary --app-id <APP_ID> --deployment-id <DEPLOYMENT_ID>
 ```
 
 ### apps:deployments:get
@@ -470,6 +494,16 @@ npx @capawesome/cli apps:devices:probe [--app-id <id>] [--device-id <id>] [--jso
 npx @capawesome/cli apps:environments:create --app-id <APP_ID> --name <NAME>
 ```
 
+### apps:environments:get
+
+Get an existing environment.
+
+```bash
+npx @capawesome/cli apps:environments:get --app-id <APP_ID> [--environment-id <id> | --name <name>] [--json]
+```
+
+Either `--environment-id` or `--name` must be provided.
+
 ### apps:environments:list
 
 ```bash
@@ -559,7 +593,6 @@ npx @capawesome/cli apps:liveupdates:upload [options]
 | `--artifact-type` | `zip` (default) or `manifest`. |
 | `--private-key` | Private key file path (`.pem`) or content for code signing. |
 | `--rollout-percentage` | 0-100 for gradual rollout. |
-| `--expires-in-days` | Number of days until the bundle is automatically deleted. |
 | `--git-ref` | Git reference (branch, tag, or commit SHA) to associate with the bundle. |
 | `--android-min` | Minimum Android version code. |
 | `--android-max` | Maximum Android version code. |

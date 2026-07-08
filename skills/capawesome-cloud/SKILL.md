@@ -139,4 +139,5 @@ Read `references/app-store-publishing.md` for the full app store publishing setu
 - **`capawesome-cli`** — For the full Capawesome CLI command reference, project configuration, and CI/CD integration details.
 - **`capacitor-plugins`** — For installing and configuring Capacitor plugins, including the `@capawesome/capacitor-live-update` plugin.
 - **`ionic-appflow-migration`** — For migrating existing Ionic Appflow projects to Capawesome Cloud.
+- **`capgo-cloud-migration`** — For migrating existing Capgo projects to Capawesome Cloud.
 - **`capacitor-in-app-purchases`** — For setting up in-app purchases and subscriptions before publishing to app stores.

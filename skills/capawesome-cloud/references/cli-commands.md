@@ -373,7 +373,6 @@ Options:
 - `--ios-min`, `--ios-max`, `--ios-eq`: iOS version constraints
 - `--custom-property`: `key=value` pairs (repeatable)
 - `--git-ref`: Git reference to associate
-- `--expires-in-days`: Auto-delete after N days
 - `--yes`: Skip prompts
 
 ### apps:liveupdates:register

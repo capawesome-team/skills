@@ -2,6 +2,8 @@
 
 > **Capacitor vs Cordova:** The options below apply to both frameworks. In **Capacitor**, they are set under `plugins.LiveUpdate` in `capacitor.config.ts`/`capacitor.config.json`. In **Cordova**, they are set as `<preference>` elements in `config.xml` (see the [Cordova Preference Mapping](#cordova-preference-mapping) below).
 
+> **"Since" versions:** The "Since" column indicates when an option was introduced on the plugin's mainline — not availability per Capacitor version. The latest `v6-lts` (Capacitor 6) and `v7-lts` (Capacitor 7) releases include all options of the latest v8 (`latest`) release. Always install the latest release of the app's dist-tag.
+
 ## Capacitor
 
 All options are set under `plugins.LiveUpdate` in `capacitor.config.ts` or `capacitor.config.json`.
