@@ -13,14 +13,15 @@ Use `@capawesome-team/capacitor-biometrics` in addition only when the app calls 
 | Configure / initialize       | `new Vault(config)` / `initialize(config)` | `Vault.initialize(options)`                 |
 | Unlock                       | `vault.unlock()`                | `Vault.unlock()`                                       |
 | Lock                         | `vault.lock()`                  | `Vault.lock()`                                         |
-| Check lock state             | `vault.isLocked()`              | `Vault.isLocked()` → `{ locked }`                      |
-| Check if empty               | `vault.isEmpty()`               | `Vault.isEmpty()` → `{ empty }`                        |
+| Check lock state             | `vault.isLocked()`              | `Vault.isLocked()` → `{ isLocked }`                    |
+| Check if empty               | `vault.isEmpty()`               | `Vault.isEmpty()` → `{ isEmpty }`                      |
 | Check if vault exists        | `vault.doesVaultExist()`        | `Vault.exists()` → `{ exists }`                        |
 | Store value                  | `vault.setValue(key, value)`    | `Vault.setValue({ key, value })`                       |
 | Retrieve value               | `vault.getValue(key)`           | `Vault.getValue({ key })` → `{ value }`                |
 | Remove value                 | `vault.removeValue(key)`        | `Vault.removeValue({ key })`                           |
 | List keys                    | `vault.getKeys()`               | `Vault.getKeys()` → `{ keys }`                         |
 | Clear all values             | `vault.clear()`                 | `Vault.clear()`                                        |
+| Destroy vault (values + config) | *(no direct equivalent — `clear()` removes values only)* | `Vault.destroy()` — must reinitialize before reuse |
 | Export data                 | `vault.exportVault()`           | `Vault.exportData()` → `{ data }`                      |
 | Import data                  | `vault.importVault(data)`       | `Vault.importData({ data })`                           |
 | Auto-lock after background    | `lockAfterBackgrounded` config  | `lockAfterBackgrounded` option (ms)                    |
@@ -120,12 +121,14 @@ async function migrateIdentityVaultData(): Promise<void> {
   await legacyVault.unlock();
   const data = await legacyVault.exportVault();
 
-  // 4. Initialize the new vault and import the exported data.
+  // 4. Initialize the new vault, unlock it, and import the exported data.
+  //    The vault must be unlocked before calling importData().
   await Vault.initialize({
     vaultId: 'com.example.vault',
     type: VaultType.BiometricOrDevicePasscode,
     title: 'Authenticate',
   });
+  await Vault.unlock();
   await Vault.importData({ data });
 
   // 5. Clear the old vault and mark the migration complete.
@@ -189,7 +192,7 @@ try {
 }
 
 await Vault.lock();
-const { locked } = await Vault.isLocked();
+const { isLocked } = await Vault.isLocked();
 ```
 
 ### 5. Replace value storage

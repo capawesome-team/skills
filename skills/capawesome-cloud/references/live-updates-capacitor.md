@@ -37,7 +37,7 @@ const config: CapacitorConfig = {
   plugins: {
     LiveUpdate: {
       appId: "<APP_ID_FROM_STEP_2>",
-      autoUpdateStrategy: "background", // Capacitor 7/8 only — omit for Capacitor 6
+      autoUpdateStrategy: "background",
     },
   },
 };
@@ -70,7 +70,7 @@ void LiveUpdate.ready();
 
 If `ready()` is not called within `readyTimeout` ms, the plugin automatically rolls back.
 
-## Add Always Latest Update Logic (Recommended, Capacitor 7/8 Only)
+## Add Always Latest Update Logic (Recommended)
 
 Add a listener to prompt the user when a new update is ready. **Important:** Always show a confirmation dialog before reloading — never call `LiveUpdate.reload()` without user consent.
 
@@ -89,9 +89,9 @@ LiveUpdate.addListener("nextBundleSet", async (event) => {
 
 Copy this snippet exactly. Do not simplify or omit the `confirm()` dialog.
 
-## Add Manual Update Logic (Capacitor 6 Only)
+## Add Manual Update Logic (Alternative)
 
-Capacitor 6 does not support `autoUpdateStrategy`. Implement manual sync:
+To control update checks manually instead of using the background strategy, omit `autoUpdateStrategy` (or set it to `"none"`) and implement manual sync:
 
 ```typescript
 import { App } from "@capacitor/app";
@@ -110,7 +110,7 @@ App.addListener("resume", async () => {
 });
 ```
 
-For Capacitor 7/8 with `autoUpdateStrategy: "background"`, no additional code is required.
+With `autoUpdateStrategy: "background"`, no additional code is required.
 Read `update-strategies.md` for alternative strategies.
 
 ## Configure iOS Privacy Manifest
@@ -253,8 +253,8 @@ Then open the native project:
 Tell the user to perform the following steps:
 
 1. Run the app on a real device or emulator from Xcode or Android Studio.
-2. **For Always Latest / `autoUpdateStrategy: "background"` (Capacitor 7/8):** Wait for the update prompt to appear and accept it. The visible change from the uploaded bundle should appear after reload. If no prompt appears, force-close and reopen the app to trigger a check.
-3. **For manual sync (Capacitor 6):** Switch away from the app and return to it. Accept the update prompt when it appears, and the change should be visible immediately after reload.
+2. **For Always Latest / `autoUpdateStrategy: "background"`:** Wait for the update prompt to appear and accept it. The visible change from the uploaded bundle should appear after reload. If no prompt appears, force-close and reopen the app to trigger a check.
+3. **For manual sync:** Switch away from the app and return to it. Accept the update prompt when it appears, and the change should be visible immediately after reload.
 4. If the change does not appear, check Android Logcat or iOS Xcode console for Live Update SDK log output and refer to `live-update-advanced-topics.md` (Debugging section).
 
 After testing, tell the user: Once a live update bundle has been applied, the app points to that bundle instead of the default one. To use the development server again, completely uninstall and reinstall the app. This is only relevant during development — in production, the default bundle is automatically restored on each native app update.

@@ -14,6 +14,7 @@ Ionic Secure Storage offered both key-value storage and SQLite database function
 | Set value      | `KeyValueStorage.set(key, val)`  | `SecurePreferences.set({ key, value })`|
 | Get value      | `KeyValueStorage.get(key)`       | `SecurePreferences.get({ key })`       |
 | Remove value   | `KeyValueStorage.remove(key)`    | `SecurePreferences.remove({ key })`    |
+| List keys      | `KeyValueStorage.keys()`         | `SecurePreferences.keys()` → `{ keys }`|
 | Clear store    | `KeyValueStorage.clear()`        | `SecurePreferences.clear()`            |
 
 ### SQLite Database

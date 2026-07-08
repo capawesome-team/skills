@@ -10,16 +10,16 @@ Create a channel:
 npx @capawesome/cli apps:channels:create
 ```
 
-Set a channel in the app:
-
-```typescript
-await LiveUpdate.setChannel({ channel: "beta" });
-```
-
-Or pass it to `sync()`:
+Subscribe to a channel by passing it directly to `sync()` (or `fetchLatestBundle()` for manual update flows) — preferred, because it keeps the selected channel explicit at the call site:
 
 ```typescript
 await LiveUpdate.sync({ channel: "production" });
+```
+
+Alternatively, persist the channel with `setChannel()`. This is not recommended — it relies on hidden, persisted state — and should only be used for persistent channel subscriptions:
+
+```typescript
+await LiveUpdate.setChannel({ channel: "beta" });
 ```
 
 Read `cli-commands.md` for all channel management commands.

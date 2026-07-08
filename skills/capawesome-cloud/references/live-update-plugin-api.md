@@ -7,6 +7,8 @@ The Capacitor and Cordova plugins share the same method and event surface (full 
 
 The method signatures below use the Capacitor `LiveUpdate` object; for Cordova, replace `LiveUpdate` with `cordova.plugins.LiveUpdate`.
 
+> **"Since" versions:** These markers indicate when a feature was introduced on the plugin's mainline — not availability per Capacitor version. The latest `v6-lts` (Capacitor 6) and `v7-lts` (Capacitor 7) releases include all features of the latest v8 (`latest`) release. Always install the latest release of the app's dist-tag.
+
 > `getBundles()` is deprecated — use `getDownloadedBundles()` instead.
 
 ## Methods

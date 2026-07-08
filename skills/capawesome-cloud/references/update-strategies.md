@@ -57,9 +57,9 @@ void checkForUpdate();
 
 Set `autoUpdateStrategy: "none"` in the config.
 
-## Manual Sync (Capacitor 6)
+## Manual Sync
 
-Capacitor 6 does not support `autoUpdateStrategy`. Implement sync manually:
+For full control over when updates are checked (e.g. sync on app resume), set `autoUpdateStrategy: "none"` in the config and implement sync manually:
 
 ```typescript
 import { App } from "@capacitor/app";

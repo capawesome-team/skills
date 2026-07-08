@@ -29,8 +29,7 @@ Devices that already downloaded the bundle continue using it. The previous bundl
 
 ### How to automatically delete old bundles?
 
-1. Set a bundle limit per channel (oldest auto-deleted when limit reached).
-2. Set an expiration date per bundle with `--expires-in-days`.
+Set a bundle limit per channel (oldest auto-deleted when limit reached).
 
 ## Channels
 

@@ -106,10 +106,14 @@ Upgrade a Capacitor plugin to a newer major version:
 Upgrade my Capacitor plugin to version 7.
 ```
 
-Migrate from Ionic Appflow or Ionic Enterprise SDK plugins:
+Migrate from Ionic Appflow, Ionic Enterprise SDK plugins, or Capgo:
 
 ```plaintext
 Migrate my app from Ionic Appflow to Capawesome Cloud.
+```
+
+```plaintext
+Migrate my app from Capgo to Capawesome Cloud.
 ```
 
 ## Skills
@@ -139,6 +143,12 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 | ----- | ----------- |
 | [`capawesome-cli`](./skills/capawesome-cli/) | Install, configure, and use the Capawesome CLI for authentication, project linking, and CI/CD integration. |
 | [`capawesome-cloud`](./skills/capawesome-cloud/) | Set up and manage native builds, live updates, and app store publishing for Capacitor and Cordova apps using Capawesome Cloud. |
+
+### Capgo
+
+| Skill | Description |
+| ----- | ----------- |
+| [`capgo-cloud-migration`](./skills/capgo-cloud-migration/) | Migrate from Capgo to Capawesome Cloud. |
 
 ### Ionic
 
