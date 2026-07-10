@@ -328,10 +328,25 @@ npx cap sync
 | Plugin | Package | Reference |
 | ------ | ------- | --------- |
 | Barcode Scanning | `@capacitor-mlkit/barcode-scanning` | `references/mlkit-barcode-scanning.md` |
+| Digital Ink Recognition | `@capacitor-mlkit/digital-ink-recognition` | `references/mlkit-digital-ink-recognition.md` |
+| Document Scanner | `@capacitor-mlkit/document-scanner` | `references/mlkit-document-scanner.md` |
+| Entity Extraction | `@capacitor-mlkit/entity-extraction` | `references/mlkit-entity-extraction.md` |
 | Face Detection | `@capacitor-mlkit/face-detection` | `references/mlkit-face-detection.md` |
 | Face Mesh Detection | `@capacitor-mlkit/face-mesh-detection` | `references/mlkit-face-mesh-detection.md` |
+| GenAI Image Description | `@capacitor-mlkit/genai-image-description` | `references/mlkit-genai-image-description.md` |
+| GenAI Prompt | `@capacitor-mlkit/genai-prompt` | `references/mlkit-genai-prompt.md` |
+| GenAI Proofreading | `@capacitor-mlkit/genai-proofreading` | `references/mlkit-genai-proofreading.md` |
+| GenAI Rewriting | `@capacitor-mlkit/genai-rewriting` | `references/mlkit-genai-rewriting.md` |
+| GenAI Speech Recognition | `@capacitor-mlkit/genai-speech-recognition` | `references/mlkit-genai-speech-recognition.md` |
+| GenAI Summarization | `@capacitor-mlkit/genai-summarization` | `references/mlkit-genai-summarization.md` |
+| Image Labeling | `@capacitor-mlkit/image-labeling` | `references/mlkit-image-labeling.md` |
+| Language Identification | `@capacitor-mlkit/language-identification` | `references/mlkit-language-identification.md` |
+| Object Detection | `@capacitor-mlkit/object-detection` | `references/mlkit-object-detection.md` |
+| Pose Detection | `@capacitor-mlkit/pose-detection` | `references/mlkit-pose-detection.md` |
 | Selfie Segmentation | `@capacitor-mlkit/selfie-segmentation` | `references/mlkit-selfie-segmentation.md` |
+| Smart Reply | `@capacitor-mlkit/smart-reply` | `references/mlkit-smart-reply.md` |
 | Subject Segmentation | `@capacitor-mlkit/subject-segmentation` | `references/mlkit-subject-segmentation.md` |
+| Text Recognition | `@capacitor-mlkit/text-recognition` | `references/mlkit-text-recognition.md` |
 | Translation | `@capacitor-mlkit/translation` | `references/mlkit-translation.md` |
 
 ### RevenueCat Plugins
