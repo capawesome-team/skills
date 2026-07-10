@@ -17,7 +17,7 @@ npx cap sync
 
 No configuration required.
 
-Optional `variables.gradle` variable: `mlkitDocumentScannerVersion` version of `com.google.android.gms:play-services-mlkit-document-scanner` (default: `16.0.0`).
+Optional `variables.gradle` variable: `mlkitDocumentScannerVersion` (default: `16.0.0`) for `com.google.android.gms:play-services-mlkit-document-scanner`.
 
 ### iOS
 
