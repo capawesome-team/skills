@@ -51,4 +51,4 @@ console.log(text, blocks);
 
 - `processImage()` is only available on Android and iOS; the Web platform is not supported by the underlying ML Kit SDK.
 - Supported scripts: `Latin`, `Chinese`, `Devanagari`, `Japanese`, `Korean` (default `Latin`).
-- On Android, all five script models are bundled, which increases the APK/IPA size. Remove the Gradle variables for scripts you do not need.
+- On Android, including additional script models increases the app binary size; only include the script dependencies you need.
