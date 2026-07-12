@@ -76,23 +76,24 @@ defineCustomElements(window);
 
 To build for PWA, configure a service worker and web manifest using the framework's PWA tooling (e.g., `@angular/pwa`, `vite-plugin-pwa`, `next-pwa`).
 
-## Electron (Desktop)
+## Desktop (Electron & Tauri)
 
-Capacitor apps can target desktop platforms (macOS, Windows, Linux) via the `@capacitor-community/electron` package.
+Capacitor apps can target desktop platforms (macOS, Windows, Linux) via the Capawesome platforms [`@capawesome/capacitor-electron`](https://github.com/capawesome-team/capacitor-electron) and [`@capawesome/capacitor-tauri`](https://github.com/capawesome-team/capacitor-tauri).
 
-- **Requirement**: Capacitor 5.4.0 or higher.
-- **Native project**: `electron/` directory.
-- Web plugins work automatically. Native plugins from iOS/Android are **not** available — use Electron-specific plugin implementations instead.
+- **Electron**: maximum plugin compatibility (Node-based plugin implementations plus automatic web fallback) and web-bundle OTA updates, with larger binaries (bundled Chromium). Native project: `electron/`.
+- **Tauri**: tiny system-webview binaries and a deny-by-default Rust core, with a scoped plugin story (built-in `@capacitor/app`, curated shims, web fallback). Requires the Rust toolchain. Native project: `src-tauri/`.
 
-Add the Electron platform:
+Add a desktop platform:
 
 ```bash
-npm install @capacitor-community/electron
-npx cap add @capacitor-community/electron
-npx cap open @capacitor-community/electron
+npm install @capawesome/capacitor-electron
+npx cap add @capawesome/capacitor-electron
+# or
+npm install @capawesome/capacitor-tauri
+npx cap add @capawesome/capacitor-tauri
 ```
 
-Electron support is community-maintained and may not cover all Capacitor plugin APIs. Evaluate plugin availability before committing to a desktop target.
+Always use the full package name with Capacitor CLI commands (a bare `npx cap sync electron` silently does nothing). Native plugins from iOS/Android are **not** available on desktop — evaluate plugin availability before committing to a desktop target. For platform selection, setup, packaging, and plugin compatibility details, use the `capacitor-platforms` skill.
 
 ## Platform Detection at Runtime
 
