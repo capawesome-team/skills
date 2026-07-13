@@ -45,7 +45,7 @@ Available plugins:
 
 | Plugin | Description |
 | ------ | ----------- |
-| `capacitor-core` | App creation, development, upgrades, expert reference, and plugin setup. |
+| `capacitor-core` | App creation, development, upgrades, expert reference, plugin setup, and desktop platforms. |
 | `capacitor-integrations` | Push notifications (FCM) and in-app purchases. |
 | `capacitor-frameworks` | Angular, React, and Vue patterns for Capacitor. |
 | `capacitor-plugin-dev` | Create, upgrade, and add SPM support to Capacitor plugins. |
@@ -129,6 +129,7 @@ Migrate my app from Capgo to Capawesome Cloud.
 | [`capacitor-app-upgrades`](./skills/capacitor-app-upgrades/) | Upgrade a Capacitor app to a newer major version. |
 | [`capacitor-expert`](./skills/capacitor-expert/) | Comprehensive Capacitor expert reference — core concepts, CLI, plugins, framework integration, best practices, and Capawesome Cloud. |
 | [`capacitor-in-app-purchases`](./skills/capacitor-in-app-purchases/) | Set up in-app purchases and subscriptions in Capacitor apps. |
+| [`capacitor-platforms`](./skills/capacitor-platforms/) | Add and use the Capawesome desktop platforms (Electron and Tauri) in Capacitor apps. |
 | [`capacitor-plugin-development`](./skills/capacitor-plugin-development/) | Create and maintain Capacitor plugins from scratch. |
 | [`capacitor-plugin-spm-support`](./skills/capacitor-plugin-spm-support/) | Add Swift Package Manager (SPM) support to a Capacitor plugin. |
 | [`capacitor-plugin-upgrades`](./skills/capacitor-plugin-upgrades/) | Upgrade a Capacitor plugin to a newer major version. |
