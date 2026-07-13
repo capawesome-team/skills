@@ -15,9 +15,11 @@ Bring a Capacitor app to macOS, Windows, and Linux with the Capawesome desktop p
 | Requirement | Electron | Tauri |
 | --- | --- | --- |
 | Node.js | LTS (18+) | LTS (18+) |
-| Capacitor | 8+ | 8+ |
+| Capacitor | 6+ | 8+ |
 | Electron | >= 28 (installed by the scaffold) | — |
 | Rust toolchain + system dependencies | — | Required — see the [Tauri prerequisites guide](https://v2.tauri.app/start/prerequisites/) |
+
+On Capacitor 6 and 7, the Capacitor CLI ignores the exit code of platform hooks — a failing `npx cap sync` still reports success. Check the log output for `[capacitor-electron]` errors. Capacitor 8 fails the command properly.
 
 ## Agent Behavior
 
@@ -33,7 +35,7 @@ Bring a Capacitor app to macOS, Windows, and Linux with the Capawesome desktop p
 | The app needs… | Choose |
 | --- | --- |
 | Reuse of Capacitor plugins with native (Node) desktop implementations | **Electron** |
-| Web-bundle over-the-air updates (Live Updates) | **Electron** (Tauri compiles web assets into the binary; only full signed binary updates) |
+| Web-bundle over-the-air updates | **Electron** (ships a bundle-serving primitive; Tauri compiles web assets into the binary — only full signed binary updates) |
 | A single, predictable bundled Chromium across all OSes | **Electron** |
 | Smallest binaries (~3–10 MB vs ~85–120 MB) and lowest memory use | **Tauri** |
 | A deny-by-default security model with a Rust core | **Tauri** |
@@ -48,7 +50,17 @@ Electron:
 ```bash
 npm install @capawesome/capacitor-electron
 npx cap add @capawesome/capacitor-electron
-cd electron && npm install
+cd electron && npm install && cd ..
+```
+
+Then add a `postinstall` script to the app's root `package.json` so the Electron dependencies are always installed together with the main app dependencies:
+
+```json
+{
+  "scripts": {
+    "postinstall": "cd electron && npm ci && cd .."
+  }
+}
 ```
 
 Tauri (verify `rustc --version` works first; if not, stop and walk the user through the [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/)):

@@ -80,7 +80,7 @@ To build for PWA, configure a service worker and web manifest using the framewor
 
 Capacitor apps can target desktop platforms (macOS, Windows, Linux) via the Capawesome platforms [`@capawesome/capacitor-electron`](https://github.com/capawesome-team/capacitor-electron) and [`@capawesome/capacitor-tauri`](https://github.com/capawesome-team/capacitor-tauri).
 
-- **Electron**: maximum plugin compatibility (Node-based plugin implementations plus automatic web fallback) and web-bundle OTA updates, with larger binaries (bundled Chromium). Native project: `electron/`.
+- **Electron**: maximum plugin compatibility (Node-based plugin implementations plus automatic web fallback) and web-bundle update support, with larger binaries (bundled Chromium). Supports Capacitor 6+. Native project: `electron/`.
 - **Tauri**: tiny system-webview binaries and a deny-by-default Rust core, with a scoped plugin story (built-in `@capacitor/app`, curated shims, web fallback). Requires the Rust toolchain. Native project: `src-tauri/`.
 
 Add a desktop platform:

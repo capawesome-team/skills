@@ -4,7 +4,7 @@ Package: [`@capawesome/capacitor-tauri`](https://github.com/capawesome-team/capa
 
 ## Prerequisites
 
-Tauri requires the **Rust toolchain** and platform system dependencies (WebKitGTK dev packages on Linux, MSVC Build Tools on Windows, Xcode Command Line Tools on macOS). Verify with `rustc --version`; if missing, follow the [Tauri prerequisites guide](https://v2.tauri.app/start/prerequisites/) before installing.
+Tauri requires the **Rust toolchain** (1.77.2+) and platform system dependencies (WebKitGTK dev packages on Linux, MSVC Build Tools on Windows, Xcode Command Line Tools on macOS). Verify with `rustc --version`; if missing, follow the [Tauri prerequisites guide](https://v2.tauri.app/start/prerequisites/) before installing.
 
 ## Scaffold Layout
 
@@ -13,22 +13,24 @@ Tauri requires the **Rust toolchain** and platform system dependencies (WebKitGT
 | File | Purpose |
 | --- | --- |
 | `src/main.rs` | ~3 lines: starts the app via the platform crate |
+| `src/generated.rs` | Generated plugin registrations (regenerated at sync, gitignored) |
 | `tauri.conf.json` | App configuration (window, CSP, deep links, bundle) |
 | `capabilities/` | Permission grants (regenerated at sync) |
 | `Cargo.toml` | Crate dependencies (curated plugin crates added at sync) |
+| `build.rs` | Standard Tauri build script |
 | `icons/` | App icons |
 
 All runtime logic lives in the `capacitor-tauri` crate and updates via `cargo update`.
 
 ## Sync-Time Codegen
 
-`npx cap sync @capawesome/capacitor-tauri` copies web assets and then statically scans the app's Capacitor plugin dependencies to generate:
+`npx cap sync @capawesome/capacitor-tauri` copies web assets (skipped when `server.url` is set) and then statically scans the app's Capacitor plugin dependencies to generate:
 
-- a **deny-by-default capability file** containing only the permissions the enabled curated plugins need,
-- the matching `tauri-plugin-*` crate dependencies in `Cargo.toml`,
-- the Rust plugin registrations.
+- a **deny-by-default capability file** (`capabilities/capacitor.json`) containing only the permissions the enabled curated plugins need,
+- the matching `tauri-plugin-*` crate dependencies in the managed block of `Cargo.toml`,
+- the Rust plugin registrations in `src/generated.rs`.
 
-Rerun sync after adding or removing Capacitor plugins.
+Detection scans the app `package.json` `dependencies` only — a curated plugin listed under `devDependencies` is **not** detected. Rerun sync after adding or removing Capacitor plugins.
 
 ## Plugin Tiers
 
@@ -41,6 +43,11 @@ Rerun sync after adding or removing Capacitor plugins.
 Plugins needing native functionality beyond this require a bespoke Rust implementation (Tier 3). Before recommending Tauri, list the app's plugins and verify coverage; if a required plugin is uncovered, recommend the [Electron platform](https://github.com/capawesome-team/capacitor-electron) instead. Requests for new curated plugins go to the [issue tracker](https://github.com/capawesome-team/capacitor-tauri/issues).
 
 `Capacitor.getPlatform()` returns `'tauri'` and `Capacitor.isNativePlatform()` returns `true`.
+
+## Configuration Notes
+
+- The scaffold ships a default CSP in `tauri.conf.json` (`default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'`) — apps loading remote resources must extend it.
+- The default window is labeled `main` and the generated capability file grants permissions to `["main"]` only — renaming or adding windows requires updating `capabilities/` manually.
 
 ## Live Reload
 
