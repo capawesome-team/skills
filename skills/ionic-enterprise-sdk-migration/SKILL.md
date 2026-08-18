@@ -34,6 +34,19 @@ All Capawesome replacement plugins require a [Capawesome Insiders](https://capaw
 - **Use the `capacitor-plugins` skill for installation.** Delegate plugin installation and platform configuration to the `capacitor-plugins` skill. Only handle migration-specific steps (uninstall, code replacement) in this skill.
 - **Preserve existing behavior.** When replacing API calls, maintain the same functional behavior (e.g., same scopes, same stored keys, same database schema).
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Procedures
 
 ### Step 1: Detect Ionic Enterprise Dependencies
@@ -123,3 +136,4 @@ npx cap sync
 
 - **`capacitor-plugins`** — Referenced throughout this skill for plugin installation and platform configuration.
 - **`ionic-appflow-migration`** — If the project also uses Ionic Appflow (Live Updates, Native Builds, App Store Publishing), use this skill to migrate to Capawesome Cloud.
+- **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

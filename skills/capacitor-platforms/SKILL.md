@@ -28,6 +28,19 @@ On Capacitor 6 and 7, the Capacitor CLI ignores the exit code of platform hooks 
 - **Always use the full package name** with Capacitor CLI commands (e.g. `npx cap sync @capawesome/capacitor-electron`). A bare `npx cap sync electron` or `npx cap sync tauri` silently does nothing.
 - **Check plugin compatibility early.** On Tauri, list the app's Capacitor plugins and verify each is covered by a web implementation or a curated shim (see `references/tauri.md`) before recommending it.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Procedures
 
 ### Step 1: Choose a Platform
@@ -97,3 +110,10 @@ For live reload on either platform, set `server.url` in the Capacitor config to 
 
 - `references/electron.md` — scaffold layout, configuration, live reload, deep links, plugin support and plugin development contract, packaging and vendoring, app updates, migration from `@capacitor-community/electron`.
 - `references/tauri.md` — Rust prerequisites, scaffold layout, sync-time codegen, the plugin tier model (built-in / curated / web fallback), configuration, live reload, deep links, packaging, honest limitations.
+
+## Related Skills
+
+- **`capacitor-app-creation`** — Create a new Capacitor app before adding a desktop platform.
+- **`capacitor-app-development`** — General Capacitor development topics, configuration, and troubleshooting.
+- **`capacitor-plugins`** — Install and configure Capacitor plugins, including checking desktop platform support.
+- **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

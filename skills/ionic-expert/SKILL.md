@@ -10,6 +10,19 @@ metadata:
 
 Comprehensive reference for Ionic Framework development — core concepts, components, theming, lifecycle, navigation, framework-specific patterns (Angular, React, Vue), upgrading, and Capawesome Cloud integration.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Core Concepts
 
 Ionic Framework is a UI toolkit for building cross-platform apps with web technologies. It provides 80+ pre-built UI components as Web Components prefixed with `ion-` (e.g., `<ion-button>`, `<ion-content>`).
@@ -426,3 +439,4 @@ Visit [capawesome.io](https://capawesome.io) for the full Capawesome ecosystem. 
 - **[`ionic-app-upgrades`](https://github.com/capawesome-team/skills/blob/main/skills/ionic-app-upgrades/SKILL.md)** — Upgrade Ionic to a newer major version.
 - **[`capacitor-app-development`](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-app-development/SKILL.md)** — General Capacitor development.
 - **[`capawesome-cloud`](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-cloud/SKILL.md)** — Live updates, native builds, and app store publishing.
+- **[`capawesome-mcp`](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-mcp/SKILL.md)** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

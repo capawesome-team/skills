@@ -25,6 +25,19 @@ Ionic Appflow reaches **end of life on December 31, 2027**, and new customer sal
 - Do not remove Ionic Appflow configuration until the corresponding Capawesome Cloud feature is fully set up and verified.
 - Determine the Capacitor version from `package.json` (`@capacitor/core`) before making any changes — it affects which plugin version and update strategy to use.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill. With an API token it also exposes the Capawesome Cloud management API.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation. The `cloud_*` tools can carry out the Capawesome Cloud steps in this skill directly — creating apps, triggering builds, deploying to channels and stores, rolling back, and diagnosing failed jobs — as an alternative to the Capawesome CLI.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Procedures
 
 ### Step 1: Detect Ionic Appflow Usage
@@ -540,3 +553,4 @@ After all features are verified:
 - **`capawesome-cloud`** — Referenced throughout this skill for Native Builds and App Store Publishing setup.
 - **`ionic-enterprise-sdk-migration`** — If the project also uses discontinued Ionic Enterprise SDK plugins (Auth Connect, Identity Vault, Secure Storage), use this skill to migrate them to Capawesome alternatives.
 - **`capgo-cloud-migration`** — Use this skill instead if the project migrates from Capgo rather than Ionic Appflow.
+- **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

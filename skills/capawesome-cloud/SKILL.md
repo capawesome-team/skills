@@ -26,6 +26,19 @@ Set up and manage native builds, live updates, and app store publishing for Capa
 
 Before running any `@capawesome/cli` command for the first time, run it with the `--help` flag to review all available options.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill. With an API token it also exposes the Capawesome Cloud management API.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation. The `cloud_*` tools can carry out the Capawesome Cloud steps in this skill directly — creating apps, triggering builds, deploying to channels and stores, rolling back, and diagnosing failed jobs — as an alternative to the Capawesome CLI.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Procedures
 
 ### Step 1: Authenticate with Capawesome Cloud
@@ -141,3 +154,4 @@ Read `references/app-store-publishing.md` for the full app store publishing setu
 - **`ionic-appflow-migration`** — For migrating existing Ionic Appflow projects to Capawesome Cloud.
 - **`capgo-cloud-migration`** — For migrating existing Capgo projects to Capawesome Cloud.
 - **`capacitor-in-app-purchases`** — For setting up in-app purchases and subscriptions before publishing to app stores.
+- **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

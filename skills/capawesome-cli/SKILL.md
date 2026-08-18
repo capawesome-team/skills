@@ -19,6 +19,19 @@ Install, configure, and use the Capawesome CLI (`@capawesome/cli`) for authentic
 
 Before running any `@capawesome/cli` command for the first time, run it with the `--help` flag to review all available options.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill. With an API token it also exposes the Capawesome Cloud management API.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation. The `cloud_*` tools can carry out the Capawesome Cloud steps in this skill directly — creating apps, triggering builds, deploying to channels and stores, rolling back, and diagnosing failed jobs — as an alternative to the Capawesome CLI.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Procedures
 
 ### Step 1: Install the CLI
@@ -152,3 +165,4 @@ Read `references/ci-cd-integration.md` for the full CI/CD setup procedure coveri
 
 - **`capawesome-cloud`** — For setting up and using Capawesome Cloud features (native builds, live updates, app store publishing). Uses the CLI as a tool but covers the full workflow.
 - **`capacitor-plugins`** — For installing and configuring Capacitor plugins, including the `@capawesome/capacitor-live-update` plugin.
+- **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

@@ -10,6 +10,19 @@ metadata:
 
 Comprehensive reference for building cross-platform apps with Capacitor. Covers architecture, CLI, plugins, framework integration, best practices, and Capawesome Cloud.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Core Concepts
 
 Capacitor is a cross-platform native runtime for building web apps that run natively on iOS, Android, and the web. The web app runs in a native WebView, and Capacitor provides a bridge to native APIs via plugins.
@@ -495,3 +508,4 @@ For the full setup guide, see [capacitor-in-app-purchases](https://github.com/ca
 - [capacitor-in-app-purchases](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-in-app-purchases/SKILL.md) -- In-app purchases and subscriptions.
 - [capawesome-cloud](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-cloud/SKILL.md) -- Live updates, native builds, app store publishing.
 - [capawesome-cli](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-cli/SKILL.md) -- Capawesome CLI reference.
+- [capawesome-mcp](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-mcp/SKILL.md) -- Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

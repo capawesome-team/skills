@@ -24,6 +24,19 @@ Migrate an existing Capacitor project from Capgo to Capawesome Cloud.
 - Determine the Capacitor version from `package.json` (`@capacitor/core`) before making any changes — it affects which plugin version and update strategy to use.
 - The Capgo app ID is a native bundle ID (e.g. `com.example.app`), while the Capawesome Cloud app ID is a UUID. Never copy the Capgo app ID into the Capawesome configuration.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill. With an API token it also exposes the Capawesome Cloud management API.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation. The `cloud_*` tools can carry out the Capawesome Cloud steps in this skill directly — creating apps, triggering builds, deploying to channels and stores, rolling back, and diagnosing failed jobs — as an alternative to the Capawesome CLI.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Procedures
 
 ### Step 1: Detect Capgo Usage
@@ -448,3 +461,4 @@ After all features are verified:
 - **`capawesome-cloud`** — Detailed Capawesome Cloud setup procedures for Live Updates, Native Builds, and App Store Publishing.
 - **`capawesome-cli`** — Installing, configuring, and using the Capawesome CLI.
 - **`ionic-appflow-migration`** — Use this skill instead if the project migrates from Ionic Appflow rather than Capgo.
+- **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

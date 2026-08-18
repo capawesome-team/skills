@@ -88,14 +88,14 @@
     {
       "name": "capawesome-cloud",
       "source": "./plugins/capawesome-cloud",
-      "description": "Capawesome Cloud skills — CLI setup, native builds, live updates, and app store publishing.",
+      "description": "Capawesome Cloud skills — MCP server, CLI setup, native builds, live updates, and app store publishing.",
       "version": "1.0.0",
       "author": {
         "name": "Capawesome",
         "email": "support@capawesome.io"
       },
       "license": "MIT",
-      "keywords": ["capawesome", "cloud", "live-updates", "native-builds", "app-store"],
+      "keywords": ["capawesome", "cloud", "mcp", "live-updates", "native-builds", "app-store"],
       "category": "development"
     },
     {

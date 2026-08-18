@@ -26,6 +26,19 @@ Set up and use push notifications in Capacitor apps using Firebase Cloud Messagi
 - **One decision at a time.** When a step requires user input, ask that single question, wait for the answer, then continue.
 - **Present clear options.** Provide concrete choices (e.g., "Do you want to configure topic subscriptions? (yes/no)") instead of open-ended questions.
 
+## MCP Server
+
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+
+- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+
+```bash
+claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+```
+
+The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+
 ## Procedures
 
 ### Step 1: Analyze the Project
@@ -135,3 +148,4 @@ For each selected feature, read `references/implementation.md` and apply the rel
 
 - **`capacitor-app-development`** — For general Capacitor development topics, troubleshooting, and best practices.
 - **`capacitor-plugins`** — For general Capacitor plugin installation and configuration, including other Firebase plugins.
+- **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.
