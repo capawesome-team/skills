@@ -4,6 +4,7 @@ Show a toast with a short text message.
 
 **Package:** `@capawesome/capacitor-toast`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/toast/
 
 ## Installation
 

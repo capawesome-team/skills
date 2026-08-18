@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Performance Monitoring. Custom traces with metrics and attributes.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/performance-monitoring/
 
 ## Prerequisites
 

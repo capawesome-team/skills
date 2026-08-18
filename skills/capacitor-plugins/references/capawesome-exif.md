@@ -4,6 +4,7 @@ Read, write, and remove EXIF metadata from image files without re-encoding the p
 
 **Package:** `@capawesome/capacitor-exif`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/exif/
 
 ## Installation
 

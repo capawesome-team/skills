@@ -3,6 +3,7 @@
 Stripe SDK bindings for Capacitor applications. Supports Payment Sheet, Payment Flow, Apple Pay, and Google Pay.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/stripe
 
 ## Installation
 

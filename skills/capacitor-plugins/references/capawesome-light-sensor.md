@@ -4,6 +4,7 @@ Read the device's ambient light sensor in lux.
 
 **Package:** `@capawesome/capacitor-light-sensor`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/light-sensor/
 
 ## Installation
 

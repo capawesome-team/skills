@@ -5,6 +5,7 @@ Capacitor plugin to play audio with background support.
 **Package:** `@capawesome-team/capacitor-audio-player`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/audio-player/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/sponsors/insiders/) only
 

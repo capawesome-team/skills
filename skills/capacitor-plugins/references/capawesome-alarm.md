@@ -4,6 +4,7 @@ Create system alarms and timers via the platform clock apps and Apple's AlarmKit
 
 **Package:** `@capawesome/capacitor-alarm`
 **Platforms:** Android, iOS (iOS 26+)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/alarm/
 
 ## Installation
 

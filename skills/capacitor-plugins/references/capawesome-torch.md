@@ -4,6 +4,7 @@ Switch the device flashlight on and off.
 
 **Package:** `@capawesome/capacitor-torch`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/torch/
 
 ## Installation
 

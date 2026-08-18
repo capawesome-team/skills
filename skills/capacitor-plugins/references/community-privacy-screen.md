@@ -3,6 +3,7 @@
 Protect app content from appearing in screenshots and the app switcher/recents screen.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/privacy-screen
 
 ## Installation
 

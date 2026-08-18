@@ -5,6 +5,7 @@ Capacitor plugin to manage the app's own language override, independent of the d
 **Package:** `@capawesome/capacitor-app-language`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-language/
 
 ## Installation
 

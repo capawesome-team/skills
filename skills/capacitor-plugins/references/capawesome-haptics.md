@@ -4,6 +4,7 @@ Trigger haptic feedback: impacts, notifications, selection changes, custom patte
 
 **Package:** `@capawesome/capacitor-haptics`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/haptics/
 
 ## Installation
 

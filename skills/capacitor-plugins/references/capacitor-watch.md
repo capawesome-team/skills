@@ -3,6 +3,7 @@
 Build watch interfaces in web code for display on paired Apple Watch devices. Experimental (CapacitorLABS).
 
 **Platforms:** iOS only
+**Documentation:** https://github.com/ionic-team/CapacitorWatch
 
 ## Installation
 

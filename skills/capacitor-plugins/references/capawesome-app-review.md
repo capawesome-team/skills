@@ -4,6 +4,7 @@ Allow users to submit app store reviews and ratings via in-app review dialogs or
 
 **Package:** `@capawesome/capacitor-app-review`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-review/
 
 ## Installation
 

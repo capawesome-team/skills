@@ -5,6 +5,7 @@ Capacitor plugin for running background tasks.
 **Package:** `@capawesome/capacitor-background-task`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/background-task/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Cloud Messaging. Push notifications, topic subscriptions, channels.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/cloud-messaging/
 
 ## Prerequisites
 

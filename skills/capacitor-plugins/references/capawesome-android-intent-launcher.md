@@ -4,6 +4,7 @@ Launch arbitrary Android intents and read their results.
 
 **Package:** `@capawesome/capacitor-android-intent-launcher`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/android-intent-launcher/
 
 ## Installation
 

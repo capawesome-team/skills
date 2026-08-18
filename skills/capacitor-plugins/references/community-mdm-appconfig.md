@@ -3,6 +3,7 @@
 Capacitor plugin for reading app configurations written by a MDM (Mobile Device Management) provider such as VMWare Workspace One.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/mdm-appconfig
 
 ## Installation
 

@@ -4,6 +4,7 @@ Capacitor plugin for in-app purchases. Supports subscriptions, consumables, and 
 
 **Package:** `@capawesome-team/capacitor-purchases`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/purchases/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

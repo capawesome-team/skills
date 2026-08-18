@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit GenAI Speech Recognition. Transcribes speech from the microphone on the device via Gemini Nano.
 
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/genai-speech-recognition/
 
 ## Installation
 

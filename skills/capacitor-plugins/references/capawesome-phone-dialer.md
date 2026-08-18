@@ -4,6 +4,7 @@ Open the native phone dialer prefilled with a phone number.
 
 **Package:** `@capawesome/capacitor-phone-dialer`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/phone-dialer/
 
 ## Installation
 

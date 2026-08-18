@@ -3,6 +3,7 @@
 Capacitor plugin for native Google AdMob ads (banner, interstitial, rewarded video, rewarded interstitial).
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/admob
 
 ## Installation
 

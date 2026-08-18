@@ -4,6 +4,7 @@ Detect physical shake gestures on the device.
 
 **Package:** `@capawesome/capacitor-shake`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/shake/
 
 ## Installation
 

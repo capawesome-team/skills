@@ -49,6 +49,8 @@ If the match is ambiguous for other reasons, ask the user to clarify.
 
 Read the corresponding reference file from `references/` for the matched plugin.
 
+Each reference file carries a **Documentation:** line with the plugin's official documentation URL. Treat that page as authoritative and fetch it whenever the reference file does not cover the task, contradicts the project, or predates the installed plugin version.
+
 ### Step 3: Analyze the Project
 
 Auto-detect the following by reading project files — do **not** ask the user for information that can be inferred:

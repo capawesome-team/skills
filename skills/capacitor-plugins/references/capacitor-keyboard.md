@@ -3,6 +3,7 @@
 Keyboard display/visibility control and event tracking.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/keyboard
 
 ## Installation
 

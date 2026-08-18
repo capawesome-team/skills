@@ -3,6 +3,7 @@
 Provides disk space information removed from `@capacitor/device` in v7.0 (`diskFree`, `diskTotal`, `realDiskFree`, `realDiskTotal`).
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/device
 
 ## Installation
 

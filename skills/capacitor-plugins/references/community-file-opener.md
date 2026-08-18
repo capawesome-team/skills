@@ -5,6 +5,7 @@ Capacitor plugin to open a file given its URI and MIME type using the default sy
 **Package:** `@capacitor-community/file-opener`
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/file-opener
 
 ## Installation
 

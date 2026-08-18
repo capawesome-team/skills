@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Smart Reply. Generates suggested replies for a conversation on the device.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/smart-reply/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Check if an app can be opened and open it via URL schemes or package names.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/app-launcher
 
 ## Installation
 

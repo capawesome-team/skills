@@ -3,6 +3,7 @@
 Barcode/QR scanning using Outsystems Barcode libs.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/barcode-scanner
 
 ## Installation
 

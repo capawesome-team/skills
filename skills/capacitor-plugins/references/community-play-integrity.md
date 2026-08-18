@@ -3,6 +3,7 @@
 Verify app integrity and device trust using the Google Play Integrity API.
 
 **Platforms:** Android
+**Documentation:** https://github.com/capacitor-community/play-integrity
 
 ## Installation
 

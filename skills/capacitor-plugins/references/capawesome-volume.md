@@ -4,6 +4,7 @@ Control the volume and observe hardware volume button presses.
 
 **Package:** `@capawesome/capacitor-volume`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/volume/
 
 ## Installation
 

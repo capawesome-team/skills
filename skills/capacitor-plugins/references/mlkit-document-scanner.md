@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Document Scanner. Opens the ML Kit document scanning UI to capture and export documents as images or PDF.
 
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/document-scanner/
 
 ## Installation
 

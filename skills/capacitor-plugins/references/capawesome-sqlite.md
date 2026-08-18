@@ -4,6 +4,7 @@ Access SQLite databases with support for encryption, transactions, schema migrat
 
 **Package:** `@capawesome-team/capacitor-sqlite`
 **Platforms:** Android, iOS, Web, Electron
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/sqlite/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

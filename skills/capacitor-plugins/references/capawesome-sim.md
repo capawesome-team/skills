@@ -4,6 +4,7 @@ Read SIM card and carrier information.
 
 **Package:** `@capawesome/capacitor-sim`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/sim/
 
 ## Installation
 

@@ -4,6 +4,7 @@ Hide and show the iOS home indicator at runtime.
 
 **Package:** `@capawesome/capacitor-home-indicator`
 **Platforms:** iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/home-indicator/
 
 ## Installation
 

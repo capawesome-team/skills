@@ -4,6 +4,7 @@ Customize the appearance and visibility of the Android system navigation bar (ba
 
 **Package:** `@capawesome/capacitor-navigation-bar`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/navigation-bar/
 **Capawesome Insiders:** No
 
 > iOS does not expose a customizable system navigation bar, so all methods are Android-only.

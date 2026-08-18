@@ -4,6 +4,7 @@ Open URLs in the external browser, the system browser (Custom Tabs / `SFSafariVi
 
 **Package:** `@capawesome/capacitor-in-app-browser`
 **Platforms:** Android, iOS, Web (Web supports `openInExternalBrowser` only)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/in-app-browser/
 
 ## Installation
 

@@ -4,6 +4,7 @@ Open a local PDF file in a fullscreen native viewer.
 
 **Package:** `@capawesome/capacitor-pdf-viewer`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/pdf-viewer/
 
 ## Installation
 

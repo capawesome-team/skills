@@ -3,6 +3,7 @@
 Capacitor plugin for OCR (image to text) using Apple Vision Framework on iOS and MLKit on Android.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/image-to-text
 
 ## Installation
 

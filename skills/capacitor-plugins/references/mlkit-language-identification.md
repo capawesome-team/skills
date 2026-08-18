@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Language Identification. Determines the language of a string of text on the device.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/language-identification/
 
 ## Installation
 

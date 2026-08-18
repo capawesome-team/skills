@@ -4,6 +4,7 @@ Synthesize speech from text (text-to-speech) with voice selection, pitch, rate, 
 
 **Package:** `@capawesome-team/capacitor-speech-synthesis`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/speech-synthesis/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

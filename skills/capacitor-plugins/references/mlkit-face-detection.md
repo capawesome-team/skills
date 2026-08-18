@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Face Detection. Detects faces in images with landmarks, contours, and classification.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/face-detection/
 
 ## Installation
 

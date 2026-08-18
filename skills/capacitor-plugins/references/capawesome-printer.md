@@ -4,6 +4,7 @@ Capacitor plugin for printing. Supports base64 data, files, HTML content, PDFs, 
 
 **Package:** `@capawesome-team/capacitor-printer`
 **Platforms:** Android, iOS, Web (web view printing only)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/printer/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

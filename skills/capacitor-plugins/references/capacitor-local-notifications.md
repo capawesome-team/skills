@@ -3,6 +3,7 @@
 Schedule device notifications locally without server-based push.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/local-notifications
 
 ## Installation
 

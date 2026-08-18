@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Pose Detection. Detects the pose of a person in an image as 33 skeletal landmarks on the device.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/pose-detection/
 
 ## Installation
 

@@ -4,6 +4,7 @@ Capacitor plugin for in-app purchases and subscriptions powered by RevenueCat. P
 
 **Package:** `@revenuecat/purchases-capacitor`
 **Platforms:** Android, iOS
+**Documentation:** https://www.revenuecat.com/docs/getting-started/installation/capacitor
 
 ## Installation
 

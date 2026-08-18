@@ -4,6 +4,7 @@ Capacitor plugin that allows the user to edit a photo using an installed photo e
 
 **Package:** `@capawesome/capacitor-photo-editor`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/photo-editor/
 **Capawesome Insiders:** No
 
 ## Installation

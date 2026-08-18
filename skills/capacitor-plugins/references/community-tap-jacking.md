@@ -3,6 +3,7 @@
 Prevent tap jacking attacks by disabling touch events when the app is obscured by an overlay.
 
 **Platforms:** Android
+**Documentation:** https://github.com/capacitor-community/tap-jacking
 
 ## Installation
 

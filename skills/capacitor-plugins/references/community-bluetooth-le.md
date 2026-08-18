@@ -3,6 +3,7 @@
 Capacitor plugin for Bluetooth Low Energy (central role).
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/bluetooth-le
 
 ## Installation
 

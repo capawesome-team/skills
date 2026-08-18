@@ -4,6 +4,7 @@ Capacitor plugin to lock/unlock the screen orientation. Supports orientation det
 
 **Package:** `@capawesome/capacitor-screen-orientation`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/screen-orientation/
 **Capawesome Insiders:** No
 
 ## Installation

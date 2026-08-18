@@ -4,6 +4,7 @@ Check and request device permissions with a single unified API.
 
 **Package:** `@capawesome/capacitor-permissions`
 **Platforms:** Android, iOS, Web (partial)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/permissions/
 
 ## Installation
 

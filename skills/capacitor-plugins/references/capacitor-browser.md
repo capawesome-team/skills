@@ -3,6 +3,7 @@
 Opens an in-app browser. Uses SFSafariViewController on iOS (OAuth-compliant).
 
 **Platforms:** Android, iOS, Web (partial)
+**Documentation:** https://capacitorjs.com/docs/apis/browser
 
 ## Installation
 

@@ -4,6 +4,7 @@ Open the native SMS composer prefilled with recipients and a message body.
 
 **Package:** `@capawesome/capacitor-sms-composer`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/sms-composer/
 
 ## Installation
 

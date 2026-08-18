@@ -3,6 +3,7 @@
 Check and update the Android Security Provider to protect against known SSL/TLS vulnerabilities.
 
 **Platforms:** Android
+**Documentation:** https://github.com/capacitor-community/android-security-provider
 
 ## Installation
 

@@ -5,6 +5,7 @@ Unofficial Capacitor plugin to sign in with Google. Supports authentication (ID 
 **Package:** `@capawesome/capacitor-google-sign-in`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/google-sign-in/
 
 ## Installation
 

@@ -5,6 +5,7 @@ Capacitor plugin for image compression supporting PNG, JPEG, and WebP formats.
 **Package:** `@capawesome-team/capacitor-file-compressor`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/file-compressor/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/insiders/) only
 

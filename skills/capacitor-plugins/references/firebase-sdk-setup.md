@@ -3,6 +3,7 @@
 Required setup steps to add Firebase to a Capacitor project. Complete these **before** installing any `@capacitor-firebase/*` plugin.
 
 **Prerequisite:** A Firebase project must already exist. If not, create one at [Firebase console](https://console.firebase.google.com/) (see [Create a Firebase project](https://firebase.google.com/docs/android/setup)).
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/
 
 ## Android
 

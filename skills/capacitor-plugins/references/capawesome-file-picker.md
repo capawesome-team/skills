@@ -5,6 +5,7 @@ Capacitor plugin to select files, directories, images, or videos from the device
 **Package:** `@capawesome/capacitor-file-picker`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/file-picker/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Share content through the system share sheet.
 
 **Platforms:** Android, iOS, Web (via Web Share API)
+**Documentation:** https://capacitorjs.com/docs/apis/share
 
 ## Installation
 

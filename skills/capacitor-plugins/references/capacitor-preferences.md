@@ -3,6 +3,7 @@
 Key/value storage for lightweight persistent data. Not a database replacement.
 
 **Platforms:** Android (SharedPreferences), iOS (UserDefaults), Web (localStorage)
+**Documentation:** https://capacitorjs.com/docs/apis/preferences
 
 ## Installation
 

@@ -5,6 +5,7 @@ Capacitor plugin for OTP autofill on Android via the SMS User Consent and Phone 
 **Package:** `@capawesome/capacitor-android-sms-retriever`
 
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/android-sms-retriever/
 
 ## Installation
 

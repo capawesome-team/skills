@@ -3,6 +3,7 @@
 Integrates Google Maps SDK into Capacitor applications.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/google-maps
 
 ## Installation
 

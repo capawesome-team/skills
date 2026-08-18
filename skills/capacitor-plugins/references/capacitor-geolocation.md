@@ -3,6 +3,7 @@
 GPS position tracking with altitude, heading, and speed data.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/geolocation
 
 ## Installation
 

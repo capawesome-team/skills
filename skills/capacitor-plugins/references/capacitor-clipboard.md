@@ -3,6 +3,7 @@
 System clipboard API for copy/paste operations.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/clipboard
 
 ## Installation
 

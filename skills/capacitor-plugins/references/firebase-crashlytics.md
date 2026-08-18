@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Crashlytics. Reports crashes and non-fatal exceptions.
 
 **Platforms:** Android, iOS (no Web)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/crashlytics/
 
 ## Prerequisites
 

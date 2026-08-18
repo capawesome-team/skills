@@ -5,6 +5,7 @@ Capacitor plugin to interact with media controllers, volume keys, and media butt
 **Package:** `@capawesome-team/capacitor-media-session`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/media-session/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/insiders/) only
 

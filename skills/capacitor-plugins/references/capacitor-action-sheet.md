@@ -3,6 +3,7 @@
 Provides access to native Action Sheets.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/action-sheet
 
 ## Installation
 

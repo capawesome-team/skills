@@ -3,6 +3,7 @@
 Capacitor community plugin for enabling Firebase Cloud Messaging capabilities.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/fcm
 
 ## Installation
 

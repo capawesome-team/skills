@@ -4,6 +4,7 @@ Unofficial Capacitor plugin for the Square Mobile Payments SDK for in-person pay
 
 **Package:** `@capawesome/capacitor-square-mobile-payments`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/square-mobile-payments/
 
 ## Installation
 

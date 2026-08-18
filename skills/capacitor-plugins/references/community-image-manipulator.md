@@ -3,6 +3,7 @@
 Resize images and read image dimensions.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/image-manipulator
 
 ## Installation
 

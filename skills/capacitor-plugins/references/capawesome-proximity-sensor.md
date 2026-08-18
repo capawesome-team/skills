@@ -4,6 +4,7 @@ Read the device's proximity sensor to detect whether an object is close to the s
 
 **Package:** `@capawesome/capacitor-proximity-sensor`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/proximity-sensor/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Prevents sensitive app information from appearing in app switchers/recent apps.
 
 **Platforms:** Android, iOS (no Web)
+**Documentation:** https://capacitorjs.com/docs/apis/privacy-screen
 
 ## Installation
 

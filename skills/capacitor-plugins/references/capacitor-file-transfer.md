@@ -3,6 +3,7 @@
 File upload and download with progress tracking.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/file-transfer
 
 ## Installation
 

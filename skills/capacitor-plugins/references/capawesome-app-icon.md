@@ -5,6 +5,7 @@ Capacitor plugin to change the app icon at runtime by switching between alternat
 **Package:** `@capawesome/capacitor-app-icon`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-icon/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit GenAI Image Description. Generates a natural-language description of an image on the device via Gemini Nano.
 
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/genai-image-description/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Stripe Terminal SDK bindings for Capacitor applications. Enables in-person payments with Stripe reader devices.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/stripe/tree/main/packages/terminal
 
 ## Installation
 

@@ -4,6 +4,7 @@ Unofficial Capacitor plugin for the Superwall SDK for remotely-configured paywal
 
 **Package:** `@capawesome/capacitor-superwall`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/superwall/
 
 ## Installation
 

@@ -5,6 +5,7 @@ Capacitor plugin to access battery information: battery level, battery state, lo
 **Package:** `@capawesome/capacitor-battery`
 
 **Platforms:** Android, iOS, Web (partial)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/battery/
 
 ## Installation
 

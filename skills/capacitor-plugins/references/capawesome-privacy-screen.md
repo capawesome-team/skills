@@ -4,6 +4,7 @@ Hide sensitive app content in the app switcher, block screenshots, and detect wh
 
 **Package:** `@capawesome/capacitor-privacy-screen`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/privacy-screen/
 
 ## Installation
 

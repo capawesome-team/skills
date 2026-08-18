@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Authentication. Supports many sign-in providers with native SDKs.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/authentication/
 
 ## Prerequisites
 

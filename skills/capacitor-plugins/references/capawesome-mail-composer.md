@@ -4,6 +4,7 @@ Open the native email composer prefilled with recipients, subject, body, and att
 
 **Package:** `@capawesome/capacitor-mail-composer`
 **Platforms:** Android, iOS, Web (Web via `mailto:`, without attachments)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mail-composer/
 
 ## Installation
 

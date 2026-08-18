@@ -3,6 +3,7 @@
 Exposes internal device information (model, OS version, unique IDs).
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/device
 
 ## Installation
 

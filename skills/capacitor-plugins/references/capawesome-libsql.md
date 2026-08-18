@@ -5,6 +5,7 @@ Capacitor plugin for libSQL databases. Supports local, remote, and embedded repl
 **Package:** `@capawesome/capacitor-libsql`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/libsql/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Display a notification popup.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/toast
 
 ## Installation
 

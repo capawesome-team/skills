@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Subject Segmentation. Segments any foreground subject (not just people).
 
 **Platforms:** Android (API 24+), iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/subject-segmentation/
 
 ## Installation
 

@@ -5,6 +5,7 @@ Capacitor plugin for Over-the-Air (OTA) updates. Download and apply web asset bu
 **Package:** `@capawesome/capacitor-live-update`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/live-update/
 
 ## Installation
 

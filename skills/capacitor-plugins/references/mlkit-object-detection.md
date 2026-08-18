@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Object Detection and Tracking. Detects and classifies objects in an image on the device.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/object-detection/
 
 ## Installation
 

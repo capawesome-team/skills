@@ -3,6 +3,7 @@
 Configure style, visibility, and background color of the Status Bar.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/status-bar
 
 ## Installation
 

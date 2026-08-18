@@ -4,6 +4,7 @@ Capacitor plugin for communicating with OAuth 2.0 and OpenID Connect providers. 
 
 **Package:** `@capawesome-team/capacitor-oauth`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/oauth/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

@@ -4,6 +4,7 @@ Read the device's gyroscope sensor (rotation rate around the x, y, and z axes).
 
 **Package:** `@capawesome/capacitor-gyroscope`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/gyroscope/
 
 ## Installation
 

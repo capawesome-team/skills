@@ -5,6 +5,7 @@ Capacitor plugin to obtain static air pressure in hectopascals (hPa).
 **Package:** `@capawesome-team/capacitor-barometer`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/barometer/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/sponsors/insiders/) only
 

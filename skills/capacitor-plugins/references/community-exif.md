@@ -3,6 +3,7 @@
 Read and set GPS coordinates in image EXIF metadata.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/exif
 
 ## Installation
 

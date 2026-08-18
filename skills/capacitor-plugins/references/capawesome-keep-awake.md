@@ -4,6 +4,7 @@ Keep the screen awake to prevent it from dimming or turning off.
 
 **Package:** `@capawesome/capacitor-keep-awake`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/keep-awake/
 
 ## Installation
 

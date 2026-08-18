@@ -4,6 +4,7 @@ Manage Wi-Fi connectivity: add, connect, disconnect networks, scan for available
 
 **Package:** `@capawesome-team/capacitor-wifi`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/wifi/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

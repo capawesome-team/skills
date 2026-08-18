@@ -5,6 +5,7 @@ Capacitor plugin for geocoding (address to coordinates) and reverse geocoding (c
 **Package:** `@capawesome-team/capacitor-geocoder`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/geocoder/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/insiders/) only
 

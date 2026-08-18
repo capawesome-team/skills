@@ -3,6 +3,7 @@
 Modern edge-to-edge API for configuring system bars (status bar + navigation bar). Replaces Status Bar plugin for new apps.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/system-bars
 
 ## Installation
 

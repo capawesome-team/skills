@@ -3,6 +3,7 @@
 Capacitor community plugin for speech recognition.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/speech-recognition
 
 ## Installation
 

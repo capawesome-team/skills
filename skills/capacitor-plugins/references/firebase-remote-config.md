@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Remote Config. Fetch, activate, and read configuration values.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/remote-config/
 
 ## Prerequisites
 

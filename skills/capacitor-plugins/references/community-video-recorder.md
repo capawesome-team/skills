@@ -5,6 +5,7 @@ Capacitor plugin to record video using the device camera.
 **Package:** `@capacitor-community/video-recorder`
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/video-recorder
 
 ## Installation
 

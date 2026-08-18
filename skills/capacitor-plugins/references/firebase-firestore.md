@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Cloud Firestore. CRUD, queries, batch writes, real-time listeners.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/cloud-firestore/
 
 ## Prerequisites
 

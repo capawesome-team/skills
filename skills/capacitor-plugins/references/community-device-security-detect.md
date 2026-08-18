@@ -3,6 +3,7 @@
 Capacitor community plugin for detecting device security status, including root/jailbreak detection and lock screen checks.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/device-security-detect
 
 ## Installation
 

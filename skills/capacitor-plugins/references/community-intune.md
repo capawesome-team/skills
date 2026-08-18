@@ -3,6 +3,7 @@
 Microsoft Intune MAM/MDM Capacitor plugin for mobile application management.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/intune
 
 ## Installation
 

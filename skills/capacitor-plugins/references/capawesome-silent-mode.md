@@ -4,6 +4,7 @@ Detect whether the device is in silent mode and read the ringer mode.
 
 **Package:** `@capawesome/capacitor-silent-mode`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/silent-mode/
 
 ## Installation
 

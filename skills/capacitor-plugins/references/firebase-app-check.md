@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase App Check. Protects backend resources from abuse.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/app-check/
 
 ## Prerequisites
 

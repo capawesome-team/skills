@@ -4,6 +4,7 @@ Present a native action sheet with a list of buttons.
 
 **Package:** `@capawesome/capacitor-action-sheet`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/action-sheet/
 
 ## Installation
 

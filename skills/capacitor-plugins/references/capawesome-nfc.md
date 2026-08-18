@@ -4,6 +4,7 @@ Capacitor plugin for NFC tag reading, writing, and emulation. Supports NDEF, Hos
 
 **Package:** `@capawesome-team/capacitor-nfc`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/nfc/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

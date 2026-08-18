@@ -3,6 +3,7 @@
 Capacitor plugin for playing sounds natively.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/native-audio
 
 ## Installation
 

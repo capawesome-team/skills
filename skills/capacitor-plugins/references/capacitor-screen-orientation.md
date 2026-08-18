@@ -3,6 +3,7 @@
 Screen orientation information and locking.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/screen-orientation
 
 ## Installation
 

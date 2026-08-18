@@ -3,6 +3,7 @@
 Live camera preview from HTML with capture, flash control, and video recording.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/camera-preview
 
 ## Installation
 

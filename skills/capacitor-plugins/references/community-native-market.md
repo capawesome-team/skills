@@ -5,6 +5,7 @@ Capacitor plugin for opening native Play Store / App Store listings, developer p
 **Package:** `@capacitor-community/native-market`
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/native-market
 
 ## Installation
 

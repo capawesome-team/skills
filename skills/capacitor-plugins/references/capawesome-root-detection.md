@@ -4,6 +4,7 @@ Detect rooted and jailbroken devices, emulators/simulators, and developer mode.
 
 **Package:** `@capawesome/capacitor-root-detection`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/root-detection/
 
 ## Installation
 

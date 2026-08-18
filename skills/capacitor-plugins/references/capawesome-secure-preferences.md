@@ -4,6 +4,7 @@ Securely store key/value pairs such as passwords, tokens, or other sensitive inf
 
 **Package:** `@capawesome-team/capacitor-secure-preferences`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/secure-preferences/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

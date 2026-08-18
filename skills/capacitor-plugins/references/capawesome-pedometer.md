@@ -4,6 +4,7 @@ Capacitor plugin to retrieve motion data such as step count, distance, pace, cad
 
 **Package:** `@capawesome-team/capacitor-pedometer`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/pedometer/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

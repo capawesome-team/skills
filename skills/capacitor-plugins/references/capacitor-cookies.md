@@ -3,6 +3,7 @@
 Native cookie management by patching `document.cookie` to use native libraries.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/cookies
 
 ## Installation
 

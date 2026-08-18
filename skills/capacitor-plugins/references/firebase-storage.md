@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Cloud Storage. Upload, download, delete, list files, manage metadata.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/cloud-storage/
 
 ## Prerequisites
 

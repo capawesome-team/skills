@@ -5,6 +5,7 @@ Capacitor plugin to configure and observe the iOS [audio session](https://develo
 **Package:** `@capawesome/capacitor-audio-session`
 
 **Platforms:** iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/audio-session/
 
 ## Installation
 

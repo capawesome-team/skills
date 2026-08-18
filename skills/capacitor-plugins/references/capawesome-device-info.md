@@ -4,6 +4,7 @@ Read device information such as model, manufacturer, operating system, memory, a
 
 **Package:** `@capawesome/capacitor-device-info`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/device-info/
 
 ## Installation
 

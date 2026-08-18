@@ -5,6 +5,7 @@ Capacitor plugin to verify app and device integrity using the Play Integrity API
 **Package:** `@capawesome/capacitor-app-integrity`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-integrity/
 
 ## Installation
 

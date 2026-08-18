@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for the ML Kit GenAI Prompt API. Runs on-device text and multimodal prompts through Gemini Nano.
 
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/genai-prompt/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Prevent devices from dimming or locking the screen.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/keep-awake
 
 ## Installation
 

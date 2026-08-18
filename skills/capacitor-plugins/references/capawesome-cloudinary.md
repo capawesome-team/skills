@@ -5,6 +5,7 @@ Unofficial Capacitor plugin for the Cloudinary SDK. Upload and download files us
 **Package:** `@capawesome/capacitor-cloudinary`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/cloudinary/
 
 ## Installation
 

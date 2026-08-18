@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Text Recognition. Recognizes text in an image on the device, grouped into blocks, lines, and elements.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/text-recognition/
 
 ## Installation
 

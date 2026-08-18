@@ -3,6 +3,7 @@
 Network and connectivity information.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/network
 
 ## Installation
 

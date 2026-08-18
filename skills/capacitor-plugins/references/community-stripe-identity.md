@@ -3,6 +3,7 @@
 Stripe Identity SDK bindings for Capacitor applications. Enables identity verification flows.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/stripe/tree/main/packages/identity
 
 ## Installation
 

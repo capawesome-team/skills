@@ -3,6 +3,7 @@
 Triggers native dialog windows for alerts, confirmations, and prompts.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/dialog
 
 ## Installation
 

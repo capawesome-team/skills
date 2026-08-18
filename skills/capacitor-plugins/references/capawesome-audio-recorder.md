@@ -5,6 +5,7 @@ Capacitor plugin for audio recording using the device's microphone.
 **Package:** `@capawesome-team/capacitor-audio-recorder`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/audio-recorder/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/insiders/) only
 

@@ -5,6 +5,7 @@ Capacitor plugin to open a file with the default application.
 **Package:** `@capawesome-team/capacitor-file-opener`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/file-opener/
 
 ## Installation
 

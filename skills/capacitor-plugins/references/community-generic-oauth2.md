@@ -3,6 +3,7 @@
 Generic OAuth 2 client plugin that works with various identity providers without requiring provider-specific SDKs.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/generic-oauth2
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Physical feedback through touch or vibration.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/haptics
 
 ## Installation
 

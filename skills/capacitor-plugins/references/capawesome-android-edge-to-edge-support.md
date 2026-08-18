@@ -4,6 +4,7 @@ Support edge-to-edge display on Android with proper insets handling and configur
 
 **Package:** `@capawesome/capacitor-android-edge-to-edge-support`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/android-edge-to-edge-support/
 
 ## Installation
 

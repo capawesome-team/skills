@@ -3,6 +3,7 @@
 Open files and preview media on mobile devices.
 
 **Platforms:** Android, iOS (no Web)
+**Documentation:** https://capacitorjs.com/docs/apis/file-viewer
 
 ## Installation
 

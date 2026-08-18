@@ -4,6 +4,7 @@ Run a foreground service on Android with notification support, custom buttons, a
 
 **Package:** `@capawesome-team/capacitor-android-foreground-service`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/android-foreground-service/
 
 ## Installation
 

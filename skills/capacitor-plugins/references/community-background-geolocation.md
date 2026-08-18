@@ -3,6 +3,7 @@
 Capacitor plugin for receiving geolocation updates even while the app is backgrounded.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/background-geolocation
 
 ## Installation
 

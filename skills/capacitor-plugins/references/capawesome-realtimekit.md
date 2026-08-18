@@ -4,6 +4,7 @@ Unofficial Capacitor plugin for using the Cloudflare RealtimeKit SDK for video/a
 
 **Package:** `@capawesome/capacitor-realtimekit`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/realtimekit/
 **Capawesome Insiders:** No
 
 ## Installation

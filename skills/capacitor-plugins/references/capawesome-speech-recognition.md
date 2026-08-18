@@ -4,6 +4,7 @@ Transcribe speech into text (speech-to-text) with silence detection, contextual 
 
 **Package:** `@capawesome-team/capacitor-speech-recognition`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/speech-recognition/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

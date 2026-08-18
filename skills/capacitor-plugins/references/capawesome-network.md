@@ -4,6 +4,7 @@ Read the current network status and listen for connectivity changes.
 
 **Package:** `@capawesome/capacitor-network`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/network/
 
 ## Installation
 

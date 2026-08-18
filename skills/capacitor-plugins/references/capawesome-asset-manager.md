@@ -5,6 +5,7 @@ Capacitor plugin to access native asset files.
 **Package:** `@capawesome/capacitor-asset-manager`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/asset-manager/
 
 ## Installation
 

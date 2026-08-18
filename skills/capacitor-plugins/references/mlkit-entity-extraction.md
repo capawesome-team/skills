@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Entity Extraction. Detects structured data such as addresses, date-times, and phone numbers in raw text on the device.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/entity-extraction/
 
 ## Installation
 

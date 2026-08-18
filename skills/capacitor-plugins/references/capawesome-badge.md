@@ -5,6 +5,7 @@ Capacitor plugin to access and update the badge number of the app icon.
 **Package:** `@capawesome/capacitor-badge`
 
 **Platforms:** Android, iOS, Web (PWA)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/badge/
 
 ## Installation
 

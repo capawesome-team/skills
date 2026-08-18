@@ -3,6 +3,7 @@
 Access the IDFA (iOS) and GAID (Android) advertising identifiers.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/advertising-id
 
 ## Installation
 

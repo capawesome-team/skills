@@ -4,6 +4,7 @@ Read and control the screen brightness.
 
 **Package:** `@capawesome/capacitor-screen-brightness`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/screen-brightness/
 
 ## Installation
 

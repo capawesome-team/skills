@@ -5,6 +5,7 @@ Capacitor plugin that provides safe area inset support, acting as a polyfill for
 **Package:** `@capacitor-community/safe-area`
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/safe-area
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Capacitor plugin for enabling Intercom capabilities.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/intercom
 
 ## Installation
 

@@ -5,6 +5,7 @@ Capacitor plugin to support Sign in With Apple.
 **Package:** `@capacitor-community/apple-sign-in`
 
 **Platforms:** iOS, Web
+**Documentation:** https://github.com/capacitor-community/apple-sign-in
 
 ## Installation
 

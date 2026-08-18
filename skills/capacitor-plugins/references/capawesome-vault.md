@@ -4,6 +4,7 @@ Store secrets behind biometric or device-passcode authentication using hardware-
 
 **Package:** `@capawesome-team/capacitor-vault`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/vault/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

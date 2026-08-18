@@ -4,6 +4,7 @@ Save a username and password to the platform credential store (iCloud Keychain o
 
 **Package:** `@capawesome/capacitor-password-autofill`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/password-autofill/
 
 This plugin saves credentials into the platform autofill system. It does not fill forms — it solves the problem that WebView-based apps never trigger the native "Save password?" prompt.
 

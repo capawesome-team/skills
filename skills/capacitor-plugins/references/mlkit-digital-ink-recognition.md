@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Digital Ink Recognition. Recognizes handwritten text and hand-drawn shapes from stroke coordinates on the device.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/digital-ink-recognition/
 
 ## Installation
 

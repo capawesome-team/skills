@@ -4,6 +4,7 @@ Retrieve app update information and perform in-app updates on Android. Check for
 
 **Package:** `@capawesome/capacitor-app-update`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-update/
 
 ## Installation
 

@@ -5,6 +5,7 @@ Capacitor plugin for native Facebook Login.
 **Package:** `@capacitor-community/facebook-login`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/facebook-login
 
 ## Installation
 

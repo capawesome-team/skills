@@ -4,6 +4,7 @@ Enable correct behavior of the `prefers-color-scheme` CSS media feature on Andro
 
 **Package:** `@capawesome/capacitor-android-dark-mode-support`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/android-dark-mode-support/
 
 ## Installation
 

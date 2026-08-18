@@ -5,6 +5,7 @@ Capacitor plugin to access managed configuration settings (MDM/EMM).
 **Package:** `@capawesome/capacitor-managed-configurations`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/managed-configurations/
 
 ## Installation
 

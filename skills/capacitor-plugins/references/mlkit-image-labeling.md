@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Image Labeling. Detects labels for objects, places, and activities in an image on the device.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/image-labeling/
 
 ## Installation
 

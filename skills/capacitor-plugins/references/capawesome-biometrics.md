@@ -5,6 +5,7 @@ Capacitor plugin for biometric authentication (face recognition, fingerprint, ir
 **Package:** `@capawesome-team/capacitor-biometrics`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/biometrics/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/insiders/) only
 

@@ -4,6 +4,7 @@ Get and set the text zoom of the WebView to respect the user's font size prefere
 
 **Package:** `@capawesome/capacitor-text-zoom`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/text-zoom/
 
 ## Installation
 

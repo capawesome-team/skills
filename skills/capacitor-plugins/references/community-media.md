@@ -3,6 +3,7 @@
 Capacitor plugin for saving and retrieving photos and videos, and managing photo albums.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/media
 
 ## Installation
 

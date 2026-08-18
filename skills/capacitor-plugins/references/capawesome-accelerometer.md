@@ -4,6 +4,7 @@ Capture acceleration force along the x, y, and z axes with real-time measurement
 
 **Package:** `@capawesome-team/capacitor-accelerometer`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/accelerometer/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

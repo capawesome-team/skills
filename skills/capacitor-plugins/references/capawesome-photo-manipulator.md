@@ -4,6 +4,7 @@ Headless image transforms like crop, resize, rotate, flip and format conversion,
 
 **Package:** `@capawesome/capacitor-photo-manipulator`
 **Platforms:** Android, iOS, Web (partial)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/photo-manipulator/
 
 ## Installation
 

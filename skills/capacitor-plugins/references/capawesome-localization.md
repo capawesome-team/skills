@@ -4,6 +4,7 @@ Read the user's localization preferences: preferred locales, regional formatting
 
 **Package:** `@capawesome/capacitor-localization`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/localization/
 
 ## Installation
 

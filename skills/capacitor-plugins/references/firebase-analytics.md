@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Analytics. Tracks events, user properties, screens, and consent.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/analytics/
 
 ## Prerequisites
 

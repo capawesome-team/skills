@@ -4,6 +4,7 @@ Manage app shortcuts and quick actions on Android and iOS.
 
 **Package:** `@capawesome/capacitor-app-shortcuts`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-shortcuts/
 
 ## Installation
 

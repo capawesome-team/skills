@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit GenAI Proofreading. Corrects grammar and spelling in short text on the device via Gemini Nano.
 
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/genai-proofreading/
 
 ## Installation
 

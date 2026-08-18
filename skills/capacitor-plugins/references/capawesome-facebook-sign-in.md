@@ -5,6 +5,7 @@ Unofficial Capacitor plugin to sign in with Facebook. Supports classic login (ac
 **Package:** `@capawesome/capacitor-facebook-sign-in`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/facebook-sign-in/
 
 ## Installation
 

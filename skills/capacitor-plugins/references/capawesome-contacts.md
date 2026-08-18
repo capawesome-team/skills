@@ -5,6 +5,7 @@ Capacitor plugin to read, write, and select device contacts.
 **Package:** `@capawesome-team/capacitor-contacts`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/contacts/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/insiders/) only
 

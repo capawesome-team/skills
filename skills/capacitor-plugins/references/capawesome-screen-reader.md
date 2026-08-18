@@ -4,6 +4,7 @@ Post accessibility announcements to the active screen reader and detect whether 
 
 **Package:** `@capawesome/capacitor-screen-reader`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/screen-reader/
 
 ## Installation
 

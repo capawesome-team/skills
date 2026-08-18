@@ -3,6 +3,7 @@
 Tracks accelerometer and device orientation (compass heading, etc.).
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/motion
 
 ## Installation
 

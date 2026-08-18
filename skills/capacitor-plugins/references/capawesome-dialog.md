@@ -4,6 +4,7 @@ Display native alert, confirm, and prompt dialogs.
 
 **Package:** `@capawesome/capacitor-dialog`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/dialog/
 
 ## Installation
 

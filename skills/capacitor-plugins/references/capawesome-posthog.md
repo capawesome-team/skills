@@ -4,6 +4,7 @@ Unofficial Capacitor plugin for PostHog analytics. Supports event capture, user 
 
 **Package:** `@capawesome/capacitor-posthog`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/posthog/
 **Capawesome Insiders:** No
 
 ## Installation

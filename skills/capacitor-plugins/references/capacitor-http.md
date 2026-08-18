@@ -3,6 +3,7 @@
 Native HTTP support by patching `fetch` and `XMLHttpRequest` to use native libraries.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/http
 
 ## Installation
 

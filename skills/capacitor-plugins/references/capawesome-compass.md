@@ -5,6 +5,7 @@ Capacitor plugin for reading the device compass heading, on demand or as continu
 **Package:** `@capawesome/capacitor-compass`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/compass/
 
 ## Installation
 

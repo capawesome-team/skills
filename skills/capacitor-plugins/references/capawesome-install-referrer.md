@@ -4,6 +4,7 @@ Read install attribution data from the Play Install Referrer (Android) and Apple
 
 **Package:** `@capawesome/capacitor-install-referrer`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/install-referrer/
 
 ## Installation
 

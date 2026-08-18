@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase App. Provides access to the Firebase app name and configuration options.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/app/
 
 ## Prerequisites
 

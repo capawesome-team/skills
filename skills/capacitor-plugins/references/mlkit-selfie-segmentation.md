@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Selfie Segmentation. Separates person from background.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/selfie-segmentation/
 
 ## Installation
 

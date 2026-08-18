@@ -5,6 +5,7 @@ Capacitor plugin for native Firebase Analytics.
 **Package:** `@capacitor-community/firebase-analytics`
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/firebase-analytics
 
 ## Installation
 

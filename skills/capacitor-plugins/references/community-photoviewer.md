@@ -3,6 +3,7 @@
 Capacitor community plugin for displaying photos in a fullscreen viewer with zoom and sharing features.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/photoviewer
 
 ## Installation
 

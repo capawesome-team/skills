@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Barcode Scanning. Scanning via camera or from static images with a customizable scanning view.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/barcode-scanning/
 
 ## Installation
 

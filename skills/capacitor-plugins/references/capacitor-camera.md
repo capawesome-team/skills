@@ -3,6 +3,7 @@
 Photo capture and gallery selection.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/camera
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Opens URLs in WebView, in-app system browser, or external browser.
 
 **Platforms:** Android (minimum SDK 26), iOS
+**Documentation:** https://capacitorjs.com/docs/apis/inappbrowser
 
 ## Installation
 

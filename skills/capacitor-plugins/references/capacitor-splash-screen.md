@@ -3,6 +3,7 @@
 Control display and hiding of splash screen images.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/splash-screen
 
 ## Installation
 

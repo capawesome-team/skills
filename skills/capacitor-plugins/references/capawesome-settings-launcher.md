@@ -4,6 +4,7 @@ Open system settings screens, your app's settings, or your app's notification se
 
 **Package:** `@capawesome/capacitor-settings-launcher`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/settings-launcher/
 
 ## Installation
 

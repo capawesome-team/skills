@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Face Mesh Detection. Generates 468 3D face mesh points.
 
 **Platforms:** Android only
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/face-mesh-detection/
 
 ## Installation
 

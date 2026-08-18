@@ -4,6 +4,7 @@ Detect an outdated Android System WebView and guide users to update it.
 
 **Package:** `@capawesome/capacitor-system-webview`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/system-webview/
 
 ## Installation
 

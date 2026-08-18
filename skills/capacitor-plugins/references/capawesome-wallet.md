@@ -4,6 +4,7 @@ Add passes to Apple Wallet and Google Wallet.
 
 **Package:** `@capawesome/capacitor-wallet`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/wallet/
 
 ## Installation
 

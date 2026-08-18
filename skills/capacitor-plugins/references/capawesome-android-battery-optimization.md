@@ -4,6 +4,7 @@ Manage battery optimization settings, request exemptions, and enhance app perfor
 
 **Package:** `@capawesome-team/capacitor-android-battery-optimization`
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/android-battery-optimization/
 
 ## Installation
 

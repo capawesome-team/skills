@@ -3,6 +3,7 @@
 Capacitor plugin for programmatically changing the app icon.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/app-icon
 
 ## Installation
 

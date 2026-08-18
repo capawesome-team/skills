@@ -4,6 +4,7 @@ Read the device thermal state and react before the OS throttles your app.
 
 **Package:** `@capawesome/capacitor-thermal-state`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/thermal-state/
 
 ## Installation
 

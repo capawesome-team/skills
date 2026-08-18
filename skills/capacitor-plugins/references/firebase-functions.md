@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for Firebase Cloud Functions. Call callable functions by name or URL.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/firebase/cloud-functions/
 
 ## Prerequisites
 

@@ -4,6 +4,7 @@ Check whether an app can be opened by URL scheme or package name, and open it.
 
 **Package:** `@capawesome/capacitor-app-launcher`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-launcher/
 
 ## Installation
 

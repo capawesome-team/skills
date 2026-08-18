@@ -3,6 +3,7 @@
 Capacitor plugin for native SQLite databases with optional encryption via SQLCipher.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/sqlite
 
 ## Installation
 

@@ -4,6 +4,7 @@ Read from and write to the system clipboard, including images, HTML, and URLs.
 
 **Package:** `@capawesome/capacitor-clipboard`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/clipboard/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Capacitor plugin for prompting users to submit app store reviews using native in-app review dialogs.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/in-app-review
 
 ## Installation
 

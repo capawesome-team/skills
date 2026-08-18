@@ -4,6 +4,7 @@ Sign in with Apple using native AuthenticationServices (iOS) and WebView OAuth (
 
 **Package:** `@capawesome/capacitor-apple-sign-in`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/apple-sign-in/
 
 ## Installation
 

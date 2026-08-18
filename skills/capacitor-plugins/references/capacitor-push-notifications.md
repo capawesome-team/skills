@@ -3,6 +3,7 @@
 Native push notifications via FCM (Android) and APNs (iOS).
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/push-notifications
 
 ## Installation
 

@@ -5,6 +5,7 @@ Capacitor plugin for Apple's [App Tracking Transparency](https://developer.apple
 **Package:** `@capawesome/capacitor-app-tracking-transparency`
 
 **Platforms:** iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/app-tracking-transparency/
 
 ## Installation
 

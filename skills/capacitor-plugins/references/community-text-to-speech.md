@@ -3,6 +3,7 @@
 Capacitor community plugin for synthesizing speech from text.
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://github.com/capacitor-community/text-to-speech
 
 ## Installation
 

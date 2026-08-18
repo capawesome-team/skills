@@ -3,6 +3,7 @@
 Access TalkBack/VoiceOver and text-to-speech for accessibility.
 
 **Platforms:** Android, iOS, Web (partial)
+**Documentation:** https://capacitorjs.com/docs/apis/screen-reader
 
 ## Installation
 

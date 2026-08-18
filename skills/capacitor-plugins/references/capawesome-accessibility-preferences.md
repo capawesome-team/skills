@@ -5,6 +5,7 @@ Capacitor plugin for reading the user's system accessibility preferences (font s
 **Package:** `@capawesome/capacitor-accessibility-preferences`
 
 **Platforms:** Android, iOS, Web (partial)
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/accessibility-preferences/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit GenAI Summarization. Summarizes text into bullet points on the device via Gemini Nano.
 
 **Platforms:** Android
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/genai-summarization/
 
 ## Installation
 

@@ -3,6 +3,7 @@
 Node.js-like API for device file operations (read, write, delete, manage files and directories).
 
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capacitorjs.com/docs/apis/filesystem
 
 ## Installation
 

@@ -4,6 +4,7 @@ Capacitor plugin for taking screenshots. Returns a file path (Android/iOS) or da
 
 **Package:** `@capawesome/capacitor-screenshot`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/screenshot/
 **Capawesome Insiders:** No
 
 ## Installation

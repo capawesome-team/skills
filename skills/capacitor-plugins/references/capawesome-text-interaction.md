@@ -4,6 +4,7 @@ Enable and disable text interaction (selection, magnifier, callout menu) in the 
 
 **Package:** `@capawesome/capacitor-text-interaction`
 **Platforms:** iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/text-interaction/
 
 ## Installation
 

@@ -4,6 +4,7 @@ Receive content such as text, links, and files from other apps.
 
 **Package:** `@capawesome-team/capacitor-share-target`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/share-target/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

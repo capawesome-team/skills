@@ -4,6 +4,7 @@ Request age signals using the Play Age Signals API (Android) and DeclaredAgeRang
 
 **Package:** `@capawesome/capacitor-age-signals`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/age-signals/
 
 ## Installation
 

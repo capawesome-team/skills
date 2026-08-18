@@ -3,6 +3,7 @@
 Control screen brightness on iOS and Android devices.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/screen-brightness
 
 ## Installation
 

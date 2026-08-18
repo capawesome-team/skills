@@ -4,6 +4,7 @@ Generate paginated PDF files from an HTML string or a URL.
 
 **Package:** `@capawesome/capacitor-pdf-generator`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/pdf-generator/
 
 ## Installation
 

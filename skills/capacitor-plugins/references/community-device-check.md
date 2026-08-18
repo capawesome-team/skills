@@ -3,6 +3,7 @@
 Reduce fraudulent use of services by generating a DeviceCheck token for server-side verification with Apple.
 
 **Platforms:** iOS
+**Documentation:** https://github.com/capacitor-community/device-check
 
 ## Installation
 

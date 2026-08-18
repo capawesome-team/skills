@@ -5,6 +5,7 @@ Capacitor plugin for Bluetooth Low Energy (BLE) communication in central and per
 **Package:** `@capawesome-team/capacitor-bluetooth-low-energy`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/bluetooth-low-energy/
 
 **Availability:** [Capawesome Insiders](https://capawesome.io/insiders/) only
 

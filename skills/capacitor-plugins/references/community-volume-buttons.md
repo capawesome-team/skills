@@ -3,6 +3,7 @@
 Listen to hardware volume button presses.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/volume-buttons
 
 ## Installation
 

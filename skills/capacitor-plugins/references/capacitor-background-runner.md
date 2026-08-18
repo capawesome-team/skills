@@ -3,6 +3,7 @@
 Event-based standalone JavaScript environment for executing code outside the webview.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/background-runner
 
 ## Installation
 

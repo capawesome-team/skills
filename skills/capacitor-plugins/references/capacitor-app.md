@@ -3,6 +3,7 @@
 Handles high-level app state and events including foreground/background transitions, deep links, and back button handling.
 
 **Platforms:** Android, iOS, Web (partial)
+**Documentation:** https://capacitorjs.com/docs/apis/app
 
 ## Installation
 

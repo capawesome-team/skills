@@ -4,6 +4,7 @@ Launch navigation apps (Google Maps, Apple Maps, Waze) with turn-by-turn directi
 
 **Package:** `@capawesome/capacitor-maps-launcher`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/maps-launcher/
 
 ## Installation
 

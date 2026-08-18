@@ -5,6 +5,7 @@ Capacitor plugin for date and time selection with localization, theming, and min
 **Package:** `@capawesome-team/capacitor-datetime-picker`
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/datetime-picker/
 
 ## Installation
 

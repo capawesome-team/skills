@@ -3,6 +3,7 @@
 Capacitor plugin for displaying a native date and time picker.
 
 **Platforms:** Android, iOS
+**Documentation:** https://github.com/capacitor-community/date-picker
 
 ## Installation
 

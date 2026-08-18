@@ -4,6 +4,7 @@ Create and authenticate with passkeys based on the WebAuthn standard.
 
 **Package:** `@capawesome/capacitor-passkeys`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/passkeys/
 
 ## Installation
 

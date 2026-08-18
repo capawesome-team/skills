@@ -3,6 +3,7 @@
 Unofficial Capacitor plugin for ML Kit Translation. On-device text translation between 59 languages.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/mlkit/translation/
 
 ## Installation
 

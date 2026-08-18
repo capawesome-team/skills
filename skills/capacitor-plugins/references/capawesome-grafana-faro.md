@@ -4,6 +4,7 @@ Unofficial Capacitor plugin for [Grafana Faro](https://grafana.com/oss/faro/) fr
 
 **Package:** `@capawesome/capacitor-grafana-faro`
 **Platforms:** Android, iOS, Web
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/grafana-faro/
 **Capawesome Insiders:** No
 
 > **Experimental:** This plugin is in early development and its API may change.

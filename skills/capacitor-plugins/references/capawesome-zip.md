@@ -4,6 +4,7 @@ Zip and unzip files and directories with support for password-based encryption.
 
 **Package:** `@capawesome-team/capacitor-zip`
 **Platforms:** Android, iOS
+**Documentation:** https://capawesome.io/docs/sdks/capacitor/zip/
 **Capawesome Insiders:** Yes (requires license key)
 
 ## Installation

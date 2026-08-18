@@ -3,6 +3,7 @@
 Change WebView text size for visual accessibility.
 
 **Platforms:** Android, iOS
+**Documentation:** https://capacitorjs.com/docs/apis/text-zoom
 
 ## Installation
 
