@@ -273,6 +273,7 @@ npx cap sync
 | Volume | `@capawesome/capacitor-volume` | `references/capawesome-volume.md` |
 | Wallet | `@capawesome/capacitor-wallet` | `references/capawesome-wallet.md` |
 | Wi-Fi | `@capawesome-team/capacitor-wifi` | `references/capawesome-wifi.md` |
+| Zeroconf | `@capawesome-team/capacitor-zeroconf` | `references/capawesome-zeroconf.md` |
 | Zip | `@capawesome-team/capacitor-zip` | `references/capawesome-zip.md` |
 
 ### Capacitor Community Plugins
