@@ -171,6 +171,7 @@ npx cap sync
 | Accelerometer | `@capawesome-team/capacitor-accelerometer` | `references/capawesome-accelerometer.md` |
 | Accessibility Preferences | `@capawesome/capacitor-accessibility-preferences` | `references/capawesome-accessibility-preferences.md` |
 | Action Sheet | `@capawesome/capacitor-action-sheet` | `references/capawesome-action-sheet.md` |
+| AdMob | `@capawesome-team/capacitor-admob` | `references/capawesome-admob.md` |
 | Age Signals | `@capawesome/capacitor-age-signals` | `references/capawesome-age-signals.md` |
 | Alarm | `@capawesome/capacitor-alarm` | `references/capawesome-alarm.md` |
 | Android Battery Optimization | `@capawesome-team/capacitor-android-battery-optimization` | `references/capawesome-android-battery-optimization.md` |
@@ -192,12 +193,15 @@ npx cap sync
 | Audio Player | `@capawesome-team/capacitor-audio-player` | `references/capawesome-audio-player.md` |
 | Audio Recorder | `@capawesome-team/capacitor-audio-recorder` | `references/capawesome-audio-recorder.md` |
 | Audio Session | `@capawesome/capacitor-audio-session` | `references/capawesome-audio-session.md` |
+| Background Geolocation | `@capawesome-team/capacitor-background-geolocation` | `references/capawesome-background-geolocation.md` |
 | Background Task | `@capawesome/capacitor-background-task` | `references/capawesome-background-task.md` |
 | Badge | `@capawesome/capacitor-badge` | `references/capawesome-badge.md` |
+| Barcode Scanner | `@capawesome-team/capacitor-barcode-scanner` | `references/capawesome-barcode-scanner.md` |
 | Barometer | `@capawesome-team/capacitor-barometer` | `references/capawesome-barometer.md` |
 | Battery | `@capawesome/capacitor-battery` | `references/capawesome-battery.md` |
 | Biometrics | `@capawesome-team/capacitor-biometrics` | `references/capawesome-biometrics.md` |
 | Bluetooth Low Energy | `@capawesome-team/capacitor-bluetooth-low-energy` | `references/capawesome-bluetooth-low-energy.md` |
+| Calendar | `@capawesome-team/capacitor-calendar` | `references/capawesome-calendar.md` |
 | Clipboard | `@capawesome/capacitor-clipboard` | `references/capawesome-clipboard.md` |
 | Cloudinary | `@capawesome/capacitor-cloudinary` | `references/capawesome-cloudinary.md` |
 | Compass | `@capawesome/capacitor-compass` | `references/capawesome-compass.md` |
@@ -206,18 +210,23 @@ npx cap sync
 | Datetime Picker | `@capawesome-team/capacitor-datetime-picker` | `references/capawesome-datetime-picker.md` |
 | Device Info | `@capawesome/capacitor-device-info` | `references/capawesome-device-info.md` |
 | Dialog | `@capawesome/capacitor-dialog` | `references/capawesome-dialog.md` |
+| Document Scanner | `@capawesome-team/capacitor-document-scanner` | `references/capawesome-document-scanner.md` |
 | Exif | `@capawesome/capacitor-exif` | `references/capawesome-exif.md` |
 | Facebook Sign In | `@capawesome/capacitor-facebook-sign-in` | `references/capawesome-facebook-sign-in.md` |
 | File Compressor | `@capawesome-team/capacitor-file-compressor` | `references/capawesome-file-compressor.md` |
+| File Manager | `@capawesome-team/capacitor-file-manager` | `references/capawesome-file-manager.md` |
 | File Opener | `@capawesome-team/capacitor-file-opener` | `references/capawesome-file-opener.md` |
 | File Picker | `@capawesome/capacitor-file-picker` | `references/capawesome-file-picker.md` |
+| File Transfer | `@capawesome-team/capacitor-file-transfer` | `references/capawesome-file-transfer.md` |
 | Flic | `@capawesome/capacitor-flic` | `references/capawesome-flic.md` |
 | Formbricks | `@capawesome/capacitor-formbricks` | `references/capawesome-formbricks.md` |
 | Geocoder | `@capawesome-team/capacitor-geocoder` | `references/capawesome-geocoder.md` |
+| Geofences | `@capawesome-team/capacitor-geofences` | `references/capawesome-geofences.md` |
 | Google Sign In | `@capawesome/capacitor-google-sign-in` | `references/capawesome-google-sign-in.md` |
 | Grafana Faro | `@capawesome/capacitor-grafana-faro` | `references/capawesome-grafana-faro.md` |
 | Gyroscope | `@capawesome/capacitor-gyroscope` | `references/capawesome-gyroscope.md` |
 | Haptics | `@capawesome/capacitor-haptics` | `references/capawesome-haptics.md` |
+| Health | `@capawesome-team/capacitor-health` | `references/capawesome-health.md` |
 | Home Indicator | `@capawesome/capacitor-home-indicator` | `references/capawesome-home-indicator.md` |
 | In-App Browser | `@capawesome/capacitor-in-app-browser` | `references/capawesome-in-app-browser.md` |
 | Install Referrer | `@capawesome/capacitor-install-referrer` | `references/capawesome-install-referrer.md` |
@@ -227,9 +236,11 @@ npx cap sync
 | libSQL | `@capawesome/capacitor-libsql` | `references/capawesome-libsql.md` |
 | Light Sensor | `@capawesome/capacitor-light-sensor` | `references/capawesome-light-sensor.md` |
 | Live Update | `@capawesome/capacitor-live-update` | `references/capawesome-live-update.md` |
+| LLM | `@capawesome-team/capacitor-llm` | `references/capawesome-llm.md` |
 | Localization | `@capawesome/capacitor-localization` | `references/capawesome-localization.md` |
 | Mail Composer | `@capawesome/capacitor-mail-composer` | `references/capawesome-mail-composer.md` |
 | Managed Configurations | `@capawesome/capacitor-managed-configurations` | `references/capawesome-managed-configurations.md` |
+| MapLibre | `@capawesome/capacitor-maplibre` | `references/capawesome-maplibre.md` |
 | Maps Launcher | `@capawesome/capacitor-maps-launcher` | `references/capawesome-maps-launcher.md` |
 | Media Session | `@capawesome-team/capacitor-media-session` | `references/capawesome-media-session.md` |
 | Navigation Bar | `@capawesome/capacitor-navigation-bar` | `references/capawesome-navigation-bar.md` |
@@ -279,6 +290,7 @@ npx cap sync
 | Vault | `@capawesome-team/capacitor-vault` | `references/capawesome-vault.md` |
 | Volume | `@capawesome/capacitor-volume` | `references/capawesome-volume.md` |
 | Wallet | `@capawesome/capacitor-wallet` | `references/capawesome-wallet.md` |
+| Watch | `@capawesome-team/capacitor-watch` | `references/capawesome-watch.md` |
 | Wi-Fi | `@capawesome-team/capacitor-wifi` | `references/capawesome-wifi.md` |
 | YouTube Player | `@capawesome/capacitor-youtube-player` | `references/capawesome-youtube-player.md` |
 | Zeroconf | `@capawesome-team/capacitor-zeroconf` | `references/capawesome-zeroconf.md` |
