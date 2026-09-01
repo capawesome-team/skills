@@ -47,11 +47,11 @@ Android builds fail without this.
 
 **Required.** The Formbricks iOS SDK requires iOS `16.6` or higher.
 
-With Swift Package Manager, update `ios/App/App.xcodeproj`:
+With Swift Package Manager, replace every `IPHONEOS_DEPLOYMENT_TARGET` entry in `ios/App/App.xcodeproj/project.pbxproj`:
 
 ```diff
--IPHONEOS_DEPLOYMENT_TARGET = 15.0
-+IPHONEOS_DEPLOYMENT_TARGET = 16.6
+-IPHONEOS_DEPLOYMENT_TARGET = 15.0;
++IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 ```
 
 With CocoaPods, update `ios/App/Podfile`:

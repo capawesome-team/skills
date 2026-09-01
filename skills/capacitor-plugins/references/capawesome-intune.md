@@ -26,6 +26,8 @@ Optionally define in `android/variables.gradle`:
 - `$intuneMamSdkVersion` version of the Microsoft Intune App SDK for Android (default: `12.4.0`)
 - `$msalVersion` version of `com.microsoft.identity.client:msal` (default: `8.4.0`)
 
+When overriding `$intuneMamSdkVersion`, update the `com.microsoft.intune.mam.build` classpath in `android/build.gradle` to the same version — the build plugin and the SDK must match.
+
 #### MAM Build Plugin
 
 **Required.** The SDK rewrites the Android base classes of the app and all Capacitor plugins. Only the app module can apply it. Add to the `buildscript` block of `android/build.gradle`:
@@ -87,7 +89,7 @@ App protection policies are only applied when the Company Portal app is installe
 
 ### iOS
 
-**Requires iOS 17+** as deployment target (set it in `ios/App/App.xcodeproj` and, for SPM, in `ios/App/CapApp-SPM/Package.swift`). Both CocoaPods and Swift Package Manager are supported.
+**Requires iOS 17+** as deployment target: replace every `IPHONEOS_DEPLOYMENT_TARGET` entry in `ios/App/App.xcodeproj/project.pbxproj` with `IPHONEOS_DEPLOYMENT_TARGET = 17.0;` and, for SPM, raise the platform in `ios/App/CapApp-SPM/Package.swift`. Both CocoaPods and Swift Package Manager are supported.
 
 #### Info.plist
 
