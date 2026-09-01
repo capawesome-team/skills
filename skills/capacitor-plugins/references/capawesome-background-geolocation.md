@@ -1,6 +1,6 @@
 # Background Geolocation
 
-Capacitor plugin for reliable background geolocation tracking. Provides one-shot positions, background watch sessions with an Android foreground service, and native HTTP sync of positions to your own server.
+Capacitor plugin for reliable background geolocation tracking. Provides one-shot positions, background watch sessions with an Android foreground service, a local position queue that survives app restarts, and native HTTP upload of positions to your own server.
 
 **Package:** `@capawesome-team/capacitor-background-geolocation`
 **Platforms:** Android, iOS
@@ -112,25 +112,47 @@ const { watching } = await BackgroundGeolocation.isWatching();
 await BackgroundGeolocation.stopWatching();
 ```
 
-### Sync positions to a server
+### Read queued positions
+
+No server required: positions recorded while the web view was suspended can be read from the local queue.
 
 ```typescript
 import { BackgroundGeolocation } from '@capawesome-team/capacitor-background-geolocation';
 
-await BackgroundGeolocation.addListener('syncFailed', ({ statusCode, message }) => console.error(statusCode, message));
-await BackgroundGeolocation.startWatching({
-  androidNotification: { title: 'Location Tracking', text: 'Your location is being tracked.' },
-  sync: {
-    url: 'https://api.example.com/positions',
-    batchSize: 100,
-    headers: { Authorization: 'Bearer eyJhbGciOi...' },
-    extras: { userId: 'abc' },
-  },
+// Positions are stored as soon as `maxSize` (or `url`) is configured.
+await BackgroundGeolocation.setConfig({ maxSize: 50000 });
+
+let hasMore = true;
+while (hasMore) {
+  const result = await BackgroundGeolocation.getQueuedPositions({ limit: 1000 });
+  if (!result.positions.length) break;
+  await persist(result.positions);
+  await BackgroundGeolocation.deleteQueuedPositions({ upToId: result.positions[result.positions.length - 1].id });
+  hasMore = result.hasMore;
+}
+```
+
+### Upload positions to a server
+
+```typescript
+import { BackgroundGeolocation } from '@capawesome-team/capacitor-background-geolocation';
+
+await BackgroundGeolocation.addListener('uploadFailed', ({ statusCode, message }) => console.error(statusCode, message));
+await BackgroundGeolocation.setConfig({
+  url: 'https://api.example.com/positions',
+  batchSize: 100,
+  headers: { Authorization: 'Bearer eyJhbGciOi...' },
+  extras: { userId: 'abc' },
 });
 
-const { pendingCount, droppedCount, lastSyncedAt } = await BackgroundGeolocation.getSyncStatus();
-await BackgroundGeolocation.triggerSync();
-await BackgroundGeolocation.clearSyncQueue();
+// setConfig(...) replaces the whole configuration, so spread getConfig() to change a single property.
+const config = await BackgroundGeolocation.getConfig();
+await BackgroundGeolocation.setConfig({ ...config, headers: { Authorization: 'Bearer <NEW_TOKEN>' } });
+
+const { pendingCount, droppedCount, lastUploadedAt } = await BackgroundGeolocation.getQueueStatus();
+await BackgroundGeolocation.triggerUpload();
+await BackgroundGeolocation.clearQueue();
+await BackgroundGeolocation.resetConfig();
 ```
 
 ## Notes
@@ -139,10 +161,13 @@ await BackgroundGeolocation.clearSyncQueue();
 - Use `openSettings()` when a permission was permanently denied, and `requestTemporaryFullAccuracy({ purposeKey: 'navigation' })` (iOS only) to upgrade reduced accuracy for the app session.
 - `androidNotification` is **required** on Android because the watch session runs in a foreground service. Options: `title`, `text`, `channelName`, `color` (hex), `icon` (drawable name).
 - Only one watch session can be active at a time. `startWatching()` rejects with `ALREADY_WATCHING` otherwise. Call `stopWatching()` before starting a session with different options.
-- Events: `positionChange`, `positionError`, `syncFailed` (remove with `removeAllListeners()`). Error codes: `ALREADY_WATCHING`, `LOCATION_SERVICES_DISABLED`, `PERMISSION_DENIED`, `POSITION_UNAVAILABLE`, `TIMEOUT`.
-- `startWatching()` tuning: `accuracy` (`Accuracy.Low` | `Balanced` | `High`), `distanceFilter` (meters), `androidInterval` (ms), `iosActivityType`, `iosPausesAutomatically`, `iosShowBackgroundIndicator`, `androidForceLocationManager` (platform location manager for devices without Google Play services).
-- `Position` fields: `latitude`, `longitude`, `accuracy`, `altitude`, `altitudeAccuracy`, `bearing`, `speed`, `timestamp`, `simulated` (mock provider flag, always `null` on iOS).
-- HTTP sync `POST`s `{ positions: [...], extras: {...} }` where each position carries an extra `id`. Delivery is at-least-once, so deduplicate by `id` per device on the server. The `INTERNET` permission it needs is already declared by the Capacitor app template.
-- Sync responses: `2xx` acknowledges and deletes the batch; `408`, `429`, `5xx`, network errors and timeouts retry with exponential backoff (5s up to 10min, 30s request timeout); **any other status code drops the batch permanently**. Answer with a retryable code (e.g. `503`) when temporarily unavailable.
-- Sync options: `url`, `batchSize` (default `100`, set to `1` for instant upload), `flushInterval` (default `60000`), `maxQueueSize` (default `10000`, oldest dropped first), `maxAge`, `headers`, `extras`. The queue is a local SQLite database that survives app restarts and is only uploaded while a watch session with a `sync` configuration is active.
+- Events: `positionChange`, `positionError`, `uploadFailed` (remove with `removeAllListeners()`). Error codes: `ALREADY_WATCHING`, `LOCATION_SERVICES_DISABLED`, `PERMISSION_DENIED`, `POSITION_UNAVAILABLE`, `TIMEOUT`.
+- `startWatching()` tuning: `accuracy` (`Accuracy.Low` | `Balanced` | `High`), `distanceFilter` (meters, default `10`; set to `0` to record a standing device over and over), `androidInterval` (ms, default `5000`), `iosActivityType`, `iosPausesAutomatically`, `iosShowBackgroundIndicator`, `androidForceLocationManager` (use the platform location manager even if Google Play services is available; also available on `getCurrentPosition()`).
+- `Position` fields: `latitude`, `longitude`, `accuracy`, `altitude`, `altitudeAccuracy`, `bearing`, `speed`, `timestamp`, `simulated` (mock provider flag, always `null` on iOS). A `QueuedPosition` adds a strictly increasing `id`.
+- Queue and upload are configured with `setConfig(...)`, which is persisted natively and **replaces** the whole configuration — omitted properties fall back to their defaults, so `setConfig({ maxSize: 5000 })` also stops the upload. Read the current one with `getConfig()`, discard it with `resetConfig()`.
+- Config options: `url`, `batchSize` (default `100`, set to `1` for instant upload), `flushInterval` (default `60000`), `maxSize` (default `50000`, oldest dropped first), `headers`, `extras`. Positions are stored if `maxSize` **or** `url` is set, and uploaded if `url` is set. `triggerUpload()` rejects if no `url` is configured.
+- The queue is a local SQLite database that survives app restarts and is uploaded whenever the app process is alive, with or without an active watch session. Drain it yourself with `getQueuedPositions(...)` (`limit` defaults to `100`) plus `deleteQueuedPositions({ upToId })`; the uploader and your drain loop share one queue, so use one or the other. While the web view is alive every position arrives via `positionChange` **and** the queue, so treat the queue as the single source of truth.
+- Uploads `POST` `{ positions: [...], extras: {...} }` where each position carries an extra `id`. Delivery is at-least-once, so deduplicate by `id` per device on the server. The response body is always ignored. The `INTERNET` permission it needs is already declared by the Capacitor app template.
+- Upload responses: `2xx` acknowledges and deletes the batch; `401`, `408`, `429`, `5xx`, network errors and timeouts retry with exponential backoff (5s up to 10min, 30s request timeout); **any other status code drops the batch permanently** and counts it in `droppedCount`. `401` is retried so a rotated token can be applied with `setConfig(...)`. Answer with a retryable code (e.g. `503`) when temporarily unavailable.
+- Upgrading from `0.1.x`: the queue database was renamed to `capawesome_capacitor_background_geolocation_queue.db`, so positions queued by an older version are **not** carried over and can no longer be read. Upload or read them before upgrading. See the plugin's `BREAKING.md` for the renamed methods and events.
 - Tracking stops when the user force-quits the app on both platforms. Use the Geofences plugin if the app must be relaunched after termination.
