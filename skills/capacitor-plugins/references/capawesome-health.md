@@ -87,7 +87,14 @@ Every app integrating with Health Connect must be approved by Google Play or it 
 
 #### Capability
 
-The **HealthKit** capability must be enabled in Xcode: select the `App` target, open the **Signing & Capabilities** tab and add the **HealthKit** capability. This adds the `com.apple.developer.healthkit` entitlement to `ios/App/App/App.entitlements`.
+The app needs the HealthKit entitlement in `ios/App/App/App.entitlements`:
+
+```xml
+<key>com.apple.developer.healthkit</key>
+<true/>
+```
+
+If the app has no entitlements file yet, add the **HealthKit** capability in Xcode instead (select the `App` target, open the **Signing & Capabilities** tab). Creating the file by hand only takes effect once the project references it through the `CODE_SIGN_ENTITLEMENTS` build setting, which Xcode sets up when the capability is added.
 
 #### Privacy Descriptions
 
