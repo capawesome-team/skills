@@ -206,6 +206,7 @@ npx cap sync
 | Cloudinary | `@capawesome/capacitor-cloudinary` | `references/capawesome-cloudinary.md` |
 | Compass | `@capawesome/capacitor-compass` | `references/capawesome-compass.md` |
 | Contacts | `@capawesome-team/capacitor-contacts` | `references/capawesome-contacts.md` |
+| Crisp | `@capawesome/capacitor-crisp` | `references/capawesome-crisp.md` |
 | Datetime Picker | `@capawesome-team/capacitor-datetime-picker` | `references/capawesome-datetime-picker.md` |
 | Device Info | `@capawesome/capacitor-device-info` | `references/capawesome-device-info.md` |
 | Dialog | `@capawesome/capacitor-dialog` | `references/capawesome-dialog.md` |
@@ -217,6 +218,8 @@ npx cap sync
 | File Opener | `@capawesome-team/capacitor-file-opener` | `references/capawesome-file-opener.md` |
 | File Picker | `@capawesome/capacitor-file-picker` | `references/capawesome-file-picker.md` |
 | File Transfer | `@capawesome-team/capacitor-file-transfer` | `references/capawesome-file-transfer.md` |
+| Flic | `@capawesome/capacitor-flic` | `references/capawesome-flic.md` |
+| Formbricks | `@capawesome/capacitor-formbricks` | `references/capawesome-formbricks.md` |
 | Geocoder | `@capawesome-team/capacitor-geocoder` | `references/capawesome-geocoder.md` |
 | Geofences | `@capawesome-team/capacitor-geofences` | `references/capawesome-geofences.md` |
 | Google Sign In | `@capawesome/capacitor-google-sign-in` | `references/capawesome-google-sign-in.md` |
@@ -227,6 +230,8 @@ npx cap sync
 | Home Indicator | `@capawesome/capacitor-home-indicator` | `references/capawesome-home-indicator.md` |
 | In-App Browser | `@capawesome/capacitor-in-app-browser` | `references/capawesome-in-app-browser.md` |
 | Install Referrer | `@capawesome/capacitor-install-referrer` | `references/capawesome-install-referrer.md` |
+| Intercom | `@capawesome/capacitor-intercom` | `references/capawesome-intercom.md` |
+| Intune | `@capawesome/capacitor-intune` | `references/capawesome-intune.md` |
 | Keep Awake | `@capawesome/capacitor-keep-awake` | `references/capawesome-keep-awake.md` |
 | libSQL | `@capawesome/capacitor-libsql` | `references/capawesome-libsql.md` |
 | Light Sensor | `@capawesome/capacitor-light-sensor` | `references/capawesome-light-sensor.md` |
@@ -241,6 +246,7 @@ npx cap sync
 | Navigation Bar | `@capawesome/capacitor-navigation-bar` | `references/capawesome-navigation-bar.md` |
 | Network | `@capawesome/capacitor-network` | `references/capawesome-network.md` |
 | NFC | `@capawesome-team/capacitor-nfc` | `references/capawesome-nfc.md` |
+| Node.js | `@capawesome/capacitor-nodejs` | `references/capawesome-nodejs.md` |
 | OAuth | `@capawesome-team/capacitor-oauth` | `references/capawesome-oauth.md` |
 | Passkeys | `@capawesome/capacitor-passkeys` | `references/capawesome-passkeys.md` |
 | Password Autofill | `@capawesome/capacitor-password-autofill` | `references/capawesome-password-autofill.md` |
@@ -251,6 +257,7 @@ npx cap sync
 | Phone Dialer | `@capawesome/capacitor-phone-dialer` | `references/capawesome-phone-dialer.md` |
 | Photo Editor | `@capawesome/capacitor-photo-editor` | `references/capawesome-photo-editor.md` |
 | Photo Manipulator | `@capawesome/capacitor-photo-manipulator` | `references/capawesome-photo-manipulator.md` |
+| PixLive | `@capawesome/capacitor-pixlive` | `references/capawesome-pixlive.md` |
 | PostHog | `@capawesome/capacitor-posthog` | `references/capawesome-posthog.md` |
 | Printer | `@capawesome-team/capacitor-printer` | `references/capawesome-printer.md` |
 | Privacy Screen | `@capawesome/capacitor-privacy-screen` | `references/capawesome-privacy-screen.md` |
@@ -285,6 +292,7 @@ npx cap sync
 | Wallet | `@capawesome/capacitor-wallet` | `references/capawesome-wallet.md` |
 | Watch | `@capawesome-team/capacitor-watch` | `references/capawesome-watch.md` |
 | Wi-Fi | `@capawesome-team/capacitor-wifi` | `references/capawesome-wifi.md` |
+| YouTube Player | `@capawesome/capacitor-youtube-player` | `references/capawesome-youtube-player.md` |
 | Zeroconf | `@capawesome-team/capacitor-zeroconf` | `references/capawesome-zeroconf.md` |
 | Zip | `@capawesome-team/capacitor-zip` | `references/capawesome-zip.md` |
 
