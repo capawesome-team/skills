@@ -222,6 +222,7 @@ npx cap sync
 | Formbricks | `@capawesome/capacitor-formbricks` | `references/capawesome-formbricks.md` |
 | Geocoder | `@capawesome-team/capacitor-geocoder` | `references/capawesome-geocoder.md` |
 | Geofences | `@capawesome-team/capacitor-geofences` | `references/capawesome-geofences.md` |
+| Google Play Services | `@capawesome/capacitor-google-play-services` | `references/capawesome-google-play-services.md` |
 | Google Sign In | `@capawesome/capacitor-google-sign-in` | `references/capawesome-google-sign-in.md` |
 | Grafana Faro | `@capawesome/capacitor-grafana-faro` | `references/capawesome-grafana-faro.md` |
 | Gyroscope | `@capawesome/capacitor-gyroscope` | `references/capawesome-gyroscope.md` |
