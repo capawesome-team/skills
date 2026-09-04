@@ -249,6 +249,7 @@ npx cap sync
 | NFC | `@capawesome-team/capacitor-nfc` | `references/capawesome-nfc.md` |
 | Node.js | `@capawesome/capacitor-nodejs` | `references/capawesome-nodejs.md` |
 | OAuth | `@capawesome-team/capacitor-oauth` | `references/capawesome-oauth.md` |
+| Option Picker | `@capawesome/capacitor-option-picker` | `references/capawesome-option-picker.md` |
 | Passkeys | `@capawesome/capacitor-passkeys` | `references/capawesome-passkeys.md` |
 | Password Autofill | `@capawesome/capacitor-password-autofill` | `references/capawesome-password-autofill.md` |
 | PDF Annotator | `@capawesome/capacitor-pdf-annotator` | `references/capawesome-pdf-annotator.md` |
