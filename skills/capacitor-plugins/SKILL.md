@@ -250,6 +250,7 @@ npx cap sync
 | OAuth | `@capawesome-team/capacitor-oauth` | `references/capawesome-oauth.md` |
 | Passkeys | `@capawesome/capacitor-passkeys` | `references/capawesome-passkeys.md` |
 | Password Autofill | `@capawesome/capacitor-password-autofill` | `references/capawesome-password-autofill.md` |
+| PDF Annotator | `@capawesome/capacitor-pdf-annotator` | `references/capawesome-pdf-annotator.md` |
 | PDF Generator | `@capawesome/capacitor-pdf-generator` | `references/capawesome-pdf-generator.md` |
 | PDF Viewer | `@capawesome/capacitor-pdf-viewer` | `references/capawesome-pdf-viewer.md` |
 | Pedometer | `@capawesome-team/capacitor-pedometer` | `references/capawesome-pedometer.md` |
