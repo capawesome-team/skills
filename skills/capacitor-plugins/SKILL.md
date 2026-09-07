@@ -288,6 +288,7 @@ npx cap sync
 | Text Interaction | `@capawesome/capacitor-text-interaction` | `references/capawesome-text-interaction.md` |
 | Text Zoom | `@capawesome/capacitor-text-zoom` | `references/capawesome-text-zoom.md` |
 | Thermal State | `@capawesome/capacitor-thermal-state` | `references/capawesome-thermal-state.md` |
+| TikTok App Events | `@capawesome/capacitor-tiktok-app-events` | `references/capawesome-tiktok-app-events.md` |
 | Toast | `@capawesome/capacitor-toast` | `references/capawesome-toast.md` |
 | Torch | `@capawesome/capacitor-torch` | `references/capawesome-torch.md` |
 | Vault | `@capawesome-team/capacitor-vault` | `references/capawesome-vault.md` |
