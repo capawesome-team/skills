@@ -94,7 +94,7 @@ Available plugins:
 | `ionic-core` | App creation, development, upgrades, and expert reference. |
 | `ionic-frameworks` | Angular, React, and Vue patterns for Ionic. |
 | `capawesome-cloud` | MCP server, CLI setup, native builds, live updates, and app store publishing. |
-| `ionic-migrations` | Migrate from Ionic Appflow and Ionic Enterprise SDK plugins. |
+| `ionic-migrations` | Migrate from Ionic Appflow, Ionic Enterprise SDK plugins and Capgo. |
 
 Install a plugin:
 
