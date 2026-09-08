@@ -28,7 +28,7 @@ Missing a feature? Just [open an issue](https://github.com/capawesome-team/skill
 
 ## MCP Server
 
-Capawesome also offers a hosted **[MCP Server](https://capawesome.io/docs/ai/mcp/)**. It serves the Capawesome documentation straight from the source — so it never goes stale — and, with an API token, the full [Capawesome Cloud](https://capawesome.io/cloud/) management API. There is nothing to install and nothing to keep up to date:
+Capawesome also offers a hosted **[MCP Server](https://capawesome.io/docs/ai/mcp/capawesome/)**. It serves the Capawesome documentation straight from the source — so it never goes stale — and, with an API token, the full [Capawesome Cloud](https://capawesome.io/cloud/) management API. There is nothing to install and nothing to keep up to date:
 
 ```
 https://mcp.capawesome.io/mcp

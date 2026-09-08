@@ -49,7 +49,7 @@ Opt in with `?toolsets=cloud` or by name. Each requires an API token. A toolset 
 | `cloud-organizations` | 10 | Identify the account, list organizations (and the IDs other tools need), manage members and invitations. |
 | `cloud-teams` | 5 | Manage teams and their apps and members. |
 
-Toolset names and tool counts change as the server grows. For the current list, call `get_doc_page` with `https://capawesome.io/docs/ai/mcp/` and read the Toolsets and Tool reference sections.
+Toolset names and tool counts change as the server grows. For the current list, call `get_doc_page` with `https://capawesome.io/docs/ai/mcp/capawesome/` and read the Toolsets and Tool reference sections.
 
 ## Recipes
 
