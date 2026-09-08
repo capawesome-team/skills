@@ -32,7 +32,7 @@ On Capacitor 6 and 7, the Capacitor CLI ignores the exit code of platform hooks 
 
 ## MCP Server
 
-The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
 
 - **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
 - **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
