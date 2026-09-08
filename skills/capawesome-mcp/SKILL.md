@@ -1,6 +1,8 @@
 ---
 name: capawesome-mcp
 description: "Guides the agent through connecting an MCP client to the hosted Capawesome MCP server, which exposes always-current Capawesome documentation search and the Capawesome Cloud management API. Covers setup for Claude Code, Claude Desktop, Cursor, and VS Code, API token creation, toolset selection, read-only mode, secret handling, verification, and troubleshooting. Do not use for installing Capacitor plugins, migrating apps or plugins to a newer version, running Capawesome CLI commands, or MCP servers other than Capawesome."
+license: MIT
+compatibility: "Designed for MCP clients such as Claude Code, Claude Desktop, Cursor, and VS Code. Requires network access to https://mcp.capawesome.io; the Capawesome Cloud tools additionally require a Capawesome Cloud API token."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capawesome-mcp

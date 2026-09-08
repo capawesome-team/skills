@@ -1,6 +1,8 @@
 ---
 name: capacitor-app-upgrades
 description: "Guides the agent through upgrading a Capacitor app project to a newer major version. Supports upgrades from Capacitor 4 through 8, including multi-version jumps. Performs all upgrade steps manually — does not use the interactive `npx cap migrate` command. Do not use for plugin library upgrade or non-Capacitor mobile frameworks."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS is required for iOS and Android Studio with a matching JDK for Android; the minimum versions depend on the target Capacitor version."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-app-upgrades

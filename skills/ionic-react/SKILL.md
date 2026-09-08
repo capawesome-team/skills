@@ -1,6 +1,8 @@
 ---
 name: ionic-react
 description: "Guides the agent through Ionic Framework development with React — project structure, React-specific Ionic components, IonReactRouter and navigation patterns, Ionic lifecycle hooks (useIonViewWillEnter, useIonViewDidEnter, useIonViewWillLeave, useIonViewDidLeave), state management integration, and React-specific best practices for Ionic apps. Do not use for plain Capacitor React apps without Ionic (use capacitor-react), Ionic with Angular or Vue, creating a new Ionic app (use ionic-app-creation), upgrading Ionic to a newer version (use ionic-app-upgrades), or general Ionic component usage without React-specific context (use ionic-app-development)."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-react

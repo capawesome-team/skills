@@ -1,6 +1,8 @@
 ---
 name: capacitor-vue
 description: "Guides the agent through Vue-specific patterns for Capacitor app development. Covers Vue 3 Composition API with Capacitor plugins, custom composables for native features, reactive plugin state, lifecycle hook patterns, Vue Router deep link integration, platform detection, PWA Elements setup, Quasar Framework integration, and Nuxt integration. Do not use for creating a new Capacitor app from scratch, upgrading Capacitor versions, installing specific plugins, Ionic Framework with Vue setup, or non-Vue frameworks."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-vue

@@ -1,6 +1,8 @@
 ---
 name: ionic-app-development
 description: "Guides the agent through general Ionic Framework development including core concepts, component reference, CLI usage, layout, theming, animations, gestures, development workflow, and troubleshooting. Covers all Ionic UI components grouped by category with properties, events, methods, slots, and CSS custom properties. Do not use for creating a new Ionic app (use ionic-app-creation), framework-specific patterns (use ionic-angular, ionic-react, ionic-vue), or upgrading Ionic versions (use ionic-app-upgrades)."
+license: MIT
+compatibility: "Requires Node.js, npm, and the Ionic CLI."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-app-development

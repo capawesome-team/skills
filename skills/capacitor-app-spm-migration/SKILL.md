@@ -1,6 +1,8 @@
 ---
 name: capacitor-app-spm-migration
 description: "Guides the agent through migrating an existing Capacitor app project from CocoaPods to Swift Package Manager (SPM) for iOS dependency management. Covers prerequisite checks, inventorying installed Capacitor plugins, backing up customized iOS project files (Info.plist, AppDelegate.swift, Assets.xcassets, Base.lproj, App.entitlements, GoogleService-Info.plist, .xcconfig files, signing configuration), deleting the existing `ios/` folder, re-scaffolding with `npx cap add ios --packagemanager SPM`, restoring preserved files, re-syncing plugins, and verifying the build. Performs all migration steps manually — does not use the interactive `npx cap spm-migration-assistant` command. Do not use for Capacitor plugin projects, app projects already on SPM, app projects without an existing `ios/` folder, or non-Capacitor mobile frameworks."
+license: MIT
+compatibility: "Requires Node.js 18+, npm, and Xcode 15+ on macOS. CocoaPods must be installed to verify the existing setup, and Git is used to keep the migration reversible."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-app-spm-migration

@@ -1,6 +1,8 @@
 ---
 name: ionic-angular
 description: "Guides the agent through Angular-specific patterns for Ionic app development. Covers project structure, standalone vs NgModule architecture detection, Angular Router integration with Ionic navigation (tabs, side menu, modals), lazy loading, Ionic page lifecycle hooks, reactive forms with Ionic input components, Angular services for state management, route guards, performance optimization, and testing. Do not use for creating a new Ionic app from scratch, upgrading Ionic versions, general Ionic component usage unrelated to Angular, Capacitor plugin integration, or non-Angular frameworks (React, Vue)."
+license: MIT
+compatibility: "Requires Node.js, npm, and the Ionic CLI."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-angular

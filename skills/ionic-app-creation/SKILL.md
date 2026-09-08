@@ -1,6 +1,8 @@
 ---
 name: ionic-app-creation
 description: "Guides the agent through creating a new Ionic app using the Ionic CLI. Covers project scaffolding with ionic start, framework selection (Angular, React, Vue), template selection (blank, tabs, sidemenu), Capacitor integration, and optional Tailwind CSS setup. After app creation with Capacitor integration, delegates to the capacitor-app-creation skill for further Capacitor setup. Do not use for existing Ionic projects, migrating Ionic apps, upgrading Capacitor versions, or non-Ionic mobile frameworks."
+license: MIT
+compatibility: "Requires Node.js and npm; the Ionic CLI is installed as part of the procedure. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-app-creation

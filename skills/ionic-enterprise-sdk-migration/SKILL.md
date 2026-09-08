@@ -1,6 +1,8 @@
 ---
 name: ionic-enterprise-sdk-migration
 description: "Guides the agent through migrating Capacitor apps from discontinued Ionic Enterprise SDK plugins (Auth Connect, Identity Vault, Secure Storage) to their Capawesome alternatives (OAuth, Vault, Biometrics, Secure Preferences, SQLite). Covers dependency detection, side-by-side API mapping, code replacement, and platform-specific configuration for each plugin pair. Do not use for migrating Capacitor apps or plugins to a newer version, setting up Capawesome Cloud, or non-Capacitor mobile frameworks."
+license: MIT
+compatibility: "Requires Node.js and npm, plus a Capawesome Insiders license key for access to the private npm registry."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-enterprise-sdk-migration

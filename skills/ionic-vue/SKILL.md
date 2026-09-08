@@ -1,6 +1,8 @@
 ---
 name: ionic-vue
 description: "Guides the agent through Ionic Vue development patterns — project structure, Vue-specific Ionic components (IonPage, IonRouterOutlet, IonTabs), navigation with Vue Router and useIonRouter, Ionic lifecycle hooks (onIonViewWillEnter, onIonViewDidEnter, onIonViewWillLeave, onIonViewDidLeave), composable utilities (useIonRouter, useBackButton, useKeyboard), tab-based routing, lazy loading, platform detection with isPlatform, and troubleshooting common Vue-specific issues. Do not use for general Ionic component theming or CLI usage (use ionic-app-development), creating a new Ionic app (use ionic-app-creation), Capacitor-specific Vue patterns without Ionic (use capacitor-vue), upgrading Ionic versions (use ionic-app-upgrades), or non-Vue frameworks like Angular or React."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-vue
