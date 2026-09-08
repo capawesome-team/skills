@@ -1,6 +1,8 @@
 ---
 name: capacitor-app-creation
 description: "Guides the agent through creating a new Capacitor app from scratch. Covers project scaffolding with the Capacitor CLI, configuring the app (appId, appName, webDir), adding native platforms (iOS, Android), and syncing. Includes decision points for Ionic Framework integration, live updates, and CI/CD setup. Do not use for upgrading existing Capacitor apps, migrating from other frameworks, or plugin installation."
+license: MIT
+compatibility: "Requires Node.js 22+ and npm. Xcode 26+ on macOS is required for iOS and Android Studio 2025.2.1+ with the Android SDK for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-app-creation

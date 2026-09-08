@@ -1,6 +1,8 @@
 ---
 name: capacitor-platforms
 description: "Guides the agent through adding, configuring, and using the Capawesome desktop platforms for Capacitor — @capawesome/capacitor-electron and @capawesome/capacitor-tauri. Covers choosing between Electron and Tauri, installation and scaffolding, sync/run workflows, live reload, deep links, plugin compatibility (Electron plugin implementations and web fallback; Tauri plugin tiers), packaging, and app updates. Do not use for the Android or iOS platforms, installing individual Capacitor plugins, migrating Capacitor apps or plugins to newer versions, or non-Capacitor desktop frameworks."
+license: MIT
+compatibility: "Requires Node.js 18+ and npm. Tauri additionally requires the Rust toolchain and its system dependencies."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-platforms

@@ -1,6 +1,8 @@
 ---
 name: capacitor-react
 description: "Guides the agent through Capacitor app development with React — project structure, hooks for native features, state management patterns, using Capacitor plugins in React components, and React-specific best practices. Do not use for Ionic Framework with React (use ionic-react), migrating or upgrading Capacitor apps or plugins, or non-React frameworks."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-react

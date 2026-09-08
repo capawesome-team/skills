@@ -1,6 +1,8 @@
 ---
 name: ionic-app-upgrades
 description: "Guides the agent through upgrading an Ionic Framework app to a newer major version. Supports upgrades from Ionic 4 through 8, including multi-version jumps. Covers framework-specific migration steps for Angular, React, and Vue, component breaking changes, CSS variable updates, and browser support changes. Do not use for Capacitor version upgrades (use capacitor-app-upgrades instead), for plugin library upgrades, or for non-Ionic UI frameworks."
+license: MIT
+compatibility: "Requires Node.js and npm."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-app-upgrades

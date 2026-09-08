@@ -1,6 +1,8 @@
 ---
 name: capacitor-app-development
 description: "Guides the agent through general Capacitor app development topics. Covers core concepts (native bridge, plugins, web layer), Capacitor CLI usage, app configuration (capacitor.config.ts, splash screens, app icons, deep links), platform management (Android, iOS, Electron, PWA), edge-to-edge and safe area handling on Android, live reload setup, storage solutions, file handling, security best practices, CI/CD references, iOS package managers (SPM, CocoaPods), and troubleshooting for Android and iOS. Do not use for creating new Capacitor apps, Capacitor plugin APIs, creating Capacitor plugins, in-app purchases, upgrading Capacitor versions, Cordova or PhoneGap migration, or framework-specific patterns (Angular, React, Vue)."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-app-development

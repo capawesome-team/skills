@@ -1,6 +1,8 @@
 ---
 name: capgo-cloud-migration
 description: "Guides the agent through migrating an existing Capacitor project from Capgo to Capawesome Cloud. Detects Capgo usage (the @capgo/capacitor-updater plugin, CapacitorUpdater configuration, and @capgo/cli commands in CI/CD) and provides step-by-step migration: replacing the plugin with @capawesome/capacitor-live-update, mapping configuration options and API methods, migrating update strategies, channels, code signing, and CI/CD pipelines. References the capawesome-cloud skill for detailed Capawesome Cloud setup procedures. Do not use for setting up Capawesome Cloud from scratch without an existing Capgo project, for migrating from Ionic Appflow (use the ionic-appflow-migration skill instead), or for non-Capacitor mobile frameworks."
+license: MIT
+compatibility: "Requires Node.js 18+, npm, network access, access to the project repository, and a Capawesome Cloud account."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capgo-cloud-migration

@@ -1,6 +1,8 @@
 ---
 name: capacitor-in-app-purchases
 description: "Guides the agent through setting up in-app purchases in Capacitor apps. Covers App Store Connect and Google Play Console product configuration, plugin selection (Capawesome Purchases vs. RevenueCat), plugin installation and platform setup, purchase flows for subscriptions and consumables, receipt validation, restore purchases, handling unfinished transactions, and testing with sandbox and StoreKit environments. Do not use for non-Capacitor mobile frameworks, Stripe payment processing, or physical goods checkout."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS and a paid Apple Developer Program membership are required for iOS; Android Studio and a Google Play Developer account for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-in-app-purchases

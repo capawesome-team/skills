@@ -1,6 +1,8 @@
 ---
 name: capacitor-plugin-spm-support
 description: "Guides the agent through adding Swift Package Manager (SPM) support to an existing Capacitor plugin. Covers creating a Package.swift manifest, replacing Objective-C bridge files with the CAPBridgedPlugin Swift protocol, updating .gitignore for SPM artifacts, cleaning up the Xcode project file, and updating package.json. Do not use for Capacitor app projects, creating new plugins from scratch, or non-Capacitor plugin frameworks."
+license: MIT
+compatibility: "Requires Node.js, npm, and Xcode 15+ with Swift 5.9+ on macOS."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-plugin-spm-support

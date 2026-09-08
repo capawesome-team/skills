@@ -1,6 +1,8 @@
 ---
 name: ionic-expert
 description: "A comprehensive starting point for AI agents to work with the Ionic Framework. Covers core concepts, components, CLI, theming, layout, lifecycle, navigation, and framework-specific patterns for Angular, React, and Vue. Pair with the other Ionic skills in this collection for deeper topic-specific guidance like app creation, framework integration, and upgrades."
+license: MIT
+compatibility: "Requires Node.js, npm, and the Ionic CLI."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-expert

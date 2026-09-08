@@ -1,6 +1,8 @@
 ---
 name: capacitor-expert
 description: "A comprehensive starting point for AI agents to work with Capacitor. Covers core concepts, CLI, app creation, plugins, framework integration, best practices, storage, security, testing, troubleshooting, upgrading, and Capawesome Cloud (live updates, native builds, app store publishing). Pair with the other Capacitor skills in this collection for deeper topic-specific guidance."
+license: MIT
+compatibility: "Requires Node.js and npm. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-expert

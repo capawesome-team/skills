@@ -1,6 +1,8 @@
 ---
 name: capawesome-cli
 description: "Guides the agent through installing, authenticating, configuring, and using the Capawesome CLI (@capawesome/cli). Covers installation, interactive and token-based authentication, project linking via capawesome.config.json, the full command reference (app management, native builds, live updates, certificates, environments, channels, deployments, destinations, devices), CI/CD integration with token auth and JSON output, and diagnostics via the doctor command. Do not use for Capawesome Cloud feature setup (native builds workflow, live updates workflow, app store publishing) — use the capawesome-cloud skill instead."
+license: MIT
+compatibility: "Requires Node.js 18+, npm, network access, and a Capawesome Cloud account."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capawesome-cli

@@ -1,6 +1,8 @@
 ---
 name: capacitor-angular
 description: "Guides the agent through Angular-specific patterns for Capacitor app development. Covers project structure, adding Capacitor to Angular projects, using Capacitor plugins in Angular services and components, NgZone integration for plugin event listeners, lifecycle hook patterns, dependency injection, routing with deep links, and environment-based platform detection. Do not use for creating a new Capacitor app from scratch, upgrading Capacitor versions, installing specific plugins, Ionic Framework setup, or non-Angular frameworks."
+license: MIT
+compatibility: "Requires Node.js, npm, and the Angular CLI. Xcode on macOS is required for iOS and Android Studio for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-angular

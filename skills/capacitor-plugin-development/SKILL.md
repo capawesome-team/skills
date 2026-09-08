@@ -1,6 +1,8 @@
 ---
 name: capacitor-plugin-development
 description: "Guides the agent through creating and maintaining Capacitor plugins from scratch. Covers scaffolding a new plugin project, designing the TypeScript API, implementing native iOS (Swift) and Android (Java/Kotlin) bridges, implementing the web layer, defining TypeScript type definitions, plugin configuration values, plugin hooks, development workflow with local testing, documentation generation, and publishing to npm. Do not use for installing existing plugins into an app, upgrading existing plugins to newer Capacitor versions, adding SPM support to plugins, or non-Capacitor plugin frameworks."
+license: MIT
+compatibility: "Requires Node.js 18+ and npm 6+. Xcode 15+ on macOS is required for iOS and Android Studio Hedgehog 2023.1.1+ for Android."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/capacitor-plugin-development
