@@ -1,4 +1,4 @@
-# Capacitor & Ionic Agent Skills
+# Capawesome Agent Skills
 
 [![Install via skills.sh](https://img.shields.io/badge/skills.sh-install-green)](https://skills.sh/capawesome-team/skills)
 
