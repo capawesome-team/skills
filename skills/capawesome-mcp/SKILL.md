@@ -128,3 +128,5 @@ Apply these rules:
 - **`capawesome-cli`** — For the Capawesome CLI, which covers the same Cloud API from the terminal and CI/CD.
 - **`capacitor-plugins`** — For installing and configuring Capacitor plugins, including the Capawesome plugins documented by this server.
 - **`capacitor-expert`** — For a broad Capacitor reference covering plugins, framework integration, and Capawesome Cloud.
+- **`capacitor-mcp`** — For the Capacitor MCP server, which covers Capacitor itself and the community plugin list.
+- **`ionic-framework-mcp`** — For the Ionic Framework MCP server, which covers the UI components and their usage examples.

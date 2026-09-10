@@ -22,48 +22,54 @@ See the [documentation](https://capawesome.io/docs/ai/skills/) for installation 
 - 🚀 **Automated First**: Tries automated upgrade before falling back to manual steps.
 - 🐛 **Error Handling**: Common issues and fixes included in every skill.
 - 🔁 **Up-to-date**: Always supports the latest Capacitor version.
-- 🔌 **MCP-aware**: Detects the hosted [Capawesome MCP Server](#mcp-server) and prefers it for Capawesome documentation.
+- 🔌 **MCP-aware**: Detects the hosted [MCP Servers](#mcp-servers) and prefers them for Capawesome, Capacitor, and Ionic Framework documentation.
 
 Missing a feature? Just [open an issue](https://github.com/capawesome-team/skills/issues/new) and we'll take a look!
 
-## MCP Server
+## MCP Servers
 
-Capawesome also offers a hosted **[MCP Server](https://capawesome.io/docs/ai/mcp/capawesome/)**. It serves the Capawesome documentation straight from the source — so it never goes stale — and, with an API token, the full [Capawesome Cloud](https://capawesome.io/cloud/) management API. There is nothing to install and nothing to keep up to date:
+Capawesome also hosts three **[MCP Servers](https://capawesome.io/docs/ai/mcp/)**. They serve the documentation straight from the source — so it never goes stale — and, in the case of the Capawesome server, the full [Capawesome Cloud](https://capawesome.io/cloud/) management API. There is nothing to install and nothing to keep up to date:
 
-```
-https://mcp.capawesome.io/mcp
-```
+| Server | Endpoint | Serves |
+| ------ | -------- | ------ |
+| [Capawesome](https://capawesome.io/docs/ai/mcp/capawesome/) | `https://mcp.capawesome.io/mcp` | The Capawesome plugins, the Capawesome CLI, and Capawesome Cloud. |
+| [Capacitor](https://capawesome.io/docs/ai/mcp/capacitor/) (unofficial) | `https://capacitor-mcp.capawesome.io/mcp` | The official Capacitor documentation, the official and community plugin list, and the Capacitor posts from the Ionic blog. |
+| [Ionic Framework](https://capawesome.io/docs/ai/mcp/ionic-framework/) (unofficial) | `https://ionic-framework-mcp.capawesome.io/mcp` | The official Ionic Framework documentation, the component API reference, and the usage examples per framework. |
 
-Add it to Claude Code:
+Add them to Claude Code:
 
 ```bash
 claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+claude mcp add --transport http capacitor "https://capacitor-mcp.capawesome.io/mcp"
+claude mcp add --transport http ionic-framework "https://ionic-framework-mcp.capawesome.io/mcp"
 ```
 
-The documentation tools need no account and no token. To add the Capawesome Cloud tools, create an [API token](https://console.cloud.capawesome.io/settings/tokens) and use:
+None of the documentation tools need an account or a token. To add the Capawesome Cloud tools, create an [API token](https://console.cloud.capawesome.io/settings/tokens) and use:
 
 ```bash
 claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp?toolsets=all" \
   --header "Authorization: Bearer YOUR_TOKEN"
 ```
 
-For Claude Desktop, Cursor, VS Code, and other MCP clients, see the [`capawesome-mcp`](./skills/capawesome-mcp/) skill.
+For Claude Desktop, Cursor, VS Code, Windsurf, Zed, and other MCP clients, see the [`capawesome-mcp`](./skills/capawesome-mcp/), [`capacitor-mcp`](./skills/capacitor-mcp/), and [`ionic-framework-mcp`](./skills/ionic-framework-mcp/) skills.
 
-### MCP Server or skills?
+### MCP Servers or skills?
 
 Use both — they cover different ground:
 
-| | MCP Server | Skills |
+| | MCP Servers | Skills |
 | --- | :---: | :---: |
 | Capawesome plugin, CLI, and Cloud documentation | ✅ always current | ✅ bundled |
 | Capacitor Firebase and Capacitor MLKit plugin documentation | ✅ always current | ✅ bundled |
-| Official Capacitor, Community, and RevenueCat plugins | ❌ | ✅ |
-| Capacitor and Ionic upgrade and migration procedures | ❌ | ✅ |
+| Official and community Capacitor plugins | ✅ Capacitor MCP Server | ✅ |
+| RevenueCat plugins | ❌ | ✅ |
+| Ionic Framework component API and usage examples | ✅ Ionic Framework MCP Server | ✅ bundled |
+| Capacitor and Ionic upgrade and migration procedures | ✅ reference only | ✅ step by step |
 | Ionic Appflow, Ionic Enterprise SDK, and Capgo migrations | ❌ | ✅ |
 | Managing Capawesome Cloud apps, builds, and deployments | ✅ | via the CLI |
 | Works without a network round trip | ❌ | ✅ |
 
-The skills check for the MCP Server and prefer it for Capawesome documentation whenever it is connected, falling back to their bundled reference files when it is not.
+The skills check for the MCP Servers and prefer them for documentation whenever they are connected, falling back to their bundled reference files when they are not.
 
 ## Installation
 
@@ -87,11 +93,11 @@ Available plugins:
 
 | Plugin | Description |
 | ------ | ----------- |
-| `capacitor-core` | App creation, development, upgrades, expert reference, plugin setup, and desktop platforms. |
+| `capacitor-core` | App creation, development, upgrades, expert reference, plugin setup, desktop platforms, and MCP server setup. |
 | `capacitor-integrations` | Push notifications (FCM) and in-app purchases. |
 | `capacitor-frameworks` | Angular, React, and Vue patterns for Capacitor. |
 | `capacitor-plugin-dev` | Create, upgrade, and add SPM support to Capacitor plugins. |
-| `ionic-core` | App creation, development, upgrades, and expert reference. |
+| `ionic-core` | App creation, development, upgrades, expert reference, and MCP server setup. |
 | `ionic-frameworks` | Angular, React, and Vue patterns for Ionic. |
 | `capawesome-cloud` | MCP server, CLI setup, native builds, live updates, and app store publishing. |
 | `ionic-migrations` | Migrate from Ionic Appflow and Ionic Enterprise SDK plugins. |
@@ -171,6 +177,7 @@ Migrate my app from Capgo to Capawesome Cloud.
 | [`capacitor-app-upgrades`](./skills/capacitor-app-upgrades/) | Upgrade a Capacitor app to a newer major version. |
 | [`capacitor-expert`](./skills/capacitor-expert/) | Comprehensive Capacitor expert reference — core concepts, CLI, plugins, framework integration, best practices, and Capawesome Cloud. |
 | [`capacitor-in-app-purchases`](./skills/capacitor-in-app-purchases/) | Set up in-app purchases and subscriptions in Capacitor apps. |
+| [`capacitor-mcp`](./skills/capacitor-mcp/) | Connect an MCP client to the hosted Capacitor MCP Server for the current Capacitor documentation and plugin list. |
 | [`capacitor-platforms`](./skills/capacitor-platforms/) | Add and use the Capawesome desktop platforms (Electron and Tauri) in Capacitor apps. |
 | [`capacitor-plugin-development`](./skills/capacitor-plugin-development/) | Create and maintain Capacitor plugins from scratch. |
 | [`capacitor-plugin-spm-support`](./skills/capacitor-plugin-spm-support/) | Add Swift Package Manager (SPM) support to a Capacitor plugin. |
@@ -203,6 +210,7 @@ Migrate my app from Capgo to Capawesome Cloud.
 | [`ionic-app-development`](./skills/ionic-app-development/) | General Ionic Framework development — core concepts, component reference, CLI usage, layout, theming, and troubleshooting. |
 | [`ionic-app-upgrades`](./skills/ionic-app-upgrades/) | Upgrade an Ionic app to a newer major version (4 through 8). |
 | [`ionic-expert`](./skills/ionic-expert/) | Comprehensive Ionic Framework expert skill — core concepts, components, theming, lifecycle, navigation, and framework-specific patterns. |
+| [`ionic-framework-mcp`](./skills/ionic-framework-mcp/) | Connect an MCP client to the hosted Ionic Framework MCP Server for the current component API reference and usage examples. |
 | [`ionic-react`](./skills/ionic-react/) | React-specific Ionic development patterns — components, IonReactRouter, lifecycle hooks, and state management. |
 | [`ionic-vue`](./skills/ionic-vue/) | Vue-specific Ionic development patterns — components, navigation, lifecycle hooks, and composables. |
 

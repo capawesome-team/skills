@@ -91,3 +91,4 @@ Read the reference file for the matched topic and apply the instructions to the 
 - **`capacitor-app-upgrades`** — Upgrade Capacitor to a newer major version.
 - **`capacitor-in-app-purchases`** — Set up in-app purchases.
 - **`capawesome-cloud`** — Cloud builds, live updates, and app store publishing.
+- **`capacitor-mcp`** — Connect an MCP client to the current Capacitor documentation.

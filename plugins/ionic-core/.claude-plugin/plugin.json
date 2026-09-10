@@ -1,7 +1,7 @@
 {
   "name": "ionic-core",
-  "description": "Core Ionic Framework skills — app creation, development, upgrades, and expert reference.",
-  "version": "1.0.0",
+  "description": "Core Ionic Framework skills — app creation, development, upgrades, expert reference, and MCP server setup.",
+  "version": "1.1.0",
   "author": {
     "name": "Capawesome",
     "email": "support@capawesome.io"
@@ -9,6 +9,6 @@
   "homepage": "https://github.com/capawesome-team/skills",
   "repository": "https://github.com/capawesome-team/skills",
   "license": "MIT",
-  "keywords": ["ionic", "mobile", "cross-platform", "upgrades"],
+  "keywords": ["ionic", "mobile", "cross-platform", "upgrades", "mcp"],
   "category": "development"
 }

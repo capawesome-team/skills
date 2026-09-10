@@ -388,3 +388,4 @@ For Capacitor apps, install `@capacitor/app` to enable hardware back button supp
 - **`ionic-app-upgrades`** — Upgrade Ionic to a newer major version.
 - **`capacitor-app-development`** — General Capacitor development.
 - **`capacitor-plugins`** — Capacitor plugins installation and configuration.
+- **`ionic-framework-mcp`** — Connect an MCP client to the current Ionic Framework documentation.
