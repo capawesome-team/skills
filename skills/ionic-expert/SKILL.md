@@ -12,18 +12,24 @@ metadata:
 
 Comprehensive reference for Ionic Framework development — core concepts, components, theming, lifecycle, navigation, framework-specific patterns (Angular, React, Vue), upgrading, and Capawesome Cloud integration.
 
-## MCP Server
+## MCP Servers
 
-The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+Two hosted MCP servers serve the current documentation, so both are always ahead of the guidance bundled with this skill:
 
-- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
-- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+- **[Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/)** — the Capawesome plugins, the Capawesome CLI, and Capawesome Cloud.
+- **[Ionic Framework MCP server](https://capawesome.io/docs/ai/mcp/ionic-framework/)** (unofficial) — the Ionic Framework UI components, their API reference, and the official usage examples per framework.
+
+Both expose `search_docs` and `get_doc_page`, so pick the server by topic before calling either.
+
+- **If the MCP tools are available**, call `search_docs` on the server that owns the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the servers can be added with the commands below, then continue with this skill. Never block on it.
 
 ```bash
 claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+claude mcp add --transport http ionic-framework "https://ionic-framework-mcp.capawesome.io/mcp"
 ```
 
-The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+Neither server needs an account or a token for documentation. See the `capawesome-mcp` and `ionic-framework-mcp` skills for full setup, including the Capawesome Cloud tools.
 
 ## Core Concepts
 
@@ -442,3 +448,4 @@ Visit [capawesome.io](https://capawesome.io) for the full Capawesome ecosystem. 
 - **[`capacitor-app-development`](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-app-development/SKILL.md)** — General Capacitor development.
 - **[`capawesome-cloud`](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-cloud/SKILL.md)** — Live updates, native builds, and app store publishing.
 - **[`capawesome-mcp`](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-mcp/SKILL.md)** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.
+- **[`ionic-framework-mcp`](https://github.com/capawesome-team/skills/blob/main/skills/ionic-framework-mcp/SKILL.md)** — Connect an MCP client to the hosted Ionic Framework MCP server for the current component API reference and usage examples.

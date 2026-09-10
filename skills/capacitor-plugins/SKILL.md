@@ -26,18 +26,24 @@ Install, configure, and use Capacitor plugins from official, Capawesome, communi
 - **One decision at a time.** When a step requires user input (e.g., encryption yes/no), ask that single question, wait for the answer, then continue to the next step.
 - **Present clear options.** When asking a question, provide concrete choices (e.g., "Do you need SQLite encryption? (yes/no)") instead of open-ended questions.
 
-## MCP Server
+## MCP Servers
 
-The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+Two hosted MCP servers serve the current documentation, so both are always ahead of the guidance bundled with this skill:
 
-- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. The server documents the Capawesome, Capacitor Firebase, and Capacitor MLKit plugins; for official Capacitor, Capacitor Community, and RevenueCat plugins, use the reference files in `references/`. Where the two disagree, follow the documentation.
-- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+- **[Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/)** — the Capawesome plugins, the Capawesome CLI, and Capawesome Cloud.
+- **[Capacitor MCP server](https://capawesome.io/docs/ai/mcp/capacitor/)** (unofficial) — Capacitor itself: the CLI, the `capacitor.config` file, the native Android and iOS projects, and the official plugin APIs.
+
+Both expose `search_docs` and `get_doc_page`, so pick the server by topic before calling either.
+
+- **If the MCP tools are available**, call `search_docs` on the server that owns the topic and read the matching page with `get_doc_page` before applying the guidance below. The Capawesome server documents the Capawesome, Capacitor Firebase, and Capacitor MLKit plugins, the Capacitor server the official Capacitor plugins and the community plugin list; for RevenueCat plugins, use the reference files in `references/`. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the servers can be added with the commands below, then continue with this skill. Never block on it.
 
 ```bash
 claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+claude mcp add --transport http capacitor "https://capacitor-mcp.capawesome.io/mcp"
 ```
 
-The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+Neither server needs an account or a token for documentation. See the `capawesome-mcp` and `capacitor-mcp` skills for full setup, including the Capawesome Cloud tools.
 
 ## Procedures
 
@@ -412,3 +418,4 @@ npx cap sync
 - **`capacitor-push-notifications`** — For detailed push notification setup with Firebase Cloud Messaging beyond basic plugin installation.
 - **`capacitor-in-app-purchases`** — For detailed in-app purchase setup including store configuration, purchase flows, receipt validation, and testing.
 - **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.
+- **`capacitor-mcp`** — Connect an MCP client to the hosted Capacitor MCP server for the current Capacitor documentation and plugin list.

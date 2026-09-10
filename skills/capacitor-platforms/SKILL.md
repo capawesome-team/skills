@@ -30,18 +30,24 @@ On Capacitor 6 and 7, the Capacitor CLI ignores the exit code of platform hooks 
 - **Always use the full package name** with Capacitor CLI commands (e.g. `npx cap sync @capawesome/capacitor-electron`). A bare `npx cap sync electron` or `npx cap sync tauri` silently does nothing.
 - **Check plugin compatibility early.** On Tauri, list the app's Capacitor plugins and verify each is covered by a web implementation or a curated shim (see `references/tauri.md`) before recommending it.
 
-## MCP Server
+## MCP Servers
 
-The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+Two hosted MCP servers serve the current documentation, so both are always ahead of the guidance bundled with this skill:
 
-- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
-- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+- **[Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/)** — the Capawesome plugins, the Capawesome CLI, and Capawesome Cloud.
+- **[Capacitor MCP server](https://capawesome.io/docs/ai/mcp/capacitor/)** (unofficial) — Capacitor itself: the CLI, the `capacitor.config` file, the native Android and iOS projects, and the official plugin APIs.
+
+Both expose `search_docs` and `get_doc_page`, so pick the server by topic before calling either.
+
+- **If the MCP tools are available**, call `search_docs` on the server that owns the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the servers can be added with the commands below, then continue with this skill. Never block on it.
 
 ```bash
 claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+claude mcp add --transport http capacitor "https://capacitor-mcp.capawesome.io/mcp"
 ```
 
-The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+Neither server needs an account or a token for documentation. See the `capawesome-mcp` and `capacitor-mcp` skills for full setup, including the Capawesome Cloud tools.
 
 ## Procedures
 

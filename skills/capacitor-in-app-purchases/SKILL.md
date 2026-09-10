@@ -26,18 +26,24 @@ Set up in-app purchases and subscriptions in Capacitor apps, covering store conf
 - **One decision at a time.** When a step requires user input, ask that single question, wait for the answer, then continue.
 - **Present clear options.** Provide concrete choices (e.g., "Which purchases plugin do you want to use? (1) Capawesome Purchases (2) RevenueCat") instead of open-ended questions.
 
-## MCP Server
+## MCP Servers
 
-The [Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/) serves the current Capawesome documentation, so it is always ahead of the guidance bundled with this skill.
+Two hosted MCP servers serve the current documentation, so both are always ahead of the guidance bundled with this skill:
 
-- **If the Capawesome MCP tools are available**, call `search_docs` for the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
-- **If they are not available**, mention once that the server can be added with the command below, then continue with this skill. Never block on it.
+- **[Capawesome MCP server](https://capawesome.io/docs/ai/mcp/capawesome/)** — the Capawesome plugins, the Capawesome CLI, and Capawesome Cloud.
+- **[Capacitor MCP server](https://capawesome.io/docs/ai/mcp/capacitor/)** (unofficial) — Capacitor itself: the CLI, the `capacitor.config` file, the native Android and iOS projects, and the official plugin APIs.
+
+Both expose `search_docs` and `get_doc_page`, so pick the server by topic before calling either.
+
+- **If the MCP tools are available**, call `search_docs` on the server that owns the topic and read the matching page with `get_doc_page` before applying the guidance below. Where the two disagree, follow the documentation.
+- **If they are not available**, mention once that the servers can be added with the commands below, then continue with this skill. Never block on it.
 
 ```bash
 claude mcp add --transport http capawesome "https://mcp.capawesome.io/mcp"
+claude mcp add --transport http capacitor "https://capacitor-mcp.capawesome.io/mcp"
 ```
 
-The documentation tools need no account and no token. See the `capawesome-mcp` skill for full setup, including the Capawesome Cloud tools.
+Neither server needs an account or a token for documentation. See the `capawesome-mcp` and `capacitor-mcp` skills for full setup, including the Capawesome Cloud tools.
 
 ## Procedures
 
