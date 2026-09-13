@@ -286,6 +286,7 @@ npx cap sync
 | Share Target | `@capawesome-team/capacitor-share-target` | `references/capawesome-share-target.md` |
 | Silent Mode | `@capawesome/capacitor-silent-mode` | `references/capawesome-silent-mode.md` |
 | SIM | `@capawesome/capacitor-sim` | `references/capawesome-sim.md` |
+| Singular | `@capawesome/capacitor-singular` | `references/capawesome-singular.md` |
 | SMS Composer | `@capawesome/capacitor-sms-composer` | `references/capawesome-sms-composer.md` |
 | Speech Recognition | `@capawesome-team/capacitor-speech-recognition` | `references/capawesome-speech-recognition.md` |
 | Speech Synthesis | `@capawesome-team/capacitor-speech-synthesis` | `references/capawesome-speech-synthesis.md` |
