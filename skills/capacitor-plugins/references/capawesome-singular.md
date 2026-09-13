@@ -23,15 +23,19 @@ Use of the SDKs is governed by the [Singular Terms & Conditions of Service](http
 
 #### Repositories
 
-The [Singular SDK for Android](https://support.singular.net/hc/en-us/articles/360037581952-Android-SDK-Basic-Integration) is not published on Maven Central. It is resolved from Singular's own Maven repository, which the plugin already declares in its `build.gradle`. If the app declares its repositories centrally in `android/settings.gradle` (`dependencyResolutionManagement` with `RepositoriesMode.PREFER_SETTINGS`), the repositories declared by plugins are ignored and the repository must be added there:
+The [Singular SDK for Android](https://support.singular.net/hc/en-us/articles/360037581952-Android-SDK-Basic-Integration) is not published on Maven Central. Add Singular's Maven repository to the `allprojects` section of `android/build.gradle`:
 
 ```groovy
-dependencyResolutionManagement {
+allprojects {
     repositories {
+        google()
+        mavenCentral()
         maven { url 'https://maven.singular.net/' }
     }
 }
 ```
+
+If the app declares its repositories in `android/settings.gradle` instead (via `dependencyResolutionManagement`), add the repository there.
 
 #### Variables
 
@@ -121,6 +125,7 @@ await Singular.addListener('deviceAttributionInfoReceived', (event) => {
 await Singular.initialize({
   apiKey: 'YOUR_SDK_KEY',
   secret: 'YOUR_SDK_SECRET',
+  customSdid: 'YOUR_CUSTOM_SDID', // Optional. Custom Singular Device ID.
   customUserId: 'user-123', // Optional.
   globalProperties: { plan: 'premium' }, // Optional. At most 5 properties.
   brandedDomains: ['links.example.com'], // Optional.
@@ -247,6 +252,21 @@ await PushNotifications.addListener('registration', async (token) => {
 await PushNotifications.register();
 ```
 
+### Singular Device ID
+
+The Singular Device ID (SDID) is resolved by Singular during the first session. Add the listener before calling `initialize(...)`:
+
+```typescript
+import { Singular } from '@capawesome/capacitor-singular';
+
+await Singular.addListener('sdidReceived', (event) => {
+  console.log(event.sdid);
+});
+await Singular.addListener('sdidSet', (event) => {
+  console.log(event.sdid); // Emitted once a custom SDID has been stored.
+});
+```
+
 ## Notes
 
 - Only available on Android and iOS; all methods reject with `unimplemented` on the Web.
@@ -257,7 +277,7 @@ await PushNotifications.register();
 - Standard event names (e.g. `sng_login`, `sng_tutorial_complete`) are listed under [Singular Standard Events](https://support.singular.net/hc/en-us/articles/7648172966299-Singular-Standard-Events-Full-List-and-Recommended-Events-by-Vertical). Any other name is tracked as a custom event.
 - `stopAllTracking()` persists across app restarts until `resumeAllTracking()` is called. Query the current state with `isAllTrackingStopped()`.
 - Deep links that open the app while it is already running are handled by the plugin: it re-initializes the SDK with the new link so that `singularLinkResolved` is emitted. On Android this requires the default `singleTask` launch mode of Capacitor's `MainActivity`.
-- Events: `singularLinkResolved`, `deviceAttributionInfoReceived`, `skanConversionValueUpdated`.
+- Events: `singularLinkResolved`, `deviceAttributionInfoReceived`, `sdidReceived`, `sdidSet`, `skanConversionValueUpdated`.
 - The `skan*` methods and the `skanConversionValueUpdated` event are only available on iOS.
 - `ErrorCode` values: `INITIALIZATION_FAILED`, `NOT_INITIALIZED`.
 - This project is not affiliated with Singular Labs, Inc.
