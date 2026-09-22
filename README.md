@@ -100,7 +100,7 @@ Available plugins:
 | `ionic-core` | App creation, development, upgrades, expert reference, and MCP server setup. |
 | `ionic-frameworks` | Angular, React, and Vue patterns for Ionic. |
 | `capawesome-cloud` | MCP server, CLI setup, native builds, live updates, and app store publishing. |
-| `ionic-migrations` | Migrate from Ionic Appflow and Ionic Enterprise SDK plugins. |
+| `ionic-migrations` | Import Ionic Appflow apps into Capawesome Cloud and migrate Ionic Enterprise SDK plugins. |
 
 Install a plugin:
 
@@ -161,6 +161,10 @@ Migrate my app from Ionic Appflow to Capawesome Cloud.
 ```
 
 ```plaintext
+Import my Ionic Appflow organization export into Capawesome Cloud.
+```
+
+```plaintext
 Migrate my app from Capgo to Capawesome Cloud.
 ```
 
@@ -218,7 +222,7 @@ Migrate my app from Capgo to Capawesome Cloud.
 
 | Skill | Description |
 | ----- | ----------- |
-| [`ionic-appflow-migration`](./skills/ionic-appflow-migration/) | Migrate from Ionic Appflow to Capawesome Cloud. |
+| [`ionic-appflow-migration`](./skills/ionic-appflow-migration/) | Migrate from Ionic Appflow to Capawesome Cloud — import the Appflow organization export with one CLI command, then swap the Live Update SDK. |
 | [`ionic-enterprise-sdk-migration`](./skills/ionic-enterprise-sdk-migration/) | Migrate from discontinued Ionic Enterprise SDK plugins to Capawesome alternatives. |
 
 ## License
