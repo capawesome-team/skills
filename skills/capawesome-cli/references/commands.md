@@ -9,6 +9,7 @@ Usage: `npx @capawesome/cli <command> [options]`
 
 - Authentication
 - App Management
+- Automation Commands
 - Build Commands
 - Certificate Commands
 - Channel Commands
@@ -126,6 +127,58 @@ Disconnect a git repository from an app.
 
 ```bash
 npx @capawesome/cli apps:unlink [--app-id <id>] [--yes]
+```
+
+## Automation Commands
+
+### apps:automations:create
+
+Create an automation that builds (and optionally deploys) on pushes to matching branches or tags.
+
+```bash
+npx @capawesome/cli apps:automations:create [options]
+```
+
+| Option | Description |
+|--------|-------------|
+| `--app-id` | App ID. |
+| `--name` | Automation name. |
+| `--platform` | `android`, `ios`, or `web`. |
+| `--type` | Build type: `app-store`, `ad-hoc`, `debug`, `development`, `enterprise`, `release`, or `simulator`. |
+| `--trigger-type` | `branch` or `tag`. |
+| `--trigger-pattern` | Only trigger for branches or tags matching this pattern. Prefix with `!` to exclude. Repeatable. Defaults to all. |
+| `--commit-message-pattern` | Only trigger for commits whose message matches this pattern (branch triggers only). |
+| `--certificate` | Certificate name. |
+| `--environment` | Environment name. |
+| `--configuration` | Native configuration name (Android/iOS only). |
+| `--destination` | Destination name to deploy to (Android/iOS only). |
+| `--channel` | Channel name to deploy to (web only). |
+| `--stack` | Build stack: `macos-sequoia` or `macos-tahoe`. |
+
+### apps:automations:list
+
+```bash
+npx @capawesome/cli apps:automations:list [--app-id <id>] [--platform <platform>] [--json] [--limit <n>] [--offset <n>]
+```
+
+### apps:automations:get
+
+```bash
+npx @capawesome/cli apps:automations:get [--app-id <id>] [--automation-id <id>] [--name <name>] [--json]
+```
+
+### apps:automations:update
+
+```bash
+npx @capawesome/cli apps:automations:update [--app-id <id>] [--automation-id <id>] [options]
+```
+
+Accepts the same options as `apps:automations:create`.
+
+### apps:automations:delete
+
+```bash
+npx @capawesome/cli apps:automations:delete [--app-id <id>] [--automation-id <id>] [--name <name>] [--yes]
 ```
 
 ## Build Commands

@@ -42,24 +42,25 @@ Generate a token in the [Capawesome Cloud Console](https://console.cloud.capawes
 
 ```diff
 -appflow build android release --app-id=<APPFLOW_APP_ID> --commit=<COMMIT_SHA> --signing-cert="Android Release"
-+npx @capawesome/cli apps:builds:create --app-id <APP_ID> --platform android --type release --git-ref main --certificate "<CERTIFICATE_NAME>" --yes
++npx @capawesome/cli apps:builds:create --app-id <APP_ID> --platform android --type release --git-ref <COMMIT_SHA> --certificate "<CERTIFICATE_NAME>" --yes
 ```
 
 ```diff
 -appflow build ios app-store --app-id=<APPFLOW_APP_ID> --commit=<COMMIT_SHA> --signing-cert="iOS Distribution"
-+npx @capawesome/cli apps:builds:create --app-id <APP_ID> --platform ios --type app-store --git-ref main --certificate "<CERTIFICATE_NAME>" --yes
++npx @capawesome/cli apps:builds:create --app-id <APP_ID> --platform ios --type app-store --git-ref <COMMIT_SHA> --certificate "<CERTIFICATE_NAME>" --yes
 ```
 
-Add `--detached` for non-blocking builds in CI/CD pipelines.
+`--git-ref` accepts a branch, tag, or commit SHA, so pass through the revision the pipeline was triggered for — never hardcode a branch. Add `--detached` for non-blocking builds in CI/CD pipelines.
 
 ## 3. Replace Live Update Upload Commands
 
-Appflow deploys live updates in two steps (`appflow build web` followed by `appflow deploy web`). Replace both with a single upload of locally built web assets:
+Appflow deploys live updates in two steps (`appflow build web` followed by `appflow deploy web`). Replace both with a web build in the pipeline (e.g. `npm run build`) followed by a single upload of its output folder (e.g. `www` or `dist`) — `--path` is required in non-interactive environments:
 
 ```diff
 -appflow build web --app-id=<APPFLOW_APP_ID> --commit=<COMMIT_SHA>
 -appflow deploy web --app-id=<APPFLOW_APP_ID> --build-id=<BUILD_ID> --destination=production
-+npx @capawesome/cli apps:liveupdates:upload --app-id <APP_ID> --channel production
++npm run build
++npx @capawesome/cli apps:liveupdates:upload --app-id <APP_ID> --channel production --path <WEB_ASSETS_DIR> --yes
 ```
 
 Alternatively, to keep building the web assets in the cloud (the closest equivalent to Appflow's build-and-deploy pipeline), use `apps:liveupdates:create`, which builds and deploys in one command via Cloud Runners:
@@ -67,7 +68,7 @@ Alternatively, to keep building the web assets in the cloud (the closest equival
 ```diff
 -appflow build web --app-id=<APPFLOW_APP_ID> --commit=<COMMIT_SHA>
 -appflow deploy web --app-id=<APPFLOW_APP_ID> --build-id=<BUILD_ID> --destination=production
-+npx @capawesome/cli apps:liveupdates:create --app-id <APP_ID> --channel production --git-ref main --yes
++npx @capawesome/cli apps:liveupdates:create --app-id <APP_ID> --channel production --git-ref <COMMIT_SHA> --yes
 ```
 
 ## 4. Replace App Store Deploy Commands

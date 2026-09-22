@@ -2,7 +2,7 @@
 
 Replace the Ionic Appflow Live Updates SDK with the Capawesome Live Update SDK in the app's source code.
 
-This guide covers the Capacitor plugin (`@capawesome/capacitor-live-update`). For **pure Cordova apps**, install `@capawesome/cordova-live-update` instead and set the options as `<preference>` entries in `config.xml` (see the [Live Updates setup](https://capawesome.io/docs/cloud/live-updates/setup/)) — the API and the option names are the same. For **Capacitor apps that still ship the legacy Cordova SDK** (`cordova-plugin-ionic`), read `cordova-sdk-migration.md` for the full `Deploy` → `LiveUpdate` method mapping and the native configuration cleanup.
+This guide covers the Capacitor plugin (`@capawesome/capacitor-live-update`) only. For **pure Cordova apps** (without Capacitor), do not apply the code changes below — there are no imports; the plugin is accessed as `cordova.plugins.LiveUpdate` after `deviceready`. Follow the `capawesome-cloud` skill's `references/live-updates-cordova.md` instead; the option names and the update strategy mapping in section 2 apply by analogy. For **Capacitor apps that still ship the legacy Cordova SDK** (`cordova-plugin-ionic`), read `cordova-sdk-migration.md` for the full `Deploy` → `LiveUpdate` method mapping and the native configuration cleanup.
 
 ## 1. Update Import Statements and API Calls
 

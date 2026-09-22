@@ -172,10 +172,10 @@ Review the printed table and warnings together with the user before continuing. 
 
 ### Step 5: Run the Import
 
-Run the same command without `--dry-run`:
+Repeat the exact command from Step 4 — including any `--include`, `--organization-id`, and `--ionic-app-type` values — with only `--dry-run` removed:
 
 ```bash
-npx @capawesome/cli apps:import --file <EXPORT_ZIP>
+npx @capawesome/cli apps:import --file <EXPORT_ZIP> [--include <apps>] [--organization-id <id>] [--ionic-app-type <type>]
 ```
 
 > **Hard rule:** The CLI reads the export — the agent never does. Work only from the printed summary.
@@ -249,7 +249,7 @@ Install the Capawesome plugin version matching the project's Capacitor version:
 - **Capacitor 7**: `npm install @capawesome/capacitor-live-update@v7-lts`
 - **Capacitor 6**: `npm install @capawesome/capacitor-live-update@v6-lts`
 
-For a pure Cordova app, install `@capawesome/cordova-live-update` instead and configure it via `<preference>` entries in `config.xml`.
+For a **pure Cordova app**, skip 8.2 and 8.3 and follow the `capawesome-cloud` skill's `references/live-updates-cordova.md` instead: the plugin is added as a Cordova plugin (`@capawesome/cordova-live-update`), configured via `<preference>` entries in `config.xml` (same option names as the table in 8.2), accessed at runtime as `cordova.plugins.LiveUpdate` after `deviceready`, and applied with `cordova prepare`. Then continue with Step 9.
 
 #### 8.2 Update the Capacitor Configuration
 
@@ -363,7 +363,7 @@ After all features are verified:
 
 Use this path only when the user has no admin access to the Ionic Appflow organization, or the export is unavailable. Everything is recreated by hand; Steps 1, 8, 9, and 10 stay the same.
 
-> **Hard rule:** Credential files stay closed here too. Ask the user for **file paths** to keystores, `.p12` files, provisioning profiles, and service account keys, and pass those paths to the CLI (`--file`, `--provisioning-profiles`, `--google-service-account-key-file`, `--apple-api-key-file`, `--secret-file`) without opening them. Let the user enter passwords and secret values into the CLI's interactive prompts or run the command in their own shell — never type, echo, or relay a secret.
+> **Hard rule:** Credential files stay closed here too. Ask the user for **file paths** to keystores, `.p12` files, provisioning profiles, and service account keys, and pass those paths to the CLI (`--file`, `--provisioning-profile`, `--google-service-account-key-file`, `--apple-api-key-file`, `--secret-file`) without opening them. Let the user enter passwords and secret values into the CLI's interactive prompts or run the command in their own shell — never type, echo, or relay a secret.
 
 ### F.1 Create the App
 
