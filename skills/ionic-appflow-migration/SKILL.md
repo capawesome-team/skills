@@ -2,7 +2,7 @@
 name: ionic-appflow-migration
 description: "Guides the agent through migrating an existing Ionic Appflow project to Capawesome Cloud. Imports an Ionic Appflow organization export with the Capawesome CLI apps:import command — apps, signing certificates, environments, live update channels, native configurations, store destinations, build automations, and repository links — then covers the remaining work: swapping the Live Update SDK (@capacitor/live-updates or cordova-plugin-ionic), mapping configuration options, completing the manual follow-ups, updating CI/CD pipelines, and verifying builds, live updates, and store deployments. Includes a manual fallback for teams without Appflow organization admin access. Pure Cordova apps use @capawesome/cordova-live-update. Do not use for setting up Capawesome Cloud from scratch without an existing Appflow project, for non-Capacitor mobile frameworks, or for migrating Ionic Enterprise plugins (Auth Connect, Identity Vault, Secure Storage) — use the ionic-enterprise-sdk-migration skill instead."
 license: MIT
-compatibility: "Requires Node.js 18+, npm, network access, access to the project repository, the Capawesome CLI 4.20.0 or later, and a Capawesome Cloud account. The automated import additionally requires admin access to the Ionic Appflow organization."
+compatibility: "Requires Node.js 18+, npm, network access, access to the project repository, the Capawesome CLI 4.21.0 or later, and a Capawesome Cloud account. The automated import additionally requires admin access to the Ionic Appflow organization."
 metadata:
   author: capawesome-team
   source: https://github.com/capawesome-team/skills/tree/main/skills/ionic-appflow-migration
@@ -110,7 +110,7 @@ Present the detected features to the user and ask:
 npx @capawesome/cli login
 ```
 
-The `apps:import` command requires **Capawesome CLI 4.20.0 or later**. Verify with `npx @capawesome/cli --version` and upgrade if the installed version is older.
+The `apps:import` command requires **Capawesome CLI 4.21.0 or later**. Verify with `npx @capawesome/cli --version` and upgrade if the installed version is older.
 
 #### 2.2 Connect the Git Provider (Before the Import)
 
