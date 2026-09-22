@@ -86,6 +86,16 @@ Get an existing app.
 npx @capawesome/cli apps:get [--app-id <id>] [--json]
 ```
 
+### apps:import
+
+Import apps from an Ionic Appflow export. See the `ionic-appflow-migration` skill for the full migration procedure.
+
+```bash
+npx @capawesome/cli apps:import [--file <path>] [--organization-id <id>] [--include <apps>] [--ionic-app-type <capacitor|cordova>] [--dry-run] [--json]
+```
+
+The export file contains plaintext secrets (environment secrets, keystore and `.p12` passwords, service account keys). Never open, unzip, or inspect it — only pass its path to this command and read the printed summary.
+
 ### apps:list
 
 Retrieve a list of existing apps.

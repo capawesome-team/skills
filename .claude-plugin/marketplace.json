@@ -101,7 +101,7 @@
     {
       "name": "ionic-migrations",
       "source": "./plugins/ionic-migrations",
-      "description": "Migration skills — migrate from Ionic Appflow and Ionic Enterprise SDK plugins to Capawesome alternatives.",
+      "description": "Migration skills — import Ionic Appflow apps into Capawesome Cloud with a single CLI command and migrate Ionic Enterprise SDK plugins to Capawesome alternatives.",
       "version": "1.0.0",
       "author": {
         "name": "Capawesome",
