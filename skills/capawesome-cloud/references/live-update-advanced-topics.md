@@ -203,5 +203,5 @@ The Live Update SDK logs to Android Logcat and iOS Xcode console. On Electron, i
 ## Limitations
 
 - Live updates only support **binary-compatible changes** (HTML, CSS, JS, images). Native code changes (Java, Swift, CocoaPods, Gradle) require a full app store submission; on Electron, changes to `electron/`, Electron itself, or a plugin's Electron implementation require a new desktop release (e.g. via `electron-updater`).
-- Maximum bundle size on Capawesome Cloud is **1 GB**. Use `manifest` artifact type for larger bundles.
+- Maximum bundle size on Capawesome Cloud is **1 GB**. Use `manifest` artifact type for larger bundles (not available on Electron, which only receives `zip` bundles).
 - Live updates are compliant with both Apple App Store and Google Play policies.

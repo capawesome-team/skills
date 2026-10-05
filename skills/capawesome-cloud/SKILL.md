@@ -16,7 +16,7 @@ Set up and manage native builds, live updates, and app store publishing for Capa
 
 1. A [Capawesome Cloud](https://console.cloud.capawesome.io) account and organization.
 2. A **Capacitor 6/7/8** or **Cordova** app. Notes:
-   - **Live Updates**: supported on both Capacitor (Android, iOS, and the Electron desktop platform `@capawesome/capacitor-electron`) and Cordova.
+   - **Live Updates**: supported on both Capacitor (Android, iOS, and — on Capacitor 8 only — the Electron desktop platform `@capawesome/capacitor-electron`) and Cordova.
    - **Native Builds**: supported on Capacitor, Cordova, and native iOS/Android projects.
    - **App Store Publishing**: framework-agnostic — works with any native build produced by Native Builds.
 3. Node.js and npm installed.

@@ -312,7 +312,7 @@ Tell the user to perform the following steps:
 3. **For manual sync:** Switch away from the app and return to it. Accept the update prompt when it appears, and the change should be visible immediately after reload.
 4. If the change does not appear, check Android Logcat, the iOS Xcode console, or (Electron) the `[LiveUpdate]` lines in the terminal that started `npx cap run` for Live Update SDK log output and refer to `live-update-advanced-topics.md` (Debugging section).
 
-After testing, tell the user: Once a live update bundle has been applied, the app points to that bundle instead of the default one. To use the development server again, completely uninstall and reinstall the app. This is only relevant during development — in production, the default bundle is automatically restored on each native app update.
+After testing, tell the user: Once a live update bundle has been applied, the app points to that bundle instead of the default one. To use the development server again, completely uninstall and reinstall the app; on Electron, reinstalling may keep the `capawesome-live-update` directory in the app's `userData` directory, so delete it or call `LiveUpdate.reset()` instead. This is only relevant during development — in production, the default bundle is automatically restored on each native app update.
 
 ## Advanced Topics
 

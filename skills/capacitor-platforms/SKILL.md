@@ -56,7 +56,7 @@ Neither server needs an account or a token for documentation. See the `capawesom
 | The app needs… | Choose |
 | --- | --- |
 | Reuse of Capacitor plugins with native (Node) desktop implementations | **Electron** |
-| Web-bundle over-the-air updates | **Electron** (Capawesome Cloud Live Updates via `@capawesome/capacitor-live-update` >= 8.5.0 — see `references/electron.md`; Tauri compiles web assets into the binary — only full signed binary updates) |
+| Web-bundle over-the-air updates | **Electron** (Capawesome Cloud Live Updates via `@capawesome/capacitor-live-update` >= 8.5.0, requires Capacitor 8 — see `references/electron.md`; Tauri compiles web assets into the binary — only full signed binary updates) |
 | A single, predictable bundled Chromium across all OSes | **Electron** |
 | Smallest binaries (~3–10 MB vs ~85–120 MB) and lowest memory use | **Tauri** |
 | A deny-by-default security model with a Rust core | **Tauri** |
