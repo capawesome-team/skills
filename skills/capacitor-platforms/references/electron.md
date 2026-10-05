@@ -121,7 +121,8 @@ Native Node addons are **not** rebuilt automatically — the vendor step detects
 Two independent layers:
 
 - **Binary updates** (Electron, runtime, native modules): use [`electron-updater`](https://www.electron.build/auto-update), wired in the user-owned `main.ts`.
-- **Web-bundle updates**: the platform ships the serving primitive only — plugin implementations can access `services.bundles` (`getActiveBundlePath()`, `setActiveBundle(dir | null)`, `notifyBootReady()`) with a failed-boot rollback watchdog that reverts to the previous bundle if the renderer never signals boot-ready. A full OTA product (download, channels, verification) is deliberately not included.
+- **Web-bundle updates (Live Updates)**: supported via Capawesome Cloud and `@capawesome/capacitor-live-update` **>= 8.5.0** on **Capacitor 8** with platform version **>= 0.2.0**. The plugin uses the same app, `appId`, and `LiveUpdate` config as Android/iOS; sync with `npx cap sync @capawesome/capacitor-electron` registers its Electron implementation automatically. Electron specifics: the app version is `version` in `electron/package.json` (bump it per release), only `zip` bundles are delivered, the default channel for versioned channels is set under `plugins.LiveUpdate.defaultChannel` in `electron/capacitor.electron.config.ts`, and the CLI takes `--electron-min`/`--electron-max`/`--electron-eq` constraints. Read the `capawesome-cloud` skill (`references/live-updates-capacitor.md`, section "Enable Live Updates on Electron") for the setup procedure.
+- **Bundle-serving primitive**: plugin implementations can access `services.bundles` (`getActiveBundlePath()`, `setActiveBundle(dir | null)`), an in-memory switch of the served directory that reloads the app windows. The platform persists nothing and never rolls back; download, persistence, rollback, channels, and verification are provided by the Live Update plugin.
 
 ## Migration from `@capacitor-community/electron`
 

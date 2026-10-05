@@ -4,7 +4,7 @@ Capacitor plugin for Over-the-Air (OTA) updates. Download and apply web asset bu
 
 **Package:** `@capawesome/capacitor-live-update`
 
-**Platforms:** Android, iOS
+**Platforms:** Android, iOS, Electron (`@capawesome/capacitor-electron` >= 0.2.0, plugin >= 8.5.0)
 **Documentation:** https://capawesome.io/docs/sdks/capacitor/live-update/
 
 ## Installation
@@ -68,6 +68,27 @@ Add `NSPrivacyAccessedAPICategoryUserDefaults` to `ios/App/PrivacyInfo.xcprivacy
     </array>
   </dict>
 </plist>
+```
+
+### Electron
+
+Requires Capacitor 8, `@capawesome/capacitor-electron` >= 0.2.0, and plugin version >= 8.5.0. No additional configuration is required; sync with the full package name (`npx cap sync @capawesome/capacitor-electron`). The app version is `version` in `electron/package.json`, only `zip` bundles are delivered, and the rollback is kill-safe (performed on the next start if the app quits before `ready()`).
+
+#### Channel (optional)
+
+For versioned channels, add to `electron/capacitor.electron.config.ts` (takes precedence over `defaultChannel` in the Capacitor config):
+
+```typescript
+import { defineConfig } from '@capawesome/capacitor-electron/config';
+import packageJson from './package.json';
+
+export default defineConfig({
+  plugins: {
+    LiveUpdate: {
+      defaultChannel: `production-${packageJson.version}`,
+    },
+  },
+});
 ```
 
 ## Configuration

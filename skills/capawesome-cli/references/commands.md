@@ -663,6 +663,9 @@ npx @capawesome/cli apps:liveupdates:upload [options]
 | `--ios-min` | Minimum iOS version (`CFBundleVersion`). |
 | `--ios-max` | Maximum iOS version. |
 | `--ios-eq` | Exact iOS version. |
+| `--electron-min` | Minimum Electron app version (`version` in `electron/package.json`), format `major[.minor[.patch]]`; prerelease suffixes are not supported. |
+| `--electron-max` | Maximum Electron app version, same format. |
+| `--electron-eq` | Exact Electron app version that the bundle does not support, same format. |
 | `--custom-property` | `key=value` pairs (repeatable). |
 | `--commit-message` | **Deprecated** — use `--git-ref`. |
 | `--commit-ref` | **Deprecated** — use `--git-ref`. |

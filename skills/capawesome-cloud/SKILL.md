@@ -1,6 +1,6 @@
 ---
 name: capawesome-cloud
-description: "Guides the agent through setting up and using Capawesome Cloud for Capacitor and Cordova apps. Covers three core workflows: (1) Native Builds — cloud builds for iOS and Android (Capacitor, Cordova, or native projects), signing certificates, environments, Trapeze configuration, and build artifacts; (2) Live Updates — OTA updates via the @capawesome/capacitor-live-update or @capawesome/cordova-live-update plugin, channels, versioning, rollbacks, and code signing; (3) App Store Publishing — automated submissions to Apple App Store (TestFlight) and Google Play Store. Includes CI/CD integration for all workflows. Do not use for non-Capacitor, non-Cordova mobile frameworks such as React Native or Flutter."
+description: "Guides the agent through setting up and using Capawesome Cloud for Capacitor and Cordova apps. Covers three core workflows: (1) Native Builds — cloud builds for iOS and Android (Capacitor, Cordova, or native projects), signing certificates, environments, Trapeze configuration, and build artifacts; (2) Live Updates — OTA updates via the @capawesome/capacitor-live-update (Android, iOS, and Electron desktop) or @capawesome/cordova-live-update plugin, channels, versioning, rollbacks, and code signing; (3) App Store Publishing — automated submissions to Apple App Store (TestFlight) and Google Play Store. Includes CI/CD integration for all workflows. Do not use for non-Capacitor, non-Cordova mobile frameworks such as React Native or Flutter."
 license: MIT
 compatibility: "Requires Node.js, npm, network access, and a Capawesome Cloud account. Native builds additionally require the app to live in a Git repository; app store publishing requires an Apple Developer Program membership or a Google Play Developer account."
 metadata:
@@ -16,7 +16,7 @@ Set up and manage native builds, live updates, and app store publishing for Capa
 
 1. A [Capawesome Cloud](https://console.cloud.capawesome.io) account and organization.
 2. A **Capacitor 6/7/8** or **Cordova** app. Notes:
-   - **Live Updates**: supported on both Capacitor and Cordova.
+   - **Live Updates**: supported on both Capacitor (Android, iOS, and the Electron desktop platform `@capawesome/capacitor-electron`) and Cordova.
    - **Native Builds**: supported on Capacitor, Cordova, and native iOS/Android projects.
    - **App Store Publishing**: framework-agnostic — works with any native build produced by Native Builds.
 3. Node.js and npm installed.
@@ -104,6 +104,7 @@ Read `references/live-updates.md` first — it detects the framework (Capacitor 
 - Adding update logic (Always Latest, Manual Sync, Force Update)
 - Configuring iOS Privacy Manifest
 - Configuring version handling (versioned channels, versioned bundles)
+- Enabling Live Updates on the Electron desktop platform (Capacitor only)
 - Testing the setup
 
 ### App Store Publishing
@@ -135,6 +136,9 @@ Read `references/app-store-publishing.md` for the full app store publishing setu
 - Updates not detected with `autoUpdateStrategy: "background"` / `AUTO_UPDATE_STRATEGY=background` → Updates only checked if last check was >15 min ago. Force-close and restart.
 - **Cordova:** preference changes have no effect → Cordova reads preferences only on platform add. Run `cordova platform rm <platform>` then `cordova platform add <platform>`.
 - **Cordova:** updates never apply / WebView errors → The plugin requires the default custom WebView scheme. Ensure `config.xml` does not set `Scheme=file` or `AndroidInsecureFileModeEnabled=true`.
+- **Electron:** `npx cap sync electron` does nothing → It resolves to the unrelated `electron` npm package. Run `npx cap sync @capawesome/capacitor-electron`.
+- **Electron:** a `manifest` bundle is not delivered → Electron devices only receive `zip` bundles. Upload with the default `--artifact-type zip`.
+- **Electron:** every release reports app version `0.0.0` → Bump `version` in `electron/package.json` for every desktop release; it is the app version used for version constraints and versioned channels.
 - Read `references/live-update-plugin-api.md` for the full SDK API reference.
 - Read `references/live-update-faq.md` for compliance, billing, and limitations.
 
@@ -153,6 +157,7 @@ Read `references/app-store-publishing.md` for the full app store publishing setu
 - **`capacitor-app-development`** — For general Capacitor development topics, CI/CD patterns, and troubleshooting.
 - **`capawesome-cli`** — For the full Capawesome CLI command reference, project configuration, and CI/CD integration details.
 - **`capacitor-plugins`** — For installing and configuring Capacitor plugins, including the `@capawesome/capacitor-live-update` plugin.
+- **`capacitor-platforms`** — For adding and configuring the `@capawesome/capacitor-electron` desktop platform that receives Live Updates.
 - **`ionic-appflow-migration`** — For migrating existing Ionic Appflow projects to Capawesome Cloud.
 - **`capgo-cloud-migration`** — For migrating existing Capgo projects to Capawesome Cloud.
 - **`capacitor-in-app-purchases`** — For setting up in-app purchases and subscriptions before publishing to app stores.

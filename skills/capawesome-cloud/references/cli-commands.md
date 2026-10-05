@@ -371,6 +371,7 @@ Options:
 - `--rollout-percentage`: 0-100 for gradual rollout
 - `--android-min`, `--android-max`, `--android-eq`: Android version code constraints
 - `--ios-min`, `--ios-max`, `--ios-eq`: iOS version constraints
+- `--electron-min`, `--electron-max`, `--electron-eq`: Electron app version constraints (`version` in `electron/package.json`, format `major[.minor[.patch]]`, no prerelease suffix)
 - `--custom-property`: `key=value` pairs (repeatable)
 - `--git-ref`: Git reference to associate
 - `--yes`: Skip prompts
