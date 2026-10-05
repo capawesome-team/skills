@@ -47,6 +47,21 @@ android {
 <string>production-$(CURRENT_PROJECT_VERSION)</string>
 ```
 
+**Electron** (`electron/capacitor.electron.config.ts`, overrides `defaultChannel` from `capacitor.config.ts`; the version is `version` from `electron/package.json`):
+
+```typescript
+import { defineConfig } from "@capawesome/capacitor-electron/config";
+import packageJson from "./package.json";
+
+export default defineConfig({
+  plugins: {
+    LiveUpdate: {
+      defaultChannel: `production-${packageJson.version}`,
+    },
+  },
+});
+```
+
 ### Cordova
 
 **Android** — create `build-extras.gradle` next to `config.xml` and include it via `config.xml`:
@@ -84,6 +99,12 @@ Restrict bundles to native version ranges when uploading:
 
 ```bash
 npx @capawesome/cli apps:liveupdates:upload --android-min 1 --android-max 5 --ios-min 1.0.0 --ios-max 1.0.5
+```
+
+For Electron (Capacitor only), use `--electron-min`, `--electron-max`, and `--electron-eq`. The value is the `version` from `electron/package.json` in the format `major[.minor[.patch]]` (omitted components count as `0`; prerelease suffixes are not supported). The Electron flags are independent of the Android/iOS flags — a bundle without Electron constraints is delivered to every Electron version:
+
+```bash
+npx @capawesome/cli apps:liveupdates:upload --electron-min 1.2 --electron-max 1.3.5
 ```
 
 ## Rollbacks
@@ -163,7 +184,7 @@ Read `live-update-ci-cd-integrations.md` for GitHub Actions, GitLab CI, Azure De
 
 ## Delta Updates
 
-Use manifest artifact type to download only changed files:
+Use manifest artifact type to download only changed files. Not available on Electron — Electron devices only receive `zip` bundles:
 
 ```bash
 npx @capawesome/cli apps:liveupdates:upload --artifact-type manifest
@@ -177,10 +198,10 @@ npx @capawesome/cli apps:liveupdates:generatemanifest --path dist
 
 ## Debugging
 
-The Live Update SDK logs to Android Logcat and iOS Xcode console. View server-side logs in the [Capawesome Cloud Console](https://console.cloud.capawesome.io) under the "Logs" section of the app.
+The Live Update SDK logs to Android Logcat and iOS Xcode console. On Electron, it logs with a `[LiveUpdate]` prefix to the main process output (the terminal that started `npx cap run @capawesome/capacitor-electron`). View server-side logs in the [Capawesome Cloud Console](https://console.cloud.capawesome.io) under the "Logs" section of the app.
 
 ## Limitations
 
-- Live updates only support **binary-compatible changes** (HTML, CSS, JS, images). Native code changes (Java, Swift, CocoaPods, Gradle) require a full app store submission.
-- Maximum bundle size on Capawesome Cloud is **1 GB**. Use `manifest` artifact type for larger bundles.
+- Live updates only support **binary-compatible changes** (HTML, CSS, JS, images). Native code changes (Java, Swift, CocoaPods, Gradle) require a full app store submission; on Electron, changes to `electron/`, Electron itself, or a plugin's Electron implementation require a new desktop release (e.g. via `electron-updater`).
+- Maximum bundle size on Capawesome Cloud is **1 GB**. Use `manifest` artifact type for larger bundles (not available on Electron, which only receives `zip` bundles).
 - Live updates are compliant with both Apple App Store and Google Play policies.

@@ -56,7 +56,7 @@ Neither server needs an account or a token for documentation. See the `capawesom
 | The app needs… | Choose |
 | --- | --- |
 | Reuse of Capacitor plugins with native (Node) desktop implementations | **Electron** |
-| Web-bundle over-the-air updates | **Electron** (ships a bundle-serving primitive; Tauri compiles web assets into the binary — only full signed binary updates) |
+| Web-bundle over-the-air updates | **Electron** (Capawesome Cloud Live Updates via `@capawesome/capacitor-live-update` >= 8.5.0, requires Capacitor 8 — see `references/electron.md`; Tauri compiles web assets into the binary — only full signed binary updates) |
 | A single, predictable bundled Chromium across all OSes | **Electron** |
 | Smallest binaries (~3–10 MB vs ~85–120 MB) and lowest memory use | **Tauri** |
 | A deny-by-default security model with a Rust core | **Tauri** |
@@ -116,7 +116,7 @@ For live reload on either platform, set `server.url` in the Capacitor config to 
 
 ## References
 
-- `references/electron.md` — scaffold layout, configuration, live reload, deep links, plugin support and plugin development contract, packaging and vendoring, app updates, migration from `@capacitor-community/electron`.
+- `references/electron.md` — scaffold layout, configuration, live reload, deep links, plugin support and plugin development contract, packaging and vendoring, app updates (binary updates and Live Updates), migration from `@capacitor-community/electron`.
 - `references/tauri.md` — Rust prerequisites, scaffold layout, sync-time codegen, the plugin tier model (built-in / curated / web fallback), configuration, live reload, deep links, packaging, honest limitations.
 
 ## Related Skills
@@ -124,4 +124,5 @@ For live reload on either platform, set `server.url` in the Capacitor config to 
 - **`capacitor-app-creation`** — Create a new Capacitor app before adding a desktop platform.
 - **`capacitor-app-development`** — General Capacitor development topics, configuration, and troubleshooting.
 - **`capacitor-plugins`** — Install and configure Capacitor plugins, including checking desktop platform support.
+- **`capawesome-cloud`** — Set up Capawesome Cloud Live Updates for the Electron platform (same app and config as Android/iOS).
 - **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

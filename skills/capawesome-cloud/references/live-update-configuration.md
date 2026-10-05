@@ -76,5 +76,5 @@ The channel is resolved in the following order (highest priority first):
 1. **Forced channel** (set via Capawesome Cloud Console or CLI per device — highest priority)
 2. **`sync()` channel parameter** (not persisted, single-call override)
 3. **`setChannel()`** (persisted in SharedPreferences/UserDefaults)
-4. **Native config** (`CapawesomeLiveUpdateDefaultChannel` in `Info.plist` on iOS, `capawesome_live_update_default_channel` in `strings.xml` on Android)
+4. **Native config** (`CapawesomeLiveUpdateDefaultChannel` in `Info.plist` on iOS, `capawesome_live_update_default_channel` in `strings.xml` on Android, `plugins.LiveUpdate.defaultChannel` in `electron/capacitor.electron.config.ts` on Electron)
 5. **Capacitor config** `defaultChannel` (lowest priority)

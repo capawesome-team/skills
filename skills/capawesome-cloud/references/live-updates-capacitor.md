@@ -13,6 +13,7 @@ For **Cordova** apps, read `live-updates-cordova.md` instead.
 - Configure iOS Privacy Manifest
 - Configure Version Handling
 - Sync the Capacitor Project
+- Enable Live Updates on Electron (Optional)
 - Test the Setup
 - Advanced Topics
 
@@ -134,7 +135,7 @@ Live updates only deliver web code (HTML, CSS, JS, images). If the app's native 
 
 Ask the user which approach to use:
 
-1. **Versioned Channels (recommended):** Ties each channel to a native version code. Set at build time in native projects.
+1. **Versioned Channels (recommended):** Ties each channel to a native version code. Set at build time in native projects (on Electron: in the platform config file).
 2. **Versioned Bundles:** Sets version constraints on each upload. No native changes needed.
 3. **Skip for now:** Skip versioning for initial testing.
 
@@ -153,7 +154,23 @@ resValue "string", "capawesome_live_update_default_channel", "production-" + def
 <string>production-$(CURRENT_PROJECT_VERSION)</string>
 ```
 
-Read the current native version code. Before uploading, create the matching channel if missing:
+**Electron** (only if the `electron/` platform is installed) — add to `electron/capacitor.electron.config.ts`. The `plugins` section is merged per plugin key over the `plugins` section of the Capacitor config and wins, so `defaultChannel` set here overrides `capacitor.config.ts` while the other `LiveUpdate` keys are kept:
+
+```typescript
+// electron/capacitor.electron.config.ts
+import { defineConfig } from "@capawesome/capacitor-electron/config";
+import packageJson from "./package.json";
+
+export default defineConfig({
+  plugins: {
+    LiveUpdate: {
+      defaultChannel: `production-${packageJson.version}`,
+    },
+  },
+});
+```
+
+Read the current native version code (on Electron: `version` in `electron/package.json`). Before uploading, create the matching channel if missing:
 
 ```bash
 npx @capawesome/cli apps:channels:create --app-id <APP_ID> --name production-<VERSION_CODE>
@@ -174,6 +191,8 @@ npx @capawesome/cli apps:liveupdates:upload --android-min <CODE> --android-max <
 ```
 
 Use `--android-eq` / `--ios-eq` to exclude a specific version code.
+
+If the `electron/` platform is installed, additionally pass `--electron-min <VERSION>` / `--electron-max <VERSION>` (`--electron-eq` to exclude one version). The value is the `version` from `electron/package.json` in the format `major[.minor[.patch]]` without prerelease suffix. The Electron flags are independent of the Android/iOS flags: a bundle without Electron constraints is delivered to every Electron version.
 
 Set `defaultChannel` in the Capacitor config:
 
@@ -202,6 +221,41 @@ LiveUpdate: {
 ```bash
 npx cap sync
 ```
+
+## Enable Live Updates on Electron (Optional)
+
+Skip unless the app targets desktop via `@capawesome/capacitor-electron`. Live Updates on Electron use the **same Capawesome Cloud app, `appId`, and `LiveUpdate` config** as Android and iOS — no Console changes and no extra plugin configuration are required.
+
+Prerequisites (verify in `package.json` and `electron/package.json`):
+
+- Capacitor **8** (the `v6-lts`/`v7-lts` plugin releases have no Electron implementation)
+- `@capawesome/capacitor-electron` **>= 0.2.0**
+- `@capawesome/capacitor-live-update` **>= 8.5.0**
+
+If the platform is not installed yet, add it (read the `capacitor-platforms` skill for details):
+
+```bash
+npm install @capawesome/capacitor-electron
+npx cap add @capawesome/capacitor-electron
+cd electron && npm install && cd ..
+```
+
+Sync with the **full package name** — a bare `npx cap sync` processes only Android, iOS, and web, and `npx cap sync electron` resolves to the unrelated `electron` npm package and silently does nothing:
+
+```bash
+npx cap sync @capawesome/capacitor-electron
+```
+
+The Electron implementation of the plugin is registered automatically during the sync.
+
+Differences to Android and iOS that affect the setup:
+
+- **App version**: `versionCode` and `versionName` are both the `version` from `electron/package.json` (scaffold default `0.0.0`). Bump it for every desktop release; otherwise version constraints and versioned channels cannot distinguish releases.
+- **Artifact type**: only `zip` bundles are delivered to Electron devices; `manifest` (delta) bundles are skipped.
+- **Default channel**: set in `electron/capacitor.electron.config.ts` (see Option 1 above), not in `strings.xml`/`Info.plist`.
+- **Rollback**: kill-safe — if the app is closed or crashes before `ready()`, the rollback happens on the next start.
+- **Storage**: bundles and state live in the `capawesome-live-update` directory inside the app's Electron `userData` directory. Delete it (app quit) to reset the SDK state and device ID.
+- **Binary updates**: changes to `electron/`, Electron itself, or a plugin's Electron implementation need a new desktop release (e.g. via `electron-updater`).
 
 ## Test the Setup
 
@@ -247,17 +301,18 @@ Then open the native project:
 
 - **iOS:** `npx cap open ios`
 - **Android:** `npx cap open android`
+- **Electron:** `npx cap sync @capawesome/capacitor-electron && npx cap run @capawesome/capacitor-electron`
 
 ### Verify on Device
 
 Tell the user to perform the following steps:
 
-1. Run the app on a real device or emulator from Xcode or Android Studio.
+1. Run the app on a real device or emulator from Xcode or Android Studio (on Electron, the `npx cap run` command above starts the app).
 2. **For Always Latest / `autoUpdateStrategy: "background"`:** Wait for the update prompt to appear and accept it. The visible change from the uploaded bundle should appear after reload. If no prompt appears, force-close and reopen the app to trigger a check.
 3. **For manual sync:** Switch away from the app and return to it. Accept the update prompt when it appears, and the change should be visible immediately after reload.
-4. If the change does not appear, check Android Logcat or iOS Xcode console for Live Update SDK log output and refer to `live-update-advanced-topics.md` (Debugging section).
+4. If the change does not appear, check Android Logcat, the iOS Xcode console, or (Electron) the `[LiveUpdate]` lines in the terminal that started `npx cap run` for Live Update SDK log output and refer to `live-update-advanced-topics.md` (Debugging section).
 
-After testing, tell the user: Once a live update bundle has been applied, the app points to that bundle instead of the default one. To use the development server again, completely uninstall and reinstall the app. This is only relevant during development — in production, the default bundle is automatically restored on each native app update.
+After testing, tell the user: Once a live update bundle has been applied, the app points to that bundle instead of the default one. To use the development server again, completely uninstall and reinstall the app; on Electron, reinstalling may keep the `capawesome-live-update` directory in the app's `userData` directory, so delete it or call `LiveUpdate.reset()` instead. This is only relevant during development — in production, the default bundle is automatically restored on each native app update.
 
 ## Advanced Topics
 
