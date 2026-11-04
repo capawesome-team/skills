@@ -416,6 +416,7 @@ npx cap sync
 ## Related Skills
 
 - **`capacitor-app-development`** — For general Capacitor development topics including troubleshooting, configuration, and best practices.
+- **`capacitor-android-dex-optimization`** — For enabling R8 in the app and applying the ProGuard rules the plugins document.
 - **`capacitor-push-notifications`** — For detailed push notification setup with Firebase Cloud Messaging beyond basic plugin installation.
 - **`capacitor-in-app-purchases`** — For detailed in-app purchase setup including store configuration, purchase flows, receipt validation, and testing.
 - **`capawesome-mcp`** — Connect an MCP client to the hosted Capawesome MCP server for always-current documentation and Capawesome Cloud management.

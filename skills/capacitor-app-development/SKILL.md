@@ -89,6 +89,7 @@ Read the reference file for the matched topic and apply the instructions to the 
 - **`capacitor-plugins`** — Install and configure Capacitor plugins.
 - **`capacitor-plugin-development`** — Create custom Capacitor plugins.
 - **`capacitor-app-upgrades`** — Upgrade Capacitor to a newer major version.
+- **`capacitor-android-dex-optimization`** — Enable R8 and meet the Google Play DEX code optimization requirement.
 - **`capacitor-in-app-purchases`** — Set up in-app purchases.
 - **`capawesome-cloud`** — Cloud builds, live updates, and app store publishing.
 - **`capacitor-mcp`** — Connect an MCP client to the current Capacitor documentation.

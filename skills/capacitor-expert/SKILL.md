@@ -512,6 +512,7 @@ For the full setup guide, see [capacitor-in-app-purchases](https://github.com/ca
 - [capacitor-plugin-development](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-plugin-development/SKILL.md) -- Create custom Capacitor plugins.
 - [capacitor-app-upgrades](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-app-upgrades/SKILL.md) -- Upgrade Capacitor apps across major versions.
 - [capacitor-plugin-upgrades](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-plugin-upgrades/SKILL.md) -- Upgrade Capacitor plugins across major versions.
+- [capacitor-android-dex-optimization](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-android-dex-optimization/SKILL.md) -- Enable R8 and meet the Google Play DEX code optimization requirement.
 - [capacitor-push-notifications](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-push-notifications/SKILL.md) -- Push notifications with FCM.
 - [capacitor-in-app-purchases](https://github.com/capawesome-team/skills/blob/main/skills/capacitor-in-app-purchases/SKILL.md) -- In-app purchases and subscriptions.
 - [capawesome-cloud](https://github.com/capawesome-team/skills/blob/main/skills/capawesome-cloud/SKILL.md) -- Live updates, native builds, app store publishing.
