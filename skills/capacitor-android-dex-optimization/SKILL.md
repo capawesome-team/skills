@@ -82,14 +82,14 @@ In `android/app/build.gradle`, update the `release` build type. Replace `minifyE
 
 ### Step 3: Add Keep Rules
 
-1. Append the Capacitor annotation rule to `android/app/proguard-rules.pro`. Skip this if the file already contains the exact rule:
+1. If the Capacitor version recorded in Step 1 is below 8.6.0, append the Capacitor annotation rule to `android/app/proguard-rules.pro`. Skip this if the file already contains the exact rule or if the app is on Capacitor 8.6.0 or newer, which ships the rule in its consumer rules:
 
    ```diff
-   +# Capacitor annotations: required in R8 full mode (ionic-team/capacitor#8589)
+   +# Capacitor annotations: required below Capacitor 8.6.0 in R8 full mode (ionic-team/capacitor#8589)
    +-keep @interface com.getcapacitor.** { *; }
    ```
 
-   This rule is required for every Capacitor app. R8 full mode (the default since AGP 8.0) strips annotations from classes that are not explicitly kept. `@capacitor/android` keeps the classes annotated with `@CapacitorPlugin` but not the annotation types themselves. Without the rule, the build passes and the app crashes on startup with a `NullPointerException` in `com.getcapacitor.Plugin.getPermissionStates` the first time a plugin checks its permissions. The rule covers `@CapacitorPlugin`, `@Permission`, `@PermissionCallback`, `@ActivityCallback`, `@PluginMethod` and the legacy `@NativePlugin`.
+   R8 full mode (the default since AGP 8.0) strips annotations from classes that are not explicitly kept. Before Capacitor 8.6.0, `@capacitor/android` kept the classes annotated with `@CapacitorPlugin` but not the annotation types themselves. Without the rule, the build passes and the app crashes on startup with a `NullPointerException` in `com.getcapacitor.Plugin.getPermissionStates` the first time a plugin checks its permissions. The rule covers `@CapacitorPlugin`, `@Permission`, `@PermissionCallback`, `@ActivityCallback`, `@PluginMethod` and the legacy `@NativePlugin`.
 
 2. For each plugin recorded in Step 1, look up its ProGuard rules and append them to `android/app/proguard-rules.pro` if they are missing:
 
@@ -188,19 +188,19 @@ Summarize for the user:
 
 ## Error Handling
 
-- **App crashes on startup with `NullPointerException` at `com.getcapacitor.Plugin.getPermissionStates`**: The `-keep @interface com.getcapacitor.** { *; }` rule is missing from `android/app/proguard-rules.pro`. Add it (Step 3) and rebuild. Tracked upstream as ionic-team/capacitor#8589.
+- **App crashes on startup with `NullPointerException` at `com.getcapacitor.Plugin.getPermissionStates`**: The app is on Capacitor below 8.6.0 and the `-keep @interface com.getcapacitor.** { *; }` rule is missing from `android/app/proguard-rules.pro`. Add it (Step 3) and rebuild, or upgrade to Capacitor 8.6.0, which ships the rule (ionic-team/capacitor#8646).
 - **Build fails with `Missing class <name>`**: Follow the `missing_rules.txt` decision table in Step 4.
 - **Build fails because `proguard-android.txt` is not supported (AGP 9)**: Replace it with `proguard-android-optimize.txt` as in Step 2.
 - **A plugin method is not found at runtime (`NoSuchMethodException`) or a plugin class is renamed in `mapping.txt`**: Add the plugin's documented keep rule from its README (Step 3, item 2). If the README has none, add `-keep class <plugin Android package>.** { *; }` for that plugin only and report it to the user as a candidate for an upstream fix.
 - **`adb install` fails with `INSTALL_PARSE_FAILED_NO_CERTIFICATES`**: The release APK is unsigned. Rerun `assembleRelease` with the four `-Pandroid.injected.signing.*` properties from Step 4.
-- **Permission checks return an empty result on Capacitor 8.5.2 or newer without crashing**: Capacitor 8.5.2 added a null check in `getPermissionStates()` that hides the crash but returns an empty permission map. The keep rule from Step 3 is still required.
+- **Permission checks return an empty result on Capacitor 8.5.2 or 8.5.3 without crashing**: Capacitor 8.5.2 added a null check in `getPermissionStates()` that hides the crash but returns an empty permission map, and `requestPermissions()` still throws. The keep rule from Step 3 is still required on those versions.
 - **Resources missing at runtime after enabling `shrinkResources`**: Resources referenced by name from JavaScript or `capacitor.config.ts` are invisible to the resource shrinker. List them in `android/app/src/main/res/raw/keep.xml` with `tools:keep`, or remove `shrinkResources true`.
 
 ## Limitations
 
 - The skill verifies a local release build signed with the debug keystore. The Play Console numbers are only final for the bundle that is uploaded.
 - Setting `android.enableR8.fullMode=false` in `android/gradle.properties` also avoids the startup crash, but it lowers the optimization across the whole app and all its dependencies. The keep rule is the cheaper fix.
-- Capacitor has not shipped the annotation keep rule in its consumer rules yet. Once ionic-team/capacitor#8589 is resolved, the rule in Step 3 becomes redundant but stays harmless.
+- Capacitor 8.6.0 ships the annotation keep rule and a rule for `@ActivityCallback` and `@PermissionCallback` methods on non-public base classes in its consumer rules. On 8.6.0 or newer, an existing `-keep @interface com.getcapacitor.** { *; }` line in the app is redundant but harmless. Leave it in place.
 
 ## Related Skills
 

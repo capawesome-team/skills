@@ -166,9 +166,9 @@ And reference it in `AndroidManifest.xml`:
 
 ### ProGuard / R8 Stripping Plugin Code
 
-**Symptom**: Plugin works in debug but crashes in release builds with `minifyEnabled true`. A `NullPointerException` at `com.getcapacitor.Plugin.getPermissionStates` during startup means R8 full mode removed the Capacitor annotations.
+**Symptom**: Plugin works in debug but crashes in release builds with `minifyEnabled true`. A `NullPointerException` at `com.getcapacitor.Plugin.getPermissionStates` during startup means R8 full mode removed the Capacitor annotations, which happens on Capacitor below 8.6.0.
 
-**Solution**: Add the annotation keep rule to `android/app/proguard-rules.pro`, plus the rules a plugin documents in its README:
+**Solution**: Upgrade to Capacitor 8.6.0, which ships the annotation keep rule, or add it to `android/app/proguard-rules.pro`. In both cases, also add the rules a plugin documents in its README:
 
 ```
 -keep @interface com.getcapacitor.** { *; }
