@@ -175,6 +175,7 @@ Migrate my app from Capgo to Capawesome Cloud.
 | Skill | Description |
 | ----- | ----------- |
 | [`capacitor-angular`](./skills/capacitor-angular/) | Angular-specific patterns and best practices for Capacitor app development. |
+| [`capacitor-android-dex-optimization`](./skills/capacitor-android-dex-optimization/) | Enable R8 in a Capacitor Android app and meet the Google Play DEX code optimization requirement. |
 | [`capacitor-app-creation`](./skills/capacitor-app-creation/) | Create a new Capacitor app from scratch with platform setup and optional integrations. |
 | [`capacitor-app-development`](./skills/capacitor-app-development/) | General Capacitor app development — core concepts, CLI usage, app configuration, troubleshooting, and best practices. |
 | [`capacitor-app-spm-migration`](./skills/capacitor-app-spm-migration/) | Migrate a Capacitor app's iOS dependency management from CocoaPods to Swift Package Manager (SPM). |

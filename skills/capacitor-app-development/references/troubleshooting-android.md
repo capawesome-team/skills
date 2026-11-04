@@ -166,14 +166,16 @@ And reference it in `AndroidManifest.xml`:
 
 ### ProGuard / R8 Stripping Plugin Code
 
-**Symptom**: Plugin works in debug but crashes in release builds.
+**Symptom**: Plugin works in debug but crashes in release builds with `minifyEnabled true`. A `NullPointerException` at `com.getcapacitor.Plugin.getPermissionStates` during startup means R8 full mode removed the Capacitor annotations.
 
-**Solution**: Add ProGuard keep rules in `android/app/proguard-rules.pro`:
+**Solution**: Add the annotation keep rule to `android/app/proguard-rules.pro`, plus the rules a plugin documents in its README:
 
 ```
--keep class com.getcapacitor.** { *; }
+-keep @interface com.getcapacitor.** { *; }
 -keep class your.plugin.package.** { *; }
 ```
+
+Do not add `-keep class com.getcapacitor.** { *; }`. `@capacitor/android` already ships consumer rules for plugin classes, and the broad rule blocks the optimization that Google Play measures. For the full R8 setup, including the Google Play DEX code optimization requirement, use the `capacitor-android-dex-optimization` skill.
 
 ## Debugging
 
