@@ -632,10 +632,10 @@ npx @capawesome/cli apps:liveupdates:create [options]
 | `--rollout-percentage` | Rollout percentage 0-100 (default: `100`). |
 | `--android-min` | Minimum Android version code. |
 | `--android-max` | Maximum Android version code. |
-| `--android-eq` | Exact Android version code. |
+| `--android-eq` | Exact Android version code of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle. |
 | `--ios-min` | Minimum iOS version (`CFBundleVersion`). |
 | `--ios-max` | Maximum iOS version. |
-| `--ios-eq` | Exact iOS version. |
+| `--ios-eq` | Exact iOS bundle version of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle. |
 | `--custom-property` | `key=value` pairs (repeatable). |
 | `--json` | Output in JSON format. |
 | `--yes, -y` | Skip confirmation prompts. |
@@ -659,13 +659,13 @@ npx @capawesome/cli apps:liveupdates:upload [options]
 | `--git-ref` | Git reference (branch, tag, or commit SHA) to associate with the bundle. |
 | `--android-min` | Minimum Android version code. |
 | `--android-max` | Maximum Android version code. |
-| `--android-eq` | Exact Android version code. |
+| `--android-eq` | Exact Android version code of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle. |
 | `--ios-min` | Minimum iOS version (`CFBundleVersion`). |
 | `--ios-max` | Maximum iOS version. |
-| `--ios-eq` | Exact iOS version. |
+| `--ios-eq` | Exact iOS bundle version of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle. |
 | `--electron-min` | Minimum Electron app version (`version` in `electron/package.json`), format `major[.minor[.patch]]`; prerelease suffixes are not supported. |
 | `--electron-max` | Maximum Electron app version, same format. |
-| `--electron-eq` | Exact Electron app version that the bundle does not support, same format. |
+| `--electron-eq` | Exact Electron app version of the native binary that already includes the bundle, same format. Devices on that version do not download it while they run their built-in bundle. |
 | `--custom-property` | `key=value` pairs (repeatable). |
 | `--commit-message` | **Deprecated** — use `--git-ref`. |
 | `--commit-ref` | **Deprecated** — use `--git-ref`. |
@@ -750,10 +750,10 @@ npx @capawesome/cli apps:liveupdates:setnativeversions [options]
 | `--build-id` | Build ID. |
 | `--android-min` | Minimum Android version code. |
 | `--android-max` | Maximum Android version code. |
-| `--android-eq` | Exact Android version code. |
+| `--android-eq` | Exact Android version code of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle. |
 | `--ios-min` | Minimum iOS version (`CFBundleVersion`). |
 | `--ios-max` | Maximum iOS version. |
-| `--ios-eq` | Exact iOS version. |
+| `--ios-eq` | Exact iOS bundle version of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle. |
 
 ## Organization Commands
 

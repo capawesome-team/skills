@@ -169,7 +169,7 @@ Read the current native version code and pass constraints on every upload:
 npx @capawesome/cli apps:liveupdates:upload --android-min <CODE> --android-max <CODE> --ios-min <CODE> --ios-max <CODE>
 ```
 
-Use `--android-eq` / `--ios-eq` to exclude a specific version code.
+Use `--android-eq` / `--ios-eq` to mark the version of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle.
 
 Set the `DEFAULT_CHANNEL` preference in `config.xml`:
 
