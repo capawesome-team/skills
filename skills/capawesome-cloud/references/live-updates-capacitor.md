@@ -190,9 +190,9 @@ Read the current native version code and pass constraints on every upload:
 npx @capawesome/cli apps:liveupdates:upload --android-min <CODE> --android-max <CODE> --ios-min <CODE> --ios-max <CODE>
 ```
 
-Use `--android-eq` / `--ios-eq` to exclude a specific version code.
+Use `--android-eq` / `--ios-eq` to mark the version of the native binary that already includes the bundle. Devices on that version do not download it while they run their built-in bundle.
 
-If the `electron/` platform is installed, additionally pass `--electron-min <VERSION>` / `--electron-max <VERSION>` (`--electron-eq` to exclude one version). The value is the `version` from `electron/package.json` in the format `major[.minor[.patch]]` without prerelease suffix. The Electron flags are independent of the Android/iOS flags: a bundle without Electron constraints is delivered to every Electron version.
+If the `electron/` platform is installed, additionally pass `--electron-min <VERSION>` / `--electron-max <VERSION>` (`--electron-eq` to mark the version of the native binary that already includes the bundle). The value is the `version` from `electron/package.json` in the format `major[.minor[.patch]]` without prerelease suffix. The Electron flags are independent of the Android/iOS flags: a bundle without Electron constraints is delivered to every Electron version.
 
 Set `defaultChannel` in the Capacitor config:
 
