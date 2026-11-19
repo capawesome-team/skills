@@ -27,8 +27,10 @@ Use `@capawesome-team/capacitor-biometrics` in addition only when the app calls 
 | Auto-lock after background    | `lockAfterBackgrounded` config  | `lockAfterBackgrounded` option (ms)                    |
 | Lock event                   | `vault.onLock(cb)`              | `Vault.addListener('lock', cb)`                        |
 | Unlock event                 | `vault.onUnlock(cb)`            | `Vault.addListener('unlock', cb)`                      |
-| Update configuration         | `vault.updateConfig(config)`    | Re-call `Vault.initialize(options)`                    |
-| Custom passcode              | `setCustomPasscode` / `onPasscodeRequested` | Application logic (no direct equivalent)   |
+| Update configuration         | `vault.updateConfig(config)`    | Re-call `Vault.initialize(options)`. `type` is fixed at creation and cannot change. |
+| Set custom passcode          | `vault.setCustomPasscode(passcode)` in `onPasscodeRequested` | `Vault.setPasscode({ passcode })` |
+| Unlock with custom passcode  | `vault.unlock()` → `onPasscodeRequested` | `Vault.unlock({ passcode })`                  |
+| Failed passcode limit        | `shouldClearVaultAfterTooManyFailedAttempts: true` + `customPasscodeInvalidUnlockAttempts` (default `5`) | `failedUnlockCountLimit` option of `Vault.setPasscode` |
 
 ### Device class → Biometrics plugin
 
@@ -50,6 +52,7 @@ Use `@capawesome-team/capacitor-biometrics` in addition only when the app calls 
 | `VaultType.DeviceSecurity` + `DeviceSecurityType.Biometrics`     | `VaultType.Biometric`                  |
 | `VaultType.DeviceSecurity` + `DeviceSecurityType.SystemPasscode` | `VaultType.DevicePasscode`             |
 | `VaultType.DeviceSecurity` + `DeviceSecurityType.Both`           | `VaultType.BiometricOrDevicePasscode`  |
+| `VaultType.CustomPasscode`                                       | `VaultType.CustomPasscode`             |
 
 ## Key Differences
 
@@ -57,7 +60,8 @@ Use `@capawesome-team/capacitor-biometrics` in addition only when the app calls 
 - **Options objects**: Identity Vault passes positional arguments (`setValue(key, value)`); the Capawesome plugin uses options objects (`setValue({ key, value })`) and returns results wrapped in objects (`getValue` → `{ value }`).
 - **String values only**: `Vault.setValue` stores strings. Identity Vault's `setValue<T>` accepts any serializable value. Serialize non-string values with `JSON.stringify` on write and `JSON.parse` on read.
 - **Built-in session management**: Auto-lock (`lockAfterBackgrounded`) and `lock`/`unlock` events are supported natively — no need to rebuild them with `@capacitor/app`.
-- **Custom passcode vaults**: Identity Vault's custom-passcode flow (`setCustomPasscode`, `onPasscodeRequested`) has no direct equivalent and must be rebuilt with application logic if used.
+- **Vault id**: This guide uses the `'default'` vault, so no call passes `vaultId`. If the app uses more than one Identity Vault, use each legacy `key` as the `vaultId` and pass that `vaultId` to every `Vault` call for that vault. A call without `vaultId` targets the `'default'` vault.
+- **Custom passcode vaults**: The Capawesome plugin never asks for the passcode. The app passes it in. See step 4.
 - **Two plugins only when needed**: Add the Biometrics plugin only if the app uses the Identity Vault `Device` class. For pure vault storage/unlock, the Vault plugin alone is sufficient.
 
 ## Choose a Migration Strategy First
@@ -76,7 +80,7 @@ Confirm the choice, then follow the steps below. **Skip step 2 entirely for a ha
 
 Install the Capawesome Vault plugin (and the Biometrics plugin if the `Device` class is used) via the `capacitor-plugins` skill, or follow the installation instructions in `references/capawesome-vault.md` and `references/capawesome-biometrics.md` in the `capacitor-plugins` skill.
 
-- **Preserve existing data:** keep `@ionic-enterprise/identity-vault` installed for now — it is needed to export the old data in step 2 and is removed later in step 9.
+- **Preserve existing data:** keep `@ionic-enterprise/identity-vault` installed for now. It is needed to export the old data in step 2 and is removed later in step 9. Install `@capawesome-team/capacitor-vault` version 0.2.2 or later. Earlier versions crash the app at launch on iOS when Identity Vault is installed too.
 - **Hard cutover:** uninstall Identity Vault now and skip step 2:
 
   ```bash
@@ -124,7 +128,6 @@ async function migrateIdentityVaultData(): Promise<void> {
   // 4. Initialize the new vault, unlock it, and import the exported data.
   //    The vault must be unlocked before calling importData().
   await Vault.initialize({
-    vaultId: 'com.example.vault',
     type: VaultType.BiometricOrDevicePasscode,
     title: 'Authenticate',
   });
@@ -137,7 +140,32 @@ async function migrateIdentityVaultData(): Promise<void> {
 }
 ```
 
-Match the `key`/`vaultId`, `type`, and `deviceSecurityType` to the app's original Identity Vault configuration. Run `migrateIdentityVaultData()` early in app startup, before any code reads from the new vault.
+Match the `key`, `type`, and `deviceSecurityType` of the legacy vault to the app's original Identity Vault configuration, and map the new `type` with the vault type mapping table. Pass the same options to `Vault.initialize()` as in step 3. Run `migrateIdentityVaultData()` early in app startup, before any code reads from the new vault. If it rejects, for example because the user canceled or entered a wrong passcode, do not continue to the new vault. Run it again instead. A later successful run replaces everything stored in the new vault in the meantime.
+
+**If the Identity Vault uses `VaultType.CustomPasscode`**, create the legacy vault with `type: IdentityVaultType.CustomPasscode` and without `deviceSecurityType`, and replace steps 3 and 4 of the function above. Keep the passcode the user enters to unlock the legacy vault, and create the new vault with the same passcode. The user keeps their passcode, and `setPasscode()` leaves the new vault unlocked for `importData()`:
+
+```typescript
+  // 3. Unlock the legacy vault with the app's existing passcode screen and keep the passcode.
+  let passcode = '';
+  legacyVault.onPasscodeRequested(async () => {
+    passcode = await showPasscodeScreen();
+    await legacyVault.setCustomPasscode(passcode);
+  });
+  await legacyVault.unlock();
+  const data = await legacyVault.exportVault();
+
+  // 4. Create the new vault with the same passcode and import the exported data.
+  //    An earlier run may have stopped halfway, so start the new vault over.
+  const { exists } = await Vault.exists();
+  if (exists) {
+    await Vault.destroy();
+  }
+  await Vault.initialize({ type: VaultType.CustomPasscode });
+  await Vault.setPasscode({ passcode });
+  await Vault.importData({ data });
+```
+
+Replace `showPasscodeScreen()` with the screen the app already shows in its `onPasscodeRequested` handler. If the legacy vault sets `shouldClearVaultAfterTooManyFailedAttempts: true`, also pass `failedUnlockCountLimit` to `setPasscode()` with the legacy `customPasscodeInvalidUnlockAttempts` value (default `5`).
 
 ### 3. Initialize the vault
 
@@ -160,13 +188,14 @@ const vault = new Vault({
 import { Vault, VaultType } from '@capawesome-team/capacitor-vault';
 
 await Vault.initialize({
-  vaultId: 'com.example.vault',
   type: VaultType.BiometricOrDevicePasscode,
   title: 'Authenticate',
   subtitle: 'Verify your identity to continue',
   lockAfterBackgrounded: 2000,
 });
 ```
+
+Map `type` and `deviceSecurityType` with the vault type mapping table. For a custom passcode vault, pass `type: VaultType.CustomPasscode` and leave out the prompt options (`title`, `subtitle`), which this type ignores.
 
 ### 4. Replace unlock / lock
 
@@ -188,12 +217,68 @@ try {
 } catch (error) {
   if (error.code === ErrorCode.UnlockCanceled) {
     // User canceled authentication — keep locked or sign out
+  } else {
+    throw error;
   }
 }
 
 await Vault.lock();
 const { isLocked } = await Vault.isLocked();
 ```
+
+For all error codes, see `references/capawesome-vault.md` in the `capacitor-plugins` skill.
+
+**Custom passcode vaults.** Identity Vault calls `onPasscodeRequested` during `unlock()`, and `isPasscodeSetRequest` tells whether to show the setup or the unlock screen. Replace this with an explicit `Vault.exists()` check. Reuse the app's existing setup and unlock screens. Initialize the vault as in step 3 with `type: VaultType.CustomPasscode` first.
+
+**Before:**
+
+```typescript
+import { Vault, VaultType } from '@ionic-enterprise/identity-vault';
+
+const vault = new Vault({
+  key: 'com.example.vault',
+  type: VaultType.CustomPasscode,
+  shouldClearVaultAfterTooManyFailedAttempts: true,
+  customPasscodeInvalidUnlockAttempts: 3,
+});
+
+vault.onPasscodeRequested(async (isPasscodeSetRequest) => {
+  const passcode = isPasscodeSetRequest
+    ? await showSetupScreen()
+    : await showUnlockScreen();
+  await vault.setCustomPasscode(passcode);
+});
+
+await vault.unlock();
+```
+
+**After:**
+
+```typescript
+import { Vault, ErrorCode } from '@capawesome-team/capacitor-vault';
+
+const { exists } = await Vault.exists();
+if (!exists) {
+  // Creates the vault and leaves it unlocked.
+  const passcode = await showSetupScreen();
+  await Vault.setPasscode({ passcode, failedUnlockCountLimit: 3 });
+} else {
+  const passcode = await showUnlockScreen();
+  try {
+    await Vault.unlock({ passcode });
+  } catch (error) {
+    if (error.code === ErrorCode.PasscodeInvalid) {
+      // Wrong passcode. Show the unlock screen again.
+    } else if (error.code === ErrorCode.PasscodeLimitReached) {
+      // The vault and all values were deleted. Show the setup screen.
+    } else {
+      throw error;
+    }
+  }
+}
+```
+
+To change the passcode, replace `vault.setCustomPasscode(newPasscode)` on an unlocked vault with `Vault.setPasscode({ passcode: newPasscode, failedUnlockCountLimit: 3 })`. Pass `failedUnlockCountLimit` on every `setPasscode()` call, because omitting it removes the limit.
 
 ### 5. Replace value storage
 
