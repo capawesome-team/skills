@@ -181,8 +181,35 @@ Rules for `CUSTOM_PASSCODE` vaults:
 - The prompt options of `initialize()` (`title`, `subtitle`, `cancelButtonText`, `iosFallbackButtonText`) are ignored.
 - A passcode passed to an already unlocked vault is verified too. A wrong one counts toward the limit.
 - The plugin enforces no passcode policy, so the app decides length and format. A short passcode protects less than the device credential. Set `failedUnlockCountLimit` and keep `lockAfterBackgrounded` short.
-- Once its passcode is set, a `CUSTOM_PASSCODE` vault rejects `initialize()` with any other type. A vault of another type rejects `CUSTOM_PASSCODE` once it holds values.
+- Once its passcode is set, a `CUSTOM_PASSCODE` vault rejects `initialize()` with any other type with `VaultTypeMismatch`. A vault of another type rejects `CUSTOM_PASSCODE` with the same code once it holds values. The vault is left unchanged in both cases.
 - The iOS simulator accepts any passcode. Test the wrong-passcode handling on a real device.
+
+### Fall back to a custom passcode
+
+Use this when the app prefers biometrics but must also work on devices without them. Requires version 0.2.5 or later. Call it on every app start instead of storing the type, because the user can add or remove biometrics or the device passcode at any time.
+
+```typescript
+import { ErrorCode, Vault, VaultType } from '@capawesome-team/capacitor-vault';
+
+// Returns the type in use, so the app knows which unlock screen to show.
+const initialize = async (): Promise<VaultType> => {
+  try {
+    await Vault.initialize({ type: VaultType.Biometric });
+    return VaultType.Biometric;
+  } catch (error) {
+    if (
+      error.code === ErrorCode.AuthenticatorUnavailable ||
+      error.code === ErrorCode.VaultTypeMismatch
+    ) {
+      await Vault.initialize({ type: VaultType.CustomPasscode });
+      return VaultType.CustomPasscode;
+    }
+    throw error;
+  }
+};
+```
+
+If `initialize()` returns `VaultType.CustomPasscode`, continue with the custom passcode flow above: `exists()`, then `setPasscode()` or `unlock({ passcode })`. Otherwise call `unlock()` without a passcode. Once a custom passcode is set, the vault stays a `CUSTOM_PASSCODE` vault, even after the user enrolls biometrics.
 
 ### Manage values and lock state
 
@@ -245,6 +272,7 @@ await Vault.removeAllListeners();
   - `UnlockCanceled` (`'UNLOCK_CANCELED'`): the user canceled or failed the authentication prompt. The caller may retry `unlock()`.
   - `VaultLocked` (`'VAULT_LOCKED'`): the vault must be unlocked before accessing values.
   - `VaultNotFound` (`'VAULT_NOT_FOUND'`): `initialize()` was not called in the current session.
+  - `VaultTypeMismatch` (`'VAULT_TYPE_MISMATCH'`): the `type` passed to `initialize()` does not match the existing vault. See the `CUSTOM_PASSCODE` rules. The vault is left unchanged.
 
 ## Notes
 
@@ -255,5 +283,5 @@ await Vault.removeAllListeners();
 - On Android, encryption keys live in the Android Keystore and encrypted values in SharedPreferences. On iOS, both are stored in the Keychain with `*ThisDeviceOnly` accessibility, so they are never synced to iCloud Keychain.
 - On Android, uninstalling the app deletes all vaults. On iOS, Keychain items survive an uninstall and are available again after a reinstall with the same bundle identifier. To start with empty vaults after a reinstall, keep a marker in `@capacitor/preferences` and call `Vault.destroy({ vaultId })` for every vault on the first launch when the marker is missing.
 - On Web, values are stored unencrypted in `localStorage`, and the passcode of a `CUSTOM_PASSCODE` vault is stored as plain text. This is for development purposes only and should not be used in production.
-- `CustomPasscode`, `setPasscode()`, `PasscodeInvalid` and `PasscodeLimitReached` need version 0.2.2 or later. `AuthenticatorLockedOut` needs 0.2.4 or later.
+- `CustomPasscode`, `setPasscode()`, `PasscodeInvalid` and `PasscodeLimitReached` need version 0.2.2 or later. `AuthenticatorLockedOut` needs 0.2.4 or later. `VaultTypeMismatch` needs 0.2.5 or later. Before 0.2.5, Web set the error code only on `error.data.code`, so `error.code` checks fail on Web with older versions.
 - A near drop-in replacement for the discontinued Ionic Identity Vault. Version 0.2.2 or later can be installed next to Identity Vault, which a runtime data migration needs. Pair with the Biometrics plugin for standalone biometric availability/enrollment checks.

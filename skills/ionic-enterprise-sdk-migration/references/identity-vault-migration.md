@@ -27,7 +27,7 @@ Use `@capawesome-team/capacitor-biometrics` in addition only when the app calls 
 | Auto-lock after background    | `lockAfterBackgrounded` config  | `lockAfterBackgrounded` option (ms)                    |
 | Lock event                   | `vault.onLock(cb)`              | `Vault.addListener('lock', cb)`                        |
 | Unlock event                 | `vault.onUnlock(cb)`            | `Vault.addListener('unlock', cb)`                      |
-| Update configuration         | `vault.updateConfig(config)`    | Re-call `Vault.initialize(options)`. `type` is fixed at creation and cannot change. |
+| Update configuration         | `vault.updateConfig(config)`    | Re-call `Vault.initialize(options)`. `type` is fixed at creation and cannot change. Switching to or from `CustomPasscode` rejects with `VaultTypeMismatch` (0.2.5 or later) once the vault holds values or a passcode. |
 | Set custom passcode          | `vault.setCustomPasscode(passcode)` in `onPasscodeRequested` | `Vault.setPasscode({ passcode })` |
 | Unlock with custom passcode  | `vault.unlock()` → `onPasscodeRequested` | `Vault.unlock({ passcode })`                  |
 | Failed passcode limit        | `shouldClearVaultAfterTooManyFailedAttempts: true` + `customPasscodeInvalidUnlockAttempts` (default `5`) | `failedUnlockCountLimit` option of `Vault.setPasscode` |
