@@ -114,4 +114,4 @@ await SecurePreferences.clear();
 - On Android, data is secured using the Android Keystore.
 - On iOS, data is secured using the iOS Keychain.
 - Compatible with the Biometrics and SQLite plugins.
-- To gate stored values behind biometric or device-passcode authentication, use the Vault plugin (`references/capawesome-vault.md`) instead.
+- To gate stored values behind biometric, device-passcode, or app-passcode authentication, use the Vault plugin (`references/capawesome-vault.md`) instead.
