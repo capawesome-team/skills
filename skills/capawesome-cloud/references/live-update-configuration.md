@@ -18,7 +18,7 @@ All options are set under `plugins.LiveUpdate` in `capacitor.config.ts` or `capa
 | `httpTimeout`                  | `number`                      | `60000`                        | 6.4.0 | Timeout in milliseconds for HTTP requests.                                                                                                                                                                           |
 | `publicKey`                    | `string`                      | —                              | 6.1.0 | PEM-encoded RSA public key for bundle integrity verification.                                                                                                                                                        |
 | `readyTimeout`                 | `number`                      | `0`                            | 5.0.0 | Timeout in ms to wait for `ready()` before rolling back. Set to e.g. `10000` for rollback protection. `0` disables.                                                                                                 |
-| `serverDomain`                 | `string`                      | `'api.cloud.capawesome.io'`    | 7.0.0 | API domain without scheme or path. Use `'api.cloud.capawesome.eu'` for EU servers.                                                                                                                                   |
+| `serverDomain`                 | `string`                      | `'api.cloud.capawesome.io'`    | 7.0.0 | API domain without scheme or path. Only needed with a self-hosted reverse proxy.                                                                                                                                   |
 
 ## Example Configuration
 

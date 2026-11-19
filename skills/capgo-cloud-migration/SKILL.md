@@ -175,7 +175,7 @@ Replace the `CapacitorUpdater` plugin config with `LiveUpdate` in `capacitor.con
 | `resetWhenUpdate` | *(remove)* | Handled automatically by the SDK |
 | `responseTimeout` | `httpTimeout` | **Unit change**: Capgo uses seconds (default `20`), Capawesome uses milliseconds (default `60000`) — multiply by 1000 |
 | `statsUrl` | *(remove)* | Not needed |
-| `updateUrl` / `channelUrl` | `serverDomain` | Only set for EU hosting (`api.cloud.capawesome.eu`). Domain only, without scheme or path. Default is `api.cloud.capawesome.io` |
+| `updateUrl` / `channelUrl` | `serverDomain` | Only set for a self-hosted reverse proxy. Domain only, without scheme or path. Default is `api.cloud.capawesome.io` |
 | `version` | *(remove)* | The native version code is used by the SDK |
 
 All other Capgo options (`allowModifyUrl`, `allowModifyAppId`, `allowManualBundleError`, `allowPreview`, `persistCustomId`, `persistModifyUrl`, `allowSetDefaultChannel`, `keepUrlPathAfterReload`, `disableJSLogging`, `osLogging`, `shakeMenu`, `shakeMenuGesture`, `allowShakeChannelSelector`, `localS3`, `localHost`, `localWebHost`, `localSupa`, `localSupaAnon`, `localApi`, `localApiFiles`) have no equivalent — remove them.
